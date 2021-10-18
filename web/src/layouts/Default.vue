@@ -6,7 +6,6 @@
       </div>
 
       <div class="header__right">
-        <toggle-theme />
       </div>
     </header>
 
@@ -15,19 +14,15 @@
     </main>
 
     <footer class="footer">
-      <span class="footer__copyright">Copyright © {{ new Date().getFullYear() }}.</span>
-      <span class="footer__links">
-        Powered by
-        <a href="//gridsome.org">Gridsome</a> &amp;
-        <a href="//www.sanity.io">Sanity.io</a>
-      </span>
+      <span class="footer__copyright">© {{ new Date().getFullYear() }} The Brooklyn Studio of Architecture and Interiors</span>
+      <span>|</span>
+      <span class="footer__links">Credits...</span>
     </footer>
   </div>
 </template>
 
 <script>
 import HeaderLogo from '~/components/HeaderLogo'
-import ToggleTheme from '~/components/ToggleTheme'
 
 export default {
   props: {
@@ -37,8 +32,7 @@ export default {
     }
   },
   components: {
-    HeaderLogo,
-    ToggleTheme
+    HeaderLogo
   }
 }
 </script>

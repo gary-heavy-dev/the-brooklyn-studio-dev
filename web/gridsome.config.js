@@ -13,9 +13,9 @@ const clientConfig = require('./client-config')
 const isProd = process.env.NODE_ENV === 'production'
 
 module.exports = {
-  siteName: 'Gridsome Blog Starter',
+  siteName: 'The Brooklyn Studio',
   siteDescription:
-    'A simple, hackable & minimalistic starter for Gridsome that uses structured content from Sanity.io.',
+    'The Brooklyn Studio is an architecture and interior design firm based in Brooklyn and known for its adept and artful blend of historic renovation and modern design.',
 
   templates: {
     SanityPost: '/:slug__current'
@@ -32,25 +32,5 @@ module.exports = {
         watchMode: !isProd
       }
     }
-    /* {
-      // Create posts from markdown files
-      use: '@gridsome/source-filesystem',
-      options: {
-        typeName: 'Post',
-        path: 'content/posts/*.md',
-        route: '/:slug',
-        refs: {
-          // Creates a GraphQL collection from 'tags' in front-matter and adds a reference.
-          tags: {
-            typeName: 'Tag',
-            route: '/tag/:id',
-            create: true
-          }
-        }
-      },
-      {
-
-      }
-    } */
   ]
 }

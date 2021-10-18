@@ -3,7 +3,6 @@ html {
 	--base-font-size: 20px;
 }
 
-// Light default theme
 body {
  	--bg-color: #F3F7F9;
  	--bg-content-color: #fff;
@@ -27,16 +26,4 @@ body {
 		--space: 1.5rem;
 		--header-height: 60px;
 	}
-}
-
-
-// Override variables for Dark theme
-body[data-theme="dark"] {
- 	--bg-color: #0D2538;
- 	--bg-content-color: #0f2d44;
- 	--bg-code: rgba(0,0,0,.3);
- 	--border-color:  rgba(255,255,255,.1);;
- 	--body-color: #ced8de;
- 	--title-color: #fff;
- 	--link-color: #af9cef;
 }

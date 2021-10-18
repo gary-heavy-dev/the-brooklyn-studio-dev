@@ -1,8 +1,5 @@
 <template>
   <Layout :show-logo="false">
-    <!-- Author intro -->
-    <author-card :show-title="true" />
-
     <!-- List posts -->
     <div class="posts">
       <post-card
@@ -65,12 +62,10 @@
 </page-query>
 
 <script>
-import AuthorCard from '~/components/AuthorCard'
 import PostCard from '~/components/PostCard'
 
 export default {
   components: {
-    AuthorCard,
     PostCard
   },
   metaInfo: {

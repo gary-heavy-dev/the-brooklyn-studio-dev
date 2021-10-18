@@ -30,7 +30,6 @@
       <!-- Add comment widgets here -->
     </div>
 
-    <author-card class="post-author" />
   </Layout>
 </template>
 
@@ -38,11 +37,9 @@
 import BlockContent from '~/components/BlockContent'
 import PostMeta from '~/components/PostMeta'
 import PostTags from '~/components/PostTags'
-import AuthorCard from '~/components/AuthorCard'
 
 export default {
   components: {
-    AuthorCard,
     PostMeta,
     PostTags,
     BlockContent
@@ -151,9 +148,5 @@ query Post ($id: ID!) {
   &:empty {
     display: none;
   }
-}
-
-.post-author {
-  margin-top: calc(var(--space) / 2);
 }
 </style>
