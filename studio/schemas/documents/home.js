@@ -10,7 +10,7 @@ export default {
     },
     {
       name: 'intro',
-      title: 'Intro Section',
+      title: 'INTRO',
       description: 'This section will always appears below the homepage hero.'
     }
   ],
@@ -55,6 +55,11 @@ export default {
       title: 'Intro Image (Secondary)',
       description: 'This is the smaller image that appears below the intro section link.',
       fieldset: 'intro'
+    },
+    {
+      name: 'linkGallery',
+      type: 'linkGallery',
+      title: 'Link Gallery'
     }
   ]
 }

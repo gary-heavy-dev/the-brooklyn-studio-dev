@@ -2,7 +2,7 @@ import S from '@sanity/desk-tool/structure-builder'
 import { MdSettings, MdPerson, MdHome, MdFingerprint } from 'react-icons/md'
 
 const hiddenDocTypes = listItem =>
-  !['about', 'category', 'home', 'news', 'post', 'siteSettings'].includes(listItem.getId())
+  !['about', 'adaptiveReuse', 'category', 'home', 'interiorDesign', 'news', 'post', 'siteSettings'].includes(listItem.getId())
 
 export default () =>
   S.list()
@@ -14,7 +14,6 @@ export default () =>
         .child(
           S.editor()
             .id('siteSettings')
-            .schemaType('siteSettings')
             .documentId('siteSettings')
         ),
       S.divider(),
@@ -24,7 +23,6 @@ export default () =>
         .child(
           S.editor()
             .id('542616c1-f362-4f33-b903-4f4add184641')
-            .schemaType('home')
             .documentId('542616c1-f362-4f33-b903-4f4add184641')
         ),
       S.listItem()
@@ -33,8 +31,24 @@ export default () =>
         .child(
           S.editor()
             .id('09600be0-7d43-4636-8569-fed6ef5d2985')
-            .schemaType('about')
             .documentId('09600be0-7d43-4636-8569-fed6ef5d2985')
+        ),
+      S.divider(),
+      S.listItem()
+        .title('Interior Design')
+        .icon(MdHome)
+        .child(
+          S.editor()
+            .id('ee8279ca-9f8d-47c5-926a-c88d46d45d5b')
+            .documentId('ee8279ca-9f8d-47c5-926a-c88d46d45d5b')
+        ),
+      S.listItem()
+        .title('Adaptive Reuse')
+        .icon(MdFingerprint)
+        .child(
+          S.editor()
+            .id('35a99ecb-fd40-41ae-a0e0-8ec5527ebf44')
+            .documentId('35a99ecb-fd40-41ae-a0e0-8ec5527ebf44')
         ),
       S.divider(),
       S.listItem()

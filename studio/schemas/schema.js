@@ -6,8 +6,10 @@ import schemaTypes from 'all:part:@sanity/base/schema-type'
 
 // document schemas
 import about from './documents/about'
+import adaptiveReuse from './documents/adaptiveReuse'
 import category from './documents/category'
 import home from './documents/home'
+import interiorDesign from './documents/interiorDesign'
 import news from './documents/news'
 import post from './documents/post'
 import siteSettings from './documents/siteSettings'
@@ -16,6 +18,8 @@ import siteSettings from './documents/siteSettings'
 import bodyPortableText from './objects/bodyPortableText'
 import bioPortableText from './objects/bioPortableText'
 import excerptPortableText from './objects/excerptPortableText'
+import linkGallery from './objects/linkGallery'
+import linkGalleryItem from './objects/linkGalleryItem'
 import mainImage from './objects/mainImage'
 
 // Then we give our schema to the builder and provide the result to Sanity
@@ -28,11 +32,15 @@ export default createSchema({
     // The following are document types which will appear
     // in the studio.
     about,
+    adaptiveReuse,
     bodyPortableText,
     bioPortableText,
     category,
     excerptPortableText,
     home,
+    interiorDesign,
+    linkGallery,
+    linkGalleryItem,
     mainImage,
     news,
     post,
