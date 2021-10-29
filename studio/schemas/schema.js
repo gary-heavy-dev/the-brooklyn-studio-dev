@@ -12,12 +12,17 @@ import home from './documents/home'
 import interiorDesign from './documents/interiorDesign'
 import news from './documents/news'
 import post from './documents/post'
+import residentialArchitecture from './documents/residentialArchitecture'
 import siteSettings from './documents/siteSettings'
+import teamMember from './documents/teamMember'
 
 // Object types
 import bodyPortableText from './objects/bodyPortableText'
 import bioPortableText from './objects/bioPortableText'
+import ctaGallery from './objects/ctaGallery'
+import ctaSimple from './objects/ctaSimple'
 import excerptPortableText from './objects/excerptPortableText'
+import featuredTeamMember from './objects/featuredTeamMember'
 import linkGallery from './objects/linkGallery'
 import linkGalleryItem from './objects/linkGalleryItem'
 import mainImage from './objects/mainImage'
@@ -36,7 +41,10 @@ export default createSchema({
     bodyPortableText,
     bioPortableText,
     category,
+    ctaGallery,
+    ctaSimple,
     excerptPortableText,
+    featuredTeamMember,
     home,
     interiorDesign,
     linkGallery,
@@ -44,7 +52,9 @@ export default createSchema({
     mainImage,
     news,
     post,
-    siteSettings
+    residentialArchitecture,
+    siteSettings,
+    teamMember
 
     // When added to this list, object types can be used as
     // { type: 'typename' } in other document schemas

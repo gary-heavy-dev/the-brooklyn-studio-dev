@@ -14,7 +14,8 @@ export default {
       type: 'reference',
       to: [
         { type: 'adaptiveReuse' },
-        { type: 'interiorDesign' }
+        { type: 'interiorDesign' },
+        { type: 'residentialArchitecture' }
       ]
     },
     {

@@ -18,7 +18,7 @@ export default {
     {
       name: 'title',
       type: 'string',
-      title: 'Title',
+      title: 'TITLE',
       description: 'Add the SEO friendly title of this page here. For example, "Home". This will not be displayed for this particular page.'
     },
     {
@@ -59,7 +59,18 @@ export default {
     {
       name: 'linkGallery',
       type: 'linkGallery',
-      title: 'Link Gallery'
+      title: 'LINK GALLERY'
+    },
+    {
+      name: 'flexibleContent',
+      type: 'array',
+      title: 'FLEXIBLE CONTENT',
+      description: 'Choose from a list of different content types to build your page.',
+      of: [
+        { type: 'ctaGallery' },
+        { type: 'ctaSimple' },
+        { type: 'featuredTeamMember' }
+      ]
     }
   ]
 }
