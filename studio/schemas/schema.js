@@ -23,6 +23,9 @@ import ctaGallery from './objects/ctaGallery'
 import ctaSimple from './objects/ctaSimple'
 import excerptPortableText from './objects/excerptPortableText'
 import featuredTeamMember from './objects/featuredTeamMember'
+import heroHome from './objects/heroHome'
+import heroSecondary from './objects/heroSecondary'
+import introSection from './objects/introSection'
 import linkGallery from './objects/linkGallery'
 import linkGalleryItem from './objects/linkGalleryItem'
 import mainImage from './objects/mainImage'
@@ -45,8 +48,11 @@ export default createSchema({
     ctaSimple,
     excerptPortableText,
     featuredTeamMember,
+    heroHome,
+    heroSecondary,
     home,
     interiorDesign,
+    introSection,
     linkGallery,
     linkGalleryItem,
     mainImage,

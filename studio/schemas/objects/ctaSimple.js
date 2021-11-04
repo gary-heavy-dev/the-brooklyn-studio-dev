@@ -31,13 +31,14 @@ export default {
     {
       name: 'image',
       type: 'mainImage',
-      title: 'Image'
+      title: 'Image',
+      description: 'If no image is included the text and heading will be centered on desktop widths.'
     },
     {
-      name: 'imageLocation',
+      name: 'textLocation',
       type: 'string',
-      title: 'Image Location',
-      description: 'Select which side you\'d like the image to appear on.',
+      title: 'Text Location',
+      description: 'Select which side you\'d like the text to appear on.',
       options: {
         list: [
           {title: 'Right', value: 'right'},
