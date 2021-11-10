@@ -14,11 +14,13 @@ import news from './documents/news'
 import post from './documents/post'
 import residentialArchitecture from './documents/residentialArchitecture'
 import siteSettings from './documents/siteSettings'
+import team from './documents/team'
 import teamMember from './documents/teamMember'
 
 // Object types
 import bodyPortableText from './objects/bodyPortableText'
 import bioPortableText from './objects/bioPortableText'
+import ctaComplex from './objects/ctaComplex'
 import ctaGallery from './objects/ctaGallery'
 import ctaSimple from './objects/ctaSimple'
 import excerptPortableText from './objects/excerptPortableText'
@@ -28,7 +30,10 @@ import heroSecondary from './objects/heroSecondary'
 import introSection from './objects/introSection'
 import linkGallery from './objects/linkGallery'
 import linkGalleryItem from './objects/linkGalleryItem'
+import linkInternal from './objects/linkInternal'
 import mainImage from './objects/mainImage'
+import scrollingGallery from './objects/scrollingGallery'
+import scrollingGallerySection from './objects/scrollingGallerySection'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -44,6 +49,7 @@ export default createSchema({
     bodyPortableText,
     bioPortableText,
     category,
+    ctaComplex,
     ctaGallery,
     ctaSimple,
     excerptPortableText,
@@ -55,11 +61,15 @@ export default createSchema({
     introSection,
     linkGallery,
     linkGalleryItem,
+    linkInternal,
     mainImage,
     news,
     post,
     residentialArchitecture,
+    scrollingGallery,
+    scrollingGallerySection,
     siteSettings,
+    team,
     teamMember
 
     // When added to this list, object types can be used as

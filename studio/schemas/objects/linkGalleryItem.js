@@ -12,6 +12,7 @@ export default {
     {
       name: 'link',
       type: 'reference',
+      title: 'Link',
       to: [
         { type: 'adaptiveReuse' },
         { type: 'interiorDesign' },

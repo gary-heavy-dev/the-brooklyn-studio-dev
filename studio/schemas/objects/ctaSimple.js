@@ -15,7 +15,7 @@ export default {
     },
     {
       name: 'copy',
-      type: 'text',
+      type: 'excerptPortableText',
       title: 'Copy (Small Text)'
     },
     {

@@ -1,10 +1,10 @@
 import S from '@sanity/desk-tool/structure-builder'
-import { MdSettings, MdPerson, MdHome, MdFingerprint, MdArchitecture } from 'react-icons/md'
+import { MdSettings, MdPerson, MdHome, MdFingerprint, MdArchitecture, MdWork } from 'react-icons/md'
 import { FaRecycle } from 'react-icons/fa'
 import { AiFillFormatPainter } from 'react-icons/ai'
 
 const hiddenDocTypes = listItem =>
-  !['about', 'adaptiveReuse', 'category', 'home', 'interiorDesign', 'news', 'post', 'residentialArchitecture', 'siteSettings', 'teamMember'].includes(listItem.getId())
+  !['about', 'adaptiveReuse', 'category', 'home', 'interiorDesign', 'news', 'post', 'residentialArchitecture', 'siteSettings', 'team', 'teamMember'].includes(listItem.getId())
 
 export default () =>
   S.list()
@@ -34,6 +34,14 @@ export default () =>
           S.editor()
             .id('09600be0-7d43-4636-8569-fed6ef5d2985')
             .documentId('09600be0-7d43-4636-8569-fed6ef5d2985')
+        ),
+      S.listItem()
+        .title('People (Team)')
+        .icon(MdPerson)
+        .child(
+          S.editor()
+            .id('cef832e0-d677-47bc-9b33-df2c355b9c60')
+            .documentId('cef832e0-d677-47bc-9b33-df2c355b9c60')
         ),
       S.divider(),
       S.listItem()

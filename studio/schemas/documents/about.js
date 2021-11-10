@@ -44,7 +44,9 @@ export default {
         { type: 'linkGallery' },
         { type: 'ctaGallery' },
         { type: 'ctaSimple' },
-        { type: 'featuredTeamMember' }
+        { type: 'featuredTeamMember' },
+        { type: 'scrollingGallery' },
+        { type: 'ctaComplex' }
       ]
     }
   ]
