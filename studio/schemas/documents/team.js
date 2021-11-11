@@ -2,6 +2,7 @@ export default {
   name: 'team',
   type: 'document',
   title: 'Team',
+  __experimental_actions: [/*'create',*/ 'update', /*'delete',*/ 'publish'], 
   fields: [
     {
       name: 'title',

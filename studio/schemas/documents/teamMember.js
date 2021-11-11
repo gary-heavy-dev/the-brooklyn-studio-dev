@@ -33,6 +33,17 @@ export default {
       name: 'image',
       type: 'mainImage',
       title: 'Headshot'
+    },
+    {
+      name: 'questionnaire',
+      type: 'proustQuestionnaire',
+      title: 'The Proust Questionnaire',
+      options: { collapsible: true }
     }
-  ]
+  ],
+  preview: {
+    select: {
+      title: 'name'
+    }
+  }
 }

@@ -7,6 +7,8 @@ import schemaTypes from 'all:part:@sanity/base/schema-type'
 // document schemas
 import about from './documents/about'
 import adaptiveReuse from './documents/adaptiveReuse'
+import careers from './documents/careers'
+import careersPost from './documents/careersPost'
 import category from './documents/category'
 import home from './documents/home'
 import interiorDesign from './documents/interiorDesign'
@@ -27,11 +29,14 @@ import excerptPortableText from './objects/excerptPortableText'
 import featuredTeamMember from './objects/featuredTeamMember'
 import heroHome from './objects/heroHome'
 import heroSecondary from './objects/heroSecondary'
+import heroTertiary from './objects/heroTertiary'
 import introSection from './objects/introSection'
 import linkGallery from './objects/linkGallery'
 import linkGalleryItem from './objects/linkGalleryItem'
 import linkInternal from './objects/linkInternal'
+import list from './objects/list'
 import mainImage from './objects/mainImage'
+import proustQuestionnaire from './objects/proustQuestionnaire'
 import scrollingGallery from './objects/scrollingGallery'
 import scrollingGallerySection from './objects/scrollingGallerySection'
 
@@ -48,6 +53,8 @@ export default createSchema({
     adaptiveReuse,
     bodyPortableText,
     bioPortableText,
+    careers,
+    careersPost,
     category,
     ctaComplex,
     ctaGallery,
@@ -56,15 +63,18 @@ export default createSchema({
     featuredTeamMember,
     heroHome,
     heroSecondary,
+    heroTertiary,
     home,
     interiorDesign,
     introSection,
     linkGallery,
     linkGalleryItem,
     linkInternal,
+    list,
     mainImage,
     news,
     post,
+    proustQuestionnaire,
     residentialArchitecture,
     scrollingGallery,
     scrollingGallerySection,

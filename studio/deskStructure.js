@@ -1,10 +1,10 @@
 import S from '@sanity/desk-tool/structure-builder'
-import { MdSettings, MdPerson, MdHome, MdFingerprint, MdArchitecture, MdWork } from 'react-icons/md'
+import { MdSettings, MdPerson, MdPeopleAlt, MdHome, MdFingerprint, MdArchitecture, MdWork, MdEmail } from 'react-icons/md'
 import { FaRecycle } from 'react-icons/fa'
 import { AiFillFormatPainter } from 'react-icons/ai'
 
 const hiddenDocTypes = listItem =>
-  !['about', 'adaptiveReuse', 'category', 'home', 'interiorDesign', 'news', 'post', 'residentialArchitecture', 'siteSettings', 'team', 'teamMember'].includes(listItem.getId())
+  !['about', 'adaptiveReuse', 'careers', 'careersPost', 'category', 'home', 'interiorDesign', 'news', 'post', 'residentialArchitecture', 'siteSettings', 'team', 'teamMember'].includes(listItem.getId())
 
 export default () =>
   S.list()
@@ -43,6 +43,14 @@ export default () =>
             .id('cef832e0-d677-47bc-9b33-df2c355b9c60')
             .documentId('cef832e0-d677-47bc-9b33-df2c355b9c60')
         ),
+      S.listItem()
+        .title('Careers (Page)')
+        .icon(MdWork)
+        .child(
+          S.editor()
+            .id('b5f270ac-9a77-4236-bf33-70041dd025c6')
+            .documentId('b5f270ac-9a77-4236-bf33-70041dd025c6')
+        ),
       S.divider(),
       S.listItem()
         .title('Residential Architecture')
@@ -71,9 +79,14 @@ export default () =>
       S.divider(),
       S.listItem()
         .title('Team Members')
-        .icon(MdPerson)
+        .icon(MdPeopleAlt)
         .schemaType('teamMember')
         .child(S.documentTypeList('teamMember').title('Team Members')),
+      S.listItem()
+        .title('Careers Posts')
+        .icon(MdEmail)
+        .schemaType('careersPost')
+        .child(S.documentTypeList('careersPost').title('Careers Posts')),
       S.listItem()
         .title('Blog posts')
         .schemaType('post')
