@@ -15,7 +15,7 @@
         />
       </div>
 
-      <block-content
+      <BaseBlockContent
         class="post__content"
         :blocks="$page.post._rawBody"
         v-if="$page.post._rawBody"
@@ -34,15 +34,13 @@
 </template>
 
 <script>
-import BlockContent from '~/components/BlockContent'
 import PostMeta from '~/components/PostMeta'
 import PostTags from '~/components/PostTags'
 
 export default {
   components: {
     PostMeta,
-    PostTags,
-    BlockContent
+    PostTags
   },
   metaInfo() {
     return {

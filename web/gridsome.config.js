@@ -31,6 +31,9 @@ module.exports = {
         overlayDrafts: !isProd,
         watchMode: !isProd
       }
+    },
+    {
+      use: 'gridsome-plugin-base-components'
     }
   ]
 }

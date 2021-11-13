@@ -7,6 +7,9 @@ import DefaultLayout from '~/layouts/Default.vue'
 // Import image url builder
 import urlForImage from './utils/urlForImage'
 
+// Import custom g-image srcset mapper
+import gImageMap from './utils/gImageMap'
+
 // The Client API can be used here. Learn more: gridsome.org/docs/client-api
 export default function(Vue, { router, head, isClient }) {
   // Set default layout as a global component
@@ -14,4 +17,7 @@ export default function(Vue, { router, head, isClient }) {
 
   // Inject global image URL builder
   Vue.prototype.$urlForImage = urlForImage
+
+  // Inject global g-image srcset builder
+  Vue.prototype.$gImageMap = gImageMap
 }

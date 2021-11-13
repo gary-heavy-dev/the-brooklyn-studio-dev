@@ -1,75 +1,43 @@
 <template>
-  <Layout :show-logo="false">
-    <!-- List posts -->
-    <div class="posts">
-      <post-card
-        v-for="edge in $page.posts.edges"
-        :key="edge.node.id"
-        :post="edge.node"
-        :metadata="$page.metadata"
-      />
-    </div>
-  </Layout>
+  <Homepage :content="$page.page" />
 </template>
 
-<page-query>
-{
-  metadata {
-    sanityOptions {
-      projectId
-      dataset
-    }
-  }
-  posts: allSanityPost(sortBy: "publishedAt") {
-    edges {
-      node {
-        id
-        title
-        slug {
-          current
-        }
-        categories {
-          id
-          title
-        }
-        publishedAt(format: "D. MMMM YYYY")
-        _rawExcerpt
-        mainImage {
-          asset {
-            _id
-            url
-          }
-          caption
-          alt
-          hotspot {
-            x
-            y
-            height
-            width
-          }
-          crop {
-            top
-            bottom
-            left
-            right
-          }
-        }
-      }
-    }
-  }
-}
-
-</page-query>
-
 <script>
-import PostCard from '~/components/PostCard'
+import Homepage from '~/components/Homepage'
 
 export default {
   components: {
-    PostCard
-  },
-  metaInfo: {
-    title: 'Hello, world!'
+    Homepage
   }
 }
 </script>
+
+<page-query>
+{
+  page: sanityHome(id: "542616c1-f362-4f33-b903-4f4add184641") {
+    introSection {
+      introLarge
+      introLinkText
+      introImagePrimary {
+        alt
+        asset {
+          url
+          metadata {
+            lqip
+          }
+        }
+      }
+      introImageSecondary {
+        alt
+        asset {
+          url
+          metadata {
+            lqip
+          }
+        }
+      }
+      _rawIntroSmall
+    }
+  }
+}
+</page-query>

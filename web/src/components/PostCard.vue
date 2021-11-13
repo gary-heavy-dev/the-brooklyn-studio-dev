@@ -10,7 +10,7 @@
     </div>
     <div class="post-card__content">
       <h2 class="post-card__title" v-html="post.title" />
-      <block-content :blocks="post._rawExcerpt" />
+      <BaseBlockContent :blocks="post._rawExcerpt" />
 
       <post-meta class="post-card__meta" :post="post" />
       <post-tags class="post-card__tags" :post="post" />
@@ -23,13 +23,11 @@
 <script>
 import PostMeta from '~/components/PostMeta'
 import PostTags from '~/components/PostTags'
-import BlockContent from '~/components/BlockContent'
 
 export default {
   components: {
     PostMeta,
-    PostTags,
-    BlockContent
+    PostTags
   },
   props: {
     post: Object
