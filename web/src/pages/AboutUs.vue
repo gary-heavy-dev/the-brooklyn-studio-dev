@@ -1,20 +1,31 @@
 <template>
-  <Homepage :content="$page.page" />
+  <AboutUs :content="$page.page" />
 </template>
 
 <script>
-import Homepage from '~/components/Homepage'
+import AboutUs from '~/components/AboutUs'
 
 export default {
   components: {
-    Homepage
+    AboutUs
   }
 }
 </script>
 
 <page-query>
 {
-  page: sanityHome(id: "542616c1-f362-4f33-b903-4f4add184641") {
+  page: sanityAbout(id: "09600be0-7d43-4636-8569-fed6ef5d2985") {
+    hero {
+      image {
+        alt
+        asset {
+          url
+          metadata {
+            lqip
+          }
+        }
+      }
+    }
     introSection {
       introLarge
       introLinkText

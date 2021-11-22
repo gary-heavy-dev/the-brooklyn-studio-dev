@@ -1,5 +1,6 @@
 export default {
   name: 'ctaGallery',
+  title: 'CTA Gallery',
   type: 'object',
   fields: [
     {
@@ -29,6 +30,24 @@ export default {
       of: [
         { type: 'mainImage' }
       ]
+    },
+    {
+      name: "bgColor",
+      type: "colorlist", // required
+      title: "Background Color",
+      options: {
+        borderradius: {
+          outer: "100%",
+          inner: "100%"
+        },
+        list: [
+          { title: "Red", value: "#f16d70" },
+          { title: "Teal", value: "#88c6db" },
+          { title: "Purple", value: "#aca0cc" },
+          { title: "Green", value: "#bdcdcb" },
+          { title: "White", value: "white" }
+        ]
+      }
     },
     {
       name: 'imageGalleryLocation',

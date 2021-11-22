@@ -20,5 +20,6 @@ export default {
   height: 100vh;
   align-items: center;
   justify-content: center;
+  background-color: var(--bg-color);
 }
 </style>

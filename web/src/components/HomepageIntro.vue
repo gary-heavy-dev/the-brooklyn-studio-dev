@@ -50,7 +50,7 @@ export default {
   }
 
   .copy {
-    padding: 0 19px;
+    padding: 0 var(--margin-h);
     margin: 40px 0;
   }
 }
@@ -73,14 +73,14 @@ export default {
   }
 
   .image {
-    padding-left: 21px;
+    padding-left: var(--margin-h);
   }
 }
 
 .intro-content--small {
 
   .image {
-    padding-right: 20px;
+    padding-right: var(--margin-h);
   }
 }
 </style>

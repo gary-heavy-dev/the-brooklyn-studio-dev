@@ -1,6 +1,6 @@
 // Default variables
 html {
-	--base-font-size: 20px;
+  --base-font-size: 17px;
 }
 
 body {
@@ -8,25 +8,27 @@ body {
  	--bg-content-color: #fff;
  	--bg-code: #fffbf3;
  	--body-color: #444;
-  --color--light-gray: #F8F7F7;
-  --color--secondary-gray: #EDEDED;
-  --color--tertiary-gray: #908887;
+  --color--gray-light: #F8F7F7;
+  --color--gray-secondary: #EDEDED;
+  --color--gray-tertiary: #908887;
  	--title-color: #111;
  	--link-color: #6b17e6;
  	--border-color:  rgba(0,0,0,.1);;
-  --space: 3.5rem;
+  --header-height: 60px;
+  --margin-h: 27px;
+  --margin-b: 97px;
+  --margin-t: 43px;
   --content-width: 860px;
-  --header-height: 80px;
   --radius: 5px;
 }
 
-// Make  things smaller for mobile
-@media screen and (max-width: 650px) {
+// Make things larger after mobile
+@media screen and (min-width: 651px) {
 	html {
-		--base-font-size: 17px;
+    --base-font-size: 20px;
 	}
 	body {
-		--space: 1.5rem;
-		--header-height: 60px;
+    --margin-h: 118px;
+    --header-height: 80px;
 	}
 }

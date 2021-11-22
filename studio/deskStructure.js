@@ -1,6 +1,6 @@
 import S from '@sanity/desk-tool/structure-builder'
 import { MdSettings, MdPerson, MdPeopleAlt, MdHome, MdFingerprint, MdArchitecture, MdWork, MdEmail } from 'react-icons/md'
-import { FaRecycle } from 'react-icons/fa'
+import { FaRecycle, FaNewspaper } from 'react-icons/fa'
 import { AiFillFormatPainter } from 'react-icons/ai'
 
 const hiddenDocTypes = listItem =>
@@ -88,17 +88,18 @@ export default () =>
         .schemaType('careersPost')
         .child(S.documentTypeList('careersPost').title('Careers Posts')),
       S.listItem()
-        .title('Blog posts')
-        .schemaType('post')
-        .child(S.documentTypeList('post').title('Blog posts')),
-      S.listItem()
         .title('News posts')
+        .icon(FaNewspaper)
         .schemaType('news')
         .child(S.documentTypeList('news').title('News posts')),
-      S.listItem()
-        .title('Categories')
-        .schemaType('category')
-        .child(S.documentTypeList('category').title('Categories')),
+      // S.listItem()
+      //   .title('Blog posts')
+      //   .schemaType('post')
+      //   .child(S.documentTypeList('post').title('Blog posts')),
+      // S.listItem()
+      //   .title('Categories')
+      //   .schemaType('category')
+      //   .child(S.documentTypeList('category').title('Categories')),
       // This returns an array of all the document types
       // defined in schema.js. We filter out those that we have
       // defined the structure above
