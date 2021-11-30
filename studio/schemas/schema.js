@@ -14,6 +14,7 @@ import home from './documents/home'
 import interiorDesign from './documents/interiorDesign'
 import news from './documents/news'
 import post from './documents/post'
+import project from './documents/project'
 import residentialArchitecture from './documents/residentialArchitecture'
 import siteSettings from './documents/siteSettings'
 import team from './documents/team'
@@ -27,6 +28,10 @@ import ctaGallery from './objects/ctaGallery'
 import ctaSimple from './objects/ctaSimple'
 import excerptPortableText from './objects/excerptPortableText'
 import featuredTeamMember from './objects/featuredTeamMember'
+import flexibleImage from './objects/flexibleImage'
+import flexibleImagePair from './objects/flexibleImagePair'
+import flexibleImageWithText from './objects/flexibleImageWithText'
+import flexibleText from './objects/flexibleText'
 import heroHome from './objects/heroHome'
 import heroSecondary from './objects/heroSecondary'
 import heroTertiary from './objects/heroTertiary'
@@ -61,6 +66,10 @@ export default createSchema({
     ctaSimple,
     excerptPortableText,
     featuredTeamMember,
+    flexibleImage,
+    flexibleImagePair,
+    flexibleImageWithText,
+    flexibleText,
     heroHome,
     heroSecondary,
     heroTertiary,
@@ -75,6 +84,7 @@ export default createSchema({
     news,
     post,
     proustQuestionnaire,
+    project,
     residentialArchitecture,
     scrollingGallery,
     scrollingGallerySection,

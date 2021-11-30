@@ -56,8 +56,8 @@ export default {
       description: 'Select which side you\'d like the image gallery to appear on.',
       options: {
         list: [
-          {title: 'Right', value: 'right'},
-          {title: 'Left', value: 'left'}
+          { title: 'Right', value: 'right' },
+          { title: 'Left', value: 'left' }
         ],
         layout: 'radio'
       }
