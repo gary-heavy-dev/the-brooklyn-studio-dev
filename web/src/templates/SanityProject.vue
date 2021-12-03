@@ -53,7 +53,6 @@ query Project ($id: ID!) {
           }
           alt
         }
-        aspectRatio
         imageLocation
         margins
       }
