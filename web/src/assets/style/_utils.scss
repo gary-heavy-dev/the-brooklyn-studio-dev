@@ -5,3 +5,54 @@
 .space-bottom {
 	margin-bottom: var(--space);
 }
+
+.container {
+  @include container;
+}
+
+// Width, height
+.w-100 {
+  width: 100%;
+}
+
+.h-100vh {
+  height: calc(100vh - var(--header-height));
+
+  > .base-image {
+    height: 100%;
+
+    .base-image__inner {
+      height: 100%;
+    }
+  }
+}
+
+// Object Fit
+.img-cover {
+  object-fit: cover;
+  object-position: center;
+  height: 100%;
+  width: 100%;
+}
+
+// Flex Related Utils
+.flex {
+  display: flex;
+}
+
+.jc-sb {
+  justify-content: space-between;
+}
+
+.ai-c {
+  align-items: center;
+}
+
+// Absolute Positioning Shenanigans
+.abs {
+  position: absolute;
+}
+
+.z-1 {
+  z-index: 1;
+}

@@ -1,8 +1,12 @@
-@import 'reset';
-@import 'variables';
-@import 'typography';
 @import 'base';
+@import 'breakpoints';
 @import 'code';
+@import 'colors';
 @import 'content-box';
+@import 'grid';
+@import 'mixins';
+@import 'reset';
 @import 'swiper';
+@import 'typography';
 @import 'utils';
+@import 'variables';

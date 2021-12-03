@@ -20,4 +20,13 @@ export default function(Vue, { router, head, isClient }) {
 
   // Inject global g-image srcset builder
   Vue.prototype.$gImageMap = gImageMap
+
+  // Delay the scroll-to-top behavior caused by Vue Router to eliminate nasty flash on page transitions
+  router.options.scrollBehavior = function(to, from, savedPosition) {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve({ x: 0, y: 0 })
+      }, 300)
+    })
+  }
 }

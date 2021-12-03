@@ -4,10 +4,10 @@ export default {
   title: 'Project',
   fieldsets: [
     {
-      name: 'displayTitle',
-      title: 'DISPLAY TITLE',
+      name: 'projectDetails',
+      title: 'Project Details',
       options: { collapsible: true, collapsed: false },
-    },
+    }
   ],
   fields: [
     {
@@ -21,7 +21,7 @@ export default {
       name: 'slug',
       type: 'slug',
       title: 'SLUG',
-      description: 'Some frontends will require a slug to be set to be able to show the post',
+      description: 'Click the "Generate" button to generate a URL friendly slug, which you can then edit if desired.',
       options: {
         source: 'title',
         maxLength: 96
@@ -29,20 +29,22 @@ export default {
       validation: Rule => Rule.required()
     },
     {
-      name: 'location',
-      title: 'Location',
-      type: 'string',
-      description: 'This location is used for the first half of the title when displayed on the individual project page. For example "Park Slope".',
-      validation: Rule => Rule.required(),
-      fieldset: 'displayTitle'
+      name: 'projectCategories',
+      type: 'array',
+      title: 'Project Categories',
+      description: 'Select the categories you\'d like this project to appear for when filtering.',
+      of: [
+        {
+          type: 'reference',
+          to: [{ type: 'projectCategory' }]
+        }
+      ]
     },
     {
-      name: 'projectType',
-      title: 'Project Type',
-      type: 'string',
-      description: 'The "Project Type" is used for the second half of the title when displayed on the individual project page. For example, "Romanesque Revival".',
-      validation: Rule => Rule.required(),
-      fieldset: 'displayTitle'
+      name: 'displayTitle',
+      title: 'DISPLAY TITLE',
+      type: 'displayTitle',
+      options: { collapsible: true, collapsed: false }
     },
     {
       name: 'image',
@@ -61,6 +63,34 @@ export default {
         { type: 'flexibleImageWithText' },
         { type: 'flexibleText' },
       ]
+    },
+    {
+      name: 'detailsIntro',
+      type: 'text',
+      title: 'Project Details Intro Text',
+      description: 'This is the optional, longer running text that introduces the details section below each project.',
+      fieldset: 'projectDetails'
+    },
+    {
+      name: 'detailsBuildingInfo',
+      type: 'array',
+      title: 'Building Information',
+      of: [{ type: 'headingTextPair' }],
+      fieldset: 'projectDetails'
+    },
+    {
+      name: 'detailsCredits',
+      type: 'array',
+      title: 'Credits',
+      of: [{ type: 'headingTextPair' }],
+      fieldset: 'projectDetails'
+    },
+    {
+      name: 'detailsGallery',
+      type: 'array',
+      title: 'Project Details Image Gallery',
+      of: [{ type: 'mainImage' }],
+      fieldset: 'projectDetails'
     }
   ]
 }

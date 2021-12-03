@@ -8,27 +8,46 @@ body {
  	--bg-content-color: #fff;
  	--bg-code: #fffbf3;
  	--body-color: #444;
+  --color--white: #fff;
   --color--gray-light: #F8F7F7;
   --color--gray-secondary: #EDEDED;
   --color--gray-tertiary: #908887;
  	--title-color: #111;
  	--link-color: #6b17e6;
  	--border-color:  rgba(0,0,0,.1);
-  --header-height: 60px;
+  --header-height: 53px;
   --margin-h: 27px;
   --margin-b: 97px;
   --margin-t: 43px;
   --content-width: 860px;
   --radius: 5px;
+  --grid-gap: 27px; // do not change
+  --grid-margin: 8%;
+  --max-width--readable: 553px;
+  --max-width--readable-sm: 370px;
 }
 
-// Make things larger after mobile
-@media screen and (min-width: 651px) {
-	html {
-    --base-font-size: 20px;
-	}
+// Make things larger, starting with "laptop" widths
+@include laptop {
 	body {
     --margin-h: 118px;
-    --header-height: 80px;
+    --header-height: 78px;
 	}
 }
+
+// Make things larger, starting with "desktop" widths
+@include hd {
+	body {
+    --grid-gap: 35px; // do not change
+	}
+}
+
+// Make things larger for 4k scenarios
+@include four-k {
+	body {
+    --grid-gap: 70px; // do not change
+    --max-width--readable: 1106px;
+    --max-width--readable-sm: 740px;
+	}
+}
+

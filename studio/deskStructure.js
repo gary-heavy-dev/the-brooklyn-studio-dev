@@ -1,10 +1,10 @@
 import S from '@sanity/desk-tool/structure-builder'
-import { MdSettings, MdPerson, MdPeopleAlt, MdHome, MdFingerprint, MdArchitecture, MdWork, MdEmail } from 'react-icons/md'
+import { MdSettings, MdPerson, MdPeopleAlt, MdHome, MdFingerprint, MdArchitecture, MdWork, MdEmail, MdConstruction, MdCategory } from 'react-icons/md'
 import { FaRecycle, FaNewspaper } from 'react-icons/fa'
 import { AiFillFormatPainter } from 'react-icons/ai'
 
 const hiddenDocTypes = listItem =>
-  !['about', 'adaptiveReuse', 'careers', 'careersPost', 'category', 'home', 'interiorDesign', 'news', 'post', 'residentialArchitecture', 'siteSettings', 'team', 'teamMember'].includes(listItem.getId())
+  !['about', 'adaptiveReuse', 'careers', 'careersPost', 'category', 'home', 'interiorDesign', 'news', 'post', 'project', 'projectCategory', 'residentialArchitecture', 'siteSettings', 'team', 'teamMember'].includes(listItem.getId())
 
 export default () =>
   S.list()
@@ -77,6 +77,16 @@ export default () =>
             .documentId('35a99ecb-fd40-41ae-a0e0-8ec5527ebf44')
         ),
       S.divider(),
+      S.listItem()
+        .title('Projects')
+        .icon(MdConstruction)
+        .schemaType('project')
+        .child(S.documentTypeList('project').title('Projects')),
+      S.listItem()
+        .title('Project Categories')
+        .icon(MdCategory)
+        .schemaType('projectCategory')
+        .child(S.documentTypeList('projectCategory').title('Project Categories')),
       S.listItem()
         .title('Team Members')
         .icon(MdPeopleAlt)

@@ -12,13 +12,38 @@ const clientConfig = require('./client-config')
 
 const isProd = process.env.NODE_ENV === 'production'
 
+const path = require('path')
+
+function addStyleResource (rule) {
+  rule.use('style-resource')
+    .loader('style-resources-loader')
+    .options({
+      patterns: [
+        path.resolve(__dirname, './src/assets/style/_breakpoints.scss'),
+        path.resolve(__dirname, './src/assets/style/_typography.scss'),
+        path.resolve(__dirname, './src/assets/style/_mixins.scss')
+      ],
+    })
+}
+
 module.exports = {
   siteName: 'The Brooklyn Studio',
   siteDescription:
     'The Brooklyn Studio is an architecture and interior design firm based in Brooklyn and known for its adept and artful blend of historic renovation and modern design.',
 
   templates: {
-    SanityPost: '/:slug__current'
+    SanityPost: '/:slug__current',
+    SanityProject: '/projects/:slug__current'
+  },
+
+  chainWebpack (config) {
+    // Load variables for all vue-files
+    const types = ['vue-modules', 'vue', 'normal-modules', 'normal']
+
+    // or if you use scss
+    types.forEach(type => {
+      addStyleResource(config.module.rule('scss').oneOf(type))
+    })
   },
 
   plugins: [

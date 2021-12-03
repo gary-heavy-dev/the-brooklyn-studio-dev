@@ -14,12 +14,29 @@ export default {
       name: 'slug',
       type: 'slug',
       title: 'Slug',
-      description: 'Some frontends will require a slug to be set to be able to show the post',
+      description: 'Click the "Generate" button to generate a URL friendly slug, which you can then edit if desired.',
       options: {
         source: 'title',
         maxLength: 96
       },
       validation: Rule => Rule.required()
+    },
+    {
+      name: 'heroImage',
+      type: 'mainImage',
+      title: 'Hero Image',
+      validation: Rule => Rule.required()
+    },
+    {
+      name: 'projects',
+      type: 'array',
+      title: 'Projects',
+      of: [
+        {
+          type: 'reference',
+          to: [{ type: 'project' }]
+        }
+      ]
     }
   ]
 }
