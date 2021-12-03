@@ -10,9 +10,14 @@
   @include container;
 }
 
+.o-h {
+  overflow: hidden;
+}
+
 // Width, height
 .w-100 {
   width: 100%;
+  max-width: 100vw;
 }
 
 .h-100vh {
@@ -27,12 +32,24 @@
   }
 }
 
-// Object Fit
+// Object Fit, img handling, etc.
 .img-cover {
   object-fit: cover;
   object-position: center;
   height: 100%;
   width: 100%;
+}
+
+.frame {
+  position: relative;
+  overflow: hidden;
+}
+.frame::after {
+  content: "";
+  display: block;
+}
+.frame > * {
+  position: absolute;
 }
 
 // Flex Related Utils
@@ -49,8 +66,12 @@
 }
 
 // Absolute Positioning Shenanigans
-.abs {
+.pos-abs {
   position: absolute;
+}
+
+.pos-rel {
+  position: relative;
 }
 
 .z-1 {

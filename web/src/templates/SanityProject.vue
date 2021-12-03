@@ -18,6 +18,15 @@ export default {
 query Project ($id: ID!) {
   project: sanityProject (id: $id) {
     title
+    slug {
+      current
+    }
+    projectCategories {
+      title
+      slug {
+        current
+      }
+    }
     displayTitle {
       displayTitleStatus
       lineOne
@@ -31,6 +40,67 @@ query Project ($id: ID!) {
         }
       }
       alt
+    }
+    flexibleContent {
+      ... on SanityFlexibleImage {
+        _type
+        image {
+          asset {
+            url
+            metadata {
+              lqip
+            }
+          }
+          alt
+        }
+        aspectRatio
+        imageLocation
+        margins
+      }
+      ... on SanityFlexibleImagePair {
+        _type
+        imageLarge {
+          asset {
+            url
+            metadata {
+              lqip
+            }
+          }
+          alt
+        }
+        imageSmall {
+          asset {
+            url
+            metadata {
+              lqip
+            }
+          }
+          alt
+        }
+        imageLargeLocation
+        reverseMobile
+      }
+      ... on SanityFlexibleImageWithText {
+        _type
+        text
+        image {
+          asset {
+            url
+            metadata {
+              lqip
+            }
+          }
+          alt
+        }
+        aspectRatio
+        imageLocation
+        reverseMobile
+        justification
+      }
+      ... on SanityFlexibleText {
+        _type
+        text
+      }
     }
   }
 }

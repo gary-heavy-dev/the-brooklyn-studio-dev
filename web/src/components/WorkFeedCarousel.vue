@@ -1,6 +1,6 @@
 <template>
   <div class="work-feed__carousel">
-    <h1 class="work-feed__title container abs z-1 color--white">{{ heading }}</h1>
+    <h1 class="work-feed__title container pos-abs z-1 color--white">{{ heading }}</h1>
     <div class="swiper-slide">
       <BaseImage
         v-if="image"

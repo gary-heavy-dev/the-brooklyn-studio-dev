@@ -1,6 +1,6 @@
 <template>
-  <div class="project-hero h-100vh">
-    <div class="project-hero__title container abs z-1">
+  <div class="project-hero h-100vh pos-rel o-h">
+    <div class="project-hero__title container pos-abs z-1">
       <h1
         v-if="displayTitle && displayTitle.displayTitleStatus"
         class="h1 color--white"
