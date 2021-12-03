@@ -1,9 +1,9 @@
 <template>
-  <div class="project-hero h-100vh pos-rel o-h">
-    <div class="project-hero__title container pos-abs z-1">
+  <div class="project-hero h-100vh pos-rel o-h mb-lg">
+    <div class="project-hero__title pos-abs z-1 w-100 flex jc-c">
       <h1
         v-if="displayTitle && displayTitle.displayTitleStatus"
-        class="h1 color--white"
+        class="h1 color--white container"
       >
         <div>{{ displayTitle.lineOne }}</div>
         <div>{{ displayTitle.lineTwo }}</div>

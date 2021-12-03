@@ -1,13 +1,11 @@
 <template>
-  <div class="flexible-image w-100">
-    <div :class="'flexible-image__inner frame ' + content.aspectRatio">
-      <div class="pos-abs">
-        <g-image
-          v-if="content.image"
-          class="img-cover"
-          v-bind="$gImageMap(content.image, $static.metadata.sanityOptions, '1')"
-        />
-      </div>
+  <div :class="'flexible-image container flexible-image--' + content.imageLocation">
+    <div class="flexible-image__inner">
+      <g-image
+        v-if="content.image"
+        class="img-cover"
+        v-bind="$gImageMap(content.image, $static.metadata.sanityOptions, '2')"
+      />
     </div>
   </div>
 </template>
@@ -23,17 +21,33 @@ export default {
 <style lang="scss">
 .flexible-image {
 
-  // > div {
-  //   width: 50%;
-  // }
+  &--center {
 
-  @include laptop {
-    @include container;
+    .flexible-image__inner {
+      margin-left: 7%;
+      margin-right: 7%;
+    }
+  }
+  &--right,
+  &--left {
+
+    .flexible-image__inner {
+      width: 74%;
+    }
   }
 
-  .portrait {
-    padding-bottom: 100%;
-    width: 50%;
+  &--right {
+
+    .flexible-image__inner {
+      margin-left: auto;
+    }
+  }
+
+  &--left {
+
+    .flexible-image__inner {
+      margin-right: auto;
+    }
   }
 }
 </style>

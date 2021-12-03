@@ -1,15 +1,19 @@
 <template>
-  <div class="work-feed__carousel">
-    <h1 class="work-feed__title container pos-abs z-1 color--white">{{ heading }}</h1>
-    <div class="swiper-slide">
-      <BaseImage
-        v-if="image"
-        :src="image"
-        :x="1284"
-        :y="500"
-        :columns="1"
-        :alt="image.alt"
-      />
+  <div class="work-feed__carousel mb-lg h-60vh o-h">
+    <div class="project-hero__title pos-abs z-1 w-100 flex jc-c">
+      <h1 class="h1 container color--white">{{ heading }}</h1>
+    </div>
+    <div class="swiper">
+      <div class="swiper-slide">
+        <BaseImage
+          v-if="image"
+          :src="image"
+          :x="1284"
+          :y="500"
+          :columns="1"
+          :alt="image.alt"
+        />
+      </div>
     </div>
     <!-- <swiper
       class="cta-gallery__gallery"

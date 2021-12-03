@@ -1,6 +1,6 @@
 <template>
   <header
-    class="the-header background--white flex ai-c"
+    class="the-header background--white flex ai-c jc-c"
     id="theHeader"
   >
     <div class="container flex jc-sb">

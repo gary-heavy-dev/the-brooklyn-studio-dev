@@ -1,7 +1,11 @@
 @mixin container {
   width: 100%;
-  margin-left: var(--grid-margin);
-  margin-right: var(--grid-margin);
+  max-width: var(--max-width--content);
   padding-left: calc(var(--grid-gap) / 2);
   padding-right: calc(var(--grid-gap) / 2);
+
+  @include laptop {
+    margin-left: var(--grid-margin);
+    margin-right: var(--grid-margin);
+  }
 }

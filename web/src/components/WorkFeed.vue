@@ -4,12 +4,14 @@
       :heading="content.title"
       :image="content.heroImage"
     />
-    <div class="work-feed__grid grid grid--3-desktop">
-      <WorkFeedCard
-        v-for="(project, index) in content.projects"
-        :key="index"
-        :project="project"
-      />
+    <div class="work-feed__grid flex jc-c">
+      <div class="grid grid--3-desktop container">
+        <WorkFeedCard
+          v-for="(project, index) in content.projects"
+          :key="index"
+          :project="project"
+        />
+      </div>
     </div>
   </div>
 </template>

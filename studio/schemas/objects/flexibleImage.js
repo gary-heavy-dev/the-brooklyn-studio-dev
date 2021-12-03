@@ -10,19 +10,6 @@ export default {
       validation: Rule => Rule.required()
     },
     {
-      name: 'aspectRatio',
-      type: 'string',
-      title: 'Image Aspect Ratio',
-      options: {
-        list: [
-          { title: 'Portrait', value: 'portrait' },
-          { title: 'Landscape', value: 'landscape' }
-        ],
-        layout: 'radio'
-      },
-      validation: Rule => Rule.required()
-    },
-    {
       name: 'imageLocation',
       type: 'string',
       title: 'Image Location',

@@ -1,7 +1,9 @@
 <template>
-  <div class="flexible-image-with-text flex w-100">
-    <div class="flexible-image-with-text__text">{{ content.text }}</div>
-    <div :class="'flexible-image-with-text__image frame ' + content.aspectRatio">
+  <div :class="'flexible-image-with-text container flex fw ai-c ' + content.aspectRatio">
+    <div class="flexible-image-with-text__text">
+      <div class="mw-readable">{{ content.text }}</div>
+    </div>
+    <div class="flexible-image-with-text__image frame">
       <div class="pos-abs">
         <g-image
           v-if="content.image"
@@ -24,17 +26,23 @@ export default {
 <style lang="scss">
 .flexible-image-with-text {
 
-  // > div {
-  //   width: 50%;
-  // }
+  &.portrait {
 
-  @include laptop {
-    @include container;
+    > div {
+      flex-basis: 100%;
+
+      @include laptop {
+        flex-basis: 50%;
+      }
+    }
+
+    .flexible-image-with-text__image {
+      padding-bottom: 73.5%;
+    }
   }
 
-  .portrait {
-    padding-bottom: 36%;
-    width: 50%;
+  .flexible-image-with-text__text {
+    padding-right: 73px;
   }
 }
 </style>
