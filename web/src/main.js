@@ -29,4 +29,10 @@ export default function(Vue, { router, head, isClient }) {
       }, 300)
     })
   }
+
+  // Do router stuff!
+  // router.beforeEach((to, from, next) => {
+  //   console.log('to:', to)
+  //   console.log('from:', from)
+  // })
 }

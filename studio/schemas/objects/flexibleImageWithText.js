@@ -50,6 +50,7 @@ export default {
     },
     {
       name: 'justification',
+      title: 'Image Justification',
       type: 'string',
       description: 'Select whether the image will be justified to the right or left side on mobile.',
       options: {
