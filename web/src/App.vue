@@ -2,9 +2,6 @@
   <Layout>
     <HomepageHero v-show="$route.path == '/'" />
     <TheHeader />
-    <WorkFeedCarousel
-      v-show="$route.path == res || $route.path == ad || $route.path == int"
-    />
     <main class="main">
       <transition :name="transitionName" :mode="modeName">
         <router-view />
@@ -16,7 +13,6 @@
 
 <script>
 import HomepageHero from '~/components/HomepageHero'
-import WorkFeedCarousel from '~/components/WorkFeedCarousel'
 import TheHeader from '~/components/TheHeader'
 import TheFooter from '~/components/TheFooter'
 
@@ -24,7 +20,6 @@ export default {
 
   components: {
     HomepageHero,
-    WorkFeedCarousel,
     TheHeader,
     TheFooter
   },
@@ -32,23 +27,6 @@ export default {
     return {
       transitionName: 'fade',
       modeName: 'out-in',
-      res: '/projects/residential-architecture',
-      int: '/projects/interior-design',
-      ad: '/projects/adaptive-reuse'
-    }
-  },
-  watch: {
-    $route(to, from) {
-      if((from.path == this.res && to.path == this.ad) || (from.path == this.ad && to.path == this.int) || (from.path == this.int && to.path == this.res)) {
-        this.transitionName = 'slide-right'
-        this.modeName = ''
-      } else if((from.path == this.ad && to.path == this.res) || (from.path == this.int && to.path == this.ad) || (from.path == this.res && to.path == this.int)) {
-        this.transitionName = 'slide-left'
-        this.modeName = ''
-      } else {
-        this.transitionName = 'fade'
-        this.modeName = 'out-in'
-      }
     }
   }
 }

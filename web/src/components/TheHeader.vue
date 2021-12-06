@@ -7,9 +7,7 @@
       <g-link to="/">The Brooklyn Studio</g-link>
       <div class="the-header__menu">
         <g-link to="/about-us">About Us</g-link>
-        <g-link to="/projects/residential-architecture">Residential Architecture</g-link>
-        <g-link to="/projects/adaptive-reuse">Adaptive Reuse</g-link>
-        <g-link to="/projects/interior-design">Interior Design</g-link>
+        <g-link to="/projects/">Work</g-link>
       </div>
     </div>
   </header>
