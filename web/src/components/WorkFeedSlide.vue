@@ -45,18 +45,17 @@ export default {
     opacity: 0;
     transform: translateY(10px);
     transition: all 0.5s ease-in-out;
+    transition-delay: 0.2s;
   }
 
   &__title {
     margin-top: 62px;
     left: 4.75%;
-    transition-delay: 0.2s;
   }
 
   &__grid {
     margin-left: 4.75%;
     margin-right: 4.75%;
-    transition-delay: 0.35s;
   }
 }
 

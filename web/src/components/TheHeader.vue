@@ -7,7 +7,7 @@
       <g-link to="/">The Brooklyn Studio</g-link>
       <div class="the-header__menu">
         <g-link to="/about-us">About Us</g-link>
-        <g-link to="/projects/">Work</g-link>
+        <g-link to="/projects/">Projects</g-link>
       </div>
     </div>
   </header>
@@ -19,7 +19,6 @@
   position: sticky;
   top: 0;
   z-index: 999999999;
-  border-bottom: 1px solid var(--color--gray-tertiary);
 
   &__menu {
 

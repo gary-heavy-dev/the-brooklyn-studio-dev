@@ -48,7 +48,7 @@ export default {
         },
         hashNavigation: true,
         slidesPerView: 1.1,
-        spaceBetween: 1,
+        spaceBetween: 2,
         centeredSlides: true,
         loop: true,
         speed: 500,
