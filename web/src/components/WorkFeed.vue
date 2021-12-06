@@ -1,9 +1,5 @@
 <template>
   <div class="work-feed">
-    <WorkFeedCarousel
-      :heading="content.title"
-      :image="content.heroImage"
-    />
     <div class="work-feed__grid flex jc-c">
       <div class="grid grid--3-desktop container">
         <WorkFeedCard
@@ -18,12 +14,10 @@
 
 <script>
 import WorkFeedCard from '~/components/WorkFeedCard'
-import WorkFeedCarousel from '~/components/WorkFeedCarousel'
 
 export default {
   components: {
-    WorkFeedCard,
-    WorkFeedCarousel
+    WorkFeedCard
   },
   props: {
     content: Object
