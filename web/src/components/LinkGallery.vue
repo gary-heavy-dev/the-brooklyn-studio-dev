@@ -1,6 +1,6 @@
 <template>
-  <section class="link-gallery">
-    <h2>Link Gallery</h2>
+  <section class="link-gallery w-100">
+    <h2>Link Gallery — In Progress</h2>
   </section>
 </template>
 

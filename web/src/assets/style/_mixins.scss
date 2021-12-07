@@ -1,10 +1,37 @@
 @mixin container {
   width: 100%;
-  padding-left: calc(var(--grid-gap) / 2);
-  padding-right: calc(var(--grid-gap) / 2);
+  padding-left: var(--grid-gap);
+  padding-right: var(--grid-gap);
 
   @include laptop {
+    padding-left: calc(var(--grid-gap) / 2);
+    padding-right: calc(var(--grid-gap) / 2);
     margin-left: var(--grid-margin);
     margin-right: var(--grid-margin);
+  }
+}
+
+@mixin container--50 {
+  padding-left: calc(var(--grid-gap) / 2);
+  padding-right: calc(var(--grid-gap) / 2);
+  margin-left: calc(var(--grid-margin) * 2);
+  margin-right: calc(var(--grid-margin) * 2);
+}
+
+@mixin container--left {
+  padding-left: var(--grid-gap);
+
+  @include laptop {
+    padding-left: calc(var(--grid-gap) / 2);
+    margin-left: calc(var(--grid-margin) * 2);
+  }
+}
+
+@mixin container--right {
+  padding-right: var(--grid-gap);
+
+  @include laptop {
+    padding-right: calc(var(--grid-gap) / 2);
+    margin-right: calc(var(--grid-margin) * 2);
   }
 }

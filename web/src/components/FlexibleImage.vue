@@ -1,5 +1,5 @@
 <template>
-  <div :class="'flexible-image container flexible-image--' + content.imageLocation">
+  <div :class="'flexible-image container mb-lg flexible-image--' + content.imageLocation">
     <div class="flexible-image__inner">
       <g-image
         v-if="content.image"

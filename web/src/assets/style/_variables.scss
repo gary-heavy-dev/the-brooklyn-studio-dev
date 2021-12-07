@@ -19,7 +19,8 @@ body {
   --margin-h: 27px;
   --margin-b: 97px;
   --margin-t: 43px;
-  --margin-bottom--large: 40px;
+  --margin-top--hero-header: 62px;
+  --margin--large: 40px;
   --content-width: 860px;
   --radius: 5px;
   --grid-gap: 27px; // do not change
@@ -34,7 +35,7 @@ body {
 @include laptop {
 	body {
     --margin-h: 118px;
-    --margin-bottom--large: 100px;
+    --margin--large: 100px;
     --header-height: 78px;
 	}
 }

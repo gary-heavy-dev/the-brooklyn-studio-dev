@@ -1,6 +1,6 @@
 <template>
   <div class="work-feed-slide">
-    <div class="work-feed-slide__title pos-abs z-1">
+    <div class="work-feed-slide__title mt-hh pos-abs z-1">
       <h1 class="h1 color--white">{{ content.title }}</h1>
     </div>
     <div class="work-feed-slide__hero mb-lg h-60vh o-h">
@@ -11,7 +11,7 @@
       />
     </div>
     <div class="work-feed-slide__grid flex jc-c">
-      <div class="grid grid--3-desktop w-100">
+      <div class="grid grid--3-desktop grid--2-laptop w-100">
         <WorkFeedCard
           v-for="(project, index) in content.projects"
           :key="index"
@@ -39,6 +39,7 @@ export default {
 .work-feed-slide {
   width: 90.85vw;
   margin: 0 auto;
+  position: relative;
 
   &__title,
   &__grid {
@@ -49,7 +50,6 @@ export default {
   }
 
   &__title {
-    margin-top: 62px;
     left: 4.75%;
   }
 

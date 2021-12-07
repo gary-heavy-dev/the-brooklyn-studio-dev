@@ -22,10 +22,15 @@ export default function(Vue, { router, head, isClient }) {
   Vue.prototype.$gImageMap = gImageMap
 
   // Delay the scroll-to-top behavior caused by Vue Router to eliminate nasty flash on page transitions
+  // https://router.vuejs.org/guide/advanced/scroll-behavior.html#async-scrolling
   router.options.scrollBehavior = function(to, from, savedPosition) {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
-        resolve({ x: 0, y: 0 })
+        if (to.hash) {
+          console.log("to:", to.hash)
+        } else {
+          resolve({ x: 0, y: 0 })
+        }
       }, 300)
     })
   }

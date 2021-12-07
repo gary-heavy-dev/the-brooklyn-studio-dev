@@ -1,5 +1,5 @@
 <template>
-  <div :class="'flexible-image-with-text container flex fw ai-c ' + content.aspectRatio">
+  <div :class="'flexible-image-with-text container flex fw ai-c mb-lg ' + content.aspectRatio">
     <div class="flexible-image-with-text__text">
       <div class="mw-readable">{{ content.text }}</div>
     </div>

@@ -1,7 +1,7 @@
 <template>
   <g-link
     :to="'/projects/' + project.slug.current"
-    class="work-feed__card"
+    class="work-feed__card mb-lg"
   >
     <BaseImage
       v-if="project.image"

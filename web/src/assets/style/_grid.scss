@@ -7,6 +7,24 @@
     grid-column-gap: var(--grid-gap);
   }
 
+  &--2 {
+    grid-template-columns: repeat(2, 1fr);
+
+    &-tablet {
+
+      @include tablet {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    &-laptop {
+
+      @include laptop {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  }
+
   &--3 {
     grid-template-columns: repeat(3, 1fr);
 

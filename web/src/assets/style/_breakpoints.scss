@@ -16,7 +16,7 @@ $screen-laptop-max: 1024px;
 
 // Desktops (non-HD and smaller-sized)
 $screen-desktop-min: calc(#{$screen-laptop-max} + 1px);
-$screen-desktop-max: 1200px;
+$screen-desktop-max: 1440px;
 
 // HD Screens
 $screen-hd-min: calc(#{$screen-desktop-max} + 1px);
@@ -37,14 +37,32 @@ $screen-4k-min: calc(#{$screen-hd-max} + 1px);
   }
 }
 
+@mixin laptop-down {
+  @media (max-width: #{$screen-tablet-max}) {
+    @content;
+  }
+}
+
 @mixin desktop {
   @media (min-width: #{$screen-desktop-min}) {
     @content;
   }
 }
 
+@mixin desktop-down {
+  @media (max-width: #{$screen-laptop-max}) {
+    @content;
+  }
+}
+
 @mixin hd {
   @media (min-width: #{$screen-hd-min}) {
+    @content;
+  }
+}
+
+@mixin hd-down {
+  @media (max-width: #{$screen-desktop-max}) {
     @content;
   }
 }

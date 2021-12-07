@@ -1,5 +1,5 @@
 <template>
-  <div :class="'flexible-image-pair container flex fw ai-c jc-sb large-location--' + content.imageLargeLocation + ' reverse-mobile--' + content.reverseMobile">
+  <div :class="'flexible-image-pair container flex fw ai-c jc-sb mb-lg large-location--' + content.imageLargeLocation + ' reverse-mobile--' + content.reverseMobile">
     <div class="flexible-image-pair__large-image frame">
       <g-image
         v-if="content.imageLarge"

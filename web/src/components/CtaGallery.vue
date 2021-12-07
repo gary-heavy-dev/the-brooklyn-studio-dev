@@ -1,27 +1,31 @@
 <template>
   <section
-    class="cta-gallery"
+    class="cta-gallery ai-c"
     :style="{ backgroundColor: content.bgColor.value }"
   >
-    <swiper
-      class="cta-gallery__gallery"
-      :options="swiperOption"
-    >
-      <swiper-slide
-        v-for="(image, index) in content.gallery"
-        :key="index"
-      >
-        <BaseImage
-          v-if="image"
-          :src="image"
-          :x="390"
-          :y="496"
-          :columns="1"
-          :alt="image.alt"
-        />
-      </swiper-slide>
-    </swiper>
-    <div class="swiper__pagination"></div>
+    <div class="cta-gallery__gallery-wrapper">
+      <div class="cta-gallery__gallery-inner text-center">
+        <swiper
+          class="cta-gallery__gallery"
+          :options="swiperOption"
+        >
+          <swiper-slide
+            v-for="(image, index) in content.gallery"
+            :key="index"
+          >
+            <BaseImage
+              v-if="image"
+              :src="image"
+              :x="390"
+              :y="496"
+              :columns="1"
+              :alt="image.alt"
+            />
+          </swiper-slide>
+        </swiper>
+        <div class="swiper__pagination"></div>
+      </div>
+    </div>
     <div class="cta-gallery__copy">
       <h2
         v-if="content.heading"
@@ -73,9 +77,24 @@ export default {
 .cta-gallery {
   display: flex;
   flex-direction: column;
+  max-width: 100%;
+  padding-top: var(--margin--large);
+  padding-bottom: var(--margin--large);
 
-  &__gallery {
-    width: 100%;
+  @include desktop {
+    flex-direction: row;
+
+    > * {
+      width: 50%;
+    }
+
+    &__gallery-inner {
+      @include container--left;
+    }
+
+    &__copy {
+      @include container--50;
+    }
   }
 
   &__copy {
