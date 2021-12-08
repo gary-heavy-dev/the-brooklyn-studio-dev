@@ -1,6 +1,6 @@
 <template>
   <section
-    class="cta-gallery ai-c"
+    class="cta-gallery ai-c two-up"
     :style="{ backgroundColor: content.bgColor.value }"
   >
     <div class="cta-gallery__gallery-wrapper">
@@ -26,17 +26,21 @@
         <div class="swiper__pagination"></div>
       </div>
     </div>
-    <div class="cta-gallery__copy">
-      <h2
-        v-if="content.heading"
-      >{{ content.heading }}</h2>
-      <p
-        v-if="content.copy"
-      >{{ content.copy }}</p>
-      <g-link
-        v-if="content.linkText"
-        :to="content.link"
-      >{{ content.linkText }}</g-link>
+    <div class="cta-gallery__copy-wrapper">
+      <div class="container--right grid grid--6-desktop">
+        <div class="cta-gallery__copy">
+          <h2
+            v-if="content.heading"
+          >{{ content.heading }}</h2>
+          <p
+            v-if="content.copy"
+          >{{ content.copy }}</p>
+          <g-link
+            v-if="content.linkText"
+            :to="content.link"
+          >{{ content.linkText }}</g-link>
+        </div>
+      </div>
     </div>
   </section>
 </template>
@@ -75,31 +79,20 @@ export default {
 
 <style lang="scss">
 .cta-gallery {
-  display: flex;
-  flex-direction: column;
+  width: 100%;
   max-width: 100%;
   padding-top: var(--margin--large);
   padding-bottom: var(--margin--large);
 
   @include desktop {
-    flex-direction: row;
-
-    > * {
-      width: 50%;
-    }
 
     &__gallery-inner {
       @include container--left;
     }
 
     &__copy {
-      @include container--50;
+      grid-column: 2/7;
     }
-  }
-
-  &__copy {
-    margin: 0 var(--margin-h);
-    padding: var(--margin-t) 0 var(--margin-b);
   }
 }
 </style>

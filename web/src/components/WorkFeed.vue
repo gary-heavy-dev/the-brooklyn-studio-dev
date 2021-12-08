@@ -42,6 +42,7 @@ export default {
   data() {
     return {
       swiperOption: {
+        autoHeight: true,
         navigation: {
           nextEl: '.swiper-button-next',
           prevEl: '.swiper-button-prev',

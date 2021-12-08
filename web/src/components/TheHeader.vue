@@ -3,7 +3,7 @@
     class="the-header background--white flex ai-c jc-c"
     id="theHeader"
   >
-    <div class="container flex jc-sb">
+    <div class="container w-100 flex jc-sb">
       <g-link to="/">The Brooklyn Studio</g-link>
       <div class="the-header__menu">
         <g-link to="/about-us">About Us</g-link>

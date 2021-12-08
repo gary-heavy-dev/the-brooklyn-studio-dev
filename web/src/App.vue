@@ -1,9 +1,9 @@
 <template>
   <Layout>
-    <HomepageHero v-show="$route.path == '/'" />
+    <!-- <HomepageHero v-show="$route.path == '/'" /> -->
     <TheHeader />
     <main class="main">
-      <transition :name="transitionName" :mode="modeName">
+      <transition name="fade" mode="out-in">
         <router-view />
       </transition>
     </main>
@@ -17,17 +17,10 @@ import TheHeader from '~/components/TheHeader'
 import TheFooter from '~/components/TheFooter'
 
 export default {
-
   components: {
     HomepageHero,
     TheHeader,
     TheFooter
-  },
-  data() {
-    return {
-      transitionName: 'fade',
-      modeName: 'out-in',
-    }
   }
 }
 </script>

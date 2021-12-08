@@ -2,10 +2,6 @@
   display: grid;
   grid-column-gap: var(--grid-gap);
   grid-template-columns: repeat(1, 1fr);
-  
-  @include desktop {
-    grid-column-gap: var(--grid-gap);
-  }
 
   &--2 {
     grid-template-columns: repeat(2, 1fr);
@@ -32,6 +28,32 @@
 
       @include desktop {
         grid-template-columns: repeat(3, 1fr);
+      }
+    }
+  }
+
+  &--6 {
+
+    &-desktop {
+
+      @include desktop {
+        grid-template-columns: repeat(6, 1fr);
+      }
+    }
+  }
+
+  > {
+
+    .grid--span {
+      &-5 {
+        grid-column: span 5;
+
+        &-desktop {
+
+          @include desktop {
+            grid-column: span 5;
+          }
+        }
       }
     }
   }

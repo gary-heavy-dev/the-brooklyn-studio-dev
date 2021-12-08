@@ -1,15 +1,17 @@
 <template>
   <section class="intro mb-lg">
-    <div class="intro-content--large">
+    <div class="intro-content--large two-up">
       <div class="copy">
         <div class="copy__inner flex ai-c background--gray-light">
-          <span 
-            class="copy__content h3"
-            v-html="content.introLarge"
-          ></span>
+          <div class="copy__content grid grid--6-desktop">
+            <span 
+              class="grid--span-5 h3"
+              v-html="content.introLarge"
+            ></span>
+          </div>
         </div>
       </div>
-      <div class="image background--gray-light">
+      <div class="image w-100 background--gray-light">
         <BaseImage
           v-if="content.introImagePrimary"
           :src="content.introImagePrimary"
@@ -20,7 +22,7 @@
         />
       </div>
     </div>
-    <div class="intro-content--small">
+    <div class="intro-content--small two-up">
       <div class="copy">
         <div class="copy__inner h4">
           <BaseBlockContent :blocks="content._rawIntroSmall" />
@@ -28,8 +30,9 @@
         </div>
       </div>
       <div class="image">
-        <div class="image__inner">
+        <div class="image__inner grid grid--6-desktop">
           <BaseImage
+            class="grid--span-5"
             v-if="content.introImageSecondary"
             :src="content.introImageSecondary"
             :x="646"
@@ -70,17 +73,6 @@ export default {
   > * {
     position: relative;
     z-index: 1;
-    display: flex;
-    flex-direction: column;
-
-    @include desktop {
-      flex-direction: row;
-
-      .copy,
-      .image {
-        width: 50%;
-      }
-    }
   }
 
   .copy__inner {
@@ -106,10 +98,12 @@ export default {
   }
 
   .copy__content {
-    @include container;
+    @include desktop-down {
+      @include container;
+    }
 
     @include desktop {
-      @include container--50;
+      @include container--left;
     }
   }
 
@@ -148,10 +142,12 @@ export default {
   }
 
   .image__inner {
-    @include container--right;
+    @include desktop-down {
+      @include container--right;
+    }
 
     @include desktop {
-      @include container--50;
+      @include container--left;
     }
   }
 }

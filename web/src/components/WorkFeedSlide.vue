@@ -38,6 +38,7 @@ export default {
 <style lang="scss">
 .work-feed-slide {
   width: 90.85vw;
+  height: fit-content;
   margin: 0 auto;
   position: relative;
 
@@ -56,6 +57,10 @@ export default {
   &__grid {
     margin-left: 4.75%;
     margin-right: 4.75%;
+
+    // .grid {
+    //   position: absolute;
+    // }
   }
 }
 
@@ -66,6 +71,10 @@ export default {
   .work-feed-slide__grid {
     opacity: 1;
     transform: translateY(0px);
+
+    // .grid {
+    //   position: relative;
+    // }
   }
 }
 </style>
