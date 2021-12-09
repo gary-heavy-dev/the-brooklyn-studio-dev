@@ -1,13 +1,20 @@
 <template>
   <figure class="base-image">
     <div
-      class="base-image__inner"
-      :style="{ paddingBottom: aspectRatio + '%', backgroundImage: `url(${src.asset.metadata.lqip})` }"
+      :class="['base-image__inner', { 'has-ratio': ratio }]"
+      :style="{ paddingBottom: aspectRatio + '%' }"
     >
-      <g-image
-        v-if="src.asset != null"
-        class="base-image__image"
-        v-bind="$gImageMap(src, $static.metadata.sanityOptions, columns)"
+      <img
+        v-if="lazy && src.asset != null"
+        v-lazy="srcString"
+        :data-srcset="srcsetString"
+        :alt="src.alt"
+      />
+      <img
+        v-else-if="src.asset != null"
+        :srcset="srcsetString"
+        :src="srcString"
+        :alt="src.alt"
       />
     </div>
     <figcaption v-if="caption" class="caption">{{ caption }}</figcaption>
@@ -17,20 +24,32 @@
 <script>
 export default {
   props: {
+    lazy: Boolean,
     src: Object,
-    alt: String,
     caption: String,
-    columns: Number,
     x: Number,
     y: Number
+  },
+  data() {
+    return {
+      ratio: true,
+      ratioClass: 'has-ratio'
+    }
   },
   computed: {
     aspectRatio() {
       if (this.x && this.y) {
+        this.ratio = true
         return (this.y / this.x) * 100
       } else {
-        return 76
+        this.ratio = false
       }
+    },
+    srcString() {
+      return String(this.$urlForImage(this.src, this.$static.metadata.sanityOptions))
+    },
+    srcsetString() {
+      return String(this.$gImageMap(this.src, this.$static.metadata.sanityOptions))
     }
   }
 }
@@ -39,26 +58,31 @@ export default {
 <style lang="scss">
 .base-image {
   width: 100%;
-}
 
-.base-image__inner {
-  position: relative;
-  padding-bottom: 76%;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
+  &__inner {
+    position: relative;
+    background-repeat: no-repeat;
+    background-size: cover;
 
-.base-image__image {
-  position: absolute;
-  object-fit: cover;
-  object-position: center;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  width: 100%;
-  max-width: 100%;
-  height: 100%;
+    &.has-ratio {
+
+      img {
+        position: absolute;
+      }
+    }
+
+    img {
+      object-fit: cover;
+      object-position: center;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      width: 100%;
+      max-width: 100%;
+      height: 100%;
+    }
+  }
 }
 </style>
 

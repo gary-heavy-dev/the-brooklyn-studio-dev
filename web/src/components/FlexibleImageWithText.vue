@@ -3,14 +3,12 @@
     <div class="flexible-image-with-text__text">
       <div class="mw-readable">{{ content.text }}</div>
     </div>
-    <div class="flexible-image-with-text__image frame">
-      <div class="pos-abs">
-        <g-image
-          v-if="content.image"
-          class="img-cover"
-          v-bind="$gImageMap(content.image, $static.metadata.sanityOptions, '1')"
-        />
-      </div>
+    <div class="flexible-image-with-text__image">
+      <BaseImage
+        v-if="content.image"
+        :src="content.image"
+        :lazy="true"
+      />
     </div>
   </div>
 </template>
@@ -36,9 +34,9 @@ export default {
       }
     }
 
-    .flexible-image-with-text__image {
-      padding-bottom: 73.5%;
-    }
+    // .flexible-image-with-text__image {
+    //   padding-bottom: 73.5%;
+    // }
   }
 
   .flexible-image-with-text__text {
@@ -46,14 +44,3 @@ export default {
   }
 }
 </style>
-
-<static-query>
-query {
-  metadata {
-    sanityOptions{
-      projectId
-      dataset
-    }
-  }
-}
-</static-query>

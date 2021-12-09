@@ -18,8 +18,6 @@
               :src="image"
               :x="390"
               :y="496"
-              :columns="1"
-              :alt="image.alt"
             />
           </swiper-slide>
         </swiper>
@@ -81,10 +79,10 @@ export default {
 .cta-gallery {
   width: 100%;
   max-width: 100%;
-  padding-top: var(--margin--large);
   padding-bottom: var(--margin--large);
 
   @include desktop {
+    padding-top: var(--margin--large);
 
     &__gallery-inner {
       @include container--left;

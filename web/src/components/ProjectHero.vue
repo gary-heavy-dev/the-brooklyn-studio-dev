@@ -13,9 +13,9 @@
         class="h1 color--white"
       >{{ heading }}</h1>
     </div>
-    <g-image
-      class="img-cover"
-      v-bind="$gImageMap(image, $static.metadata.sanityOptions, '1')"
+    <BaseImage
+      v-if="image"
+      :src="image"
     />
   </div>
 </template>
@@ -29,14 +29,3 @@ export default {
   }
 }
 </script>
-
-<static-query>
-query {
-  metadata {
-    sanityOptions{
-      projectId
-      dataset
-    }
-  }
-}
-</static-query>

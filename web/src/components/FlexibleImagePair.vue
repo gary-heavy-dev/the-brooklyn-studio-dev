@@ -1,17 +1,21 @@
 <template>
   <div :class="'flexible-image-pair container flex fw ai-c jc-sb mb-lg large-location--' + content.imageLargeLocation + ' reverse-mobile--' + content.reverseMobile">
     <div class="flexible-image-pair__large-image frame">
-      <g-image
-        v-if="content.imageLarge"
-        class="img-cover"
-        v-bind="$gImageMap(content.imageLarge, $static.metadata.sanityOptions, '2')"
+      <BaseImage
+        v-if="content.image"
+        :src="content.image"
+        :lazy="true"
+        :x="733"
+        :y="992"
       />
     </div>
     <div class="flexible-image-pair__small-image frame">
-      <g-image
-        v-if="content.imageSmall"
-        class="img-cover"
-        v-bind="$gImageMap(content.imageSmall, $static.metadata.sanityOptions, '2')"
+      <BaseImage
+        v-if="content.image"
+        :src="content.image"
+        :lazy="true"
+        :x="733"
+        :y="992"
       />
     </div>
   </div>
@@ -30,12 +34,10 @@ export default {
 
   &__large-image {
     flex-basis: 61%;
-    padding-bottom: 82.5%;
   }
 
   &__small-image {
     flex-basis: 32.25%;
-    padding-bottom: 43.75%;
   }
 
   &.large-location {
@@ -46,14 +48,3 @@ export default {
   }
 }
 </style>
-
-<static-query>
-query {
-  metadata {
-    sanityOptions{
-      projectId
-      dataset
-    }
-  }
-}
-</static-query>

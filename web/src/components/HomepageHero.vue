@@ -1,5 +1,5 @@
 <template>
-  <section class="homepage-hero">
+  <section class="homepage-hero background--navy">
     <TheLogo />
   </section>
 </template>
@@ -20,6 +20,5 @@ export default {
   height: 100vh;
   align-items: center;
   justify-content: center;
-  background-color: var(--bg-color);
 }
 </style>

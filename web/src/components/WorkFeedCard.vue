@@ -8,8 +8,6 @@
       :src="project.image"
       :x="378"
       :y="302"
-      :columns="3"
-      :alt="project.image.alt"
     />
     <h3>{{ project.title }}</h3>
   </g-link>

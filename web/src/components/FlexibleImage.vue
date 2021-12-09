@@ -1,10 +1,10 @@
 <template>
   <div :class="'flexible-image container mb-lg flexible-image--' + content.imageLocation">
     <div class="flexible-image__inner">
-      <g-image
+      <BaseImage
         v-if="content.image"
-        class="img-cover"
-        v-bind="$gImageMap(content.image, $static.metadata.sanityOptions, '2')"
+        :src="content.image"
+        :lazy="true"
       />
     </div>
   </div>
@@ -51,14 +51,3 @@ export default {
   }
 }
 </style>
-
-<static-query>
-query {
-  metadata {
-    sanityOptions{
-      projectId
-      dataset
-    }
-  }
-}
-</static-query>

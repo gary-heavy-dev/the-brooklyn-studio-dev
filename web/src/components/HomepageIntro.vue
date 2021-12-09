@@ -14,11 +14,10 @@
       <div class="image w-100 background--gray-light">
         <BaseImage
           v-if="content.introImagePrimary"
+          :lazy="true"
           :src="content.introImagePrimary"
-          :x="354"
-          :y="313"
-          :columns="1"
-          :alt="content.introImagePrimary.alt"
+          :x="960"
+          :y="849"
         />
       </div>
     </div>
@@ -33,12 +32,11 @@
         <div class="image__inner grid grid--6-desktop">
           <BaseImage
             class="grid--span-5"
+            :lazy="true"
             v-if="content.introImageSecondary"
             :src="content.introImageSecondary"
-            :x="646"
-            :y="500"
-            :columns="1"
-            :alt="content.introImageSecondary.alt"
+            :x="683"
+            :y="529"
           />
         </div>
       </div>

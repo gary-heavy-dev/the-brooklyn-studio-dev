@@ -4,10 +4,11 @@
       <h1 class="h1 color--white">{{ content.title }}</h1>
     </div>
     <div class="work-feed-slide__hero mb-lg h-60vh o-h">
-      <g-image
+      <BaseImage
         v-if="content.heroImage"
-        class="img-cover"
-        v-bind="$gImageMap(content.heroImage, $static.metadata.sanityOptions, '1')"
+        :src="content.heroImage"
+        :x="1284"
+        :y="500"
       />
     </div>
     <div class="work-feed-slide__grid flex jc-c">
