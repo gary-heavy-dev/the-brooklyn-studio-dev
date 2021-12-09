@@ -7,6 +7,7 @@
     >
       <LinkGallery
         v-if="block._type === 'linkGallery'"
+        :content="block"
       />
       <CtaGallery
         v-if="block._type === 'ctaGallery'"

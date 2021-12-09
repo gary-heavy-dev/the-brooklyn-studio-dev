@@ -71,6 +71,54 @@ export default {
       ... on SanityLinkGallery {
         _type
         title
+        intro
+        links {
+          copy
+          link {
+            ... on SanityAdaptiveReuse {
+              slug {
+                current
+              }
+              heroImage {
+                asset {
+                  url
+                  metadata {
+                    lqip
+                  }
+                }
+                alt
+              }
+            }
+            ... on SanityInteriorDesign {
+              slug {
+                current
+              }
+              heroImage {
+                asset {
+                  url
+                  metadata {
+                    lqip
+                  }
+                }
+                alt
+              }
+            }
+            ... on SanityResidentialArchitecture {
+              slug {
+                current
+              }
+              heroImage {
+                asset {
+                  url
+                  metadata {
+                    lqip
+                  }
+                }
+                alt
+              }
+            }
+          }
+        }
       }
     }
   }

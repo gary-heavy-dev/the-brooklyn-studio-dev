@@ -28,6 +28,7 @@
       <div class="container--right grid grid--6-desktop">
         <div class="cta-gallery__copy">
           <h2
+            class="h2"
             v-if="content.heading"
           >{{ content.heading }}</h2>
           <p
