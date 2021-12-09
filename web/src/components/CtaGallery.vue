@@ -1,6 +1,6 @@
 <template>
   <section
-    class="cta-gallery ai-c two-up"
+    class="cta-gallery ai-c two-up o-h"
     :style="{ backgroundColor: content.bgColor.value }"
   >
     <div class="cta-gallery__gallery-wrapper">

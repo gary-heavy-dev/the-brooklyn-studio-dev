@@ -60,7 +60,14 @@ export default {
   background-color: var(--color--gray-light);
   position: relative;
 
+  @include desktop-down {
+    flex-direction: column-reverse;
+  }
+
   &__copy {
+    background-color: var(--color--gray-light);
+    position: relative;
+    z-index: 10;
 
     a {
       display: block;
@@ -69,7 +76,14 @@ export default {
     }
 
     &-inner {
-      @include container--left;
+
+      @include desktop-down {
+        @include container;
+      }
+
+      @include desktop {
+        @include container--left;
+      }
     }
   }
 
@@ -80,8 +94,11 @@ export default {
     }
 
     &-images-wrapper {
-      grid-column: 2/7;
       padding-bottom: 151%;
+
+      @include desktop {
+        grid-column: 2/7;
+      }
     }
 
     &-image {

@@ -41,10 +41,14 @@ export default {
     }
   },
   created() {
-    window.addEventListener("scroll", this.handleScroll);
+    if (typeof window !== 'undefined') {
+      window.addEventListener("scroll", this.handleScroll);
+    }
   },
   destroyed() {
-    window.removeEventListener("scroll", this.handleScroll);
+    if (typeof window !== 'undefined') {
+      window.removeEventListener("scroll", this.handleScroll);
+    }
   }
 }
 </script>
