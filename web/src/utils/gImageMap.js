@@ -7,8 +7,7 @@ const gImageMap = (source, data) => {
          urlForImage(source, data).width(960).auto('format').toString() + ' 960w, ' +
          urlForImage(source, data).width(1024).auto('format').toString() + ' 1024w, ' +
          urlForImage(source, data).width(1440).auto('format').toString() + ' 1440w, ' +
-         urlForImage(source, data).width(1920).auto('format').toString() + ' 1920w, ' +
-         urlForImage(source, data).width(2560).auto('format').toString() + ' 2560w'
+         urlForImage(source, data).width(1920).auto('format').toString() + ' 1920w'
 }
 
 export default gImageMap
