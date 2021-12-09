@@ -27,7 +27,7 @@
           >
             <BaseImage
               :src="link.link.heroImage"
-              lazy="true"
+              :lazy="true"
             />
           </div>
         </div>

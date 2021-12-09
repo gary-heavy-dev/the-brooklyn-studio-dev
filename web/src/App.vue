@@ -73,6 +73,7 @@ export default {
   right: 0;
 }
 main.main {
+  padding-top: var(--header-height);
 
   > div {
     min-height: 100vh;

@@ -1,6 +1,7 @@
 <template>
   <header
-    class="the-header background--white flex ai-c jc-c"
+    :class="['the-header background--white flex ai-c jc-c headroom', {'headroom--unpinned': scrolled}]"
+    v-on="{ handleScroll }"
     id="theHeader"
   >
     <div class="container w-100 flex jc-sb">
@@ -13,11 +14,50 @@
   </header>
 </template>
 
+<script>
+export default {
+  data() {
+    return {
+      limitPosition: 0,
+      scrolled: false,
+      lastPosition: 0
+    };
+  },
+  methods: {
+    handleScroll() {
+      // https://codepen.io/kode88/pen/XRpXej
+      if (this.lastPosition < window.scrollY && this.limitPosition < window.scrollY) {
+        this.scrolled = true;
+        // move up!
+      } 
+      
+      if (this.lastPosition > window.scrollY) {
+        this.scrolled = false;
+        // move down
+      }
+      
+      this.lastPosition = window.scrollY;
+      // this.scrolled = window.scrollY > 250;
+    }
+  },
+  created() {
+    window.addEventListener("scroll", this.handleScroll);
+  },
+  destroyed() {
+    window.removeEventListener("scroll", this.handleScroll);
+  }
+}
+</script>
+
 <style lang="scss">
 .the-header {
   height: var(--header-height);
-  position: sticky;
   top: 0;
+  position: fixed;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000;
+  width: 100%;
   z-index: 999999999;
 
   &__menu {
@@ -25,6 +65,17 @@
     a {
       margin-left: 63px;
     }
+  }
+
+  &.headroom {
+    will-change: transform;
+    transition: transform 200ms linear;
+  }
+  &.headroom--pinned {
+      transform: translateY(0%);
+  }
+  &.headroom--unpinned {
+      transform: translateY(-100%);
   }
 }
 </style>
