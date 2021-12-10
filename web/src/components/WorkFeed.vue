@@ -3,6 +3,10 @@
     <swiper
       class="swiper"
       :options="swiperOption"
+      :auto-update="true"
+      :auto-destroy="false"
+      :delete-instance-on-destroy="true"
+      :cleanup-styles-on-destroy="true"
     >
       <swiper-slide :data-hash="$static.res.slug.current">
         <WorkFeedSlide :content="$static.res" />

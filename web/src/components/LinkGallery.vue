@@ -9,7 +9,7 @@
         <p v-if="content.intro">{{ content.intro }}</p>
         <g-link
           v-for="(link, index) in content.links"
-          :to="link.link.slug.current"
+          :to="'/projects/#' + link.link.slug.current"
           :key="index"
           @mouseover.native="showMe(link.link.slug.current)"
           @mouseleave.native="hideMe(link.link.slug.current)"

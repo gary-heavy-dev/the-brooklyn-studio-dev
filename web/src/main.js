@@ -35,7 +35,7 @@ export default function(Vue, { router, head, isClient }) {
   router.options.scrollBehavior = function(to, from, savedPosition) {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
-        if (to.hash) {
+        if (from.hash && to.hash) {
           // console.log("to:", to.hash)
         } else {
           resolve({ x: 0, y: 0 })
