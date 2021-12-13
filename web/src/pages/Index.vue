@@ -67,6 +67,20 @@ export default {
       ... on SanityFeaturedTeamMember {
         _type
         heading
+        _rawCopy
+        teamMember {
+          name
+          title
+          slug {
+            current
+          }
+          image {
+            asset {
+              url
+            }
+            alt
+          }
+        }
       }
       ... on SanityLinkGallery {
         _type

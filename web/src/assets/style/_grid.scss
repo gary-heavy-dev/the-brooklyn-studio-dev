@@ -42,6 +42,16 @@
     }
   }
 
+  &--12 {
+
+    &-desktop {
+
+      @include desktop {
+        grid-template-columns: repeat(12, 1fr);
+      }
+    }
+  }
+
   > {
 
     .grid--span {
