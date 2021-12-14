@@ -1,7 +1,7 @@
 <template>
   <section
     class="cta-gallery flex"
-    :style="{ backgroundColor: content.bgColor.value }"
+    :style="{ backgroundColor: backColor }"
   >
     <div class="cta-gallery__inner grid grid--12-desktop">
       <div class="cta-gallery__gallery-wrapper">
@@ -69,6 +69,15 @@ export default {
         autoplay: {
           delay: 6000
         }
+      }
+    }
+  },
+  computed: {
+    backColor() {
+      if(this.content.bgColor) {
+        return this.content.bgColor.value
+      } else {
+        return 'white'
       }
     }
   }

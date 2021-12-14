@@ -39,6 +39,7 @@ import heroHome from './objects/heroHome'
 import heroSecondary from './objects/heroSecondary'
 import heroTertiary from './objects/heroTertiary'
 import introSection from './objects/introSection'
+import introSecondary from './objects/introSecondary'
 import linkGallery from './objects/linkGallery'
 import linkGalleryItem from './objects/linkGalleryItem'
 import linkInternal from './objects/linkInternal'
@@ -81,6 +82,7 @@ export default createSchema({
     home,
     interiorDesign,
     introSection,
+    introSecondary,
     linkGallery,
     linkGalleryItem,
     linkInternal,

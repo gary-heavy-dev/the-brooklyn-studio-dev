@@ -41,13 +41,13 @@ export default {
           inner: "100%"
         },
         list: [
-          { title: "Red", value: "#f16d70" },
-          { title: "Teal", value: "#88c6db" },
-          { title: "Purple", value: "#aca0cc" },
-          { title: "Green", value: "#bdcdcb" },
-          { title: "White", value: "white" }
+          { title: "White", value: "white" },
+          { title: "Secondary Gray - Light", value: "#F8F7F7" },
+          { title: "Tertiary Gray - Light", value: "#CBD0CC" },
+          { title: "Navy", value: "#262C3E" }
         ]
-      }
+      },
+      validation: Rule => Rule.required()
     },
     {
       name: 'imageGalleryLocation',

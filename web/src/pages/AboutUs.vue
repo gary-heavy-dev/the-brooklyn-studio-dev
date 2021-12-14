@@ -27,8 +27,8 @@ export default {
       }
     }
     introSection {
-      introLarge
-      introLinkText
+      introHeading
+      _rawIntroCopy
       introImagePrimary {
         alt
         asset {
@@ -47,7 +47,6 @@ export default {
           }
         }
       }
-      _rawIntroSmall
     }
     flexibleContent {
       ... on SanityCtaGallery {

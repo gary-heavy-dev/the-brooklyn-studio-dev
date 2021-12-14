@@ -1,17 +1,20 @@
 <template>
   <Layout>
-    <HomepageIntro :content="content.introSection" />
+    <Intro
+      :content="content.introSection"
+      :layout="'primary'"
+    />
     <FlexibleContent :content="content.flexibleContent" />
   </Layout>
 </template>
 
 <script>
-import HomepageIntro from '~/components/HomepageIntro'
+import Intro from '~/components/Intro'
 import FlexibleContent from '~/components/FlexibleContent'
 
 export default {
   components: {
-    HomepageIntro,
+    Intro,
     FlexibleContent
   },
   props: {

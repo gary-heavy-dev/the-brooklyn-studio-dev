@@ -31,7 +31,7 @@ export default {
     },
     {
       name: 'introSection',
-      type: 'introSection',
+      type: 'introSecondary',
       title: 'INTRO',
       options: { collapsible: true }
     },
