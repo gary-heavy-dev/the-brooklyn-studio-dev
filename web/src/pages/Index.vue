@@ -63,6 +63,17 @@ export default {
       ... on SanityCtaSimple {
         _type
         heading
+        largeText
+        _rawCopy
+        linkText
+        link
+        image {
+          asset {
+            url
+          }
+          alt
+        }
+        reverseMobile
       }
       ... on SanityFeaturedTeamMember {
         _type

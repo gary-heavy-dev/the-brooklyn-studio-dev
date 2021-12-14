@@ -1,6 +1,6 @@
 <template>
-  <section class="intro mb-lg">
-    <div class="intro-content--large two-up">
+  <section class="intro mb-lg flex fw">
+    <div class="intro-content-large w-100 two-up">
       <div class="copy">
         <div class="copy__inner flex ai-c background--gray-light">
           <div class="copy__content grid grid--6-desktop">
@@ -11,35 +11,31 @@
           </div>
         </div>
       </div>
-      <div class="image w-100 background--gray-light">
-        <BaseImage
-          v-if="content.introImagePrimary"
-          :lazy="true"
-          :src="content.introImagePrimary"
-          :x="960"
-          :y="849"
-        />
-      </div>
+      <BaseImage
+        v-if="content.introImagePrimary"
+        :lazy="true"
+        :src="content.introImagePrimary"
+        :x="960"
+        :y="849"
+      />
     </div>
-    <div class="intro-content--small two-up">
+    <div class="intro-content-small grid grid--12-desktop">
       <div class="copy">
         <div class="copy__inner h4">
           <BaseBlockContent :blocks="content._rawIntroSmall" />
-          <g-link to="https://google.com">A link!</g-link>
+          <g-link
+            to="https://google.com"
+            class="upper"
+          >A link!</g-link>
         </div>
       </div>
-      <div class="image">
-        <div class="image__inner grid grid--6-desktop">
-          <BaseImage
-            class="grid--span-5"
-            :lazy="true"
-            v-if="content.introImageSecondary"
-            :src="content.introImageSecondary"
-            :x="683"
-            :y="529"
-          />
-        </div>
-      </div>
+      <BaseImage
+        :lazy="true"
+        v-if="content.introImageSecondary"
+        :src="content.introImageSecondary"
+        :x="683"
+        :y="529"
+      />
     </div>
   </section>
 </template>
@@ -77,17 +73,9 @@ export default {
     padding-top: var(--margin--large);
     padding-bottom: var(--margin--large);
   }
-
-  .image {
-
-    @include hd-down {
-      display: inline-grid;
-      align-items: center;
-    }
-  }
 }
 
-.intro-content--large {
+.intro-content-large {
 
   .copy__inner {
     @include desktop {
@@ -105,47 +93,39 @@ export default {
     }
   }
 
-  .image {
+  .base-image {
     @include desktop-down {
       @include container--left;
+    }
+
+    @include desktop {
+      padding-left: calc(var(--grid-gap) / 2);
     }
   }
 }
 
-.intro-content--small {
+.intro-content-small {
 
   @include desktop {
-    flex-direction: row-reverse;
+    @include container;
   }
 
   .copy {
 
-    @include desktop-down {
-      @include container--left;
-    }
-
-    &__inner {
-
-      @include desktop {
-        @include container--right;
-      }
+    @include desktop {
+      grid-column: 7/13;
+      order: 2;
     }
   }
 
-  .image {
+  .base-image {
+
+    @include desktop {
+      grid-column: span 5;
+    }
 
     @include hd {
       margin-top: -2%;
-    }
-  }
-
-  .image__inner {
-    @include desktop-down {
-      @include container--right;
-    }
-
-    @include desktop {
-      @include container--left;
     }
   }
 }

@@ -1,37 +1,38 @@
 <template>
-  <section class="link-gallery w-100 two-up o-h">
-    <div class="link-gallery__copy flex ai-c">
-      <div class="link-gallery__copy-inner">
-        <h2
-          class="h2"
-          v-if="content.title"
-        >{{ content.title }}</h2>
-        <p v-if="content.intro">{{ content.intro }}</p>
-        <g-link
-          v-for="(link, index) in content.links"
-          :to="'/projects/#' + link.link.slug.current"
-          :key="index"
-          @mouseover.native="showMe(link.link.slug.current)"
-          @mouseleave.native="hideMe(link.link.slug.current)"
-        >{{ link.copy }}</g-link>
+  <section class="link-gallery flex w-100">
+    <div class="link-gallery__inner container grid grid--12-desktop">
+      <div class="link-gallery__copy flex ai-c">
+        <div class="link-gallery__copy-inner">
+          <h2
+            class="h2 upper"
+            v-if="content.title"
+          >{{ content.title }}</h2>
+          <p v-if="content.intro">{{ content.intro }}</p>
+          <g-link
+            v-for="(link, index) in content.links"
+            :to="'/projects/#' + link.link.slug.current"
+            :key="index"
+            @mouseover.native="showMe(link.link.slug.current)"
+            @mouseleave.native="hideMe(link.link.slug.current)"
+            class="upper"
+          >{{ link.copy }}</g-link>
+        </div>
       </div>
-    </div>
-    <div class="link-gallery__gallery">
-      <div class="link-gallery__gallery-inner grid grid--6-desktop">
-        <div class="link-gallery__gallery-images-wrapper">
+      <div class="link-gallery__gallery">
+        <div class="link-gallery__gallery-images-wrapper image-grid-ignore">
           <div
-            class="link-gallery__gallery-image"
+            class="link-gallery__gallery-image image-grid-ignore__inner"
             v-for="(link, index) in content.links"
             :key="index"
             :data-image="link.link.slug.current"
           >
             <BaseImage
               :src="link.link.heroImage"
-              :lazy="true"
             />
           </div>
         </div>
       </div>
+
     </div>
   </section>
 </template>
@@ -56,16 +57,11 @@ export default {
 
 <style lang="scss">
 .link-gallery {
-  display: flex;
   background-color: var(--color--gray-light);
   position: relative;
 
-  @include desktop-down {
-    flex-direction: column-reverse;
-  }
-
   &__copy {
-    background-color: var(--color--gray-light);
+    grid-column: span 6;
     position: relative;
     z-index: 10;
 
@@ -80,30 +76,20 @@ export default {
       @include desktop-down {
         @include container;
       }
-
-      @include desktop {
-        @include container--left;
-      }
     }
   }
 
   &__gallery {
 
-    &-inner {
-      @include container--right;
+    @include desktop {
+      grid-column: 8/13;
     }
 
     &-images-wrapper {
       padding-bottom: 151%;
-
-      @include desktop {
-        grid-column: 2/7;
-      }
     }
 
     &-image {
-      position: absolute;
-      height: 100%;
       opacity: 0;
       transition: opacity 0.2s linear;
 
@@ -113,11 +99,6 @@ export default {
 
       &.show-me {
         opacity: 1;
-      }
-
-      .base-image,
-      .base-image__inner {
-        height: 100%;
       }
     }
   }

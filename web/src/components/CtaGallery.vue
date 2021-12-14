@@ -1,42 +1,41 @@
 <template>
   <section
-    class="cta-gallery ai-c two-up o-h"
+    class="cta-gallery flex"
     :style="{ backgroundColor: content.bgColor.value }"
   >
-    <div class="cta-gallery__gallery-wrapper">
-      <div class="cta-gallery__gallery-inner text-center">
-        <swiper
-          class="cta-gallery__gallery"
-          :options="swiperOption"
-        >
-          <swiper-slide
-            v-for="(image, index) in content.gallery"
-            :key="index"
+    <div class="cta-gallery__inner grid grid--12-desktop">
+      <div class="cta-gallery__gallery-wrapper">
+        <div class="cta-gallery__gallery-inner text-center">
+          <swiper
+            class="cta-gallery__gallery"
+            :options="swiperOption"
           >
-            <BaseImage
-              v-if="image"
-              :src="image"
-              :x="390"
-              :y="496"
-            />
-          </swiper-slide>
-        </swiper>
-        <div class="swiper__pagination"></div>
+            <swiper-slide
+              v-for="(image, index) in content.gallery"
+              :key="index"
+            >
+              <BaseImage
+                v-if="image"
+                :src="image"
+                :x="390"
+                :y="496"
+              />
+            </swiper-slide>
+          </swiper>
+          <div class="swiper__pagination"></div>
+        </div>
       </div>
-    </div>
-    <div class="cta-gallery__copy-wrapper">
-      <div class="container--right grid grid--6-desktop">
-        <div class="cta-gallery__copy">
+      <div class="cta-gallery__copy flex ai-c">
+        <div class="cta-gallery__copy-inner">
           <h2
-            class="h2"
+            class="h2 upper"
             v-if="content.heading"
           >{{ content.heading }}</h2>
-          <p
-            v-if="content.copy"
-          >{{ content.copy }}</p>
+          <p v-if="content.copy">{{ content.copy }}</p>
           <g-link
             v-if="content.linkText"
             :to="content.link"
+            class="upper"
           >{{ content.linkText }}</g-link>
         </div>
       </div>
@@ -80,17 +79,26 @@ export default {
 .cta-gallery {
   width: 100%;
   max-width: 100%;
-  padding-bottom: var(--margin--large);
+
+  &__gallery-wrapper {
+    grid-column: span 6;
+  }
 
   @include desktop {
-    padding-top: var(--margin--large);
 
-    &__gallery-inner {
-      @include container--left;
+    &__inner {
+      @include container;
     }
 
     &__copy {
-      grid-column: 2/7;
+      grid-column: 8/13;
+    }
+  }
+
+  @include desktop-down {
+
+    &__copy {
+      @include container;
     }
   }
 }

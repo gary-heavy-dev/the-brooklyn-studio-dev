@@ -34,19 +34,19 @@ export default {
       title: 'Image',
       description: 'If no image is included the text and heading will be centered on desktop widths.'
     },
-    {
-      name: 'textLocation',
-      type: 'string',
-      title: 'Text Location',
-      description: 'Select which side you\'d like the text to appear on.',
-      options: {
-        list: [
-          {title: 'Right', value: 'right'},
-          {title: 'Left', value: 'left'}
-        ],
-        layout: 'radio'
-      }
-    },
+    // {
+    //   name: 'textLocation',
+    //   type: 'string',
+    //   title: 'Text Location',
+    //   description: 'Select which side you\'d like the text to appear on.',
+    //   options: {
+    //     list: [
+    //       {title: 'Right', value: 'right'},
+    //       {title: 'Left', value: 'left'}
+    //     ],
+    //     layout: 'radio'
+    //   }
+    // },
     {
       name: 'reverseMobile',
       type: 'boolean',

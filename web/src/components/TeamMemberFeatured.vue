@@ -1,16 +1,20 @@
 <template>
-  <section class="team-member-featured flex color--white background--navy o-h">
+  <section class="team-member-featured flex color--white background--navy w-100">
     <div class="team-member-featured__inner container grid grid--12-desktop">
       <div class="team-member-featured__copy flex ai-c">
         <div class="team-member-featured__copy-inner">
-          <h2 v-if="content.heading">{{ content.heading }}</h2>
+          <h2
+            v-if="content.heading"
+            class="upper"
+          >{{ content.heading }}</h2>
           <BaseBlockContent
             v-if="content._rawCopy"
             :blocks="content._rawCopy"
           />
           <g-link
+            class="upper"
             :to="'/team/' + featuredMember.slug.current"
-          >Meet {{ featuredMember.name }}<span v-if="featuredMember.title"> ,{{ featuredMember.title }}</span></g-link>
+          >Meet {{ featuredMember.name }}<span v-if="featuredMember.title">, {{ featuredMember.title }}</span></g-link>
         </div>
       </div>
       <BaseImage
@@ -54,6 +58,10 @@ export default {
 
     @include desktop {
       grid-column: span 8;
+    }
+
+    p {
+      max-width: var(--max-width--readable-lg);
     }
   }
 

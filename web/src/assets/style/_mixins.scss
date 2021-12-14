@@ -17,6 +17,7 @@
 
   @include laptop {
     padding-left: calc(var(--grid-gap) / 2);
+    padding-right: calc(var(--grid-gap) / 2);
   }
 }
 
@@ -26,5 +27,6 @@
 
   @include laptop {
     padding-right: calc(var(--grid-gap) / 2);
+    padding-left: calc(var(--grid-gap) / 2);
   }
 }
