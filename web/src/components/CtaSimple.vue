@@ -8,6 +8,7 @@
             class="upper"
           >{{ content.heading }}</h2>
           <BaseBlockContent
+            v-if="content._rawCopy"
             :blocks="content._rawCopy"
           />
           <g-link
