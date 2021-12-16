@@ -67,6 +67,20 @@ export default {
       type: 'boolean',
       title: 'Reverse Order On Mobile?',
       description: 'Content on the left of this layout will display below at mobile breakpoints. Check this box to reverse the order on mobile.'
+    },
+    {
+      name: 'paddingSize',
+      type: 'string',
+      title: 'Vertical Padding Size',
+      description: 'Select the size of the vertical padding.',
+      options: {
+        list: [
+          {title: '80 mobile / 100 desktop', value: '100'},
+          {title: '0 mobile / 0 desktop', value: '0'}
+        ],
+        layout: 'radio'
+      },
+      validation: Rule => Rule.required()
     }
   ]
 }

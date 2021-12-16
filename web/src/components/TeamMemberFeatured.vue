@@ -1,5 +1,5 @@
 <template>
-  <section class="team-member-featured flex color--white background--navy w-100">
+  <section class="team-member-featured flex color--white background--navy w-100 p-100">
     <div class="team-member-featured__inner container grid grid--12-desktop">
       <div class="team-member-featured__copy flex ai-c">
         <div class="team-member-featured__copy-inner">

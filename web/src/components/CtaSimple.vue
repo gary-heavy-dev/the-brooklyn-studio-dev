@@ -1,10 +1,10 @@
 <template>
   <section
-    :class="'cta-simple w-100 cta-simple--' + content.textLocation + ' background--' + content.bgColor.title"
+    :class="'cta-simple w-100 copy--' + content.textLocation + ' background--' + content.bgColor.title + ' image--' + content.imageStyle + ' p-' + content.paddingSize"
   >
     <div class="cta-simple__inner grid grid--12-desktop">
-      <div class="cta-simple__copy flex ai-c">
-        <div class="cta-simple__copy-inner mw-readable">
+      <div :class="'copy-wrapper flex ai-c col-span--' + copySpan">
+        <div class="copy-wrapper__inner mw-readable">
           <h2
             v-if="content.heading"
             class="upper"
@@ -20,13 +20,13 @@
           >{{ content.linkText }}</g-link>
         </div>
       </div>
-      <div class="cta-simple__image image-grid-ignore">
-        <div class="image-grid-ignore__inner">
-          <BaseImage
-            v-if="content.image"
-            :src="content.image"
-          />
-        </div>
+      <div class="grid-spacer col-span--1"></div>
+      <div :class="'image-wrapper col-span--' + content.imageWidth">
+        <BaseImage
+          v-if="content.image"
+          :src="content.image"
+          :lazy="true"
+        />
       </div>
     </div>
   </section>
@@ -38,12 +38,8 @@ export default {
     content: Object
   },
   computed: {
-    backColor() {
-      if(this.content.bgColor) {
-        return this.content.bgColor.value
-      } else {
-        return 'white'
-      }
+    copySpan() {
+      return 11 - this.content.imageWidth
     }
   }
 }
@@ -78,7 +74,6 @@ export default {
 
     @include desktop {
       grid-column: 6/13;
-      padding-bottom: 98%;
     }
   }
 
@@ -100,7 +95,6 @@ export default {
 
       @include desktop {
         grid-column: span 5;
-        padding-bottom: 132.25%;
       }
     }
 

@@ -37,7 +37,7 @@ body {
 // Make things larger, starting with "laptop" widths
 @include laptop {
 	body {
-    --grid-margin: 7.5vw;
+    --grid-margin: 8vw;
     --margin-h: 118px;
     --margin--large: 100px;
     --header-height: 78px;
@@ -45,11 +45,11 @@ body {
 }
 
 // Make things larger, starting with "desktop" widths
-@include hd {
-	body {
-    --grid-margin: 7.5vw;
-	}
-}
+// @include hd {
+// 	body {
+//     --grid-margin: 7.5vw;
+// 	}
+// }
 
 // Make things larger for 4k scenarios
 @include four-k {

@@ -20,7 +20,6 @@ function addStyleResource (rule) {
     .options({
       patterns: [
         path.resolve(__dirname, './src/assets/style/_breakpoints.scss'),
-        path.resolve(__dirname, './src/assets/style/_typography.scss'),
         path.resolve(__dirname, './src/assets/style/_mixins.scss')
       ],
     })

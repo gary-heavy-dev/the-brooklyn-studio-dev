@@ -1,6 +1,6 @@
 <template>
   <section
-    :class="'cta-gallery flex cta-gallery--' + content.imageGalleryLocation + ' background--' + content.bgColor.title"
+    :class="'cta-gallery flex cta-gallery--' + content.imageGalleryLocation + ' background--' + content.bgColor.title + ' p-' + content.paddingSize"
   >
     <div class="cta-gallery__inner grid grid--12-desktop">
       <div class="cta-gallery__gallery-wrapper">

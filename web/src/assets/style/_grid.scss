@@ -72,6 +72,33 @@
   }
 }
 
+.col-span {
+
+  &--1 {
+    grid-column: span 1;
+  }
+
+  &--2 {
+    grid-column: span 2;
+  }
+
+  &--4 {
+    grid-column: span 4;
+  }
+
+  &--5 {
+    grid-column: span 5;
+  }
+
+  &--6 {
+    grid-column: span 6;
+  }
+
+  &--7 {
+    grid-column: span 7;
+  }
+}
+
 .image-grid-ignore {
   // The full width element wrapping all of these needs to have 'position: relative;' applied to it.
 

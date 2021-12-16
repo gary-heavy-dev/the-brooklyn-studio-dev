@@ -70,6 +70,7 @@ export default {
           title
           value
         }
+        paddingSize
       }
       ... on SanityCtaSimple {
         _type
@@ -88,8 +89,11 @@ export default {
           title
           value
         }
+        imageStyle
+        imageWidth
         textLocation
         reverseMobile
+        paddingSize
       }
       ... on SanityFeaturedTeamMember {
         _type

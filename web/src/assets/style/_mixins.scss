@@ -1,32 +1,13 @@
 @mixin container {
   width: 100%;
-  padding-left: var(--grid-gap);
-  padding-right: var(--grid-gap);
   margin-left: var(--grid-margin);
   margin-right: var(--grid-margin);
-
-  @include laptop {
-    padding-left: calc(var(--grid-gap) / 2);
-    padding-right: calc(var(--grid-gap) / 2);
-  }
 }
 
 @mixin container--left {
-  padding-left: var(--grid-gap);
   margin-left: var(--grid-margin);
-
-  @include laptop {
-    padding-left: calc(var(--grid-gap) / 2);
-    padding-right: calc(var(--grid-gap) / 2);
-  }
 }
 
 @mixin container--right {
-  padding-right: var(--grid-gap);
   margin-right: var(--grid-margin);
-
-  @include laptop {
-    padding-right: calc(var(--grid-gap) / 2);
-    padding-left: calc(var(--grid-gap) / 2);
-  }
 }

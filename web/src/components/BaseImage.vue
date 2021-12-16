@@ -60,11 +60,13 @@ export default {
   width: 100%;
 
   &__inner {
+    display: flex;
     position: relative;
     background-repeat: no-repeat;
     background-size: cover;
 
     &.has-ratio {
+      display: block;
 
       img {
         position: absolute;
