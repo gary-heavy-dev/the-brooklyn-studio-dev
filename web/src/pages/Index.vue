@@ -17,23 +17,18 @@ export default {
   page: sanityHome(id: "542616c1-f362-4f33-b903-4f4add184641") {
     introSection {
       introLarge
+      introLink
       introLinkText
       introImagePrimary {
         alt
         asset {
           url
-          metadata {
-            lqip
-          }
         }
       }
       introImageSecondary {
         alt
         asset {
           url
-          metadata {
-            lqip
-          }
         }
       }
       _rawIntroSmall
@@ -48,15 +43,13 @@ export default {
         gallery {
           asset {
             url
-            metadata {
-              lqip
-            }
           }
           alt
         }
         imageGalleryLocation
         reverseMobile
         bgColor {
+          title
           value
         }
       }
@@ -73,6 +66,11 @@ export default {
           }
           alt
         }
+        bgColor {
+          title
+          value
+        }
+        textLocation
         reverseMobile
       }
       ... on SanityFeaturedTeamMember {

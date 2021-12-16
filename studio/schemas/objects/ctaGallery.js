@@ -41,10 +41,10 @@ export default {
           inner: "100%"
         },
         list: [
-          { title: "White", value: "white" },
-          { title: "Secondary Gray - Light", value: "#F8F7F7" },
-          { title: "Tertiary Gray - Light", value: "#CBD0CC" },
-          { title: "Navy", value: "#262C3E" }
+          { title: "white", value: "white" },
+          { title: "gray-light", value: "#F8F7F7" },
+          { title: "gray-tertiary-light", value: "#CBD0CC" },
+          { title: "navy", value: "#262C3E" }
         ]
       },
       validation: Rule => Rule.required()

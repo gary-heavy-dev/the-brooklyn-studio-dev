@@ -67,12 +67,29 @@ export default {
         imageGalleryLocation
         reverseMobile
         bgColor {
+          title
           value
         }
       }
       ... on SanityCtaSimple {
         _type
         heading
+        largeText
+        _rawCopy
+        linkText
+        link
+        image {
+          asset {
+            url
+          }
+          alt
+        }
+        bgColor {
+          title
+          value
+        }
+        textLocation
+        reverseMobile
       }
       ... on SanityFeaturedTeamMember {
         _type

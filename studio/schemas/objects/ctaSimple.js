@@ -34,19 +34,38 @@ export default {
       title: 'Image',
       description: 'If no image is included the text and heading will be centered on desktop widths.'
     },
-    // {
-    //   name: 'textLocation',
-    //   type: 'string',
-    //   title: 'Text Location',
-    //   description: 'Select which side you\'d like the text to appear on.',
-    //   options: {
-    //     list: [
-    //       {title: 'Right', value: 'right'},
-    //       {title: 'Left', value: 'left'}
-    //     ],
-    //     layout: 'radio'
-    //   }
-    // },
+    {
+      name: "bgColor",
+      type: "colorlist", // required
+      title: "Background Color",
+      options: {
+        borderradius: {
+          outer: "100%",
+          inner: "100%"
+        },
+        list: [
+          { title: "white", value: "white" },
+          { title: "gray-light", value: "#F8F7F7" },
+          { title: "gray-tertiary-light", value: "#CBD0CC" },
+          { title: "navy", value: "#262C3E" }
+        ]
+      },
+      validation: Rule => Rule.required()
+    },
+    {
+      name: 'textLocation',
+      type: 'string',
+      title: 'Text Location',
+      description: 'Select which side you\'d like the text to appear on.',
+      options: {
+        list: [
+          {title: 'Right', value: 'right'},
+          {title: 'Left', value: 'left'}
+        ],
+        layout: 'radio'
+      },
+      validation: Rule => Rule.required()
+    },
     {
       name: 'reverseMobile',
       type: 'boolean',

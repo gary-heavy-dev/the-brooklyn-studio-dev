@@ -8,8 +8,17 @@
     background-color: var(--color--gray-light);
   }
 
+  &--gray-tertiary {
+    background-color: var(--color--gray-tertiary);
+  }
+
+  &--gray-tertiary-light {
+    background-color: var(--color--gray-tertiary-light);
+  }
+
   &--navy {
     background-color: var(--color--navy);
+    color: var(--color--white);
   }
 }
 

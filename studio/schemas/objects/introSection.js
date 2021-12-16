@@ -17,6 +17,11 @@ export default {
       description: 'This is the smaller text that appears second in the Intro section.'
     },
     {
+      name: 'introLink',
+      type: 'string',
+      title: 'Intro Link'
+    },
+    {
       name: 'introLinkText',
       type: 'string',
       title: 'Intro Link Text',

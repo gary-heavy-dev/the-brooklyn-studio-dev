@@ -1,7 +1,6 @@
 <template>
   <section
-    class="cta-gallery flex"
-    :style="{ backgroundColor: backColor }"
+    :class="'cta-gallery flex cta-gallery--' + content.imageGalleryLocation + ' background--' + content.bgColor.title"
   >
     <div class="cta-gallery__inner grid grid--12-desktop">
       <div class="cta-gallery__gallery-wrapper">
@@ -71,15 +70,6 @@ export default {
         }
       }
     }
-  },
-  computed: {
-    backColor() {
-      if(this.content.bgColor) {
-        return this.content.bgColor.value
-      } else {
-        return 'white'
-      }
-    }
   }
 }
 </script>
@@ -108,6 +98,24 @@ export default {
 
     &__copy {
       @include container;
+    }
+  }
+
+  &--right {
+
+    .cta-gallery__gallery-wrapper {
+
+      @include desktop {
+        grid-column: 7/13;
+        order: 2;
+      }
+    }
+
+    .cta-gallery__copy {
+
+      @include desktop {
+        grid-column: span 5;
+      }
     }
   }
 }

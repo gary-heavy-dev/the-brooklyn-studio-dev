@@ -1,8 +1,10 @@
 <template>
-  <section class="cta-simple w-100">
+  <section
+    :class="'cta-simple w-100 cta-simple--' + content.textLocation + ' background--' + content.bgColor.title"
+  >
     <div class="cta-simple__inner grid grid--12-desktop">
       <div class="cta-simple__copy flex ai-c">
-        <div class="cta-simple__copy-inner">
+        <div class="cta-simple__copy-inner mw-readable">
           <h2
             v-if="content.heading"
             class="upper"
@@ -34,6 +36,15 @@
 export default {
   props: {
     content: Object
+  },
+  computed: {
+    backColor() {
+      if(this.content.bgColor) {
+        return this.content.bgColor.value
+      } else {
+        return 'white'
+      }
+    }
   }
 }
 </script>
@@ -41,7 +52,6 @@ export default {
 <style lang="scss">
 .cta-simple {
   display: flex;
-  background-color: white;
   position: relative;
 
   &__inner {
@@ -69,6 +79,37 @@ export default {
     @include desktop {
       grid-column: 6/13;
       padding-bottom: 98%;
+    }
+  }
+
+  &--right {
+
+    .image-grid-ignore {
+
+      @include desktop {
+
+        position: relative;
+
+        &__inner {
+          width: 100%;
+        }
+      }
+    }
+
+    .cta-simple__image {
+
+      @include desktop {
+        grid-column: span 5;
+        padding-bottom: 132.25%;
+      }
+    }
+
+    .cta-simple__copy {
+
+      @include desktop {
+        grid-column: 7/13;
+        order: 2;
+      }
     }
   }
 }

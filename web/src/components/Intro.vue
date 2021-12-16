@@ -4,7 +4,7 @@
       <div class="copy">
         <div class="copy__inner flex ai-c background--gray-light">
           <div class="copy__content grid">
-            <div class="copy__content-inner">
+            <div class="copy__content-inner mw-readable">
               <span 
                 v-if="content.introLarge"
                 class="h3"
@@ -42,9 +42,10 @@
             :blocks="content._rawIntroSmall"
           />
           <g-link
-            to="https://google.com"
+            v-if="content.introLink && content.introLinkText"
+            :to="content.introLink"
             class="upper"
-          >A link!</g-link>
+          >{{ content.introLinkText }}</g-link>
         </div>
       </div>
       <BaseImage
