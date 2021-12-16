@@ -5,7 +5,11 @@
     id="theHeader"
   >
     <div class="container w-100 flex jc-sb">
-      <g-link to="/">The Brooklyn Studio</g-link>
+      <g-link to="/" class="flex ai-c">
+        <LogoType
+          class="the-header__logo"
+        />
+      </g-link>
       <div class="the-header__menu">
         <g-link to="/about-us">About Us</g-link>
         <g-link to="/projects/">Projects</g-link>
@@ -15,7 +19,12 @@
 </template>
 
 <script>
+import LogoType from '~/components/LogoType'
+
 export default {
+  components: {
+    LogoType
+  },
   data() {
     return {
       limitPosition: 0,
@@ -64,10 +73,22 @@ export default {
   width: 100%;
   z-index: 999999999;
 
+  &__logo {
+    height: 17px;
+  }
+
   &__menu {
 
     a {
       margin-left: 63px;
+    }
+  }
+
+  a {
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
     }
   }
 
