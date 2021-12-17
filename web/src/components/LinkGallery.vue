@@ -19,17 +19,24 @@
         </div>
       </div>
       <div class="link-gallery__gallery">
-        <div class="link-gallery__gallery-images-wrapper image-grid-ignore">
-          <div
-            class="link-gallery__gallery-image image-grid-ignore__inner"
-            v-for="(link, index) in content.links"
-            :key="index"
-            :data-image="link.link.slug.current"
-          >
-            <BaseImage
-              :src="link.link.heroImage"
-            />
-          </div>
+        <div
+          class="link-gallery__gallery-image image-wrapper"
+          v-for="(link, index) in content.links"
+          :key="index"
+          :data-image="link.link.slug.current"
+        >
+          <BaseImage
+            v-if="link.image"
+            :src="link.image"
+            :x="608"
+            :y="810"
+          />
+          <BaseImage
+            v-else
+            :src="link.link.heroImage"
+            :x="608"
+            :y="810"
+          />
         </div>
       </div>
 
@@ -80,16 +87,18 @@ export default {
   }
 
   &__gallery {
+    position: relative;
 
     @include desktop {
+      overflow: hidden;
       grid-column: 8/13;
-    }
-
-    &-images-wrapper {
-      padding-bottom: 151%;
+      margin-right: calc(var(--grid-margin) * -1);
+      padding-bottom: 164%;
     }
 
     &-image {
+      position: absolute;
+      width: 100%;
       opacity: 0;
       transition: opacity 0.2s linear;
 

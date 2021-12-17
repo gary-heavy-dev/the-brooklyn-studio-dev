@@ -1,44 +1,54 @@
 <template>
-  <section :class="'intro mb-lg flex fw intro--' + layout">
-    <div class="intro-content-large w-100 flex">
-      <div class="copy">
-        <div class="copy__inner flex ai-c background--gray-light">
-          <div class="copy__content grid">
-            <div class="copy__content-inner mw-readable">
-              <span 
-                v-if="content.introLarge"
-                class="h3"
-              >{{ content.introLarge }}</span>
-              <h2
-                v-if="content.introHeading"
-                class="h2"
-              >{{ content.introHeading }}</h2>
-              <BaseBlockContent
-                v-if="content._rawIntroCopy"
-                :blocks="content._rawIntroCopy"
-              />
-            </div>
+  <section :class="'intro two-up intro--' + layout">
+    <div class="intro-column flex fd-c">
+      <div class="copy copy--background-stretch background--gray-light flex ai-c p-100">
+        <div class="copy__content grid grid--6-desktop container--left">
+          <div class="copy__content-inner mw-readable col-span--5">
+            <span 
+              v-if="content.introLarge"
+              class="h3"
+            >{{ content.introLarge }}</span>
+            <h2
+              v-if="content.introHeading"
+              class="h2"
+            >{{ content.introHeading }}</h2>
+            <BaseBlockContent
+              v-if="content._rawIntroCopy"
+              :blocks="content._rawIntroCopy"
+            />
           </div>
         </div>
       </div>
-      <div class="image">
-        <div class="image__inner container--right grid">
-          <div class="image-grid-ignore">
-            <div class="image-grid-ignore__inner">
-              <BaseImage
-                v-if="content.introImagePrimary"
-                :src="content.introImagePrimary"
-              />
-            </div>
+      <div class="intro-image intro-image--small flex fd-c">
+        <div class="grid grid--6-desktop container--left">
+          <div class="image-wrapper col-span--5 p-100">
+            <BaseImage
+              :lazy="true"
+              v-if="content.introImageSecondary"
+              :src="content.introImageSecondary"
+              :x="683"
+              :y="529"
+            />
           </div>
         </div>
       </div>
     </div>
-    <div class="intro-content-small grid grid--12-desktop">
-      <div class="copy">
-        <div class="copy__inner h4">
+    <div class="intro__column copy--left image--full">
+      <div class="intro-image intro-image--large grid grid--6-desktop container--right mb-100">
+        <div class="image-wrapper col-span--6">
+          <BaseImage
+            v-if="content.introImagePrimary"
+            :src="content.introImagePrimary"
+            :lazy="true"
+          />
+        </div>
+      </div>
+      <div
+        v-if="content._rawIntroSmall"
+        class="copy grid grid--6-desktop container--right"
+      >
+        <div class="copy__inner mb-100 h4 col-span--6">
           <BaseBlockContent
-            v-if="content._rawIntroSmall"
             :blocks="content._rawIntroSmall"
           />
           <g-link
@@ -48,13 +58,6 @@
           >{{ content.introLinkText }}</g-link>
         </div>
       </div>
-      <BaseImage
-        :lazy="true"
-        v-if="content.introImageSecondary"
-        :src="content.introImageSecondary"
-        :x="683"
-        :y="529"
-      />
     </div>
   </section>
 </template>
@@ -73,96 +76,14 @@ export default {
   background-color: white;
   position: relative;
 
-  &::before {
-
-    @include desktop-down {
-      content: '';
-      background-color: var(--color--gray-light);
-      position: absolute;
-      width: 100%;
-      height: calc(100% - 79px);
-    }
-  }
-
-  > * {
-    position: relative;
-    z-index: 1;
-  }
-
-  .copy__inner {
-    padding-top: var(--margin--large);
-    padding-bottom: var(--margin--large);
-  }
-
-  &--primary {
-
-    .intro-content-large {
-
-      .copy__content {
-
-        @include desktop {
-
-          &-inner {
-            grid-column: span 5;
-          }
-        }
-      }
-
-      .image {
-
-        .image-grid-ignore {
-          padding-bottom: 106%;
-        }
-      }
-    }
-  }
-
-  &--secondary {
-
-    .intro-content-large {
-
-      .copy__content {
-
-        @include desktop {
-
-          &-inner {
-            grid-column: span 6;
-          }
-        }
-      }
-
-      .image {
-
-        &__inner {
-          grid-template-columns: repeat(6, 1fr);
-        }
-
-        .image-grid-ignore {
-          padding-bottom: 186%;
-          grid-column: 2/7;
-        }
-      }
-    }
-  }
-}
-
-.intro-content-large {
-
   .copy {
 
-    @include desktop {
-      width: 50%;
-    }
-  }
+    &--background-stretch {
 
-  .copy__inner {
-
-    @include desktop {
       position: relative;
-      min-height: 80%;
 
       &::before {
-        content: '';
+        content: "";
         position: absolute;
         background-color: var(--color--gray-light);
         height: 100%;
@@ -172,52 +93,17 @@ export default {
     }
   }
 
-  .copy__content {
-    @include desktop-down {
-      @include container;
-    }
+  &--secondary {
 
-    @include desktop {
-      @include container--left;
-      grid-template-columns: repeat(6, 1fr);
-    }
-  }
+    .intro-image {
 
-  .image {
-    position: relative;
+      &--large,
+      &--small {
 
-    @include desktop-down {
-      @include container--left;
-    }
-
-    @include desktop {
-      width: 50%;
-    }
-  }
-}
-
-.intro-content-small {
-
-  @include desktop {
-    @include container;
-  }
-
-  .copy {
-
-    @include desktop {
-      grid-column: 7/13;
-      order: 2;
-    }
-  }
-
-  .base-image {
-
-    @include desktop {
-      grid-column: span 5;
-    }
-
-    @include hd {
-      margin-top: -3%;
+        .image-wrapper {
+          grid-column: 2/7;
+        }
+      }
     }
   }
 }

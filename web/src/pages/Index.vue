@@ -101,6 +101,13 @@ export default {
         intro
         links {
           copy
+          image {
+            asset {
+              url
+            }
+            alt
+            caption
+          }
           link {
             ... on SanityAdaptiveReuse {
               slug {

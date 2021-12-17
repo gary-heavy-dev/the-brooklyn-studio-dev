@@ -27,7 +27,7 @@ export default {
   },
   data() {
     return {
-      limitPosition: 0,
+      limitPosition: 78,
       scrolled: false,
       lastPosition: 0
     };

@@ -5,9 +5,13 @@
 }
 
 @mixin container--left {
+  max-width: 100%;
   margin-left: var(--grid-margin);
+  margin-right: calc(var(--grid-gap) / 2);
 }
 
 @mixin container--right {
+  max-width: 100%;
   margin-right: var(--grid-margin);
+  margin-left: calc(var(--grid-gap) / 2);
 }

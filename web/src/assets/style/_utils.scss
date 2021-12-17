@@ -57,6 +57,14 @@
   }
 }
 
+.mb-100 {
+  margin-bottom: 80px;
+
+  @include desktop {
+    margin-bottom: 100px;
+  }
+}
+
 .p-40 {
   padding-top: 25px;
   padding-bottom: 25px;
@@ -166,6 +174,10 @@
   flex-wrap: wrap;
 }
 
+.fd-c {
+  flex-direction: column;
+}
+
 .jc-sb {
   justify-content: space-between;
 }
@@ -224,6 +236,13 @@
         .image-wrapper {
           margin-right: calc(var(--grid-margin) * -1);
           grid-column-end: 13;
+        }
+
+        .grid--6-desktop {
+
+          .image-wrapper {
+            grid-column-end: 7;
+          }
         }
       }
     }
