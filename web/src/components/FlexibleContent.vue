@@ -13,6 +13,10 @@
         v-if="block._type === 'ctaGallery'"
         :content="block"
       />
+      <ScrollingGallery
+        v-if="block._type === 'scrollingGallery'"
+        :content="block"
+      />
       <CtaSimple
         v-if="block._type === 'ctaSimple'"
         :content="block"
@@ -43,6 +47,7 @@
 
 <script>
 import LinkGallery from '~/components/LinkGallery'
+import ScrollingGallery from '~/components/ScrollingGallery'
 import CtaGallery from '~/components/CtaGallery'
 import CtaSimple from '~/components/CtaSimple'
 import TeamMemberFeatured from '~/components/TeamMemberFeatured'
@@ -54,6 +59,7 @@ import FlexibleText from '~/components/FlexibleText'
 export default {
   components: {
     LinkGallery,
+    ScrollingGallery,
     CtaGallery,
     CtaSimple,
     TeamMemberFeatured,

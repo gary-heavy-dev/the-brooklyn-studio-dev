@@ -95,6 +95,21 @@ export default {
         reverseMobile
         paddingSize
       }
+      ... on SanityScrollingGallery {
+        _type
+        title
+        intro
+        sections {
+          heading
+          copy
+          image {
+            asset {
+              url
+            }
+            alt
+          }
+        }
+      }
       ... on SanityFeaturedTeamMember {
         _type
         heading

@@ -248,3 +248,22 @@
     }
   }
 }
+
+.layered-image-gallery {
+  position: relative;
+
+  &__image {
+    position: absolute;
+    width: 100%;
+    opacity: 0;
+    transition: opacity 0.2s linear;
+
+    &:first-child {
+      opacity: 1;
+    }
+  }
+}
+
+.show-me {
+  opacity: 1 !important;
+}

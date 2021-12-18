@@ -18,9 +18,9 @@
           >{{ link.copy }}</g-link>
         </div>
       </div>
-      <div class="link-gallery__gallery">
+      <div class="link-gallery__gallery layered-image-gallery">
         <div
-          class="link-gallery__gallery-image image-wrapper"
+          class="link-gallery__gallery-image layered-image-gallery__image image-wrapper"
           v-for="(link, index) in content.links"
           :key="index"
           :data-image="link.link.slug.current"
@@ -87,28 +87,12 @@ export default {
   }
 
   &__gallery {
-    position: relative;
 
     @include desktop {
       overflow: hidden;
       grid-column: 8/13;
       margin-right: calc(var(--grid-margin) * -1);
       padding-bottom: 164%;
-    }
-
-    &-image {
-      position: absolute;
-      width: 100%;
-      opacity: 0;
-      transition: opacity 0.2s linear;
-
-      &:first-child {
-        opacity: 1;
-      }
-
-      &.show-me {
-        opacity: 1;
-      }
     }
   }
 }

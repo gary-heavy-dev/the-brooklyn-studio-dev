@@ -13,6 +13,9 @@ import gImageMap from './utils/gImageMap'
 // Import lazyloading functionality
 import VueLazyload from 'vue-lazyload'
 
+// Import viewport checking functionality
+import checkView from 'vue-check-view'
+
 // The Client API can be used here. Learn more: gridsome.org/docs/client-api
 export default function(Vue, { router, head, isClient }) {
   // Set default layout as a global component
@@ -29,6 +32,9 @@ export default function(Vue, { router, head, isClient }) {
     // lazyCOmponent: true,
     observer: true
   })
+
+  // Add vue-check-view
+  Vue.use(checkView)
 
   // Delay the scroll-to-top behavior caused by Vue Router to eliminate nasty flash on page transitions
   // https://router.vuejs.org/guide/advanced/scroll-behavior.html#async-scrolling
