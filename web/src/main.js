@@ -14,6 +14,7 @@ import gImageMap from './utils/gImageMap'
 import VueLazyload from 'vue-lazyload'
 
 // Import viewport checking functionality
+// https://github.com/vtimofeev/vue-check-view
 import checkView from 'vue-check-view'
 
 // The Client API can be used here. Learn more: gridsome.org/docs/client-api

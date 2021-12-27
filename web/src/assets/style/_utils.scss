@@ -153,18 +153,6 @@
   width: 100%;
 }
 
-.frame {
-  position: relative;
-  overflow: hidden;
-}
-.frame::after {
-  content: "";
-  display: block;
-}
-.frame > * {
-  position: absolute;
-}
-
 // Flex Related Utils
 .flex {
   display: flex;

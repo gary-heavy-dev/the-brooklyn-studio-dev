@@ -1,18 +1,18 @@
 <template>
   <div :class="'flexible-image-pair container flex fw ai-c jc-sb mb-lg large-location--' + content.imageLargeLocation + ' reverse-mobile--' + content.reverseMobile">
-    <div class="flexible-image-pair__large-image frame">
+    <div class="flexible-image-pair__large-image">
       <BaseImage
-        v-if="content.image"
-        :src="content.image"
+        v-if="content.imageLarge"
+        :src="content.imageLarge"
         :lazy="true"
         :x="733"
         :y="992"
       />
     </div>
-    <div class="flexible-image-pair__small-image frame">
+    <div class="flexible-image-pair__small-image">
       <BaseImage
-        v-if="content.image"
-        :src="content.image"
+        v-if="content.imageSmall"
+        :src="content.imageSmall"
         :lazy="true"
         :x="733"
         :y="992"
