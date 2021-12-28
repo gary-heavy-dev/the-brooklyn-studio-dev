@@ -8,13 +8,22 @@
       :delete-instance-on-destroy="true"
       :cleanup-styles-on-destroy="true"
     >
-      <swiper-slide :data-hash="$static.res.slug.current">
+      <swiper-slide
+        :data-hash="$static.res.slug.current"
+        class="o-h"
+      >
         <WorkFeedSlide :content="$static.res" />
       </swiper-slide>
-      <swiper-slide :data-hash="$static.ad.slug.current">
+      <swiper-slide
+        :data-hash="$static.ad.slug.current"
+        class="o-h"
+      >
         <WorkFeedSlide :content="$static.ad" />
       </swiper-slide>
-      <swiper-slide :data-hash="$static.int.slug.current">
+      <swiper-slide
+        :data-hash="$static.int.slug.current"
+        class="o-h"
+      >
         <WorkFeedSlide :content="$static.int" />
       </swiper-slide>
       <div class="swiper-button-prev" slot="button-prev"></div>
@@ -52,7 +61,7 @@ export default {
           prevEl: '.swiper-button-prev',
         },
         hashNavigation: true,
-        slidesPerView: 1.1,
+        slidesPerView: 1.121,
         spaceBetween: 2,
         centeredSlides: true,
         loop: true,

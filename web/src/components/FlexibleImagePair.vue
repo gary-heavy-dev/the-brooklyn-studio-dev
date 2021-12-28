@@ -1,5 +1,5 @@
 <template>
-  <div :class="'flexible-image-pair container flex fw ai-c jc-sb mb-lg large-location--' + content.imageLargeLocation + ' reverse-mobile--' + content.reverseMobile">
+  <div :class="'flexible-image-pair grid grid--12-desktop container mb-lg ai-c large-location--' + content.imageLargeLocation + ' reverse-mobile--' + content.reverseMobile">
     <div class="flexible-image-pair__large-image">
       <BaseImage
         v-if="content.imageLarge"
@@ -9,6 +9,7 @@
         :y="992"
       />
     </div>
+    <div class="grid-spacer col-span--1"></div>
     <div class="flexible-image-pair__small-image">
       <BaseImage
         v-if="content.imageSmall"
@@ -33,11 +34,19 @@ export default {
 .flexible-image-pair {
 
   &__large-image {
-    flex-basis: 61%;
+    grid-column: span 4;
+
+    @include desktop {
+      grid-column: span 7;
+    }
   }
 
   &__small-image {
-    flex-basis: 32.25%;
+    grid-column: span 3;
+
+    @include desktop {
+      grid-column: span 4;
+    }
   }
 
   &.large-location {

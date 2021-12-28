@@ -38,7 +38,7 @@ export default {
 
 <style lang="scss">
 .work-feed-slide {
-  width: 90.85vw;
+  width: 89.1vw;
   height: fit-content;
   margin: 0 auto;
   position: relative;
@@ -52,12 +52,12 @@ export default {
   }
 
   &__title {
-    left: 4.75%;
+    left: 3.1%;
   }
 
   &__grid {
-    margin-left: 4.75%;
-    margin-right: 4.75%;
+    margin-left: 3.1%;
+    margin-right: 3.1%;
 
     // .grid {
     //   position: absolute;

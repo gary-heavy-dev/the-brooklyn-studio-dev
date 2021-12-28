@@ -83,12 +83,15 @@ export default {
       position: relative;
 
       &::before {
-        content: "";
-        position: absolute;
-        background-color: var(--color--gray-light);
-        height: 100%;
-        width: 100%;
-        transform: translateX(100%);
+
+        @include desktop {
+          content: "";
+          position: absolute;
+          background-color: var(--color--gray-light);
+          height: 100%;
+          width: 100%;
+          transform: translateX(100%);
+        }
       }
     }
   }

@@ -27,7 +27,7 @@ body {
   --content-width: 860px;
   --radius: 5px;
   --grid-gap: 20px; // do not change
-  --grid-margin: 0vw;
+  --grid-margin: 7vw;
   --max-width--content: 1239px;
   --max-width--readable: 600px;
   --max-width--readable-sm: 370px;
@@ -37,7 +37,7 @@ body {
 // Make things larger, starting with "laptop" widths
 @include laptop {
 	body {
-    --grid-margin: 8vw;
+    --grid-margin: 8.25vw;
     --margin-h: 118px;
     --margin--large: 100px;
     --header-height: 78px;
