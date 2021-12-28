@@ -13,6 +13,9 @@ import gImageMap from './utils/gImageMap'
 // Import lazyloading functionality
 import VueLazyload from 'vue-lazyload'
 
+// Import lazysizes functionality
+import 'lazysizes'
+
 // Import viewport checking functionality
 // https://github.com/vtimofeev/vue-check-view
 import checkView from 'vue-check-view'

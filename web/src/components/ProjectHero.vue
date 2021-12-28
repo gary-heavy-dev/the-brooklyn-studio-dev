@@ -15,6 +15,7 @@
     </div>
     <BaseImage
       v-if="image"
+      :lazy="true"
       :src="image"
     />
   </div>

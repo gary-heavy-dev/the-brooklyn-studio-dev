@@ -4,12 +4,26 @@
       :class="['base-image__inner', { 'has-ratio': ratio }]"
       :style="{ paddingBottom: aspectRatio + '%' }"
     >
-      <img
+      <!-- <img
         v-if="lazy && src.asset != null"
         v-lazy="srcString"
         :data-srcset="srcsetString"
         :alt="src.alt"
+      /> -->
+      <img
+        v-if="lazy && src.asset != null"
+        class="lazyload"
+        data-sizes="auto"
+        :data-srcset="srcsetString"
+        :alt="src.alt"
       />
+      <!-- <img
+        v-if="lazy && src.asset != null"
+        class="lazyload"
+        :sizes="sizesString"
+        :data-srcset="srcsetString"
+        :alt="src.alt"
+      /> -->
       <img
         v-else-if="src.asset != null"
         :srcset="srcsetString"
@@ -28,7 +42,8 @@ export default {
     src: Object,
     caption: String,
     x: Number,
-    y: Number
+    y: Number,
+    sizes: Object
   },
   data() {
     return {
@@ -49,7 +64,10 @@ export default {
       return String(this.$urlForImage(this.src, this.$static.metadata.sanityOptions))
     },
     srcsetString() {
-      return String(this.$gImageMap(this.src, this.$static.metadata.sanityOptions))
+      return String(this.$gImageMap(this.src, this.sizes, this.$static.metadata.sanityOptions).srcset)
+    },
+    sizesString() {
+      return String(this.$gImageMap(this.src, this.sizes, this.$static.metadata.sanityOptions).sizes)
     }
   }
 }
