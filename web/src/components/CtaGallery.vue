@@ -16,6 +16,8 @@
               <BaseImage
                 v-if="image"
                 :src="image"
+                :lazy="true"
+                :sizes="sizes"
                 :x="390"
                 :y="496"
               />
@@ -68,6 +70,14 @@ export default {
         autoplay: {
           delay: 6000
         }
+      },
+      sizes: {
+        mobile: 480,
+        tablet: 768,
+        laptop: 1024,
+        desktop: 591,
+        hd: 792,
+        fourK: 1584
       }
     }
   }

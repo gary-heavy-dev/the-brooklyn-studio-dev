@@ -31,7 +31,7 @@ export default {
         tablet: 741,
         laptop: 949,
         desktop: 591,
-        hd: 794,
+        hd: 792,
         fourK: 1584
       }
     }

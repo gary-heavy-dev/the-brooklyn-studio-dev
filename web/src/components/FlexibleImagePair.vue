@@ -37,7 +37,7 @@ export default {
         fourK: 1042
       },
       sizesLarge: {
-        mobile: 446,
+        mobile: 514,
         tablet: 714,
         laptop: 940,
         desktop: 693,
