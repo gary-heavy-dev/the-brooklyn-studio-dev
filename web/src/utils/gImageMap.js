@@ -21,9 +21,9 @@ const gImageMap = (source, sizes, data) => {
         urlForImage(source, data).width(s.tablet).auto('format').toString() + ' ' + s.tablet + 'w, ' +
         urlForImage(source, data).width(s.laptop).auto('format').toString() + ' ' + s.laptop + 'w, ' +
         urlForImage(source, data).width(s.desktop).auto('format').toString() + ' ' + s.desktop + 'w, ' +
+        // urlForImage(source, data).width(s.hd).auto('format').toString() + ' ' + s.hd + 'w'
         urlForImage(source, data).width(s.hd).auto('format').toString() + ' ' + s.hd + 'w, ' +
         urlForImage(source, data).width(s.fourK).auto('format').toString() + ' ' + s.fourK + 'w'
-        
 }
 
 export default gImageMap

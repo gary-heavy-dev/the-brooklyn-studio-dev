@@ -28,6 +28,7 @@
               :src="content.introImageSecondary"
               :x="683"
               :y="529"
+              :sizes="sizesSecondary"
             />
           </div>
         </div>
@@ -40,6 +41,7 @@
             v-if="content.introImagePrimary"
             :src="content.introImagePrimary"
             :lazy="true"
+            :sizes="layout === 'secondary' ? sizesPrimarySmaller : sizesPrimaryLarge"
           />
         </div>
       </div>
@@ -64,6 +66,34 @@
 
 <script>
 export default {
+  data() {
+    return {
+      sizesPrimaryLarge: {
+        mobile: 338,
+        tablet: 741,
+        laptop: 949,
+        desktop: 710,
+        hd: 950,
+        fourK: 1900
+      },
+      sizesPrimarySmaller: {
+        mobile: 338,
+        tablet: 768,
+        laptop: 1024,
+        desktop: 608,
+        hd: 815
+        // fourK: 1628
+      },
+      sizesSecondary: {
+        mobile: 338,
+        tablet: 741,
+        laptop: 949,
+        desktop: 490,
+        hd: 656,
+        fourK: 1312
+      }
+    }
+  },
   props: {
     content: Object,
     layout: String

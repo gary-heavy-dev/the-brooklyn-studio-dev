@@ -5,6 +5,7 @@
         v-if="content.image"
         :src="content.image"
         :lazy="true"
+        :sizes="content.imageLocation === 'center' ? sizesLandscape : sizesPortrait"
       />
     </div>
   </div>
@@ -12,6 +13,26 @@
 
 <script>
 export default {
+  data() {
+    return {
+      sizesLandscape: {
+        mobile: 480,
+        tablet: 768,
+        laptop: 1024,
+        desktop: 999,
+        hd: 1333,
+        fourK: 2666
+      },
+      sizesPortrait: {
+        mobile: 480,
+        tablet: 768,
+        laptop: 1024,
+        desktop: 897,
+        hd: 1198,
+        fourK: 2396
+      }
+    }
+  },
   props: {
     content: Object
   }
