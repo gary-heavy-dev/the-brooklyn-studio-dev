@@ -26,6 +26,7 @@
           v-if="content.image"
           :src="content.image"
           :lazy="true"
+          :sizes="sizes"
         />
       </div>
     </div>
@@ -84,46 +85,6 @@ export default {
           }
         }
       },
-      // containedMobile: {
-      //   mobile: 412,
-      //   tablet: 660,
-      //   laptop: 856
-      // },
-      // fullMobile: {
-      //   mobile: 480,
-      //   tablet: 768,
-      //   laptop: 1024
-      // },
-      // smallDesktop: {
-      //   desktop: 489,
-      //   hd: 656,
-      //   fourK: 1312,
-      // },
-      // smallFullDesktop: {
-      //   desktop: 608,
-      //   hd: 815,
-      //   fourK: 1630,
-      // },
-      // medDesktop: {
-      //   desktop: 591,
-      //   hd: 792,
-      //   fourK: 1584,
-      // },
-      // sizesMedFullDesktop: {
-      //   desktop: 710,
-      //   hd: 950,
-      //   fourK: 1900,
-      // },
-      // sizesLargeDesktop: {
-      //   desktop: 693,
-      //   hd: 927,
-      //   fourK: 1854,
-      // },
-      // sizesLargeFullDesktop: {
-      //   desktop: 812,
-      //   hd: 1085,
-      //   fourK: 2170,
-      // },
     }
   },
   props: {
@@ -135,7 +96,17 @@ export default {
     },
     sizes() {
       return {
-        ...(this.content.imageStyle == 'full' ? this.full.mobile : this.contained.mobile)
+        ...(this.content.imageStyle == 'full' && this.full.mobile),
+        ...(this.content.imageStyle == 'contained' && this.contained.mobile),
+
+        ...((this.content.imageStyle == 'full' && this.content.imageWidth == 5) && this.full.desktop.small),
+        ...((this.content.imageStyle == 'contained' && this.content.imageWidth == 5) && this.contained.desktop.small),
+
+        ...((this.content.imageStyle == 'full' && this.content.imageWidth == 6) && this.full.desktop.medium),
+        ...((this.content.imageStyle == 'contained' && this.content.imageWidth == 6) && this.contained.desktop.medium),
+
+        ...((this.content.imageStyle == 'full' && this.content.imageWidth == 7) && this.full.desktop.large),
+        ...((this.content.imageStyle == 'contained' && this.content.imageWidth == 7) && this.contained.desktop.large),
       }
     }
   }
