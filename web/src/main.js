@@ -15,6 +15,7 @@ import VueLazyload from 'vue-lazyload'
 
 // Import lazysizes functionality
 import 'lazysizes'
+import 'lazysizes/plugins/parent-fit/ls.parent-fit'
 
 // Import viewport checking functionality
 // https://github.com/vtimofeev/vue-check-view

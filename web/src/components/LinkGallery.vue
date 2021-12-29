@@ -28,14 +28,18 @@
           <BaseImage
             v-if="link.image"
             :src="link.image"
+            :lazy="true"
             :x="608"
             :y="810"
+            :sizes="sizes"
           />
           <BaseImage
             v-else
             :src="link.link.heroImage"
+            :lazy="true"
             :x="608"
             :y="810"
+            :sizes="sizes"
           />
         </div>
       </div>
@@ -46,6 +50,18 @@
 
 <script>
 export default {
+  data() {
+    return {
+      sizes: {
+        mobile: 338,
+        tablet: 768,
+        laptop: 1024,
+        desktop: 608,
+        hd: 815,
+        fourK: 1628
+      }
+    }
+  },
   props: {
     content: Object
   },

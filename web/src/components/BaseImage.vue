@@ -12,6 +12,14 @@
         :alt="src.alt"
       />
       <img
+        v-else-if="ratio"
+        :data-srcset="srcsetString"
+        :alt="src.alt"
+        class="lazyload"
+        data-sizes="auto"
+        data-parent-fit="contain"
+      />
+      <img
         v-else-if="src.asset != null"
         :srcset="srcsetString"
         :src="srcString"

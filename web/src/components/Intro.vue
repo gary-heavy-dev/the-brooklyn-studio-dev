@@ -81,8 +81,8 @@ export default {
         tablet: 768,
         laptop: 1024,
         desktop: 608,
-        hd: 815
-        // fourK: 1628
+        hd: 815,
+        fourK: 1628
       },
       sizesSecondary: {
         mobile: 338,
