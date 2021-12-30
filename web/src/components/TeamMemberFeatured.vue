@@ -20,6 +20,7 @@
       <BaseImage
         v-if="featuredMember.image"
         :src="featuredMember.image"
+        :lazy="true"
         :x="286"
         :y="375"
       />

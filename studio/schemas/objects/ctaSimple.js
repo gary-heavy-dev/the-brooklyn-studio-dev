@@ -32,7 +32,8 @@ export default {
       name: 'image',
       type: 'mainImage',
       title: 'Image',
-      description: 'If no image is included the text and heading will be centered on desktop widths.'
+      description: 'If no image is included the text and heading will be centered on desktop widths.',
+      description: 'Please upload an image 2170px wide. The height is up to you!'
     },
     {
       name: "bgColor",

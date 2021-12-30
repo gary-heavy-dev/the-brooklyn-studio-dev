@@ -35,6 +35,8 @@
           <BaseImage
             v-if="section.image"
             :src="section.image"
+            :lazy="true"
+            :sizes="sizes"
           />
         </div>
       </div>
@@ -46,6 +48,18 @@
 export default {
   props: {
     content: Object
+  },
+  data() {
+    return {
+      sizes: {
+        mobile: 480,
+        tablet: 768,
+        laptop: 1024,
+        desktop: 812,
+        hd: 1085,
+        fourK: 2170
+      }
+    }
   },
   methods: {
     showMeHideMe(e) {

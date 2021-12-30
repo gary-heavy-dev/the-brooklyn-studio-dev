@@ -27,6 +27,7 @@ export default {
       name: 'gallery',
       type: 'array',
       title: 'Image Gallery',
+      description: 'The ideal WxH for these image uploads is 1584px by 2015px',
       of: [
         { type: 'mainImage' }
       ]

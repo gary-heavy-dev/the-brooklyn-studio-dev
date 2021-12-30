@@ -58,7 +58,7 @@ export default {
         laptop: 1024,
         desktop: 608,
         hd: 815,
-        fourK: 1628
+        fourK: 1630
       }
     }
   },
