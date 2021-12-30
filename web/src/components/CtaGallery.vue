@@ -32,11 +32,14 @@
             class="h2 upper"
             v-if="content.heading"
           >{{ content.heading }}</h2>
-          <p v-if="content.copy">{{ content.copy }}</p>
+          <p
+            class="h5 h5--alt"
+            v-if="content.copy"
+          >{{ content.copy }}</p>
           <g-link
             v-if="content.linkText"
             :to="content.link"
-            class="upper"
+            class="upper button"
           >{{ content.linkText }}</g-link>
         </div>
       </div>

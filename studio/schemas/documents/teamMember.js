@@ -32,7 +32,8 @@ export default {
     {
       name: 'image',
       type: 'mainImage',
-      title: 'Headshot'
+      title: 'Headshot',
+      description: 'The ideal WxH for this image upload is 1042px by 1367px'
     },
     {
       name: 'questionnaire',

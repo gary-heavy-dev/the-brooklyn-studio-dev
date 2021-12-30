@@ -7,15 +7,16 @@
         <div class="copy-wrapper__inner mw-readable">
           <h2
             v-if="content.heading"
-            class="upper"
+            class="upper h2"
           >{{ content.heading }}</h2>
           <BaseBlockContent
+            class="h5 h5--alt"
             v-if="content._rawCopy"
             :blocks="content._rawCopy"
           />
           <g-link
             v-if="content.link"
-            class="upper"
+            class="upper button"
             :to="content.link"
           >{{ content.linkText }}</g-link>
         </div>

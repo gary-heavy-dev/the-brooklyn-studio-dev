@@ -5,14 +5,14 @@
         <div class="team-member-featured__copy-inner">
           <h2
             v-if="content.heading"
-            class="upper"
+            class="upper h2"
           >{{ content.heading }}</h2>
           <BaseBlockContent
             v-if="content._rawCopy"
             :blocks="content._rawCopy"
           />
           <g-link
-            class="upper"
+            class="upper button"
             :to="'/team/' + featuredMember.slug.current"
           >Meet {{ featuredMember.name }}<span v-if="featuredMember.title">, {{ featuredMember.title }}</span></g-link>
         </div>

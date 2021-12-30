@@ -7,14 +7,17 @@
             class="h2 upper"
             v-if="content.title"
           >{{ content.title }}</h2>
-          <p v-if="content.intro">{{ content.intro }}</p>
+          <p
+            class="h5 h5--alt"
+            v-if="content.intro"
+          >{{ content.intro }}</p>
           <g-link
             v-for="(link, index) in content.links"
             :to="'/projects/#' + link.link.slug.current"
             :key="index"
             @mouseover.native="showMe(link.link.slug.current)"
             @mouseleave.native="hideMe(link.link.slug.current)"
-            class="upper"
+            class="upper button"
           >{{ link.copy }}</g-link>
         </div>
       </div>

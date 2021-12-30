@@ -49,14 +49,15 @@
         v-if="content._rawIntroSmall"
         class="copy grid grid--6-desktop container--right"
       >
-        <div class="copy__inner mb-100 h4 col-span--6">
+        <div class="copy__inner mb-100 col-span--6">
           <BaseBlockContent
+            class="h5 h5--alt"
             :blocks="content._rawIntroSmall"
           />
           <g-link
             v-if="content.introLink && content.introLinkText"
             :to="content.introLink"
-            class="upper"
+            class="upper button"
           >{{ content.introLinkText }}</g-link>
         </div>
       </div>

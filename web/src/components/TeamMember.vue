@@ -3,8 +3,14 @@
     <div class="team-member__inner container grid grid--12-desktop pb-80">
       <div class="team-member__headshot">
         <div class="breadcrumbs pt-60 pb-40">
-          <g-link to="/about-us">About / </g-link>
-          <g-link to="/team">People / </g-link>
+          <g-link
+            class="color--gray-tertiary"
+            to="/about-us"
+          >About / </g-link>
+          <g-link
+            class="color--gray-tertiary"
+            to="/team"
+          >People / </g-link>
           <span v-if="content.name">{{ content.name }}</span>
         </div>
         <BaseImage
@@ -53,8 +59,8 @@ export default {
         tablet: 661,
         laptop: 855,
         desktop: 387,
-        hd: 517,
-        fourK: 1034
+        hd: 521,
+        fourK: 1042
       }
     }
   },
@@ -87,6 +93,13 @@ export default {
     @include desktop {
       grid-column: 6/13;
       padding-top: 110px;
+    }
+  }
+
+  .breadcrumbs {
+
+    a {
+      text-decoration: none;
     }
   }
 }

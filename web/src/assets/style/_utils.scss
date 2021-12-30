@@ -149,6 +149,14 @@
   }
 }
 
+.mb-80 {
+  margin-bottom: 80px;
+
+  @include desktop {
+    margin-bottom: 100px;
+  }
+}
+
 .mb-lg {
   margin-bottom: var(--margin--large);
 }
