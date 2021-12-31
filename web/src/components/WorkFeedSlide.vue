@@ -59,9 +59,12 @@ export default {
     margin-left: 3.1%;
     margin-right: 3.1%;
 
-    // .grid {
-    //   position: absolute;
-    // }
+    .grid {
+
+      @include laptop {
+        grid-gap: 36px;
+      }
+    }
   }
 }
 

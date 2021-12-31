@@ -63,6 +63,7 @@ export default {
 
     @include laptop {
       grid-template-columns: repeat(3, 1fr);
+      grid-gap: 36px;
     }
 
     @include desktop {
