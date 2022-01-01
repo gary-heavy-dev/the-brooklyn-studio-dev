@@ -61,7 +61,7 @@ export default {
         laptop: 1024,
         desktop: 608,
         hd: 815,
-        fourK: 1630
+        fourK: 1630 // by 2170 tall
       }
     }
   },

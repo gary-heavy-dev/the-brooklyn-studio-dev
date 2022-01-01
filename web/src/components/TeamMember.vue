@@ -60,7 +60,7 @@ export default {
         laptop: 855,
         desktop: 387,
         hd: 521,
-        fourK: 1042
+        fourK: 1042 // by 1366
       }
     }
   },

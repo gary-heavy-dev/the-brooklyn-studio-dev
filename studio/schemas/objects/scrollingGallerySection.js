@@ -17,7 +17,7 @@ export default {
       name: 'image',
       type: 'mainImage',
       title: 'Gallery Image',
-      description: 'The ideal WxH for this image upload is 2170px by 1956px'
+      description: 'The ideal WxH for this image upload is 2170px by 1956px.'
     }
   ]
 }

@@ -20,6 +20,7 @@
       <BaseImage
         v-if="featuredMember.image"
         :src="featuredMember.image"
+        :sizes="sizes"
         :lazy="true"
         :x="286"
         :y="375"
@@ -32,6 +33,18 @@
 export default {
   props: {
     content: Object
+  },
+  data() {
+    return {
+      sizes: {
+        mobile: 413,
+        tablet: 661,
+        laptop: 855,
+        desktop: 286,
+        hd: 386,
+        fourK: 772
+      }
+    }
   },
   computed: {
     featuredMember() {

@@ -16,6 +16,7 @@
             v-if="member.node.image"
             :src="member.node.image"
             :lazy="true"
+            :sizes="sizes"
             :x="286"
             :y="375"
           />
@@ -44,8 +45,8 @@ export default {
         tablet: 320,
         laptop: 272,
         desktop: 286,
-        hd: 386,
-        fourK: 772
+        hd: 374,
+        fourK: 708
       }
     }
   },

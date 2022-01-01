@@ -50,6 +50,7 @@ export default {
       name: 'image',
       title: 'PROJECT HERO IMAGE',
       type: 'mainImage',
+      description: 'Please upload an image 3840px wide and at least 1800px tall.',
       validation: Rule => Rule.required()
     },
     {

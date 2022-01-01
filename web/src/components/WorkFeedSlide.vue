@@ -3,16 +3,18 @@
     <div class="work-feed-slide__title mt-hh pos-abs z-1">
       <h1 class="h1 color--white">{{ content.title }}</h1>
     </div>
-    <div class="work-feed-slide__hero mb-lg h-60vh o-h">
+    <div class="work-feed-slide__hero mb-lg o-h">
       <BaseImage
         v-if="content.heroImage"
         :src="content.heroImage"
+        :lazy="true"
+        :sizes="sizes"
         :x="1284"
         :y="500"
       />
     </div>
     <div class="work-feed-slide__grid flex jc-c">
-      <div class="grid grid--3-desktop grid--2-laptop w-100">
+      <div class="grid w-100">
         <WorkFeedCard
           v-for="(project, index) in content.projects"
           :key="index"
@@ -29,6 +31,18 @@ import WorkFeedCard from '~/components/WorkFeedCard'
 export default {
   components: {
     WorkFeedCard
+  },
+  data() {
+    return {
+      sizes: {
+        mobile: 480,
+        tablet: 768,
+        laptop: 1024,
+        desktop: 1283,
+        hd: 1711,
+        fourK: 3422 // by 1332
+      }
+    }
   },
   props: {
     content: Object
@@ -60,6 +74,19 @@ export default {
     margin-right: 3.1%;
 
     .grid {
+      grid-template-columns: repeat(1, 1fr);
+
+      @include tablet {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      @include laptop {
+        grid-gap: 36px;
+      }
+
+      @include desktop {
+        grid-template-columns: repeat(3, 1fr);
+      }
 
       @include laptop {
         grid-gap: 36px;
