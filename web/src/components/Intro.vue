@@ -51,7 +51,7 @@
       >
         <div class="copy__inner mb-100 col-span--6">
           <BaseBlockContent
-            class="h5 h5--alt"
+            class="h5"
             :blocks="content._rawIntroSmall"
           />
           <g-link

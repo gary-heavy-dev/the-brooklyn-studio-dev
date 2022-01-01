@@ -8,6 +8,11 @@ import Homepage from '~/components/Homepage'
 export default {
   components: {
     Homepage
+  },
+  metaInfo: {
+    bodyAttrs: {
+      class: 'home'
+    }
   }
 }
 </script>
@@ -37,7 +42,7 @@ export default {
       ... on SanityCtaGallery {
         _type
         heading
-        copy
+        _rawCopy
         linkText
         link
         gallery {

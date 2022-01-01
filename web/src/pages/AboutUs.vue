@@ -52,7 +52,7 @@ export default {
       ... on SanityCtaGallery {
         _type
         heading
-        copy
+        _rawCopy
         linkText
         link
         gallery {

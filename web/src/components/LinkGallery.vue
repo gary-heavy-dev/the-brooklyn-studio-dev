@@ -8,7 +8,7 @@
             v-if="content.title"
           >{{ content.title }}</h2>
           <p
-            class="h5 h5--alt"
+            class="h5"
             v-if="content.intro"
           >{{ content.intro }}</p>
           <g-link

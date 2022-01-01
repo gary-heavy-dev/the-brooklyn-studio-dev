@@ -1,7 +1,12 @@
 <template>
   <div class="team-member-questionnaire">
-    <h3 class="h5">The Proust Questionnaire</h3>
-    <div class="team-member-questionnaire__intro mb-60">Taking inspiration from a popular nineteenth-century parlor game, we sat down with each member of our team and asked them a few questions about their inspirations and aspirations.</div>
+    <div class="team-member-questionnaire__intro">
+      <div class="background--gray-light pt-80 pb-20">
+        <h3 class="h5">The Proust Questionnaire</h3>
+        <div>Taking inspiration from a popular nineteenth-century parlor game, we sat down with each member of our team and asked them a few questions about their inspirations and aspirations.</div>
+      </div>
+      <div class="fade pb-40 w-100"></div>
+    </div>
     <div
       v-if="content.perfectHappiness"
       class="mb-40"
@@ -124,3 +129,14 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+
+.team-member-questionnaire {
+
+  &__intro {
+    position: sticky;
+    top: 0px;
+  }
+}
+</style>

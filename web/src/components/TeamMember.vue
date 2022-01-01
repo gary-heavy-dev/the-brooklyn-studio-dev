@@ -32,7 +32,6 @@
           class="team-member__title"
         >{{ content.title }}</div>
         <BaseBlockContent
-          class="mb-80"
           v-if="content._rawBio"
           :blocks="content._rawBio"
         />

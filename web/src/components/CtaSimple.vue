@@ -9,8 +9,11 @@
             v-if="content.heading"
             class="upper h2"
           >{{ content.heading }}</h2>
+          <p
+            v-if="content.largeText"
+            class="h5 cta-simple__large-copy"
+          >{{ content.largeText }}</p>
           <BaseBlockContent
-            class="h5 h5--alt"
             v-if="content._rawCopy"
             :blocks="content._rawCopy"
           />
@@ -126,24 +129,16 @@ export default {
     }
   }
 
-  &__copy,
   &__image {
     grid-column: span 4;
-  }
-
-  &__copy {
-
-    @include desktop-down {
-      @include container;
-      order: 2;
-    }
-  }
-
-  &__image {
 
     @include desktop {
       grid-column: 6/13;
     }
+  }
+
+  &__large-copy {
+    max-width: 400px;
   }
 
   &--right {
@@ -164,14 +159,6 @@ export default {
 
       @include desktop {
         grid-column: span 5;
-      }
-    }
-
-    .cta-simple__copy {
-
-      @include desktop {
-        grid-column: 7/13;
-        order: 2;
       }
     }
   }

@@ -32,10 +32,10 @@
             class="h2 upper"
             v-if="content.heading"
           >{{ content.heading }}</h2>
-          <p
-            class="h5 h5--alt"
-            v-if="content.copy"
-          >{{ content.copy }}</p>
+          <BaseBlockContent
+            v-if="content._rawCopy"
+            :blocks="content._rawCopy"
+          />
           <g-link
             v-if="content.linkText"
             :to="content.link"
@@ -131,5 +131,10 @@ export default {
       }
     }
   }
+}
+.home .cta-gallery__copy p {
+  font-size: var(--h5-font-size);
+  line-height: var(--h5-line-height);
+  font-weight: 500;
 }
 </style>
