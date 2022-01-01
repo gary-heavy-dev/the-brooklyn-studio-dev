@@ -32,9 +32,9 @@ export default {
         mobile: 338,
         tablet: 544,
         laptop: 721,
-        desktop: 388,
-        hd: 627,
-        fourK: 1042
+        desktop: 387,
+        hd: 521,
+        fourK: 1042 // by 1410 tall
       },
       sizesLarge: {
         mobile: 514,
@@ -42,7 +42,7 @@ export default {
         laptop: 940,
         desktop: 693,
         hd: 927,
-        fourK: 1854
+        fourK: 1854 // by 2508 tall
       }
     }
   },

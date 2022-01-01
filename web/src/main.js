@@ -10,9 +10,6 @@ import urlForImage from './utils/urlForImage'
 // Import custom g-image srcset mapper
 import gImageMap from './utils/gImageMap'
 
-// Import lazyloading functionality
-import VueLazyload from 'vue-lazyload'
-
 // Import lazysizes functionality
 import 'lazysizes'
 import 'lazysizes/plugins/parent-fit/ls.parent-fit'
@@ -31,12 +28,6 @@ export default function(Vue, { router, head, isClient }) {
 
   // Inject global g-image srcset builder
   Vue.prototype.$gImageMap = gImageMap
-
-  // Add VueLazyload options
-  Vue.use(VueLazyload, {
-    // lazyCOmponent: true,
-    observer: true
-  })
 
   // Add vue-check-view
   Vue.use(checkView)

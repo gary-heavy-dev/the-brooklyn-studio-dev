@@ -7,12 +7,14 @@ export default {
       name: 'imageLarge',
       type: 'mainImage',
       title: 'Large Image',
+      description: 'The ideal WxH for this image upload is 1854px by 2508px',
       validation: Rule => Rule.required()
     },
     {
       name: 'imageSmall',
       type: 'mainImage',
       title: 'Small Image',
+      description: 'The ideal WxH for this image upload is 1042px by 1420px',
       validation: Rule => Rule.required()
     },
     {
