@@ -31,13 +31,13 @@ export default {
       name: 'introImagePrimary',
       type: 'mainImage',
       title: 'Intro Image (Primary)',
-      description: 'This is the large image that appears to the right of the intro text on desktop.'
+      description: 'This is the large image that appears to the right of the intro text on desktop. Please upload an image 1900px wide. The height is up to you, but 1682px is recommended.'
     },
     {
       name: 'introImageSecondary',
       type: 'mainImage',
       title: 'Intro Image (Secondary)',
-      description: 'This is the smaller image that appears below the intro section link.'
+      description: 'This is the smaller image that appears below the intro section link. The ideal WxH for this image upload is 1312px by 874px.'
     }
   ]
 }

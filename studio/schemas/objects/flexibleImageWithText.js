@@ -13,6 +13,7 @@ export default {
       name: 'image',
       type: 'mainImage',
       title: 'Image',
+      description: 'Please upload an image 1854px wide for landscape images and 1584px for portrait images. The height of these images is up to you!',
       validation: Rule => Rule.required()
     },
     {

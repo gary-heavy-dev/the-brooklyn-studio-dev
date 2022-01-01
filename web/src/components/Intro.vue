@@ -75,7 +75,7 @@ export default {
         laptop: 949,
         desktop: 710,
         hd: 950,
-        fourK: 1900
+        fourK: 1900 // by 1682 tall
       },
       sizesPrimarySmaller: {
         mobile: 338,
@@ -91,7 +91,7 @@ export default {
         laptop: 949,
         desktop: 490,
         hd: 656,
-        fourK: 1312
+        fourK: 1312 // by 874 tall
       }
     }
   },
