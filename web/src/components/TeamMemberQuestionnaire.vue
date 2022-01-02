@@ -1,8 +1,8 @@
 <template>
-  <div class="team-member-questionnaire">
+  <div class="team-member-questionnaire color--gray-tertiary">
     <div class="team-member-questionnaire__intro">
       <div class="background--gray-light pt-80 pb-20">
-        <h3 class="h5">The Proust Questionnaire</h3>
+        <h3 class="h5 color--navy">The Proust Questionnaire</h3>
         <div>Taking inspiration from a popular nineteenth-century parlor game, we sat down with each member of our team and asked them a few questions about their inspirations and aspirations.</div>
       </div>
       <div class="fade pb-40 w-100"></div>

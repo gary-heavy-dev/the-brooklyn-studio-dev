@@ -11,14 +11,16 @@
             class="h5"
             v-if="content.intro"
           >{{ content.intro }}</p>
-          <g-link
-            v-for="(link, index) in content.links"
-            :to="'/projects/#' + link.link.slug.current"
-            :key="index"
-            @mouseover.native="showMe(link.link.slug.current)"
-            @mouseleave.native="hideMe(link.link.slug.current)"
-            class="upper button"
-          >{{ link.copy }}</g-link>
+          <div class="link-gallery__links">
+            <g-link
+              v-for="(link, index) in content.links"
+              :to="'/projects/#' + link.link.slug.current"
+              :key="index"
+              @mouseover.native="showMe(link.link.slug.current)"
+              @mouseleave.native="hideMe(link.link.slug.current)"
+              class="upper button"
+            >{{ link.copy }}</g-link>
+          </div>
         </div>
       </div>
       <div class="link-gallery__gallery layered-image-gallery">
@@ -75,7 +77,7 @@ export default {
     },
     hideMe(me) {
       const currentHide = document.querySelector(`div[data-image="${me}"]`)
-      currentHide.classList.remove('show-me')
+      setTimeout(() => { currentHide.classList.remove('show-me') }, 150)
     }
   }
 }
@@ -92,9 +94,11 @@ export default {
     z-index: 10;
 
     a {
-      display: block;
-      padding-top: 15px;
-      padding-bottom: 15px;
+      padding-top: 32px;
+
+      &:first-child {
+        padding-top: 26px;
+      }
     }
 
     &-inner {

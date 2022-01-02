@@ -12,7 +12,7 @@
             :blocks="content._rawCopy"
           />
           <g-link
-            class="upper button"
+            class="upper button color--white"
             :to="'/team/' + featuredMember.slug.current"
           >Meet {{ featuredMember.name }}<span v-if="featuredMember.title">, {{ featuredMember.title }}</span></g-link>
         </div>

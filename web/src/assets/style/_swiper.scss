@@ -43,6 +43,7 @@
     background-color: var(--color--gray-tertiary);
     width: 14px;
     height: 14px;
+    transition: all 0.2s ease-in-out;
 
     @include desktop {
       width: 20px;
@@ -50,7 +51,8 @@
       margin: 0 7.5px;
     }
 
-    &-active {
+    &-active,
+    &:hover {
       opacity: 1;
     }
   }

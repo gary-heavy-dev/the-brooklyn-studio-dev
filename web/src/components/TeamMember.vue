@@ -25,11 +25,11 @@
       <div class="team-member__copy mw-readable">
         <h1
           v-if="content.name"
-          class="h3"
+          class="h3 h3--alt color--navy"
         >{{ content.name }}</h1>
         <div
           v-if="content.title"
-          class="team-member__title"
+          class="team-member__title mb-40 upper color--gray-tertiary"
         >{{ content.title }}</div>
         <BaseBlockContent
           v-if="content._rawBio"
