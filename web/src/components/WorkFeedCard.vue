@@ -1,7 +1,7 @@
 <template>
   <g-link
     :to="'/projects/' + project.slug.current"
-    class="work-feed__card mb-lg"
+    class="work-feed-card mb-100 color--gray-tertiary"
   >
     <BaseImage
       v-if="project.image"
@@ -10,6 +10,7 @@
       :sizes="sizes"
       :x="378"
       :y="302"
+      class="mb-30"
     />
     <h3>{{ project.title }}</h3>
   </g-link>
@@ -36,4 +37,7 @@ export default {
 </script>
 
 <style lang="scss">
+.work-feed-card {
+  text-decoration: none;
+}
 </style>

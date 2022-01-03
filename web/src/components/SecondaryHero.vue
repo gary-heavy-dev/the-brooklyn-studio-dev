@@ -1,5 +1,5 @@
 <template>
-  <div class="secondary-hero pos-rel o-h mb-lg">
+  <div class="secondary-hero pos-rel o-h mb-100 overlay">
     <div class="secondary-hero__title mt-hh pos-abs z-1 w-100 flex jc-c">
       <h1
         v-if="title"

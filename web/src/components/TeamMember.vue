@@ -2,16 +2,20 @@
   <div class="team-member flex fw background--gray-light">
     <div class="team-member__inner container grid grid--12-desktop pb-80">
       <div class="team-member__headshot">
-        <div class="breadcrumbs pt-60 pb-40">
+        <div class="breadcrumbs pt-60 pb-40 upper sub color--gray-tertiary">
           <g-link
-            class="color--gray-tertiary"
             to="/about-us"
-          >About / </g-link>
+          >
+            <span>About</span>
+          </g-link>
           <g-link
-            class="color--gray-tertiary"
-            to="/team"
-          >People / </g-link>
-          <span v-if="content.name">{{ content.name }}</span>
+            to="/about-us/team"
+          >
+            <span>People</span>
+          </g-link>
+          <span
+            v-if="content.name"
+          >{{ content.name }}</span>
         </div>
         <BaseImage
           v-if="content.image"
@@ -29,10 +33,11 @@
         >{{ content.name }}</h1>
         <div
           v-if="content.title"
-          class="team-member__title mb-40 upper color--gray-tertiary"
+          class="team-member__title mb-40 sub--lg upper color--gray-tertiary"
         >{{ content.title }}</div>
         <BaseBlockContent
           v-if="content._rawBio"
+          class="small"
           :blocks="content._rawBio"
         />
         <TeamMemberQuestionnaire
@@ -81,7 +86,7 @@ export default {
 
     @include desktop {
       position: sticky;
-      top: 35px;
+      top: 25px;
       grid-column: span 4;
       height: fit-content;
     }
@@ -99,6 +104,21 @@ export default {
 
     a {
       text-decoration: none;
+
+      &:after {
+        content: "/";
+        padding: 0 9px;
+      }
+
+      span,
+      &:after {
+        transition: opacity 0.2s ease-in-out;
+        opacity: 0.7;
+      }
+
+      span:hover {
+        opacity: 1;
+      }
     }
   }
 }

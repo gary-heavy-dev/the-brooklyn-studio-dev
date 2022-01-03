@@ -1,5 +1,5 @@
 <template>
-  <div :class="'flexible-image-pair grid grid--12-desktop container mb-lg ai-c large-location--' + content.imageLargeLocation + ' reverse-mobile--' + content.reverseMobile">
+  <div :class="'flexible-image-pair grid grid--12-desktop container mb-100 ai-c large-location--' + content.imageLargeLocation + ' reverse-mobile--' + content.reverseMobile">
     <div class="flexible-image-pair__large-image">
       <BaseImage
         v-if="content.imageLarge"

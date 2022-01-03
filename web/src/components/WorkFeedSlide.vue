@@ -1,9 +1,9 @@
 <template>
   <div class="work-feed-slide">
-    <div class="work-feed-slide__title mt-hh pos-abs z-1">
+    <div class="work-feed-slide__title pt-60 pos-abs z-1">
       <h1 class="h1 color--white">{{ content.title }}</h1>
     </div>
-    <div class="work-feed-slide__hero mb-lg o-h">
+    <div class="work-feed-slide__hero overlay mb-100 o-h">
       <BaseImage
         v-if="content.heroImage"
         :src="content.heroImage"
@@ -69,6 +69,10 @@ export default {
     left: 3.1%;
   }
 
+  &__hero {
+    position: relative;
+  }
+
   &__grid {
     margin-left: 3.1%;
     margin-right: 3.1%;
@@ -81,15 +85,11 @@ export default {
       }
 
       @include laptop {
-        grid-gap: 36px;
+        grid-gap: 0 36px;
       }
 
       @include desktop {
         grid-template-columns: repeat(3, 1fr);
-      }
-
-      @include laptop {
-        grid-gap: 36px;
       }
     }
   }

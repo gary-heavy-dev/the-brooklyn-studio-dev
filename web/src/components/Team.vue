@@ -10,10 +10,11 @@
           v-for="(member, index) in $static.team.edges"
           :key="index"
           class="team-feed__card"
-          :to="'/team/' + member.node.slug.current"
+          :to="'/about-us/team/' + member.node.slug.current"
         >
           <BaseImage
             v-if="member.node.image"
+            class="mb-30"
             :src="member.node.image"
             :lazy="true"
             :sizes="sizes"
@@ -22,9 +23,12 @@
           />
           <h3
             v-if="member.node.name"
-            class="h4"
+            class="color--navy"
           >{{ member.node.name }}</h3>
-          <span v-if="member.node.title">{{ member.node.title }}</span>
+          <span
+            v-if="member.node.title"
+            class="color--gray-tertiary sub upper"
+          >{{ member.node.title }}</span>
         </g-link>
       </div>
     </div>
@@ -61,10 +65,11 @@ export default {
 
   &__grid {
     grid-template-columns: repeat(2, 1fr);
+    grid-gap: 0 20px;
 
     @include laptop {
       grid-template-columns: repeat(3, 1fr);
-      grid-gap: 36px;
+      grid-gap: 0 36px;
     }
 
     @include desktop {

@@ -30,50 +30,15 @@ export default {
 .fade-leave-active {
   transition: all .25s;
 }
+
 .fade-enter,
 .fade-leave-to {
   opacity: 0;
 }
-.slide-right-enter-active,
-.slide-right-leave-active,
-.slide-left-enter-active,
-.slide-left-leave-active {
-  transition: all 1s ease-in-out;
-}
-.slide-right-enter-to {
-  position: absolute;
-  right: 0;
-}
-.slide-left-enter-to {
-  position: absolute;
-  left: 0;
-}
-.slide-right-enter {
-  position: absolute;
-  right: -100%;
-}
-.slide-left-enter {
-  position: absolute;
-  left: -100%;
-}
-.slide-right-leave-to {
-  position: absolute;
-  left: -100%;
-}
-.slide-left-leave-to {
-  position: absolute;
-  right: -100%;
-}
-.slide-right-leave {
-  position: absolute;
-  left: 0;
-}
-.slide-left-leave {
-  position: absolute;
-  right: 0;
-}
+
 main.main {
   padding-top: var(--header-height);
+  background-color: var(--color--white);
 
   > div {
     min-height: 100vh;

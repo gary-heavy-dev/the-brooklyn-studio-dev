@@ -1,5 +1,5 @@
 <template>
-  <div :class="'flexible-image container mb-lg grid grid--12-desktop flexible-image--' + content.imageLocation">
+  <div :class="'flexible-image container mb-100 grid grid--12-desktop flexible-image--' + content.imageLocation">
     <div class="flexible-image__inner">
       <BaseImage
         v-if="content.image"

@@ -1,5 +1,5 @@
 <template>
-  <div class="flexible-text container flex jc-c mb-lg">
+  <div class="flexible-text container flex jc-c mb-100">
     <div class="flexible-text__inner text-center mw-readable--large">{{ content.text }}</div>
   </div>
 </template>

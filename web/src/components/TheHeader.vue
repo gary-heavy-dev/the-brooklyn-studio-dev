@@ -10,8 +10,8 @@
           class="the-header__logo"
         />
       </g-link>
-      <div class="the-header__menu">
-        <g-link to="/about-us">About Us</g-link>
+      <div class="the-header__menu color--gray-tertiary">
+        <g-link to="/about-us">About</g-link>
         <g-link to="/projects/">Projects</g-link>
       </div>
     </div>
@@ -86,6 +86,10 @@ export default {
 
   a {
     text-decoration: none;
+
+    &.active {
+      color: var(--color--navy);
+    }
 
     &:hover {
       text-decoration: underline;
