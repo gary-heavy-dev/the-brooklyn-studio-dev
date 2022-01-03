@@ -17,7 +17,7 @@
         />
       </div>
     </div>
-    <div class="container grid grid--12-desktop xxsmall">
+    <div class="container grid grid--12-desktop w-100 xxsmall">
       <div class="the-footer__credits">© 2021 The Brooklyn Studio of Architecture and Interiors | Privacy Policy</div>
     </div>
   </footer>

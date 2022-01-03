@@ -10,6 +10,7 @@ import adaptiveReuse from './documents/adaptiveReuse'
 import careers from './documents/careers'
 import careersPost from './documents/careersPost'
 import category from './documents/category'
+import contact from './documents/contact'
 import home from './documents/home'
 import interiorDesign from './documents/interiorDesign'
 import news from './documents/news'
@@ -34,6 +35,7 @@ import flexibleImage from './objects/flexibleImage'
 import flexibleImagePair from './objects/flexibleImagePair'
 import flexibleImageWithText from './objects/flexibleImageWithText'
 import flexibleText from './objects/flexibleText'
+import headingPortablePair from './objects/headingPortablePair'
 import headingTextPair from './objects/headingTextPair'
 import heroHome from './objects/heroHome'
 import heroSecondary from './objects/heroSecondary'
@@ -65,6 +67,7 @@ export default createSchema({
     careers,
     careersPost,
     category,
+    contact,
     ctaComplex,
     ctaGallery,
     ctaSimple,
@@ -75,6 +78,7 @@ export default createSchema({
     flexibleImagePair,
     flexibleImageWithText,
     flexibleText,
+    headingPortablePair,
     headingTextPair,
     heroHome,
     heroSecondary,

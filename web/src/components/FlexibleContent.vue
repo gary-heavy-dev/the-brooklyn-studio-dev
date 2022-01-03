@@ -1,7 +1,7 @@
 <template>
   <div class="flexible-content">
     <div
-      class="flexible-content__item flex jc-c"
+      class="flexible-content__item flex w-100 jc-c"
       v-for="(block, index) in content"
       :key="index"
     >

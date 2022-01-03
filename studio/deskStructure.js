@@ -1,10 +1,10 @@
 import S from '@sanity/desk-tool/structure-builder'
-import { MdSettings, MdPerson, MdPeopleAlt, MdHome, MdFingerprint, MdArchitecture, MdWork, MdEmail, MdConstruction, MdCategory } from 'react-icons/md'
+import { MdSettings, MdPerson, MdMessage, MdPeopleAlt, MdHome, MdFingerprint, MdArchitecture, MdWork, MdEmail, MdConstruction, MdCategory } from 'react-icons/md'
 import { FaRecycle, FaNewspaper } from 'react-icons/fa'
 import { AiFillFormatPainter } from 'react-icons/ai'
 
 const hiddenDocTypes = listItem =>
-  !['about', 'adaptiveReuse', 'careers', 'careersPost', 'category', 'home', 'interiorDesign', 'news', 'post', 'project', 'projectCategory', 'residentialArchitecture', 'siteSettings', 'team', 'teamMember'].includes(listItem.getId())
+  !['about', 'adaptiveReuse', 'careers', 'careersPost', 'contact', 'category', 'home', 'interiorDesign', 'news', 'post', 'project', 'projectCategory', 'residentialArchitecture', 'siteSettings', 'team', 'teamMember'].includes(listItem.getId())
 
 export default () =>
   S.list()
@@ -42,6 +42,14 @@ export default () =>
           S.editor()
             .id('cef832e0-d677-47bc-9b33-df2c355b9c60')
             .documentId('cef832e0-d677-47bc-9b33-df2c355b9c60')
+        ),
+      S.listItem()
+        .title('Contact')
+        .icon(MdMessage)
+        .child(
+          S.editor()
+            .id('cc52b76e-c3b4-4ac3-ba41-4871af585480')
+            .documentId('cc52b76e-c3b4-4ac3-ba41-4871af585480')
         ),
       S.listItem()
         .title('Careers (Page)')

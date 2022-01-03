@@ -1,5 +1,5 @@
 <template>
-  <div class="team-member flex fw background--gray-light">
+  <div class="team-member flex w-100 fw background--gray-light">
     <div class="team-member__inner container grid grid--12-desktop pb-80">
       <div class="team-member__headshot">
         <div class="breadcrumbs pt-60 pb-40 upper sub color--gray-tertiary">

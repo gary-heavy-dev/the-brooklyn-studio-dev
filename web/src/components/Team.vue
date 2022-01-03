@@ -4,7 +4,7 @@
       :title="content.title"
       :image="content.hero.image"
     />
-    <div class="flex">
+    <div class="flex w-100">
       <div class="team-feed__grid container grid">
         <g-link
           v-for="(member, index) in $static.team.edges"
