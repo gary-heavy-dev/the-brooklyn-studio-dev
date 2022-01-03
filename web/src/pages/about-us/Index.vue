@@ -15,6 +15,7 @@ export default {
 <page-query>
 {
   page: sanityAbout(id: "09600be0-7d43-4636-8569-fed6ef5d2985") {
+    title
     hero {
       image {
         alt
