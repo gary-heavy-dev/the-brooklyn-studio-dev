@@ -119,6 +119,33 @@ export default {
         _type
         title
       }
+      ... on SanityCtaComplex {
+        _type
+        leftImage {
+          asset {
+            url
+            metadata {
+              lqip
+            }
+          }
+          alt
+        }
+        heading
+        _rawCopy
+        links {
+          link
+          linkText
+        }
+        rightImage {
+          asset {
+            url
+            metadata {
+              lqip
+            }
+          }
+          alt
+        }
+      }
     }
   }
 }

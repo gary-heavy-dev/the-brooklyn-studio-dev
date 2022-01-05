@@ -45,6 +45,7 @@ import introSecondary from './objects/introSecondary'
 import linkGallery from './objects/linkGallery'
 import linkGalleryItem from './objects/linkGalleryItem'
 import linkInternal from './objects/linkInternal'
+import linkSimple from './objects/linkSimple'
 import list from './objects/list'
 import mainImage from './objects/mainImage'
 import proustQuestionnaire from './objects/proustQuestionnaire'
@@ -90,6 +91,7 @@ export default createSchema({
     linkGallery,
     linkGalleryItem,
     linkInternal,
+    linkSimple,
     list,
     mainImage,
     news,

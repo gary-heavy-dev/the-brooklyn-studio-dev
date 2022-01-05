@@ -21,6 +21,10 @@
         v-if="block._type === 'ctaSimple'"
         :content="block"
       />
+      <CtaComplex
+        v-if="block._type === 'ctaComplex'"
+        :content="block"
+      />
       <TeamMemberFeatured
         v-if="block._type === 'featuredTeamMember'"
         :content="block"
@@ -48,6 +52,7 @@
 <script>
 import LinkGallery from '~/components/LinkGallery'
 import ScrollingGallery from '~/components/ScrollingGallery'
+import CtaComplex from '~/components/CtaComplex'
 import CtaGallery from '~/components/CtaGallery'
 import CtaSimple from '~/components/CtaSimple'
 import TeamMemberFeatured from '~/components/TeamMemberFeatured'
@@ -60,6 +65,7 @@ export default {
   components: {
     LinkGallery,
     ScrollingGallery,
+    CtaComplex,
     CtaGallery,
     CtaSimple,
     TeamMemberFeatured,

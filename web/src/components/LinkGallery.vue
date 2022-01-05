@@ -11,7 +11,7 @@
             class="h5"
             v-if="content.intro"
           >{{ content.intro }}</p>
-          <div class="link-gallery__links">
+          <div class="link-gallery__links link-list">
             <g-link
               v-for="(link, index) in content.links"
               :to="'/projects/#' + link.link.slug.current"
@@ -92,14 +92,6 @@ export default {
     grid-column: span 6;
     position: relative;
     z-index: 10;
-
-    a {
-      padding-top: 32px;
-
-      &:first-child {
-        padding-top: 26px;
-      }
-    }
 
     &-inner {
 

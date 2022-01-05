@@ -1,0 +1,10 @@
+.link-list {
+
+  a {
+    padding-top: 32px;
+
+    &:first-child {
+      padding-top: 26px;
+    }
+  }
+}
