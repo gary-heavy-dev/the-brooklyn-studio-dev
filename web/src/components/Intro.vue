@@ -1,7 +1,7 @@
 <template>
   <section :class="'intro two-up intro--' + layout">
     <div class="intro-column flex fd-c">
-      <div class="copy copy--background-stretch background--gray-light flex ai-c p-100">
+      <div class="copy background-stretch background--gray-light flex ai-c p-100">
         <div class="copy__content grid grid--6-desktop container--left">
           <div class="copy__content-inner mw-readable col-span--5">
             <span 
@@ -106,26 +106,6 @@ export default {
 .intro {
   background-color: white;
   position: relative;
-
-  .copy {
-
-    &--background-stretch {
-
-      position: relative;
-
-      &::before {
-
-        @include desktop {
-          content: "";
-          position: absolute;
-          background-color: var(--color--gray-light);
-          height: 100%;
-          width: 100%;
-          transform: translateX(100%);
-        }
-      }
-    }
-  }
 
   &--secondary {
 

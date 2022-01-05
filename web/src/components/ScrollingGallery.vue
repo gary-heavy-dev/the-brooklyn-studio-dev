@@ -63,7 +63,7 @@ export default {
   },
   methods: {
     showMeHideMe(e) {
-      console.log("it's me", e.percentTop, e.target.element.dataset.index)
+      // console.log("it's me", e.percentTop, e.target.element.dataset.index)
       const me = e.target.element
       const myImage = document.querySelector(`div[data-image="${e.target.element.dataset.index}"]`)
       if (e.percentInView > 0.05) {

@@ -1,6 +1,6 @@
 <template>
   <Layout>
-    <SecondaryHero
+    <HeroSecondary
       :title="content.title"
       :image="content.hero.image"
     />
@@ -14,14 +14,14 @@
 </template>
 
 <script>
-import SecondaryHero from '~/components/SecondaryHero'
+import HeroSecondary from '~/components/HeroSecondary'
 import AboutUsNavigation from '~/components/AboutUsNavigation'
 import Intro from '~/components/Intro'
 import FlexibleContent from '~/components/FlexibleContent'
 
 export default {
   components: {
-    SecondaryHero,
+    HeroSecondary,
     AboutUsNavigation,
     Intro,
     FlexibleContent

@@ -1,6 +1,6 @@
 <template>
   <Layout>
-    <SecondaryHero
+    <HeroSecondary
       :title="content.title"
       :image="content.hero.image"
     />
@@ -37,11 +37,11 @@
 </template>
 
 <script>
-import SecondaryHero from '~/components/SecondaryHero'
+import HeroSecondary from '~/components/HeroSecondary'
 
 export default {
   components: {
-    SecondaryHero
+    HeroSecondary
   },
   data() {
     return {

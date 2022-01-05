@@ -1,0 +1,29 @@
+.accordion {
+
+  &__heading {
+    cursor: pointer;
+    position: relative;
+
+    span {
+      border-bottom: 1px solid var(--color--gray-tertiary);
+    }
+  }
+
+  &-content {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: all 0.5s ease-in-out;
+  }
+}
+
+.accordion {
+
+  &.active {
+
+    .accordion-content {
+      max-height: 500vh;
+      opacity: 1;
+    }
+  }
+}

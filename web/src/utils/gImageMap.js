@@ -15,7 +15,7 @@ const gImageMap = (source, sizes, data) => {
     ...sizes
   }
 
-  console.log(source.alt, s)
+  // console.log(source.alt, s)
 
   return urlForImage(source, data).width(s.mobile).auto('format').toString() + ' ' + s.mobile + 'w,' +
         urlForImage(source, data).width(s.tablet).auto('format').toString() + ' ' + s.tablet + 'w, ' +

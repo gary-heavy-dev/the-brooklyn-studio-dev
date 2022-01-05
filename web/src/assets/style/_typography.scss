@@ -133,6 +133,7 @@ p {
 .h5 {
   font-size: var(--h5-font-size);
   line-height: var(--h5-line-height);
+  font-weight: 500;
 }
 
 p.h5,
@@ -219,6 +220,10 @@ p.h5,
 
 strong {
   font-weight: 600;
+}
+
+.medium {
+  font-weight: 500;
 }
 
 em {
