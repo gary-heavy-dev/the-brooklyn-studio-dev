@@ -57,7 +57,7 @@
           <g-link
             v-if="content.introLink && content.introLinkText"
             :to="content.introLink"
-            class="upper button"
+            class="upper button mt-60"
           >{{ content.introLinkText }}</g-link>
         </div>
       </div>

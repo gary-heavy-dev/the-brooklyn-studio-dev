@@ -26,6 +26,19 @@
       <div class="link-gallery__gallery layered-image-gallery">
         <div
           class="link-gallery__gallery-image layered-image-gallery__image image-wrapper"
+          v-if="content.image"
+          data-image="default"
+        >
+          <BaseImage
+            :src="content.image"
+            :lazy="true"
+            :x="608"
+            :y="810"
+            :sizes="sizes"
+          />
+        </div>
+        <div
+          class="link-gallery__gallery-image layered-image-gallery__image image-wrapper"
           v-for="(link, index) in content.links"
           :key="index"
           :data-image="link.link.slug.current"

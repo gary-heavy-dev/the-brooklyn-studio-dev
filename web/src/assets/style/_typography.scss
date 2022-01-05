@@ -186,15 +186,17 @@ p.h5,
     color: var(--color--navy);
     border-color: var(--color--navy);
   }
+}
 
-  &.color--white {
-    color: white;
-    border-color: white;
+.button.color--white,
+.background--navy .button {
 
-    &:hover {
-      color: var(--color--gray-tertiary-light);
-      border-color: var(--color--gray-tertiary-light);
-    }
+  color: var(--color--white);
+  border-color: var(--color--white);
+
+  &:hover {
+    color: var(--color--gray-tertiary-light);
+    border-color: var(--color--gray-tertiary-light);
   }
 }
 

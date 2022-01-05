@@ -16,6 +16,12 @@ export default {
       description: 'Provide a brief description on the subsections you\'ll be displaying.'
     },
     {
+      name: 'image',
+      type: 'mainImage',
+      title: 'Default Image',
+      description: 'The ideal WxH for this image upload is 2170px by 1956px.'
+    },
+    {
       name: 'sections',
       type: 'array',
       title: 'Sections',

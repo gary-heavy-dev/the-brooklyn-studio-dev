@@ -104,6 +104,13 @@ export default {
         _type
         title
         intro
+        image {
+          asset {
+            url
+          }
+          alt
+          caption
+        }
         links {
           copy
           image {

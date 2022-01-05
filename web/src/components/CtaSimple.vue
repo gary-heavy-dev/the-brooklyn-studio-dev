@@ -19,7 +19,7 @@
           />
           <g-link
             v-if="content.link"
-            class="upper button"
+            class="upper button mt-60"
             :to="content.link"
           >{{ content.linkText }}</g-link>
         </div>

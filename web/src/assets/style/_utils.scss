@@ -205,6 +205,14 @@
   }
 }
 
+.mt-60 {
+  margin-top: 40px;
+
+  @include desktop {
+    margin-top: 60px;
+  }
+}
+
 .mt-hh {
   margin-top: var(--margin-top--hero-header);
 }

@@ -16,6 +16,12 @@ export default {
       description: 'Provide a brief description on the sections of the site you\'ll be linking to.'
     },
     {
+      name: 'image',
+      type: 'mainImage',
+      title: 'Default Image',
+      description: 'The ideal WxH for this image upload is 1630px by 2172px.'
+    },
+    {
       name: 'links',
       type: 'array',
       title: 'Links',

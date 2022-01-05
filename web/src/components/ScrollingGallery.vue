@@ -8,14 +8,18 @@
               class="h2 upper"
               v-if="content.title"
             >{{ content.title }}</h2>
-            <p v-if="content.intro">{{ content.intro }}</p>
+            <p
+              v-if="content.intro"
+              v-view="showMeHideMe"
+              :data-index="0"
+            >{{ content.intro }}</p>
           </div>
           <div
             v-for="(section, index) in content.sections"
             class="scrolling-gallery__copy-section"
             :key="index"
             v-view="showMeHideMe"
-            :data-index="index"
+            :data-index="index + 1"
           >
             <h3
               class="h3 upper"
@@ -28,9 +32,20 @@
       <div class="scrolling-gallery__gallery layered-image-gallery mb-100">
         <div
           class="scrolling-gallery__gallery-image layered-image-gallery__image image-wrapper"
+          v-if="content.image"
+          data-image="0"
+        >
+          <BaseImage
+            :src="content.image"
+            :lazy="true"
+            :sizes="sizes"
+          />
+        </div>
+        <div
+          class="scrolling-gallery__gallery-image layered-image-gallery__image image-wrapper"
           v-for="(section, index) in content.sections"
           :key="index"
-          :data-image="index"
+          :data-image="index + 1"
         >
           <BaseImage
             v-if="section.image"

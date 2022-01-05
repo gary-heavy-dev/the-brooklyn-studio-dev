@@ -100,6 +100,12 @@ export default {
         _type
         title
         intro
+        image {
+          asset {
+            url
+          }
+          alt
+        }
         sections {
           heading
           copy
