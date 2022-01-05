@@ -101,6 +101,21 @@ query Project ($id: ID!) {
         text
       }
     }
+    detailsIntro
+    detailsBuildingInfo {
+      heading
+      text
+    }
+    detailsCredits {
+      heading
+      text
+    }
+    detailsGallery {
+      asset {
+        url
+      }
+      alt
+    }
   }
 }
 </page-query>

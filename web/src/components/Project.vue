@@ -6,17 +6,20 @@
       :image="content.image"
     />
     <FlexibleContent :content="content.flexibleContent" />
+    <ProjectDetails :content="content" />
   </div>
 </template>
 
 <script>
 import ProjectHero from '~/components/ProjectHero'
 import FlexibleContent from '~/components/FlexibleContent'
+import ProjectDetails from '~/components/ProjectDetails'
 
 export default {
   components: {
     ProjectHero,
-    FlexibleContent
+    FlexibleContent,
+    ProjectDetails
   },
   props: {
     content: Object

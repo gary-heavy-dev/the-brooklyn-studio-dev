@@ -1,5 +1,5 @@
 <template>
-  <footer class="the-footer flex fw p-40 color--gray-tertiary" id="theFooter">
+  <footer class="the-footer flex fw p-40 color--gray-tertiary background--gray-light" id="theFooter">
     <div class="container grid grid--12-desktop w-100 mb-40">
       <Logo
         class="col-span--2"
@@ -37,7 +37,6 @@ export default {
 
 <style lang="scss">
 .the-footer {
-  background-color: var(--color--gray-secondary);
 
   &__links {
     grid-column: 4/6;
