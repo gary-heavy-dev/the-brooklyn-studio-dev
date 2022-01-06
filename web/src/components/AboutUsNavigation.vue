@@ -16,7 +16,7 @@
   top: 0;
   z-index: 99999;
   height: 60px;
-  border-bottom: 1px solid #e5e5e5;
+  border-bottom: 1px solid var(--color--gray-secondary);
 
   a {
     text-decoration: none;

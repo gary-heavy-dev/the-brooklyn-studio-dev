@@ -72,6 +72,7 @@ export default {
   perspective: 1000;
   width: 100%;
   z-index: 999999999;
+  border-bottom: 1px solid var(--color--gray-secondary);
 
   &__logo {
     height: 17px;
