@@ -70,8 +70,8 @@ export default {
   &__image {
 
     &-inner {
-      position: sticky;
-      top: 0;
+      // position: sticky;
+      // top: 0;
 
       .image-wrapper {
         grid-column: 2/5;

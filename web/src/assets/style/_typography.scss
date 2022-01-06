@@ -91,6 +91,8 @@ body {
   font-size: var(--body-font-size); 
   line-height: var(--body-line-height);
   letter-spacing: var(--letter-spacing);
+  font-variant-numeric: oldstyle-nums;
+  font-feature-settings: "onum";
 }
 
 p {

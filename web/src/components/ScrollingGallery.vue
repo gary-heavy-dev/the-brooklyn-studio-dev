@@ -22,10 +22,10 @@
             :data-index="index + 1"
           >
             <h3
-              class="h3 upper"
+              class="h4 upper mb-20"
               v-if="section.heading"
             >{{ section.heading }}</h3>
-            <p v-if="section.copy">{{ section.copy }}</p>
+            <p class="h2" v-if="section.copy">{{ section.copy }}</p>
           </div>
         </div>
       </div>

@@ -12,8 +12,9 @@
 <style lang="scss">
 .accordion-status {
   position: absolute;
-  right: 0;
+  right: 20px;
   top: 10px;
+  pointer-events: none;
 
   @include desktop {
     top: 15px;

@@ -1,13 +1,15 @@
 <template>
   <div
     :id="accordion.slug.current"
-    class="accordion"
+    :class="['accordion', {'active': isExpanded }]"
   >
-    <div class="accordion__heading">
+    <div
+      class="accordion__heading"
+      @click="toggleAccordion"
+    >
       <h2
         v-if="accordion.title"
         class="h4 upper mb-40 flex"
-        @click="toggleAccordion(accordion)"
       >
         <span class="pb-20">{{ accordion.title }}</span>
       </h2>
@@ -29,10 +31,18 @@ export default {
   props: {
     accordion: Object
   },
-  methods: {
-    toggleAccordion (accordion) {
-      this.$emit('toggle-selected', accordion)
+  data() {
+    return {
+      isExpanded: false
     }
+  },
+  methods: {
+    toggleAccordion() {
+      this.isExpanded = !this.isExpanded
+    }
+    // toggleAccordion (accordion) {
+    //   this.$emit('toggle-selected', accordion)
+    // }
   }
 }
 </script>
