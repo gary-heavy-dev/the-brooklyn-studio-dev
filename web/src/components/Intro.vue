@@ -2,8 +2,8 @@
   <section :class="'intro two-up intro--' + layout">
     <div class="intro-column flex fd-c">
       <div class="copy background-stretch background--gray-light flex ai-c p-100">
-        <div class="copy__content grid grid--6-desktop container--left">
-          <div class="copy__content-inner mw-readable col-span--5">
+        <div class="copy__content ">
+          <div class="copy__content-inner mw-readable ">
             <span 
               v-if="content.introLarge"
               class="h3"
@@ -42,6 +42,7 @@
             :src="content.introImagePrimary"
             :lazy="true"
             :sizes="layout === 'secondary' ? sizesPrimarySmaller : sizesPrimaryLarge"
+            :minX="layout === 'secondary' ? 1066 : 692"
           />
         </div>
       </div>
@@ -106,6 +107,10 @@ export default {
 .intro {
   background-color: white;
   position: relative;
+
+  .copy__content {
+    margin: 0 var(--grid-margin);
+  }
 
   &--secondary {
 

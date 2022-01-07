@@ -10,6 +10,7 @@
         data-sizes="auto"
         :data-srcset="srcsetString"
         :alt="src.alt"
+        :style="[minX ? { minHeight: minX + 'px' } : { minHeight: '0px' }]"
       />
       <img
         v-else-if="ratio"
@@ -38,7 +39,8 @@ export default {
     caption: String,
     x: Number,
     y: Number,
-    sizes: Object
+    sizes: Object,
+    minX: Number
   },
   data() {
     return {
@@ -93,6 +95,10 @@ export default {
       width: 100%;
       max-width: 100%;
       height: 100%;
+
+      @include laptop-down {
+        min-height: unset !important;
+      }
     }
   }
 }
