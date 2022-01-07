@@ -25,6 +25,7 @@ export default {
       name: 'heroImage',
       type: 'mainImage',
       title: 'Hero Image',
+      description: 'The ideal WxH for this image upload is 3422px by 1332px.',
       validation: Rule => Rule.required()
     },
     {

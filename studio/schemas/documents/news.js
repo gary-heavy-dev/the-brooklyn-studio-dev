@@ -30,7 +30,8 @@ export default {
     {
       name: 'mainImage',
       type: 'mainImage',
-      title: 'Main image'
+      title: 'Main image',
+      description: 'Please upload an image 2170px wide. The height is up to you!'
     },
     {
       name: 'excerpt',

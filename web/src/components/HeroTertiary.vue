@@ -49,12 +49,12 @@ export default {
   data() {
     return {
       sizes: {
-        mobile: 338,
-        tablet: 741,
-        laptop: 949,
-        desktop: 490,
-        hd: 656,
-        fourK: 1312 // by 874 tall
+        mobile: 480,
+        tablet: 768,
+        laptop: 1024,
+        desktop: 608,
+        hd: 815,
+        fourK: 1630
       }
     }
   },
