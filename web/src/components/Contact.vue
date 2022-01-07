@@ -3,6 +3,7 @@
     <HeroSecondary
       :title="content.title"
       :image="content.hero.image"
+      :margin="true"
     />
     <div class="flex w-100">
       <div class="container grid grid--12-desktop mb-100 copy--left image--full">

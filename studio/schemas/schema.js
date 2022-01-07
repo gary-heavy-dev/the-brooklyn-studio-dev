@@ -7,6 +7,7 @@ import schemaTypes from 'all:part:@sanity/base/schema-type'
 // document schemas
 import about from './documents/about'
 import adaptiveReuse from './documents/adaptiveReuse'
+import award from './documents/award'
 import careers from './documents/careers'
 import careersPost from './documents/careersPost'
 import category from './documents/category'
@@ -14,7 +15,9 @@ import contact from './documents/contact'
 import home from './documents/home'
 import interiorDesign from './documents/interiorDesign'
 import news from './documents/news'
+import newsPage from './documents/newsPage'
 import post from './documents/post'
+import press from './documents/press'
 import project from './documents/project'
 import projectCategory from './documents/projectCategory'
 import residentialArchitecture from './documents/residentialArchitecture'
@@ -63,6 +66,7 @@ export default createSchema({
     // in the studio.
     about,
     adaptiveReuse,
+    award,
     bodyPortableText,
     bioPortableText,
     careers,
@@ -95,7 +99,9 @@ export default createSchema({
     list,
     mainImage,
     news,
+    newsPage,
     post,
+    press,
     proustQuestionnaire,
     project,
     projectCategory,

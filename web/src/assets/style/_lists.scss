@@ -1,0 +1,15 @@
+.list--nostyle {
+  list-style: none;
+  margin: 0;
+}
+
+.list--two-column {
+
+  @include laptop {
+    columns: 2;
+
+    li {
+      padding-right: var(--grid-gap);
+    }
+  }
+}

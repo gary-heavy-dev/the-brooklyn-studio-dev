@@ -41,6 +41,12 @@ export default {
         'This ends up on summary pages, on Google, when people share your post in social media.'
     },
     {
+      name: 'link',
+      type: 'string',
+      title: 'External Link',
+      description: 'If this news post should link to an external URL, please paste that URL here.'
+    },
+    {
       name: 'categories',
       type: 'array',
       title: 'Categories',

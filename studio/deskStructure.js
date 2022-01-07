@@ -1,10 +1,10 @@
 import S from '@sanity/desk-tool/structure-builder'
-import { MdSettings, MdPerson, MdMessage, MdPeopleAlt, MdHome, MdFingerprint, MdArchitecture, MdWork, MdEmail, MdConstruction, MdCategory } from 'react-icons/md'
-import { FaRecycle, FaNewspaper } from 'react-icons/fa'
+import { MdSettings, MdPersonOutline, MdPeopleAlt, MdOutlineHome, MdFingerprint, MdArchitecture, MdWork, MdWorkOutline, MdOutlineEmail, MdConstruction, MdCategory } from 'react-icons/md'
+import { FaRecycle, FaNewspaper, FaRegNewspaper, FaTrophy, FaPenFancy } from 'react-icons/fa'
 import { AiFillFormatPainter } from 'react-icons/ai'
 
 const hiddenDocTypes = listItem =>
-  !['about', 'adaptiveReuse', 'careers', 'careersPost', 'contact', 'category', 'home', 'interiorDesign', 'news', 'post', 'project', 'projectCategory', 'residentialArchitecture', 'siteSettings', 'team', 'teamMember'].includes(listItem.getId())
+  !['about', 'adaptiveReuse', 'award', 'careers', 'careersPost', 'contact', 'category', 'home', 'interiorDesign', 'news', 'newsPage', 'post', 'press', 'project', 'projectCategory', 'residentialArchitecture', 'siteSettings', 'team', 'teamMember'].includes(listItem.getId())
 
 export default () =>
   S.list()
@@ -21,7 +21,7 @@ export default () =>
       S.divider(),
       S.listItem()
         .title('Home')
-        .icon(MdHome)
+        .icon(MdOutlineHome)
         .child(
           S.editor()
             .id('542616c1-f362-4f33-b903-4f4add184641')
@@ -37,7 +37,7 @@ export default () =>
         ),
       S.listItem()
         .title('People (Team)')
-        .icon(MdPerson)
+        .icon(MdPersonOutline)
         .child(
           S.editor()
             .id('cef832e0-d677-47bc-9b33-df2c355b9c60')
@@ -45,15 +45,23 @@ export default () =>
         ),
       S.listItem()
         .title('Contact')
-        .icon(MdMessage)
+        .icon(MdOutlineEmail)
         .child(
           S.editor()
             .id('cc52b76e-c3b4-4ac3-ba41-4871af585480')
             .documentId('cc52b76e-c3b4-4ac3-ba41-4871af585480')
         ),
       S.listItem()
+        .title('News (Page)')
+        .icon(FaRegNewspaper)
+        .child(
+          S.editor()
+            .id('b921b006-dafd-49a5-a3d7-eef55a00358f')
+            .documentId('b921b006-dafd-49a5-a3d7-eef55a00358f')
+        ),
+      S.listItem()
         .title('Careers (Page)')
-        .icon(MdWork)
+        .icon(MdWorkOutline)
         .child(
           S.editor()
             .id('b5f270ac-9a77-4236-bf33-70041dd025c6')
@@ -102,7 +110,7 @@ export default () =>
         .child(S.documentTypeList('teamMember').title('Team Members')),
       S.listItem()
         .title('Careers Posts')
-        .icon(MdEmail)
+        .icon(MdWork)
         .schemaType('careersPost')
         .child(S.documentTypeList('careersPost').title('Careers Posts')),
       S.listItem()
@@ -110,6 +118,16 @@ export default () =>
         .icon(FaNewspaper)
         .schemaType('news')
         .child(S.documentTypeList('news').title('News posts')),
+      S.listItem()
+        .title('Press')
+        .icon(FaPenFancy)
+        .schemaType('press')
+        .child(S.documentTypeList('press').title('press')),
+      S.listItem()
+        .title('Awards')
+        .icon(FaTrophy)
+        .schemaType('award')
+        .child(S.documentTypeList('award').title('awards')),
       // S.listItem()
       //   .title('Blog posts')
       //   .schemaType('post')

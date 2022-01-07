@@ -1,5 +1,5 @@
 <template>
-  <div :class="['hero--secondary', 'pos-rel', 'o-h', 'overlay', { 'mb-100': title !== 'About Us'}]">
+  <div :class="['hero--secondary', 'pos-rel', 'o-h', 'overlay', { 'mb-100': margin}]">
     <div class="secondary-hero__title mt-hh pos-abs z-1 w-100 flex jc-c">
       <h1
         v-if="title"
@@ -22,7 +22,8 @@
 export default {
   props: {
     title: String,
-    image: Object
+    image: Object,
+    margin: Boolean
   }
 }
 </script>
