@@ -90,6 +90,7 @@ export default {
       name: 'detailsGallery',
       type: 'array',
       title: 'Project Details Image Gallery',
+      description: 'Please upload images at 1584px wide. The height of these images is up to you, but a portrait orientation is recommended.',
       of: [{ type: 'mainImage' }],
       fieldset: 'projectDetails'
     }
