@@ -18,7 +18,8 @@
     "sharp": "^0.29.1",
     "style-resources-loader": "^1.4.1",
     "swiper": "^5.4.5",
-    "vue-awesome-swiper": "^4.1.1"
+    "vue-awesome-swiper": "^4.1.1",
+    "vue-scrollto": "^2.20.0"
   },
   "devDependencies": {
     "sass": "^1.42.1",

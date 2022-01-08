@@ -10,6 +10,9 @@ import urlForImage from './utils/urlForImage'
 // Import custom g-image srcset mapper
 import gImageMap from './utils/gImageMap'
 
+// Import kebab case conversion utility for slug conversion
+import toKebabCase from './utils/toKebabCase'
+
 // Import lazysizes functionality
 import 'lazysizes'
 import 'lazysizes/plugins/parent-fit/ls.parent-fit'
@@ -17,6 +20,9 @@ import 'lazysizes/plugins/parent-fit/ls.parent-fit'
 // Import viewport checking functionality
 // https://github.com/vtimofeev/vue-check-view
 import checkView from 'vue-check-view'
+
+// Import vue-scrollto plugin
+import VueScrollTo from 'vue-scrollto'
 
 // The Client API can be used here. Learn more: gridsome.org/docs/client-api
 export default function(Vue, { router, head, isClient }) {
@@ -31,6 +37,24 @@ export default function(Vue, { router, head, isClient }) {
 
   // Add vue-check-view
   Vue.use(checkView)
+
+  // Initialize VueScrollTo and pass in default options
+  Vue.use(VueScrollTo, {
+    container: "body",
+    duration: 500,
+    easing: "ease",
+    offset: 0,
+    force: true,
+    cancelable: true,
+    onStart: false,
+    onDone: false,
+    onCancel: false,
+    x: false,
+    y: true
+  })
+
+  // Inject kebab case conversion utility
+  Vue.prototype.$toKebabCase = toKebabCase
 
   // Delay the scroll-to-top behavior caused by Vue Router to eliminate nasty flash on page transitions
   // https://router.vuejs.org/guide/advanced/scroll-behavior.html#async-scrolling

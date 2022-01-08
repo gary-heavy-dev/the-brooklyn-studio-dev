@@ -53,6 +53,7 @@ export default {
       ... on SanityCtaGallery {
         _type
         heading
+        navTitle
         _rawCopy
         linkText
         link
@@ -76,6 +77,7 @@ export default {
       ... on SanityCtaSimple {
         _type
         heading
+        navTitle
         largeText
         _rawCopy
         linkText
@@ -99,6 +101,7 @@ export default {
       ... on SanityScrollingGallery {
         _type
         title
+        navTitle
         intro
         image {
           asset {
@@ -119,14 +122,17 @@ export default {
       }
       ... on SanityFeaturedTeamMember {
         _type
+        navTitle
         heading
       }
       ... on SanityLinkGallery {
         _type
+        navTitle
         title
       }
       ... on SanityCtaComplex {
         _type
+        navTitle
         leftImage {
           asset {
             url

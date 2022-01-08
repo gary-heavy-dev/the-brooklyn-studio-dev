@@ -1,5 +1,5 @@
 <template>
-  <section :class="'intro two-up intro--' + layout">
+  <section :class="'intro two-up intro--' + layout" :id="layout === 'secondary' ? 'approach' : 'intro'">
     <div class="intro-column flex fd-c">
       <div class="copy background-stretch background--gray-light flex ai-c p-100">
         <div class="copy__content ">

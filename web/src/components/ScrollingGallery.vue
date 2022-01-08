@@ -1,5 +1,8 @@
 <template>
-  <section class="scrolling-gallery flex w-100">
+  <section
+    class="scrolling-gallery flex w-100"
+    :id="content.navTitle ?  $toKebabCase(content.navTitle) : ''"
+  >
     <div class="scrolling-gallery__inner container grid grid--12-desktop">
       <div class="scrolling-gallery__copy flex ai-c">
         <div class="scrolling-gallery__copy-inner p-100">

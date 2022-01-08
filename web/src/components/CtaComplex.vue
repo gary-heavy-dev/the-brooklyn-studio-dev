@@ -1,5 +1,8 @@
 <template>
-  <section class="cta-complex flex w-100 p-100">
+  <section
+    class="cta-complex flex w-100 p-100"
+    :id="content.navTitle ?  $toKebabCase(content.navTitle) : ''"
+  >
     <div class="cta-complex__inner container grid grid--12-desktop">
       <div class="cta-complex__left-column">
         <div class="image-wrapper">

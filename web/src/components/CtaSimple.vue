@@ -1,6 +1,7 @@
 <template>
   <section
     :class="'cta-simple w-100 copy--' + content.textLocation + ' background--' + content.bgColor.title + ' image--' + content.imageStyle + ' p-' + content.paddingSize"
+    :id="content.navTitle ?  $toKebabCase(content.navTitle) : ''"
   >
     <div class="cta-simple__inner grid grid--12-desktop">
       <div :class="'copy-wrapper flex ai-c col-span--' + copySpan">

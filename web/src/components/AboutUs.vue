@@ -4,7 +4,7 @@
       :title="content.title"
       :image="content.hero.image"
     />
-    <AboutUsNavigation />
+    <AboutUsNavigation :content="content.flexibleContent" />
     <Intro
       :content="content.introSection"
       :layout="'secondary'"

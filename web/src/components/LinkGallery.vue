@@ -1,5 +1,5 @@
 <template>
-  <section class="link-gallery flex w-100">
+  <section class="link-gallery flex w-100" :id="content.navTitle ? $toKebabCase(content.navTitle) : ''">
     <div class="link-gallery__inner container grid grid--12-desktop">
       <div class="link-gallery__copy flex ai-c">
         <div class="link-gallery__copy-inner">

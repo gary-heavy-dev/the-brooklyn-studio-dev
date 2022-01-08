@@ -1,14 +1,31 @@
 <template>
   <nav class="about-us-nav xsmall color--gray-tertiary background--white flex ai-c jc-c">
-    <g-link to="/#">Approach</g-link>
-    <g-link to="/#">Guiding Principles</g-link>
-    <g-link to="/#">The Row House</g-link>
-    <g-link to="/#">Interiors</g-link>
-    <g-link to="/#">Sustainable Future</g-link>
-    <g-link to="/#">Brooklyn</g-link>
-    <g-link to="/#">Our Studio</g-link>
+    <a
+      href="#approach"
+      v-scroll-to="{
+        el: '#approach',
+        offset: -59
+      }" 
+    >Approach</a>
+    <a
+      v-for="(item, index) in content"
+      :key="index"
+      :href="'#' + $toKebabCase(item.navTitle)"
+      v-scroll-to="{
+        el: '#' + $toKebabCase(item.navTitle),
+        offset: -59
+      }" 
+    >{{ item.navTitle }}</a>
   </nav>
 </template>
+
+<script>
+export default {
+  props: {
+    content: Array
+  }
+}
+</script>
 
 <style lang="scss">
 .about-us-nav {
