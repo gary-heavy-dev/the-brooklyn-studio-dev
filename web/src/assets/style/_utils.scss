@@ -125,6 +125,14 @@
   }
 }
 
+.pt-30 {
+  padding-top: 20px;
+
+  @include desktop {
+    padding-top: 30px;
+  }
+}
+
 .pb-30 {
   padding-bottom: 20px;
 

@@ -1,11 +1,11 @@
 <template>
   <div class="team-member-questionnaire color--gray-tertiary">
-    <div class="team-member-questionnaire__intro">
-      <div class="background--gray-light pt-80 pb-20">
+    <div class="team-member-questionnaire__intro pb-20 mb-40">
+      <div class="pt-100">
         <h3 class="h5 color--navy">The Proust Questionnaire</h3>
         <div class="small">Taking inspiration from a popular nineteenth-century parlor game, we sat down with each member of our team and asked them a few questions about their inspirations and aspirations.</div>
       </div>
-      <div class="fade pb-40 w-100"></div>
+      <!-- <div class="fade pb-40 w-100"></div> -->
     </div>
     <div class="team-member-questionnaire__questions">
       <div
@@ -135,10 +135,12 @@ export default {
 <style lang="scss">
 
 .team-member-questionnaire {
+  background-color: inherit;
 
   &__intro {
     position: sticky;
     top: 0px;
+    background-color: inherit;
   }
 
   &__questions {
