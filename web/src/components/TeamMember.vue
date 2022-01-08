@@ -1,5 +1,5 @@
 <template>
-  <div class="team-member flex w-100 fw" id="teamMember">
+  <div class="team-member flex w-100 fw" id="teamMember" :style="{ backgroundColor: 'rgb(248, 247, 247)' }">
     <div class="team-member__inner container grid grid--12-desktop pb-80">
       <div class="team-member__headshot">
         <div class="breadcrumbs pb-40 upper sub color--gray-tertiary">
