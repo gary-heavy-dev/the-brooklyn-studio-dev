@@ -96,16 +96,16 @@ export default {
       text-decoration: underline;
     }
   }
+}
 
-  &.headroom {
-    will-change: transform;
-    transition: transform 200ms linear;
-  }
-  &.headroom--pinned {
-      transform: translateY(0%);
-  }
-  &.headroom--unpinned {
-      transform: translateY(-100%);
-  }
+.headroom {
+  will-change: transform;
+  transition: transform 200ms linear;
+}
+.headroom--pinned {
+  transform: translateY(0%);
+}
+.headroom--unpinned {
+  transform: translateY(-100%);
 }
 </style>

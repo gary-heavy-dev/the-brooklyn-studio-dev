@@ -5,9 +5,14 @@
       :image="content.hero.image"
     />
     <AboutUsNavigation :content="content.flexibleContent" />
+    <div
+      id="pinnedDetector"
+      v-view="navPinned"
+    ></div>
     <Intro
       :content="content.introSection"
       :layout="'secondary'"
+      class="about-us-intro"
     />
     <FlexibleContent :content="content.flexibleContent" />
   </Layout>
@@ -28,6 +33,27 @@ export default {
   },
   props: {
     content: Object
+  },
+  methods: {
+    navPinned(e) {
+      const body = document.body
+      console.log("me view!", e.percentInView)
+
+      if (e.percentInView > 0) {
+        body.classList.add('hero-in-view')
+      } else {
+        body.classList.remove('hero-in-view')
+      }
+    }
   }
 }
 </script>
+
+<style lang="scss">
+#pinnedDetector {
+  height: 150px;
+}
+.about-us-intro {
+  margin-top: -150px;
+}
+</style>
