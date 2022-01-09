@@ -21,8 +21,8 @@ import 'lazysizes/plugins/parent-fit/ls.parent-fit'
 // https://github.com/vtimofeev/vue-check-view
 import checkView from 'vue-check-view'
 
-// Import vue-scrollto plugin
-import VueScrollTo from 'vue-scrollto'
+// Import vue-scrollactive plugin
+import VueScrollactive from 'vue-scrollactive';
 
 // The Client API can be used here. Learn more: gridsome.org/docs/client-api
 export default function(Vue, { router, head, isClient }) {
@@ -38,20 +38,8 @@ export default function(Vue, { router, head, isClient }) {
   // Add vue-check-view
   Vue.use(checkView)
 
-  // Initialize VueScrollTo and pass in default options
-  Vue.use(VueScrollTo, {
-    container: "body",
-    duration: 500,
-    easing: "ease",
-    offset: 0,
-    force: true,
-    cancelable: true,
-    onStart: false,
-    onDone: false,
-    onCancel: false,
-    x: false,
-    y: true
-  })
+  // Initialize VueScrollactive
+  Vue.use(VueScrollactive);
 
   // Inject kebab case conversion utility
   Vue.prototype.$toKebabCase = toKebabCase

@@ -1,27 +1,21 @@
 <template>
   <nav class="about-us-nav" id="aboutUsNav">
-    <div
+    <scrollactive
       id="aboutUsNavInner"
       :class="['about-us-nav__inner headroom flex ai-c jc-c xsmall color--gray-tertiary background--white w-100', {'headroom--stacked': scrolled}]"
       v-on="{ handleScroll }"
     >
       <a
         href="#approach"
-        v-scroll-to="{
-          el: '#approach',
-          offset: -18
-        }" 
+        class="scrollactive-item"
       >Approach</a>
       <a
         v-for="(item, index) in content"
         :key="index"
         :href="'#' + $toKebabCase(item.navTitle)"
-        v-scroll-to="{
-          el: '#' + $toKebabCase(item.navTitle),
-          offset: -59
-        }" 
+        class="scrollactive-item"
       >{{ item.navTitle }}</a>
-    </div>
+    </scrollactive>
   </nav>
 </template>
 

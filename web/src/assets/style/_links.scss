@@ -8,3 +8,11 @@
     }
   }
 }
+
+a.scrollactive-item {
+  transition: color 0.2s linear;
+
+  &.is-active {
+    color: var(--color--navy);
+  }
+}
