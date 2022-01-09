@@ -11,6 +11,8 @@
             v-if="content.leftImage"
             :src="content.leftImage"
             :sizes="sizesLeft"
+            :x="content.leftImage.asset.metadata.dimensions.width"
+            :y="content.leftImage.asset.metadata.dimensions.height"
           />
         </div>
       </div>
@@ -39,6 +41,8 @@
             v-if="content.rightImage"
             :src="content.rightImage"
             :sizes="sizesLeft"
+            :x="content.rightImage.asset.metadata.dimensions.width"
+            :y="content.rightImage.asset.metadata.dimensions.height"
           />
         </div>
       </div>

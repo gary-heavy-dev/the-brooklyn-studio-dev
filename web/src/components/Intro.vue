@@ -43,6 +43,8 @@
             :lazy="true"
             :sizes="layout === 'secondary' ? sizesPrimarySmaller : sizesPrimaryLarge"
             :minX="layout === 'secondary' ? 1066 : 692"
+            :x="content.introImagePrimary.asset.metadata.dimensions.width"
+            :y="content.introImagePrimary.asset.metadata.dimensions.height"
           />
         </div>
       </div>

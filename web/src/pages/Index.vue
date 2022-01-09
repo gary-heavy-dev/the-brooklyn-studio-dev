@@ -28,12 +28,24 @@ export default {
         alt
         asset {
           url
+          metadata {
+            dimensions {
+              height
+              width
+            }
+          }
         }
       }
       introImageSecondary {
         alt
         asset {
           url
+          metadata {
+            dimensions {
+              height
+              width
+            }
+          }
         }
       }
       _rawIntroSmall
@@ -69,6 +81,12 @@ export default {
         image {
           asset {
             url
+            metadata {
+              dimensions {
+                height
+                width
+              }
+            }
           }
           alt
         }

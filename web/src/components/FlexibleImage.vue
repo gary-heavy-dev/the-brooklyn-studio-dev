@@ -6,6 +6,8 @@
         :src="content.image"
         :lazy="true"
         :sizes="content.imageLocation === 'center' ? sizesLandscape : sizesPortrait"
+        :x="content.image.asset.metadata.dimensions.width"
+        :y="content.image.asset.metadata.dimensions.height"
       />
     </div>
   </div>

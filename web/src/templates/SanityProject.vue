@@ -48,7 +48,10 @@ query Project ($id: ID!) {
           asset {
             url
             metadata {
-              lqip
+              dimensions {
+                height
+                width
+              }
             }
           }
           alt
@@ -62,7 +65,10 @@ query Project ($id: ID!) {
           asset {
             url
             metadata {
-              lqip
+              dimensions {
+                height
+                width
+              }
             }
           }
           alt
@@ -86,7 +92,10 @@ query Project ($id: ID!) {
           asset {
             url
             metadata {
-              lqip
+              dimensions {
+                width
+                height
+              }
             }
           }
           alt
@@ -113,6 +122,12 @@ query Project ($id: ID!) {
     detailsGallery {
       asset {
         url
+        metadata {
+          dimensions {
+            height
+            width
+          }
+        }
       }
       alt
     }

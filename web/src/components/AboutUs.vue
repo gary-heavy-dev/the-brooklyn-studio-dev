@@ -37,7 +37,6 @@ export default {
   methods: {
     navPinned(e) {
       const body = document.body
-      console.log("me view!", e.percentInView)
 
       if (e.percentInView > 0) {
         body.classList.add('hero-in-view')
@@ -51,9 +50,9 @@ export default {
 
 <style lang="scss">
 #pinnedDetector {
-  height: 150px;
+  height: 110px;
 }
 .about-us-intro {
-  margin-top: -150px;
+  margin-top: -50px;
 }
 </style>

@@ -35,7 +35,10 @@ export default {
         asset {
           url
           metadata {
-            lqip
+            dimensions {
+              height
+              width
+            }
           }
         }
       }
@@ -85,6 +88,12 @@ export default {
         image {
           asset {
             url
+            metadata {
+              dimensions {
+                height
+                width
+              }
+            }
           }
           alt
         }
@@ -137,7 +146,10 @@ export default {
           asset {
             url
             metadata {
-              lqip
+              dimensions {
+                height
+                width
+              }
             }
           }
           alt
@@ -152,7 +164,10 @@ export default {
           asset {
             url
             metadata {
-              lqip
+              dimensions {
+                height
+                width
+              }
             }
           }
           alt

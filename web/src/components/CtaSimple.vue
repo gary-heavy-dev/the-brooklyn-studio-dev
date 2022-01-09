@@ -32,6 +32,8 @@
           :src="content.image"
           :lazy="true"
           :sizes="sizes"
+          :x="content.image.asset.metadata.dimensions.width"
+          :y="content.image.asset.metadata.dimensions.height"
         />
       </div>
     </div>

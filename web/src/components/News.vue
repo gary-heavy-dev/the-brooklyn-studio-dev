@@ -57,7 +57,13 @@ export default {
         link: this.content.featuredNews.link,
         image: {
           asset: {
-            url: this.content.featuredNews.mainImage.asset.url
+            url: this.content.featuredNews.mainImage.asset.url,
+            metadata: {
+              dimensions: {
+                height: this.content.featuredNews.mainImage.asset.metadata.dimensions.height,
+                width: this.content.featuredNews.mainImage.asset.metadata.dimensions.width
+              }
+            }
           },
           alt: this.content.featuredNews.mainImage.alt
         },

@@ -24,7 +24,10 @@ export default {
         asset {
           url
           metadata {
-            lqip
+            dimensions {
+              height
+              width
+            }
           }
         }
         alt
