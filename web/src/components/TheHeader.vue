@@ -13,6 +13,8 @@
       <div class="the-header__menu color--gray-tertiary">
         <g-link to="/about-us">About</g-link>
         <g-link to="/projects/">Projects</g-link>
+        <g-link to="/news">News</g-link>
+        <g-link to="/contact">Contact</g-link>
       </div>
     </div>
   </header>
@@ -87,13 +89,12 @@ export default {
 
   a {
     text-decoration: none;
+    transition: color 0.2s linear;
 
-    &.active {
-      color: var(--color--navy);
-    }
-
+    &.active,
     &:hover {
-      text-decoration: underline;
+      text-decoration: none;
+      color: var(--color--navy);
     }
   }
 }
