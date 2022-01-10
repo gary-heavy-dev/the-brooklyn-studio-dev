@@ -33,7 +33,7 @@
     top: var(--header-height);
     height: 0;
     opacity: 0;
-    transition: 200ms all 120ms ease-out;
+    transition: 200ms all 150ms ease-out;
     pointer-events: none;
 
     li {

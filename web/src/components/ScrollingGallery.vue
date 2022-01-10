@@ -81,10 +81,10 @@ export default {
   },
   methods: {
     showMeHideMe(e) {
-      // console.log("it's me", e.percentTop, e.target.element.dataset.index)
+      console.log("I'm " + e.target.element.dataset.index + " and I'm ", e.percentTop, e.percentCenter, e.percentInView)
       const me = e.target.element
       const myImage = document.querySelector(`div[data-image="${e.target.element.dataset.index}"]`)
-      if (e.percentInView > 0.05) {
+      if (e.percentTop <= 1 && e.percentTop >= 0) {
         me.classList.add('show-me')
         myImage.classList.add('show-me')
       } else {
@@ -121,8 +121,6 @@ export default {
 
     &-section {
       padding-bottom: 70vh;
-      opacity: 0;
-      transition: opacity 0.4s linear;
     }
 
     &-intro {
