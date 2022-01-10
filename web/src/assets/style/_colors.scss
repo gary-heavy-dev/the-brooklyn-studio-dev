@@ -1,3 +1,8 @@
+::selection {
+  background: var(--color--gray-tertiary-light);
+  color: var(--color--text-black);
+}
+
 .background {
 
   &--white {
@@ -18,11 +23,19 @@
 
   &--gray-tertiary-light {
     background-color: var(--color--gray-tertiary-light);
+
+    ::selection {
+      background: var(--color--gray-light);
+    }
   }
 
   &--navy {
     background-color: var(--color--navy);
     color: var(--color--white);
+
+    ::selection {
+      background: var(--color--gray-light);
+    }
   }
 }
 
