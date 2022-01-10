@@ -1,5 +1,9 @@
 <template>
-  <nav class="about-us-nav" id="aboutUsNav">
+  <nav
+    class="about-us-nav"
+    id="aboutUsNav"
+    aria-label="Secondary About Us Page Navigation"
+  >
     <scrollactive
       id="aboutUsNavInner"
       :class="['about-us-nav__inner headroom flex ai-c jc-c xsmall color--gray-tertiary background--white w-100', {'headroom--stacked': scrolled}]"

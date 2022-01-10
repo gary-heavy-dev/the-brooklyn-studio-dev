@@ -4,12 +4,15 @@
       <Logo
         class="col-span--2"
       />
-      <div class="the-footer__links xsmall">
+      <nav
+        class="the-footer__links xsmall"
+        aria-label="Secondary Footer Navigation"
+      >
         <g-link to="/about-us">About</g-link>
         <g-link to="/projects">Projects</g-link>
         <g-link to="/news">News</g-link>
         <g-link to="/contact">Contact</g-link>
-      </div>
+      </nav>
       <div class="the-footer__newsletter col-span--4 xsmall">Join Our Newsletter</div>
       <div class="social-icons">
         <LogoInstagram

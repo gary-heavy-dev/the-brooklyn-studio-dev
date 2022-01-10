@@ -10,22 +10,35 @@
           class="the-header__logo"
         />
       </g-link>
-      <div class="the-header__menu color--gray-tertiary">
-        <g-link to="/about-us">About</g-link>
-        <g-link to="/projects/">Projects</g-link>
-        <g-link to="/news">News</g-link>
-        <g-link to="/contact">Contact</g-link>
-      </div>
+      <nav
+        class="the-header__menu color--gray-tertiary"
+        aria-label="Main Navigation"
+      >
+        <ul>
+          <li>
+            <g-link to="/about-us">About</g-link>
+          </li>
+          <Dropdown />
+          <li>
+            <g-link to="/news">News</g-link>
+          </li>
+          <li>
+            <g-link to="/contact">Contact</g-link>
+          </li>
+        </ul>
+      </nav>
     </div>
   </header>
 </template>
 
 <script>
 import LogoType from '~/components/LogoType'
+import Dropdown from '~/components/Dropdown'
 
 export default {
   components: {
-    LogoType
+    LogoType,
+    Dropdown
   },
   data() {
     return {
@@ -76,18 +89,58 @@ export default {
   z-index: 999999999;
   border-bottom: 1px solid var(--color--gray-secondary);
 
+  > div,
+  > div > nav > ul,
+  > div > nav > ul > li > button {
+    height: 100%;
+  }
+
   &__logo {
     height: 17px;
   }
 
   &__menu {
+    display: grid;
+    place-items: center;
 
-    a {
-      margin-left: 63px;
+
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+
+      li {
+        padding: 0;
+      }
+    }
+
+    > ul {
+      grid-auto-flow: column;
+
+      > li {
+        margin: 0;
+        display: flex;
+        align-items: center;
+
+        &:last-child {
+
+          > a {
+            margin-right: 0;
+          }
+        }
+
+        > a,
+        > button {
+          margin: 0 31.5px;
+          display: inline-block;
+        }
+      }
     }
   }
 
-  a {
+  a,
+  button {
     text-decoration: none;
     transition: color 0.2s linear;
 

@@ -26,8 +26,12 @@
       >
         <WorkFeedSlide :content="$static.int" />
       </swiper-slide>
-      <div class="swiper-button-prev" slot="button-prev"></div>
-      <div class="swiper-button-next" slot="button-next"></div>
+      <div class="swiper-button-prev" slot="button-prev">
+        <WorkFeedArrow />
+      </div>
+      <div class="swiper-button-next" slot="button-next">
+        <WorkFeedArrow />
+      </div>
     </swiper>
   </div>
 </template>
@@ -36,12 +40,14 @@
 import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
 import 'swiper/css/swiper.css'
 import WorkFeedSlide from '~/components/WorkFeedSlide'
+import WorkFeedArrow from '~/components/WorkFeedArrow'
 
 export default {
   components: {
     Swiper,
     SwiperSlide,
-    WorkFeedSlide
+    WorkFeedSlide,
+    WorkFeedArrow
   },
   props: {
     heading: String,
