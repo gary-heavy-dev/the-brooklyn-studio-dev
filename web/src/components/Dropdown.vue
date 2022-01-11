@@ -29,7 +29,8 @@
 
   ul.dropdown__menu {
     position: absolute;
-    min-width: 23ch;
+    min-width: 22ch;
+    width: max-content;
     top: var(--header-height);
     height: 0;
     opacity: 0;
@@ -50,7 +51,7 @@
 
       a {
         display: block;
-        padding: 18px 25px 11px;
+        padding: 14px 24px;
         background-color: var(--color--navy);
         transition: all 0.2s ease-in-out;
 
