@@ -34,18 +34,21 @@ query Project ($id: ID!) {
     }
     image {
       asset {
+        id
         url
         metadata {
           lqip
         }
       }
       alt
+      caption
     }
     flexibleContent {
       ... on SanityFlexibleImage {
         _type
         image {
           asset {
+            id
             url
             metadata {
               dimensions {
@@ -55,6 +58,7 @@ query Project ($id: ID!) {
             }
           }
           alt
+          caption
         }
         imageLocation
         margins
@@ -63,6 +67,7 @@ query Project ($id: ID!) {
         _type
         imageLarge {
           asset {
+            id
             url
             metadata {
               dimensions {
@@ -72,15 +77,18 @@ query Project ($id: ID!) {
             }
           }
           alt
+          caption
         }
         imageSmall {
           asset {
+            id
             url
             metadata {
               lqip
             }
           }
           alt
+          caption
         }
         imageLargeLocation
         reverseMobile
@@ -90,6 +98,7 @@ query Project ($id: ID!) {
         text
         image {
           asset {
+            id
             url
             metadata {
               dimensions {
@@ -99,6 +108,7 @@ query Project ($id: ID!) {
             }
           }
           alt
+          caption
         }
         aspectRatio
         imageLocation
