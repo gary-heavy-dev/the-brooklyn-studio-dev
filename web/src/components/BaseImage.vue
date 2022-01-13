@@ -9,6 +9,7 @@
         class="lazyload"
         data-sizes="auto"
         :data-srcset="srcsetString"
+        :data-lightbox="src.asset.id"
         :alt="src.alt"
         :style="[minX ? { minHeight: minX + 'px' } : { minHeight: '0px' }]"
       />
@@ -19,12 +20,14 @@
         class="lazyload"
         data-sizes="auto"
         data-parent-fit="contain"
+        :data-lightbox="src.asset.id"
       />
       <img
         v-else-if="src.asset != null"
         :srcset="srcsetString"
         :src="srcString"
         :alt="src.alt"
+        :data-lightbox="src.asset.id"
       />
     </div>
     <figcaption v-if="caption" class="caption">{{ caption }}</figcaption>

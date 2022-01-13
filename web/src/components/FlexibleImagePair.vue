@@ -8,6 +8,7 @@
         :x="733"
         :y="992"
         :sizes="sizesLarge"
+        @click.native="openLightbox"
       />
     </div>
     <div class="grid-spacer col-span--1"></div>
@@ -19,12 +20,15 @@
         :x="733"
         :y="992"
         :sizes="sizesSmall"
+        @click.native="openLightbox"
       />
     </div>
   </div>
 </template>
 
 <script>
+import eventHub from '~/utils/eventHub'
+
 export default {
   data() {
     return {
@@ -48,6 +52,11 @@ export default {
   },
   props: {
     content: Object
+  },
+  methods: {
+    openLightbox(e) {
+      eventHub.$emit('open-lightbox', e.target.getAttribute('data-lightbox'))
+    }
   }
 }
 </script>
@@ -79,7 +88,7 @@ export default {
     }
   }
 
-  &.large-location {
+  .large-location {
 
     &--left {
       flex-direction: row-reverse;

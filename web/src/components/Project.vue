@@ -5,9 +5,9 @@
       :heading="content.title"
       :image="content.image"
     />
-    <ProjectLightbox :content="content" />
     <FlexibleContent :content="content.flexibleContent" />
     <ProjectDetails :content="content" />
+    <ProjectLightbox :content="content" />
   </div>
 </template>
 
