@@ -79,3 +79,12 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+.flexible-content {
+
+  .base-image {
+    cursor: pointer;
+  }
+}
+</style>

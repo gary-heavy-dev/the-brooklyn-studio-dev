@@ -11,12 +11,15 @@
         :sizes="content.aspectRatio === 'landscape' ? sizesLandscape : sizesPortrait"
         :x="content.image.asset.metadata.dimensions.width"
         :y="content.image.asset.metadata.dimensions.height"
+        @click.native="openLightbox"
       />
     </div>
   </div>
 </template>
 
 <script>
+import eventHub from '~/utils/eventHub'
+
 export default {
   data() {
     return {
@@ -40,6 +43,11 @@ export default {
   },
   props: {
     content: Object
+  },
+  methods: {
+    openLightbox(e) {
+      eventHub.$emit('open-lightbox', e.target.getAttribute('data-lightbox'))
+    }
   }
 }
 </script>

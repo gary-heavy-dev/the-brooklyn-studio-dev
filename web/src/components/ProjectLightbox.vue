@@ -1,7 +1,13 @@
 <template>
-  <div class="lightbox" id="projectLightbox">
+  <div
+    class="lightbox"
+    id="projectLightbox"
+  >
+    <ProjectLightboxClose
+      @click.native="closeLightbox"
+    />
     <swiper
-      class="lightbox__swiper"
+      class="lightbox__swiper swiper"
       :options="swiperOption"
       ref="lightboxSwiper"
     >
@@ -9,6 +15,7 @@
         v-for="(image, index) in lightboxArray"
         class="lightbox__swiper-slide"
         :key="index"
+        @click.native="closeLightbox"
       >
         <div class="lightbox__caption">{{ image.caption }}</div>
         <g-image
@@ -16,6 +23,18 @@
           :src="image.asset.url"
         />
       </swiper-slide>
+      <div 
+        class="swiper-button-prev"
+        slot="button-prev"
+      >
+        <SliderArrow />
+      </div>
+      <div
+        class="swiper-button-next"
+        slot="button-next"
+      >
+        <SliderArrow />
+      </div>
     </swiper>
     <div class="lightbox__pagination xsmall"></div>
   </div>
@@ -25,11 +44,15 @@
 import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
 import 'swiper/css/swiper.css'
 import eventHub from '~/utils/eventHub'
+import ProjectLightboxClose from '~/components/ProjectLightboxClose'
+import SliderArrow from '~/components/SliderArrow'
 
 export default {
   components: {
     Swiper,
-    SwiperSlide
+    SwiperSlide,
+    ProjectLightboxClose,
+    SliderArrow
   },
   data() {
     return {
@@ -39,6 +62,10 @@ export default {
         speed: 300,
         threshold: 10,
         slidesPerView: 1,
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
         pagination: {
           el: '.lightbox__pagination',
           type: 'fraction',
@@ -76,20 +103,23 @@ export default {
     openLightbox() {
       const lightbox = document.getElementById("projectLightbox")
       lightbox.classList.add("lightbox--active")
-      console.log("open me please!")
+      // console.log("open me please!")
+    },
+    closeLightbox() {
+      const lightbox = document.getElementById("projectLightbox")
+      lightbox.classList.remove("lightbox--active")
     },
     goToSlide(slideId) {
       const slideIndex = this.lightboxArray.findIndex(x => x.asset.id === slideId)
-      // console.log("My index is:", slideIndex)
+      console.log("My index is:", slideIndex)
       this.openLightbox
-      this.swiper.slideTo(slideIndex, 0)
+      this.swiper.slideTo(slideIndex + 1, 0)
     }
   },
   mounted() {
     eventHub.$on('open-lightbox', (data) => {
       const lightbox = document.getElementById("projectLightbox")
       lightbox.classList.add("lightbox--active")
-      console.log("open me please!")
       this.goToSlide(data)
     })
   },
@@ -101,6 +131,7 @@ export default {
 
 <style lang="scss">
 .lightbox {
+  color: var(--color--gray-tertiary);
   position: fixed;
   top: 0;
   left: 0;
@@ -154,6 +185,22 @@ export default {
     bottom: 80px;
     width: 100%;
     pointer-events: none;
+  }
+
+  .swiper-button-next,
+  .swiper-button-prev {
+    color: var(--color--gray-tertiary);
+    height: 100%;
+    width: 80px;
+    top: 21px;
+  }
+
+  .swiper-button-next {
+    right: 20px;
+  }
+
+  .swiper-button-prev {
+    left: 20px;
   }
 }
 </style>
