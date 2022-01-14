@@ -27,6 +27,10 @@
 .dropdown {
   position: relative;
 
+  @include desktop-down {
+    display: none !important;
+  }
+
   ul.dropdown__menu {
     position: absolute;
     min-width: 22ch;

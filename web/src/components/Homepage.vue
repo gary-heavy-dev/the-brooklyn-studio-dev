@@ -1,10 +1,12 @@
 <template>
   <Layout>
-    <Intro
-      :content="content.introSection"
-      :layout="'primary'"
-    />
-    <FlexibleContent :content="content.flexibleContent" />
+    <div class="home">
+      <Intro
+        :content="content.introSection"
+        :layout="'primary'"
+      />
+      <FlexibleContent :content="content.flexibleContent" />
+    </div>
   </Layout>
 </template>
 

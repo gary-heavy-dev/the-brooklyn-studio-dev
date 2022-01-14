@@ -8,11 +8,6 @@ import Homepage from '~/components/Homepage'
 export default {
   components: {
     Homepage
-  },
-  metaInfo: {
-    bodyAttrs: {
-      class: 'home'
-    }
   }
 }
 </script>

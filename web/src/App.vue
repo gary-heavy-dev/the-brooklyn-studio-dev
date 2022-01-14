@@ -21,6 +21,14 @@ export default {
     HomepageHero,
     TheHeader,
     TheFooter
+  },
+  updated() {
+    const b = document.body
+    if (b.classList.contains('menu--open')) {
+      b.classList.add('menu--closing')
+      setTimeout(() => { b.classList.remove('menu--open') }, 400)
+      setTimeout(() => { b.classList.remove('menu--closing') }, 700)
+    }
   }
 }
 </script>

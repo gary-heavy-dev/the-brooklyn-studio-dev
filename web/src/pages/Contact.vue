@@ -8,11 +8,6 @@ import Contact from '~/components/Contact'
 export default {
   components: {
     Contact 
-  },
-  metaInfo: {
-    bodyAttrs: {
-      class: 'contact-page'
-    }
   }
 }
 </script>
