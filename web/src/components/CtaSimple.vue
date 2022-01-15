@@ -1,10 +1,10 @@
 <template>
   <section
-    :class="'cta-simple w-100 copy--' + content.textLocation + ' background--' + content.bgColor.title + ' image--' + content.imageStyle + ' p-' + content.paddingSize"
+    :class="'cta-simple w-100 copy--' + content.textLocation + ' background--' + content.bgColor.title + ' image--' + content.imageStyle"
     :id="content.navTitle ?  $toKebabCase(content.navTitle) : ''"
   >
     <div class="cta-simple__inner grid grid--12-desktop">
-      <div :class="'copy-wrapper flex ai-c col-span--' + copySpan">
+      <div :class="'copy-wrapper flex ai-c col-span--' + copySpan + ' p-' + (content.paddingSize === '0' ? '60' : content.paddingSize)">
         <div class="copy-wrapper__inner mw-readable">
           <h2
             v-if="content.heading"
@@ -26,7 +26,7 @@
         </div>
       </div>
       <div class="grid-spacer col-span--1"></div>
-      <div :class="'image-wrapper col-span--' + content.imageWidth">
+      <div :class="'image-wrapper col-span--' + content.imageWidth + ' p-' + content.paddingSize">
         <BaseImage
           v-if="content.image"
           :src="content.image"
@@ -127,18 +127,45 @@ export default {
 
   &__inner {
 
-    @include desktop {
-      @include container;
+    @include container;
+
+    @include desktop-down {
+      display: flex;
+      flex-direction: column-reverse;
+
+      .copy-wrapper {
+        padding: 39px 0 100px;
+      }
+
+      .image-wrapper {
+        margin-left: calc(var(--grid-margin) * -1);
+        padding: 0;
+      }
     }
   }
 
-  &__image {
-    grid-column: span 4;
+  .image-wrapper {
 
-    @include desktop {
-      grid-column: 6/13;
+    &.p-0 {
+
+      @include desktop {
+
+        .base-image,
+        .base-image__inner {
+          object-fit: cover;
+          height: 100%;
+        }
+      }
     }
   }
+
+  // &__image {
+  //   grid-column: span 4;
+
+  //   @include desktop {
+  //     grid-column: 6/13;
+  //   }
+  // }
 
   &__large-copy {
     max-width: 400px;
@@ -158,12 +185,12 @@ export default {
       }
     }
 
-    .cta-simple__image {
+    // .cta-simple__image {
 
-      @include desktop {
-        grid-column: span 5;
-      }
-    }
+    //   @include desktop {
+    //     grid-column: span 5;
+    //   }
+    // }
   }
 }
 </style>
