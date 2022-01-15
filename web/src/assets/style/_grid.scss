@@ -1,6 +1,6 @@
 .grid {
 
-  @include laptop {
+  @include desktop {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-column-gap: var(--grid-gap);

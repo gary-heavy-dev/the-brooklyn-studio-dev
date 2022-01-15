@@ -57,7 +57,7 @@
       >
         <div class="copy__inner mb-100 col-span--6">
           <BaseBlockContent
-            class="h5"
+            class="h5 h5--alt"
             :blocks="content._rawIntroSmall"
           />
           <g-link
@@ -67,7 +67,7 @@
           >{{ content.introLinkText }}</g-link>
 
 
-          <div class="image-wrapper p-100 mobile-only">
+          <div class="image-wrapper mobile-only">
             <BaseImage
               :lazy="true"
               v-if="content.introImageSecondary"
@@ -127,8 +127,12 @@ export default {
 
 <style lang="scss">
 .intro {
-  background-color: white;
+  background-color: var(--color--gray-light);
   position: relative;
+
+  @include desktop {
+    background-color: white;
+  }
 
   .copy__content {
     margin: 0 var(--grid-margin);
@@ -143,7 +147,17 @@ export default {
 
     @include laptop-down {
       min-height: unset !important;
+
+      &--large {
+        margin-bottom: 41px;
+      }
     }
+  }
+
+  .image-wrapper.mobile-only {
+    margin-right: 0;
+    margin-left: calc(var(--grid-margin) * -1);
+    padding: 40px 0 20px;
   }
 
   &--secondary {

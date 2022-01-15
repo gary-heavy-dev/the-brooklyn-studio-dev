@@ -1,6 +1,6 @@
 <template>
   <section
-    :class="'cta-gallery flex cta-gallery--' + content.imageGalleryLocation + ' background--' + content.bgColor.title + ' p-' + content.paddingSize"
+    :class="'cta-gallery w-100 flex cta-gallery--' + content.imageGalleryLocation + ' background--' + content.bgColor.title + ' p-' + content.paddingSize"
     :id="content.navTitle ? $toKebabCase(content.navTitle) : ''"
   >
     <div class="cta-gallery__inner grid grid--12-desktop">
@@ -24,10 +24,10 @@
               />
             </swiper-slide>
           </swiper>
-          <div class="swiper__pagination"></div>
+          <div class="swiper__pagination cta-gallery__swiper-pagination"></div>
         </div>
       </div>
-      <div class="cta-gallery__copy flex ai-c">
+      <div class="cta-gallery__copy p-mobile-copy-block flex ai-c">
         <div class="cta-gallery__copy-inner">
           <h2
             class="h2 upper"
@@ -68,7 +68,7 @@ export default {
         speed: 300,
         threshold: 10,
         pagination: {
-          el: '.swiper__pagination',
+          el: '.cta-gallery__swiper-pagination',
           clickable: true
         },
         autoplay: {
@@ -90,8 +90,6 @@ export default {
 
 <style lang="scss">
 .cta-gallery {
-  width: 100%;
-  max-width: 100%;
 
   &__gallery-wrapper {
     grid-column: span 6;
@@ -109,6 +107,8 @@ export default {
   }
 
   @include desktop-down {
+    flex-direction: column;
+    padding: 0;
 
     &__copy {
       @include container;
@@ -135,7 +135,11 @@ export default {
 }
 .home .cta-gallery__copy p {
   font-size: var(--h5-font-size);
-  line-height: var(--h5-line-height);
-  font-weight: 500;
+  line-height: var(--h5-line-height--alt);
+
+  @include desktop {
+    line-height: var(--h5-line-height);
+    font-weight: 500;
+  }
 }
 </style>

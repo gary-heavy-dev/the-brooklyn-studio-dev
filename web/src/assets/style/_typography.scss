@@ -176,12 +176,12 @@ p.h5,
   }
 }
 
-.home .h5,
 .h5--alt {
   font-weight: 500;
 
   @include desktop-down {
     line-height: var(--h5-line-height--alt);
+    font-weight: 400;
   }
 }
 

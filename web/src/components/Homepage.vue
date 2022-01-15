@@ -1,10 +1,10 @@
 <template>
   <Layout>
     <div class="home">
-      <!-- <Intro
+      <Intro
         :content="content.introSection"
         :layout="'primary'"
-      /> -->
+      />
       <FlexibleContent :content="content.flexibleContent" />
     </div>
   </Layout>

@@ -4,7 +4,7 @@
     :id="content.navTitle ?  $toKebabCase(content.navTitle) : ''"
   >
     <div class="cta-simple__inner grid grid--12-desktop">
-      <div :class="'copy-wrapper flex ai-c col-span--' + copySpan + ' p-' + (content.paddingSize === '0' ? '60' : content.paddingSize)">
+      <div :class="'copy-wrapper p-mobile-copy-block flex ai-c col-span--' + copySpan + ' p-' + (content.paddingSize === '0' ? '60' : content.paddingSize)">
         <div class="copy-wrapper__inner mw-readable">
           <h2
             v-if="content.heading"
@@ -12,7 +12,7 @@
           >{{ content.heading }}</h2>
           <p
             v-if="content.largeText"
-            class="h5 cta-simple__large-copy"
+            class="h5 h5--alt cta-simple__large-copy"
           >{{ content.largeText }}</p>
           <BaseBlockContent
             v-if="content._rawCopy"
@@ -132,10 +132,6 @@ export default {
     @include desktop-down {
       display: flex;
       flex-direction: column-reverse;
-
-      .copy-wrapper {
-        padding: 39px 0 100px;
-      }
 
       .image-wrapper {
         margin-left: calc(var(--grid-margin) * -1);

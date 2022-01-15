@@ -1,14 +1,36 @@
 <template>
-  <section class="link-gallery flex w-100" :id="content.navTitle ? $toKebabCase(content.navTitle) : ''">
-    <div class="link-gallery__inner container grid grid--12-desktop">
-      <div class="link-gallery__copy flex ai-c">
+  <section class="link-gallery flex fd-c" :id="content.navTitle ? $toKebabCase(content.navTitle) : ''">
+    <div class="link-gallery__swiper-wrapper mobile-only w-100">
+      <div class="text-center">
+        <swiper
+          :options="swiperOption"
+        >
+          <swiper-slide
+            v-for="(link, index) in content.links"
+            :key="index"
+          >
+            <BaseImage
+              v-if="link.image"
+              :src="link.image"
+              :lazy="true"
+              :sizes="sizes"
+              :x="390"
+              :y="496"
+            />
+          </swiper-slide>
+        </swiper>
+        <div class="swiper__pagination link-gallery__swiper-pagination"></div>
+      </div>
+    </div>
+    <div class="link-gallery__inner grid grid--12-desktop">
+      <div class="link-gallery__copy flex ai-c p-mobile-copy-block">
         <div class="link-gallery__copy-inner">
           <h2
             class="h2 upper"
             v-if="content.title"
           >{{ content.title }}</h2>
           <p
-            class="h5"
+            class="h5 h5--alt"
             v-if="content.intro"
           >{{ content.intro }}</p>
           <div class="link-gallery__links link-list">
@@ -23,7 +45,7 @@
           </div>
         </div>
       </div>
-      <div class="link-gallery__gallery layered-image-gallery">
+      <div class="link-gallery__gallery layered-image-gallery desktop-only">
         <div
           class="link-gallery__gallery-image layered-image-gallery__image image-wrapper"
           v-if="content.image"
@@ -67,9 +89,29 @@
 </template>
 
 <script>
+import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
+import 'swiper/css/swiper.css'
+
 export default {
+  components: {
+    Swiper,
+    SwiperSlide
+  },
   data() {
     return {
+      swiperOption: {
+        effect: 'fade',
+        loop: true,
+        speed: 300,
+        threshold: 10,
+        pagination: {
+          el: '.link-gallery__swiper-pagination',
+          clickable: true
+        },
+        autoplay: {
+          delay: 6000
+        }
+      },
       sizes: {
         mobile: 338,
         tablet: 768,
@@ -106,11 +148,8 @@ export default {
     position: relative;
     z-index: 10;
 
-    &-inner {
-
-      @include desktop-down {
-        @include container;
-      }
+    @include desktop-down {
+      @include container;
     }
   }
 
@@ -121,6 +160,17 @@ export default {
       grid-column: 8/13;
       margin-right: calc(var(--grid-margin) * -1);
       padding-bottom: 164%;
+    }
+  }
+
+  &__inner {
+
+    // @include desktop-down {
+    //   width: 100%;
+    // }
+
+    @include desktop {
+      @include container;
     }
   }
 }
