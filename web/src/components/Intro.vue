@@ -1,7 +1,7 @@
 <template>
   <section :class="'intro two-up intro--' + layout" :id="layout === 'secondary' ? 'approach' : 'intro'">
     <div class="intro-column flex fd-c">
-      <div class="copy background-stretch background--gray-light flex ai-c p-100">
+      <div class="copy background-stretch background--gray-light flex ai-c">
         <div class="copy__content ">
           <div class="copy__content-inner mw-readable ">
             <span 
@@ -19,7 +19,7 @@
           </div>
         </div>
       </div>
-      <div class="intro-image intro-image--small flex fd-c">
+      <div class="intro-image intro-image--small flex fd-c desktop-only">
         <div class="grid grid--6-desktop container--left">
           <div class="image-wrapper col-span--5 p-100">
             <BaseImage
@@ -35,14 +35,17 @@
       </div>
     </div>
     <div class="intro__column copy--left image--full">
-      <div class="intro-image intro-image--large grid grid--6-desktop container--right mb-100">
+      <div
+        class="intro-image intro-image--large grid grid--6-desktop container--right mb-100"
+        :style="{ minHeight: minX + 'px' }"
+      >
         <div class="image-wrapper col-span--6">
           <BaseImage
             v-if="content.introImagePrimary"
             :src="content.introImagePrimary"
             :lazy="true"
             :sizes="layout === 'secondary' ? sizesPrimarySmaller : sizesPrimaryLarge"
-            :minX="layout === 'secondary' ? 1066 : 692"
+            :minX="minX"
             :x="content.introImagePrimary.asset.metadata.dimensions.width"
             :y="content.introImagePrimary.asset.metadata.dimensions.height"
           />
@@ -62,6 +65,18 @@
             :to="content.introLink"
             class="upper button mt-60"
           >{{ content.introLinkText }}</g-link>
+
+
+          <div class="image-wrapper p-100 mobile-only">
+            <BaseImage
+              :lazy="true"
+              v-if="content.introImageSecondary"
+              :src="content.introImageSecondary"
+              :x="683"
+              :y="529"
+              :sizes="sizesSecondary"
+            />
+          </div>
         </div>
       </div>
     </div>
@@ -98,6 +113,11 @@ export default {
       }
     }
   },
+  computed: {
+    minX() {
+      return this.layout === 'secondary' ? 1066 : 692
+    }
+  },
   props: {
     content: Object,
     layout: String
@@ -112,6 +132,18 @@ export default {
 
   .copy__content {
     margin: 0 var(--grid-margin);
+    padding: 41px 0;
+
+    @include desktop {
+      padding: 112px 0;
+    }
+  }
+
+  .intro-image {
+
+    @include laptop-down {
+      min-height: unset !important;
+    }
   }
 
   &--secondary {

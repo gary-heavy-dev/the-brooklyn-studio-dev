@@ -443,7 +443,15 @@
 }
 
 .mobile-only {
+
   @include desktop {
+    display: none !important;
+  }
+}
+
+.desktop-only {
+  
+  @include desktop-down {
     display: none !important;
   }
 }

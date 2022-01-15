@@ -4,6 +4,10 @@
       :class="['base-image__inner', { 'has-ratio': ratio }]"
       :style="{ paddingBottom: aspectRatio + '%' }"
     >
+    <!-- <div
+      :class="ratio && !minX ? 'base-image__inner has-ratio' : 'base-image__inner'"
+      :style="{ paddingBottom: aspectRatio + '%' }"
+    > -->
       <img
         v-if="lazy && src.asset != null"
         class="lazyload"

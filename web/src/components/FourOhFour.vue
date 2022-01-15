@@ -2,33 +2,34 @@
   <Layout>
     <div class="four-oh-four flex w-100">
       <div class="four-oh-four__inner container flex ai-c jc-c">
-        <Logo />
+        <FourOhFourGraphic />
       </div>
     </div>
   </Layout>
 </template>
 
 <script>
-import Logo from '~/components/Logo'
+import FourOhFourGraphic from '~/components/FourOhFourGraphic'
 
 export default {
   components: {
-    Logo
+    FourOhFourGraphic 
   }
 }
 </script>
 
 <style lang="scss">
 .four-oh-four {
-  height: 100vh;
+  min-height: 100vh;
 
   &__inner {
+    padding: 145px 0;
 
     svg {
       max-width: 100%;
 
       @include desktop {
-        max-width: 60%;
+        max-width: 41%;
       }
     }
   }
