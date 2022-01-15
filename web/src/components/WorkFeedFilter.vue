@@ -7,13 +7,17 @@
         :label="category.title" 
         v-on="$listeners"
       />
-      <button @click="clearFilter">Clear</button>
+      <button
+        @click="clearFilter"
+        class="filter-clear-button upper sub"
+      ><span>&times;</span> Clear</button>
     </ul>
   </div>
 </template>
 
 <script>
-import Checkbox from "~/components/Checkbox"
+import Checkbox from '~/components/Checkbox'
+import eventHub from '~/utils/eventHub'
 
 export default {
   components: {
@@ -29,9 +33,8 @@ export default {
   },
   methods: {
     clearFilter() {
-      this.status = false
-      console.log(this.status)
       this.$emit('filter-cleared')
+      eventHub.$emit('filter-cleared')
     }
   }
 }
@@ -44,6 +47,14 @@ export default {
     list-style: none;
     display: flex;
     margin: 0;
+  }
+
+  .filter-clear-button {
+
+    span {
+      position: relative;
+      top: -1px;
+    }
   }
 }
 </style>

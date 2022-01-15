@@ -23,7 +23,7 @@
         />
         <WorkFeedCard
           v-for="(project, index) in filteredProjects"
-          :key="index"
+          :key="index + project.title"
           :project="project"
         />
       </div>
@@ -59,10 +59,8 @@ export default {
   computed: {
     filteredProjects() {
       if (this.activeCategories.length) {
-        console.log("not empty", this.content.projects)
         return this.content.projects.filter(project => project.projectCategories.some(category => this.activeCategories.includes(category.title)))
       } else {
-        console.log("I'm empty!")
         return this.content.projects
       }
     }

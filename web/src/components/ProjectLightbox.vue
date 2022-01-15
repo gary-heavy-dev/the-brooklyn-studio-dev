@@ -111,7 +111,7 @@ export default {
     },
     goToSlide(slideId) {
       const slideIndex = this.lightboxArray.findIndex(x => x.asset.id === slideId)
-      console.log("My index is:", slideIndex)
+      // console.log("My index is:", slideIndex)
       this.openLightbox
       this.swiper.slideTo(slideIndex + 1, 0)
     }

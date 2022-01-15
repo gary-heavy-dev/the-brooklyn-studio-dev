@@ -16,10 +16,16 @@
 </template>
 
 <script>
+import eventHub from '~/utils/eventHub'
+
 export default {
   props: {
-    label: String,
-    status: Boolean
+    label: String
+  },
+  data() {
+    return {
+      status: false
+    }
   },
   methods: {
     checkboxClick(e) {
@@ -32,6 +38,14 @@ export default {
         }
       )
     }
+  },
+  mounted() {
+    eventHub.$on('filter-cleared', () => {
+      this.status = false
+    })
+  },
+  beforeDestroy() {
+    eventHub.$off('filter-cleared')
   }
 }
 </script>
