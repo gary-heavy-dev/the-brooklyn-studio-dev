@@ -1,6 +1,6 @@
 <template>
   <section
-    class="team-member-featured flex color--white background--navy w-100 p-100"
+    class="team-member-featured flex color--white background--navy w-100 p-100 p-mobile-copy-block"
     :id="content.navTitle ?  $toKebabCase(content.navTitle) : ''"
   >
     <div class="team-member-featured__inner container grid grid--12-desktop">
@@ -17,7 +17,7 @@
           <g-link
             class="upper button mt-60"
             :to="'/about-us/team/' + featuredMember.slug.current"
-          >Meet {{ featuredMember.name }}<span v-if="featuredMember.title">, {{ featuredMember.title }}</span></g-link>
+          ><span>Meet {{ featuredMember.name }}, </span><span v-if="featuredMember.title">{{ featuredMember.title }}</span></g-link>
         </div>
       </div>
       <BaseImage
@@ -80,12 +80,28 @@ export default {
     p {
       max-width: var(--max-width--readable-lg);
     }
+
+    .button {
+
+      @include desktop-down {
+        margin-bottom: 41px;
+
+        span {
+          display: block;
+        }
+      }
+    }
   }
 
   .base-image {
 
     @include desktop {
       grid-column: span 3/13;
+    }
+
+    @include desktop-down {
+      max-width: 73%;
+      margin: 0 auto;
     }
   }
 }

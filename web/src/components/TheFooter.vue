@@ -1,9 +1,9 @@
 <template>
-  <footer class="the-footer flex fw p-40 color--gray-tertiary background--gray-light" id="theFooter">
-    <div class="container grid grid--12-desktop w-100 mb-40">
-      <Logo
-        class="col-span--2"
-      />
+  <footer class="the-footer p-40 color--gray-tertiary background--gray-light" id="theFooter">
+    <div class="grid grid--12-desktop mb-40">
+      <div class="footer__logo col-span--2">
+        <Logo />
+      </div>
       <nav
         class="the-footer__links xsmall"
         aria-label="Secondary Footer Navigation"
@@ -13,14 +13,25 @@
         <g-link to="/news">News</g-link>
         <g-link to="/contact">Contact</g-link>
       </nav>
-      <div class="the-footer__newsletter col-span--4 xsmall">Join Our Newsletter</div>
+      <div class="the-footer__newsletter col-span--4 xsmall">
+        <form
+          action=""
+          class="flex fd-c"
+        >
+          <label for="">Join Our Newsletter</label>
+          <div class="input-wrapper">
+            <input type="email" placeholder="Your Email">
+            <button>Submit</button>
+          </div>
+        </form>
+      </div>
       <div class="social-icons">
         <LogoInstagram
           class="social-icon__instagram"
         />
       </div>
     </div>
-    <div class="container grid grid--12-desktop w-100 xxsmall">
+    <div class="grid grid--12-desktop xxsmall">
       <div class="the-footer__credits">© 2021 The Brooklyn Studio of Architecture and Interiors | Privacy Policy</div>
     </div>
   </footer>
@@ -41,12 +52,67 @@ export default {
 <style lang="scss">
 .the-footer {
 
+  @include desktop {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  > div {
+
+    @include desktop {
+      @include container;
+      width: 100%;
+    }
+  }
+
+  .footer__logo {
+    border-bottom: 1px solid var(--color--gray-secondary);
+
+    svg {
+      display: block;
+
+      @include desktop-down {
+        width: 40.5%;
+        margin: 0 auto;
+        padding: 15px 0 40px;
+      }
+    }
+  }
+
   &__links {
     grid-column: 4/6;
 
     a {
       display: block;
-      margin-bottom: 11px;
+
+      @include desktop {
+        margin-bottom: 11px;
+      }
+
+      @include desktop-down {
+        border-bottom: 1px solid var(--color--gray-secondary);
+
+        padding: 15px var(--grid-margin);
+      }
+    }
+  }
+
+  &__newsletter {
+
+    label {
+      padding: 15px 0;
+    }
+
+    form {
+      align-items: flex-start;
+    }
+  }
+
+  &__newsletter,
+  &__credits {
+
+    @include desktop-down {
+      @include container;
     }
   }
 
@@ -62,6 +128,10 @@ export default {
     display: flex;
     align-items: flex-start;
     justify-content: flex-end;
+
+    @include desktop-down {
+      display: none;
+    }
   }
 
   .social-icon__instagram {

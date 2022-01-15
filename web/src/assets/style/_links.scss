@@ -1,10 +1,18 @@
 .link-list {
 
   a {
-    padding-top: 32px;
+    padding-top: 23px;
 
     &:first-child {
       padding-top: 26px;
+    }
+
+    @include desktop {
+      padding-top: 32px;
+
+      &:first-child {
+        padding-top: 5px;
+      }
     }
   }
 }

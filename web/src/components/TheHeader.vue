@@ -107,7 +107,11 @@ export default {
   }
 
   &__logo {
-    height: 17px;
+    height: 13px;
+
+    @include laptop {
+      height: 17px;
+    }
   }
 
   &__menu {

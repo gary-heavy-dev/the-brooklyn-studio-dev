@@ -207,10 +207,14 @@ p.h5,
   display: table;
   font-weight: 500;
   letter-spacing: var(--letter-spacing--lg);
-  padding-bottom: 1px;
+  padding-bottom: 7px;
   text-decoration: none;
   border-bottom: 1px solid var(--color--gray-tertiary);
   transition: all 0.2s ease-in-out;
+
+  @include desktop {
+    padding-bottom: 3px;
+  }
 
   &:hover {
     color: var(--color--navy);

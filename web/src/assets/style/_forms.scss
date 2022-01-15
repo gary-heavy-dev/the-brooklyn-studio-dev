@@ -1,0 +1,27 @@
+.input-wrapper {
+  border: 1px solid var(--color--navy);
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+
+  input {
+    flex: 1;
+  }
+}
+
+input {
+  background-color: transparent;
+  border: none;
+  height: 38px;
+  font: inherit;
+  padding: 9px;
+}
+
+form {
+
+  button {
+    color: var(--color--white);
+    background: var(--color--navy);
+    width: 150px;
+  }
+}
