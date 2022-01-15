@@ -3,7 +3,7 @@
     <div class="work-feed-slide__title pt-60 pos-abs z-1">
       <h1 class="h1 color--white">{{ content.title }}</h1>
     </div>
-    <div class="work-feed-slide__hero overlay mb-100 o-h">
+    <div class="work-feed-slide__hero overlay mb-80 o-h">
       <BaseImage
         v-if="content.heroImage"
         :src="content.heroImage"
@@ -15,8 +15,14 @@
     </div>
     <div class="work-feed-slide__grid flex jc-c">
       <div class="grid w-100">
+        <WorkFeedFilter
+          v-if="content.projectCategories"
+          :categories="content.projectCategories"
+          @checkbox-clicked="updateActiveCategories"
+          @filter-cleared="clearCategories"
+        />
         <WorkFeedCard
-          v-for="(project, index) in content.projects"
+          v-for="(project, index) in filteredProjects"
           :key="index"
           :project="project"
         />
@@ -27,10 +33,12 @@
 
 <script>
 import WorkFeedCard from '~/components/WorkFeedCard'
+import WorkFeedFilter from '~/components/WorkFeedFilter'
 
 export default {
   components: {
-    WorkFeedCard
+    WorkFeedCard,
+    WorkFeedFilter
   },
   data() {
     return {
@@ -41,11 +49,36 @@ export default {
         desktop: 1283,
         hd: 1711,
         fourK: 3422 // by 1332
-      }
+      },
+      activeCategories: []
     }
   },
   props: {
     content: Object
+  },
+  computed: {
+    filteredProjects() {
+      if (this.activeCategories.length) {
+        console.log("not empty", this.content.projects)
+        return this.content.projects.filter(project => project.projectCategories.some(category => this.activeCategories.includes(category.title)))
+      } else {
+        console.log("I'm empty!")
+        return this.content.projects
+      }
+    }
+  },
+  methods: {
+    updateActiveCategories(event) {
+      if (event.status == true) {
+        this.activeCategories.push(event.value)
+      } else {
+        const tempArray = this.activeCategories.filter(item => item != event.value)
+        this.activeCategories = tempArray
+      }
+    },
+    clearCategories() {
+      this.activeCategories = []
+    }
   }
 }
 </script>

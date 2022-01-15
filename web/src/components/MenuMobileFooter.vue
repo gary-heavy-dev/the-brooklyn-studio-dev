@@ -28,6 +28,7 @@ export default {
   .brooklyn-studio-logo {
     padding-top: 62px;
     min-width: 200px;
+    max-width: 340px;
   }
 
   .social-icon__instagram {

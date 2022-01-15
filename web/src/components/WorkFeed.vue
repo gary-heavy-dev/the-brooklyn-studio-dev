@@ -109,6 +109,9 @@ export default {
         }
         alt
       }
+      projectCategories {
+        title
+      }
     }
     projectCategories {
       title
