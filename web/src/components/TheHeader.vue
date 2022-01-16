@@ -90,7 +90,7 @@ export default {
 .the-header {
   height: var(--header-height);
   top: 0;
-  position: fixed;
+  position: sticky;
   transform: translate3d(0, 0, 0);
   backface-visibility: hidden;
   perspective: 1000;

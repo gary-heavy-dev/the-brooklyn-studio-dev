@@ -1,6 +1,6 @@
 <template>
   <Layout>
-    <!-- <HomepageHero v-show="$route.path == '/'" /> -->
+    <HomepageHero v-show="$route.path == '/'" />
     <TheHeader />
     <main class="main">
       <transition name="fade" mode="out-in">
@@ -45,7 +45,6 @@ export default {
 }
 
 main.main {
-  padding-top: var(--header-height);
   background-color: var(--color--white);
 
   > div {
