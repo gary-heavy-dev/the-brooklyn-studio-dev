@@ -144,13 +144,10 @@ export default {
 
     &.p-0 {
 
-      @include desktop {
-
-        .base-image,
-        .base-image__inner {
-          object-fit: cover;
-          height: 100%;
-        }
+      .base-image,
+      .base-image__inner {
+        object-fit: cover;
+        height: 100%;
       }
     }
   }

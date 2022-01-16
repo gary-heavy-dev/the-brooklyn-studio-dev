@@ -1,24 +1,69 @@
 <template>
-  <section class="homepage-hero background--navy">
-    <TheLogo />
+  <section
+    class="homepage-hero background--navy"
+    v-view="adjustHeader"
+  >
+    <div class="flex ai-c jc-c h-100 w-100 pos-abs z-1">
+      <div class="container text-center p-100">
+        <Logo class="white" />
+      </div>
+    </div>
+    <BaseImage
+      class="img-cover"
+      v-if="$static.page.heroImages.images[2]"
+      :lazy="true"
+      :src="$static.page.heroImages.images[2]"
+      :x="1440"
+      :y="1024"
+    />
   </section>
 </template>
 
 <script>
-import TheLogo from '~/components/TheLogo'
+import Logo from '~/components/Logo'
 
 export default {
   components: {
-    TheLogo
+    Logo
+  },
+  methods: {
+    adjustHeader(e) {
+      // console.log("Home hero is:", e.percentTop, e.percentCenter, e.percentInView)
+      if (e.percentTop > 0) {
+        document.body.classList.add('home-hero-in-view')
+      } else {
+        document.body.classList.remove('home-hero-in-view')
+      }
+    }
   }
 }
 </script>
 
 <style lang="scss">
 .homepage-hero {
-  display: flex;
   height: 100vh;
-  align-items: center;
-  justify-content: center;
+
+  > div {
+    height: 100%;
+  }
+
+  svg {
+    width: 48.25%;
+  }
 }
 </style>
+
+<static-query>
+{
+  page: sanityHome(id: "542616c1-f362-4f33-b903-4f4add184641") {
+    heroImages {
+      images {
+        asset {
+          url
+        }
+        alt
+      }
+    }
+  }
+}
+</static-query>

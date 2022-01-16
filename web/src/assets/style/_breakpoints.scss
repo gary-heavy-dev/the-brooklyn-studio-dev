@@ -79,3 +79,9 @@ $screen-4k-min: calc(#{$screen-hd-max} + 1px);
     @content;
   }
 }
+
+@mixin rwd-down($screen) {
+  @media (max-width: $screen+'px') {
+    @content;
+  }
+}

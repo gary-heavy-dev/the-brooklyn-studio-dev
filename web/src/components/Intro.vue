@@ -34,7 +34,7 @@
         </div>
       </div>
     </div>
-    <div class="intro__column copy--left image--full">
+    <div class="intro__column copy--left image--full w-100">
       <div
         class="intro-image intro-image--large grid grid--6-desktop container--right mb-100"
         :style="{ minHeight: minX + 'px' }"
@@ -52,11 +52,11 @@
         </div>
       </div>
       <div
-        v-if="content._rawIntroSmall"
         class="copy grid grid--6-desktop container--right"
       >
         <div class="copy__inner mb-100 col-span--6">
           <BaseBlockContent
+            v-if="content._rawIntroSmall"
             class="h5 h5--alt"
             :blocks="content._rawIntroSmall"
           />

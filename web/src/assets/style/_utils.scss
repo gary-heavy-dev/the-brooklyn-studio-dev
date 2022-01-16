@@ -18,6 +18,7 @@
 
   @include desktop-down {
     @include container;
+    width: unset;
   }
 }
 
@@ -303,10 +304,11 @@ body .p-mobile-copy-block {
 
 // Object Fit, img handling, etc.
 .img-cover {
-  object-fit: cover;
-  object-position: center;
-  height: 100%;
-  width: 100%;
+
+  &.base-image,
+  .base-image__inner {
+    height: 100%;
+  }
 }
 
 // Flex Related Utils

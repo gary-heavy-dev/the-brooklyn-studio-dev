@@ -240,15 +240,21 @@ export default {
 }
 
 @include desktop {
+
   .headroom {
     will-change: transform;
     transition: transform 200ms linear;
   }
+
   .headroom--pinned {
     transform: translateY(0%);
   }
-  .headroom--unpinned {
-    transform: translateY(-100%);
+
+  body:not(.home-hero-in-view) {
+
+    .headroom--unpinned {
+      transform: translateY(-100%);
+    }
   }
 }
 </style>

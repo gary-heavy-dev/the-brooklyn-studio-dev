@@ -51,6 +51,7 @@
           :data-image="index + 1"
         >
           <BaseImage
+            class="img-cover"
             v-if="section.image"
             :src="section.image"
             :lazy="true"
@@ -149,11 +150,6 @@ export default {
 
         &:first-child {
           opacity: 0;
-        }
-
-        .base-image,
-        .base-image__inner {
-          height: 100%;
         }
       }
     }

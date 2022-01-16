@@ -51,8 +51,21 @@ export default {
 <style lang="scss">
 #pinnedDetector {
   height: 110px;
+
+  @include rwd-down(1200) {
+    display: none;
+  }
 }
 .about-us-intro {
-  margin-top: -50px;
+
+  @include rwd(1201) {
+    margin-top: -50px;
+  }
+}
+.about-us-nav {
+
+  @include rwd-down(1200) {
+    display: none;
+  }
 }
 </style>
