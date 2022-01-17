@@ -100,11 +100,21 @@ export default {
   &__newsletter {
 
     label {
-      padding: 15px 0;
+
+      @include desktop-down {
+        padding: 15px 0;
+      }
     }
 
     form {
       align-items: flex-start;
+
+      .input-wrapper {
+
+        @include desktop {
+          margin: 12px 0;
+        }
+      }
     }
   }
 

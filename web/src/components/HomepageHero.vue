@@ -1,6 +1,6 @@
 <template>
   <section
-    class="homepage-hero background--navy"
+    class="homepage-hero background--navy o-h"
     v-view="adjustHeader"
   >
     <div class="flex ai-c jc-c h-100 w-100 pos-abs z-1">

@@ -3,7 +3,7 @@
     class="scrolling-gallery flex w-100"
     :id="content.navTitle ?  $toKebabCase(content.navTitle) : ''"
   >
-    <div class="scrolling-gallery__inner container grid grid--12-desktop">
+    <div class="scrolling-gallery__inner grid grid--12-desktop">
       <div class="scrolling-gallery__copy flex ai-c">
         <div class="scrolling-gallery__copy-inner p-100">
           <div class="scrolling-gallery__copy-intro">
@@ -24,15 +24,22 @@
             v-view="showMeHideMe"
             :data-index="index + 1"
           >
+            <BaseImage
+              class="img-cover mobile-only"
+              v-if="section.image"
+              :src="section.image"
+              :lazy="true"
+              :sizes="sizes"
+            />
             <h3
               class="h4 upper mb-20"
               v-if="section.heading"
             >{{ section.heading }}</h3>
-            <p class="h2" v-if="section.copy">{{ section.copy }}</p>
+            <p class="h3" v-if="section.copy">{{ section.copy }}</p>
           </div>
         </div>
       </div>
-      <div class="scrolling-gallery__gallery layered-image-gallery mb-100">
+      <div class="scrolling-gallery__gallery layered-image-gallery mb-100 desktop-only">
         <div
           class="scrolling-gallery__gallery-image layered-image-gallery__image image-wrapper"
           v-if="content.image"
@@ -40,6 +47,7 @@
         >
           <BaseImage
             :src="content.image"
+            class="img-cover"
             :lazy="true"
             :sizes="sizes"
           />
@@ -51,8 +59,8 @@
           :data-image="index + 1"
         >
           <BaseImage
-            class="img-cover"
             v-if="section.image"
+            class="img-cover"
             :src="section.image"
             :lazy="true"
             :sizes="sizes"
@@ -99,8 +107,19 @@ export default {
 
 <style lang="scss">
 .scrolling-gallery {
-  background-color: var(--color--gray-light);
   position: relative;
+  background-color: var(--color--gray-secondary);
+
+  @include desktop {
+    background-color: var(--color--gray-light);
+  }
+
+  &__inner {
+
+    @include desktop {
+      @include container;
+    }
+  }
 
   &__copy {
     grid-column: span 4;
@@ -116,30 +135,50 @@ export default {
     &-inner {
 
       @include desktop-down {
-        @include container;
+        padding-top: 0;
       }
     }
 
     &-section {
-      padding-bottom: 70vh;
+
+      @include desktop {
+        padding-bottom: 70vh;
+      }
+    }
+
+    &-section,
+    &-intro {
+
+      @include desktop-down {
+        padding-top: 45px;
+
+        .base-image {
+          padding-bottom: 40px;
+        }
+
+        h2, h3, p {
+          @include container;
+        }
+      }
     }
 
     &-intro {
-      padding-top: 30vh;
-      padding-bottom: 50vh;
+
+      @include desktop {
+        padding-top: 30vh;
+        padding-bottom: 50vh;
+      }
     }
   }
 
   &__gallery {
-    @include desktop {
-      overflow: hidden;
-      margin-right: calc(var(--grid-margin) * -1);
-      grid-column: 6/13;
-      height: 100vh;
-      padding-bottom: 100vh;
-      position: sticky;
-      top: 0;
-    }
+    overflow: hidden;
+    margin-right: calc(var(--grid-margin) * -1);
+    grid-column: 6/13;
+    height: 100vh;
+    padding-bottom: 100vh;
+    position: sticky;
+    top: 0;
 
     .layered-image-gallery {
 

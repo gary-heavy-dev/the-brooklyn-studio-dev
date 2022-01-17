@@ -69,7 +69,8 @@
   }
 }
 
-.headroom:not(.headroom--unpinned) {
+.headroom:not(.headroom--unpinned),
+.home-hero-in-view .headroom {
 
   .dropdown {
 
