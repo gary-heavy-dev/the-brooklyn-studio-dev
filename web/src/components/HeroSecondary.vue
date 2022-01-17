@@ -10,6 +10,7 @@
     </div>
     <BaseImage
       v-if="image"
+      class="img-cover"
       :lazy="true"
       :src="image"
       :x="1440"
@@ -27,3 +28,24 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+.hero--secondary {
+
+  &.mb-100 {
+
+    @include laptop-down {
+      margin-bottom: 40px;
+    }
+  }
+
+  @include laptop-down {
+    min-height: 176px;
+    height: 45vw;
+
+    .secondary-hero__title {
+      padding-top: 40px;
+    }
+  }
+}
+</style>

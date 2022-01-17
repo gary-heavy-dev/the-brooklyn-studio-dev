@@ -141,6 +141,13 @@ export default {
     position: sticky;
     top: 0px;
     background-color: inherit;
+
+    .h5 {
+      
+      @include desktop-down {
+        margin-bottom: 8px;
+      }
+    }
   }
 
   &__questions {

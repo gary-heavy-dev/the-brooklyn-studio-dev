@@ -6,7 +6,7 @@
       :margin="true"
     />
     <div class="flex w-100">
-      <div class="team-feed__grid container grid">
+      <div class="team-feed__grid container">
         <g-link
           v-for="(member, index) in $static.team.edges"
           :key="index"
@@ -65,6 +65,7 @@ export default {
 .team-feed {
 
   &__grid {
+    display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 0 20px;
 

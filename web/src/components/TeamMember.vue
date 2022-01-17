@@ -2,7 +2,7 @@
   <div class="team-member flex w-100 fw" id="teamMember" :style="{ backgroundColor: 'rgb(248, 247, 247)' }">
     <div class="team-member__inner container grid grid--12-desktop pb-80">
       <div class="team-member__headshot">
-        <div class="breadcrumbs pb-40 upper sub color--gray-tertiary">
+        <div class="breadcrumbs pb-40 upper sub color--gray-tertiary desktop-only">
           <g-link
             to="/about-us"
           >
@@ -107,11 +107,12 @@ export default {
   }
 
   &__headshot {
+    margin: 40px 0;
 
     @include desktop {
       position: sticky;
       top: 0px;
-      margin-top: calc(var(--header-height) * -1);
+      margin: calc(var(--header-height) * -1) 0 0;
       grid-column: span 4;
       height: fit-content;
     }
