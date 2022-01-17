@@ -24,7 +24,7 @@ export default {
   },
   updated() {
     const b = document.body
-    b.classList.remove('home-hero-in-view')
+    // b.classList.remove('home-hero-in-view')
 
     if (b.classList.contains('menu--open')) {
       b.classList.add('menu--closing')

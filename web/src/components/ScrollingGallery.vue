@@ -29,6 +29,8 @@
               v-if="section.image"
               :src="section.image"
               :lazy="true"
+              :x="100"
+              :y="100"
               :sizes="sizes"
             />
             <h3

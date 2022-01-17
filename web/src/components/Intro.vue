@@ -145,11 +145,12 @@ export default {
 
   .intro-image {
 
-    @include laptop-down {
+    @include desktop-down {
       min-height: unset !important;
 
       &--large {
         margin-bottom: 41px;
+        margin-right: unset;
       }
     }
   }

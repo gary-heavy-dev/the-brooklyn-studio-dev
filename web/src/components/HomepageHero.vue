@@ -48,7 +48,14 @@ export default {
   }
 
   svg {
-    width: 48.25%;
+
+    @include desktop {
+      width: 48.25%;
+    }
+
+    @include desktop-down {
+      padding: 0 var(--grid-margin);
+    }
   }
 }
 </style>

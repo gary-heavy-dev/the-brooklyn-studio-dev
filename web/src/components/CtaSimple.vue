@@ -3,7 +3,7 @@
     :class="'cta-simple w-100 copy--' + content.textLocation + ' background--' + content.bgColor.title + ' image--' + content.imageStyle"
     :id="content.navTitle ?  $toKebabCase(content.navTitle) : ''"
   >
-    <div class="cta-simple__inner grid grid--12-desktop">
+    <div :class="'cta-simple__inner grid grid--12-desktop reverse-mobile--' + content.reverseMobile">
       <div :class="'copy-wrapper p-mobile-copy-block flex ai-c col-span--' + copySpan + ' p-' + (content.paddingSize === '0' ? '60' : content.paddingSize)">
         <div class="copy-wrapper__inner mw-readable">
           <h2
@@ -126,17 +126,24 @@ export default {
   position: relative;
 
   &__inner {
-
-    @include container;
+    @include desktop {
+      @include container;
+    }
 
     @include desktop-down {
       display: flex;
-      flex-direction: column-reverse;
 
       .image-wrapper {
-        margin-left: calc(var(--grid-margin) * -1);
         padding: 0;
       }
+    }
+  }
+
+  .copy-wrapper,
+  &:not(.image--full) .image-wrapper {
+
+    @include desktop-down {
+      @include container;
     }
   }
 
@@ -152,16 +159,17 @@ export default {
     }
   }
 
-  // &__image {
-  //   grid-column: span 4;
-
-  //   @include desktop {
-  //     grid-column: 6/13;
-  //   }
-  // }
-
   &__large-copy {
     max-width: 400px;
+  }
+
+  &:not(.image--full) {
+
+    .image-wrapper {
+      @include desktop-down {
+        padding-top: 40px;
+      }
+    }
   }
 
   &--right {
@@ -177,13 +185,6 @@ export default {
         }
       }
     }
-
-    // .cta-simple__image {
-
-    //   @include desktop {
-    //     grid-column: span 5;
-    //   }
-    // }
   }
 }
 </style>

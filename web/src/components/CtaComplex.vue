@@ -27,7 +27,7 @@
           v-if="content._rawCopy"
           :blocks="content._rawCopy"
         />
-        <div class="complex-cta__links link-list mb-100">
+        <div class="cta-complex__links link-list mb-100">
           <g-link
             v-for="(link, index) in content.links"
             :key="index"
@@ -81,11 +81,23 @@ export default {
 <style lang="scss">
 .cta-complex {
 
+  @include desktop-down {
+    padding-top: 40px;
+  }
+
   &__left-column {
     grid-column: span 5;
 
     .image-wrapper {
-      margin-left: calc(var(--grid-margin) * -1);
+
+      @include desktop-down {
+        margin-right: calc(var(--grid-margin) * -1);
+        margin-bottom: 40px;
+      }
+
+      @include desktop {
+        margin-left: calc(var(--grid-margin) * -1);
+      }
     }
   }
 
@@ -93,7 +105,21 @@ export default {
     grid-column: span 6;
 
     .image-wrapper {
-      margin-right: calc(var(--grid-margin) * -1);
+
+      @include desktop-down {
+        margin-left: calc(var(--grid-margin) * -1);
+      }
+
+      @include desktop {
+        margin-right: calc(var(--grid-margin) * -1);
+      }
+    }
+  }
+
+  &__links {
+
+    @include desktop-down {
+      margin-bottom: 40px;
     }
   }
 }
