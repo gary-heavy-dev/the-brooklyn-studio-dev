@@ -98,8 +98,6 @@ export default {
 <style lang="scss">
 .team-member {
   position: relative;
-  // background: rgb(255,255,255);
-  // background: linear-gradient(0deg, rgba(255,255,255,0) 0%, rgba(248,247,247,1) 100%);
 
   &__inner {
     min-height: 100vh;

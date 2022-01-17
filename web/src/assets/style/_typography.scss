@@ -169,10 +169,13 @@ p {
 p.h5,
 .h5 p {
 
-  margin-bottom: 24px;
+  &:not(:last-child) {
 
-  @include desktop {
-    margin-bottom: 21px;
+    margin-bottom: 24px;
+
+    @include desktop {
+      margin-bottom: 21px;
+    }
   }
 }
 

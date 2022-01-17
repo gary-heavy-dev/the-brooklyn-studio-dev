@@ -10,12 +10,22 @@
             >{{ content.title }}</h1>
             <p
               v-if="content.hero.intro"
-              class="h5"
+              class="h5 h5--alt"
             >{{ content.hero.intro }}</p>
           </div>
         </div>
       </div>
-      <div class="hero--tertiary__content pt-100">
+      <div class="image-wrapper mobile-only">
+        <BaseImage
+          v-if="content.hero.image"
+          :src="content.hero.image"
+          :lazy="true"
+          :sizes="sizes"
+          :x="content.hero.image.asset.metadata.dimensions.width"
+          :y="content.hero.image.asset.metadata.dimensions.height"
+        />
+      </div>
+      <div class="hero--tertiary__content p-100">
         <div class="container--left">
           <AccordionGroup
             v-if="content._type == 'careers' && content.posts"
@@ -24,7 +34,7 @@
         </div>
       </div>
     </div>
-    <div class="hero--tertiary__image copy--left image--full">
+    <div class="hero--tertiary__image copy--left image--full desktop-only">
       <div class="hero--tertiary__image-inner grid grid--6-desktop container--right mb-100">
         <div class="image-wrapper">
           <BaseImage
@@ -69,11 +79,23 @@ export default {
 <style lang="scss">
 .hero--tertiary {
 
+  .copy {
+
+    @include desktop-down {
+      padding: 40px 0 60px;
+    }
+  }
+
+  &__content {
+
+    @include desktop-down {
+      padding-top: 40px;
+    }
+  }
+
   &__image {
 
     &-inner {
-      // position: sticky;
-      // top: 0;
 
       .image-wrapper {
         grid-column: 2/5;

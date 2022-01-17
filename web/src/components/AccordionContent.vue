@@ -46,7 +46,7 @@
     </div>
     <BaseBlockContent
       v-if="$static.notes._rawPostNotes"
-      class="mb-100"
+      class="mb-30"
       :blocks="$static.notes._rawPostNotes"
     />
   </div>

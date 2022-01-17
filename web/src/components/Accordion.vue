@@ -9,9 +9,9 @@
     >
       <h2
         v-if="accordion.title"
-        class="h4 upper mb-40 flex"
+        class="h4 upper"
       >
-        <span class="pb-20">{{ accordion.title }}</span>
+        <span>{{ accordion.title }}</span>
       </h2>
       <AccordionStatus />
     </div>

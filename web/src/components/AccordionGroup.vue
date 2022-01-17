@@ -1,5 +1,5 @@
 <template>
-  <div class="career-accordion-group mb-60">
+  <div class="career-accordion-group">
     <Accordion
       v-for="(post, index) in posts"
       :key="index"
