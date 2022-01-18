@@ -24,6 +24,11 @@ export default {
       options: {
         layout: 'tags'
       }
+    },
+    {
+      name: 'socialLinkIg',
+      type: 'string',
+      title: 'Instagram Account Link'
     }
   ]
 }

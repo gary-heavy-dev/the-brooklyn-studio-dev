@@ -1,6 +1,6 @@
 <template>
   <footer class="the-footer p-40 color--gray-tertiary background--gray-light" id="theFooter">
-    <div class="grid grid--12-desktop mb-40">
+    <div class="grid grid--12-desktop">
       <div class="footer__logo col-span--2">
         <Logo />
       </div>
@@ -23,16 +23,24 @@
             <input type="email" placeholder="Your Email">
             <button>Submit</button>
           </div>
+          <div class="xxsmall the-footer__newsletter-notice">By signing up, you are also agreeing to The Brooklyn Studio's Privacy Policy. You may unsubscribe at any time.</div>
         </form>
       </div>
       <div class="social-icons">
-        <LogoInstagram
-          class="social-icon__instagram"
-        />
+        <a
+          v-if="$static.settings.socialLinkIg"
+          :href="$static.settings.socialLinkIg"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <LogoInstagram
+            class="social-icon__instagram"
+          />
+        </a>
       </div>
     </div>
     <div class="grid grid--12-desktop xxsmall">
-      <div class="the-footer__credits">© 2021 The Brooklyn Studio of Architecture and Interiors | Privacy Policy</div>
+      <div class="the-footer__credits">© 2021 The Brooklyn Studio of Architecture and Interiors <span class="desktop-only">|</span> Privacy Policy</div>
     </div>
   </footer>
 </template>
@@ -90,35 +98,36 @@ export default {
       }
 
       @include desktop-down {
-        border-bottom: 1px solid var(--color--gray-secondary);
-
         padding: 15px var(--grid-margin);
       }
     }
   }
 
+  &__links a,
   &__newsletter {
 
-    label {
-
-      @include desktop-down {
-        padding: 15px 0;
-      }
+    @include desktop-down {
+      border-bottom: 1px solid var(--color--gray-secondary);
     }
+  }
+
+  &__newsletter {
 
     form {
       align-items: flex-start;
 
       .input-wrapper {
-
-        @include desktop {
-          margin: 12px 0;
-        }
+        margin-bottom: 15px;
       }
+    }
+
+    @include desktop-down {
+      padding-bottom: 17px;
+      margin-bottom: 18px;
     }
   }
 
-  &__newsletter,
+  &__newsletter form,
   &__credits {
 
     @include desktop-down {
@@ -131,21 +140,37 @@ export default {
     @include desktop {
       grid-column: 4/12;
     }
+
+    @include desktop-down {
+      text-align: center;
+    }
   }
 
   .social-icons {
     grid-column-end: 13;
     display: flex;
     align-items: flex-start;
-    justify-content: flex-end;
+    justify-content: center;
+
+    @include desktop {
+      justify-content: flex-end;
+    }
 
     @include desktop-down {
-      display: none;
+      margin-bottom: 5px;
     }
-  }
 
-  .social-icon__instagram {
-    width: 36px;
+    svg {
+      width: 36px;
+    }
   }
 }
 </style>
+
+<static-query>
+query {
+  settings: sanitySiteSettings(id: "siteSettings") {
+    socialLinkIg
+  }
+}
+</static-query>

@@ -14,10 +14,19 @@ input {
   border: none;
   height: 38px;
   font: inherit;
+  font-size: var(--small-font-size);
   padding: 9px;
 }
 
 form {
+
+  label {
+    padding-bottom: 15px;
+
+    @include desktop-down {
+      padding: 15px 0;
+    }
+  }
 
   button {
     color: var(--color--white);
