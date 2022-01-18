@@ -1,5 +1,5 @@
 <template>
-  <div class="work-feed-filter color--gray-tertiary mb-40">
+  <div class="work-feed-filter color--gray-tertiary mb-40 desktop-only">
     <ul>
       <Checkbox
         v-for="(category, index) in categories"

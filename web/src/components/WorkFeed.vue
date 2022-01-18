@@ -67,12 +67,17 @@ export default {
           prevEl: '.swiper-button-prev',
         },
         hashNavigation: true,
-        slidesPerView: 1.121,
+        slidesPerView: 1,
         spaceBetween: 2,
         centeredSlides: true,
         loop: true,
         speed: 500,
-        threshold: 10
+        threshold: 10,
+        breakpoints: {
+          1025: {
+            slidesPerView: 1.121,
+          }
+        }
       }
     }
   }
