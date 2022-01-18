@@ -1,6 +1,6 @@
 <template>
   <div :class="'flexible-image-pair grid grid--12-desktop container mb-100 ai-c large-location--' + content.imageLargeLocation + ' reverse-mobile--' + content.reverseMobile">
-    <div class="flexible-image-pair__large-image">
+    <div class="flexible-image-pair__large-image image-wrapper">
       <BaseImage
         v-if="content.imageLarge"
         :src="content.imageLarge"
@@ -11,8 +11,8 @@
         @click.native="openLightbox"
       />
     </div>
-    <div class="grid-spacer col-span--1"></div>
-    <div class="flexible-image-pair__small-image">
+    <div class="grid-spacer col-span--1 pb-60"></div>
+    <div class="flexible-image-pair__small-image image-wrapper grid--mobile">
       <BaseImage
         v-if="content.imageSmall"
         :src="content.imageSmall"
@@ -77,10 +77,12 @@ export default {
   }
 
   &__small-image {
-    grid-column: span 3;
 
     @include desktop-down {
-      margin-right: calc(var(--grid-margin) * -1);
+
+      .base-image {
+        grid-column: 2/5;
+      }
     }
 
     @include desktop {

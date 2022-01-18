@@ -1,9 +1,18 @@
 .grid {
+  grid-template-columns: repeat(4, 1fr);
+  grid-column-gap: var(--grid-gap);
 
   @include desktop {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-column-gap: var(--grid-gap);
+  }
+
+  &--mobile {
+    
+    @include desktop-down {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-column-gap: var(--grid-gap);
+    }
   }
 
   &--2 {

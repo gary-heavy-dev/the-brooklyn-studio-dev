@@ -1,9 +1,10 @@
 <template>
-  <div :class="'flexible-image-with-text container grid grid--12-desktop ai-c mb-100 ' + content.aspectRatio">
+  <div :class="'flexible-image-with-text container grid grid--12-desktop ai-c mb-100 ' + content.aspectRatio + ' image--mobile-' + content.imageLocation + ' reverse-mobile--' + content.reverseMobile">
     <div class="flexible-image-with-text__text">
       <div class="mw-readable">{{ content.text }}</div>
     </div>
-    <div class="flexible-image-with-text__image">
+    <div class="pb-60 mobile-only"></div>
+    <div class="flexible-image-with-text__image image-wrapper">
       <BaseImage
         v-if="content.image"
         :src="content.image"
@@ -59,14 +60,14 @@ export default {
 
     .flexible-image-with-text__text {
 
-      @include laptop {
+      @include desktop {
         grid-column: span 5;
       }
     }
 
     .flexible-image-with-text__image {
 
-      @include laptop {
+      @include desktop {
         grid-column: span 7;
       }
     }
@@ -76,14 +77,17 @@ export default {
 
     > div {
 
-      @include laptop {
+      @include desktop {
         grid-column: span 6;
       }
     }
   }
 
-  .flexible-image-with-text__text {
-    padding-right: 73px;
+  &__text {
+
+    @include desktop {
+      padding-right: 73px;
+    }
   }
 }
 </style>

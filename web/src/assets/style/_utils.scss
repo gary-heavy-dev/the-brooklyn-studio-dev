@@ -37,6 +37,16 @@
 
   @include desktop-down {
 
+    &--true,
+    &--false,
+    &--null {
+      display: flex;
+
+      .image-wrapper {
+        width: fill-available;
+      }
+    }
+
     &--true {
       flex-direction: column-reverse;
     }
@@ -373,6 +383,20 @@ body .p-mobile-copy-block {
 }
 
 // Layout!
+.image--mobile {
+
+  @include desktop-down {
+
+    &-right .image-wrapper {
+      margin-right: calc(var(--grid-margin) * -1);
+    }
+
+    &-left .image-wrapper {
+      margin-right: calc(var(--grid-margin) * -1);
+    }
+  }
+}
+
 .copy {
 
   &--right {

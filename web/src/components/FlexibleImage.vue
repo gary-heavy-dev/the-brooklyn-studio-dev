@@ -1,6 +1,6 @@
 <template>
-  <div :class="'flexible-image container mb-100 grid grid--12-desktop flexible-image--' + content.imageLocation">
-    <div class="flexible-image__inner">
+  <div :class="'flexible-image w-100 mb-100 grid grid--12-desktop flexible-image--' + content.imageLocation">
+    <div class="flexible-image__inner image-wrapper">
       <BaseImage
         v-if="content.image"
         :src="content.image"
@@ -51,6 +51,10 @@ export default {
 
 <style lang="scss">
 .flexible-image {
+
+  @include desktop-down {
+    flex-direction: column;
+  }
 
   &--center {
 

@@ -38,5 +38,9 @@ export default {
   @include desktop {
     height: calc(100vh - var(--header-height));
   }
+
+  @include desktop-down {
+    margin-bottom: 40px;
+  }
 }
 </style>

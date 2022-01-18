@@ -1,6 +1,6 @@
 <template>
   <div class="flexible-text container flex jc-c mb-100">
-    <div class="flexible-text__inner text-center mw-readable--large">{{ content.text }}</div>
+    <div class="flexible-text__inner mw-readable--large">{{ content.text }}</div>
   </div>
 </template>
 
@@ -11,3 +11,15 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+.flexible-text {
+
+  &__inner {
+
+    @include desktop {
+      text-align: center;
+    }
+  }
+}
+</style>

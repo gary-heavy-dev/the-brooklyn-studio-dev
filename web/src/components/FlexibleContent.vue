@@ -83,6 +83,16 @@ export default {
 <style lang="scss">
 .flexible-content {
 
+  &__item {
+
+    > .mb-100 {
+
+      @include desktop-down {
+        margin-bottom: 40px;
+      }
+    }
+  }
+
   .base-image {
     cursor: pointer;
   }

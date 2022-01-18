@@ -100,16 +100,34 @@ export default {
 
   @include desktop-down {
     flex-direction: column;
+    padding-top: 40px;
   }
 
   &__intro {
-    padding-right: 80px;
+
+    @include desktop {
+      padding-right: 80px;
+    }
   }
 
   &__info {
 
+    h3 {
+
+      @include desktop-down {
+        font-size: 20px;
+      }
+    }
+
     > * {
-      padding-right: 50px;
+
+      @include desktop {
+        padding-right: 50px;
+      }
+
+      @include desktop-down {
+        margin-bottom: 40px;
+      }
     }
   }
 }
