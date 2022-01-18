@@ -1,5 +1,5 @@
 <template>
-  <div class="project-hero overlay h-100vh pos-rel o-h mb-100">
+  <div class="project-hero overlay pos-rel o-h mb-100">
     <div class="project-hero__title mt-hh pos-abs z-1 w-100 flex jc-c">
       <h1
         v-if="displayTitle && displayTitle.displayTitleStatus"
@@ -15,6 +15,7 @@
     </div>
     <BaseImage
       v-if="image"
+      class="project-hero-mobile"
       :lazy="true"
       :src="image"
     />
@@ -30,3 +31,12 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+.project-hero {
+
+  @include desktop {
+    height: calc(100vh - var(--header-height));
+  }
+}
+</style>

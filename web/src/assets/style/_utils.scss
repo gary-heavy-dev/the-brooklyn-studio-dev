@@ -52,6 +52,22 @@
   overflow: hidden;
 }
 
+.project-hero-mobile {
+
+  @include desktop-down {
+    height: unset !important;
+    display: block;
+
+    .base-image__inner {
+      padding-bottom: 135% !important;
+
+      img {
+        position: absolute;
+      }
+    }
+  }
+}
+
 // Spacing
 body .p-mobile-copy-block {
 

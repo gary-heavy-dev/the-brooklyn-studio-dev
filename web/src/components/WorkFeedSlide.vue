@@ -6,6 +6,7 @@
     <div class="work-feed-slide__hero overlay mb-80 o-h">
       <BaseImage
         v-if="content.heroImage"
+        class="project-hero-mobile"
         :src="content.heroImage"
         :lazy="true"
         :sizes="sizes"
@@ -83,7 +84,7 @@ export default {
 
 <style lang="scss">
 .work-feed-slide {
-  width: 89.1vw;
+  // width: 89.1vw;
   height: fit-content;
   margin: 0 auto;
   position: relative;
