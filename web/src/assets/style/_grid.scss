@@ -105,20 +105,3 @@
     }
   }
 }
-
-.image-grid-ignore {
-  // The full width element wrapping all of these needs to have 'position: relative;' applied to it.
-
-  &__inner {
-    height: 100%;
-
-    @include desktop {
-      position: absolute;
-    }
-
-    .base-image,
-    .base-image__inner {
-      height: 100%;
-    }
-  }
-}

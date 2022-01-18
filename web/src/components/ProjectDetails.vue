@@ -1,8 +1,8 @@
 <template>
-  <section class="project-details flex background--gray-secondary w-100 p-100">
+  <section class="project-details flex background--gray-secondary p-100">
     <div class="project-details__inner grid grid--12-desktop container">
       <div class="project-details__copy col-span--6">
-        <div class="project-details__intro pt-20 w-100 mb-60">
+        <div class="project-details__intro pt-20 mb-60">
           <p v-if="content.detailsIntro">{{ content.detailsIntro }}</p>
         </div>
         <div class="project-details__info grid grid--6-desktop color--gray-tertiary">
@@ -29,7 +29,7 @@
         </div>
       </div>
       <div class="project-details__gallery-wrapper col-span--6">
-        <div class="project-details__gallery-inner text-center">
+        <div class="project-details__gallery-inner text-center pos-rel">
           <swiper
             class="project-details__gallery"
             :options="swiperOption"
@@ -97,6 +97,10 @@ export default {
 
 <style lang="scss">
 .project-details {
+
+  @include desktop-down {
+    flex-direction: column;
+  }
 
   &__intro {
     padding-right: 80px;

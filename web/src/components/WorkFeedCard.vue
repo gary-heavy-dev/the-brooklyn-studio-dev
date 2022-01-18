@@ -39,5 +39,10 @@ export default {
 <style lang="scss">
 .work-feed-card {
   text-decoration: none;
+  display: block;
+
+  @include desktop-down {
+    margin-bottom: 30px;
+  }
 }
 </style>

@@ -4,7 +4,10 @@
       :title="content.title"
       :image="content.hero.image"
     />
-    <CtaSimple :content="ctaObject" />
+    <CtaSimple
+      :content="ctaObject"
+      class="news__cta"
+    />
     <section class="awards pt-100 mb-100 flex fd-c">
       <div class="container">
         <h2 class="h2 upper">Awards</h2>
@@ -80,3 +83,16 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+.news__cta {
+
+  @include desktop-down {
+
+    .image-wrapper {
+      padding-left: var(--grid-margin);
+      margin-bottom: 100px;
+    }
+  }
+}
+</style>

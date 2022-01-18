@@ -43,10 +43,15 @@
 
   .swiper-button-prev,
   .swiper-button-next {
-    top: 15.85vw;
+    top: 59.85vw;
     color: white;
-    width: 50px;
+    width: 25px;
     height: 100px;
+
+    @include desktop {
+      top: 15.85vw;
+      width: 50px;
+    }
 
     &::after {
       content: '';
@@ -54,11 +59,19 @@
   }
 
   .swiper-button-prev {
-    left: 3.5%;
+    left: var(--grid-margin);
+
+    @include desktop {
+      left: 3.5%;
+    }
   }
 
   .swiper-button-next {
-    right: 3.5%;
+    right: var(--grid-margin);
+
+    @include desktop {
+      right: 3.5%;
+    }
 
     svg {
       transform: rotate(180deg);

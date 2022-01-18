@@ -14,7 +14,7 @@
         :y="500"
       />
     </div>
-    <div class="work-feed-slide__grid flex jc-c">
+    <div class="work-feed-slide__grid container flex jc-c">
       <div class="grid w-100">
         <WorkFeedFilter
           v-if="content.projectCategories"
@@ -98,17 +98,28 @@ export default {
   }
 
   &__title {
-    left: 3.1%;
+    left: var(--grid-margin);
+
+    @include desktop {
+      left: 3.1%;
+    }
   }
 
   &__hero {
     position: relative;
+
+    @include desktop-down {
+      margin-bottom: 40px;
+    }
   }
 
   &__grid {
-    margin-left: 3.1%;
-    margin-right: 3.1%;
 
+    @include desktop {
+      margin-left: 3.1%;
+      margin-right: 3.1%;
+    }
+  
     .grid {
       grid-template-columns: repeat(1, 1fr);
 
@@ -134,10 +145,6 @@ export default {
   .work-feed-slide__grid {
     opacity: 1;
     transform: translateY(0px);
-
-    // .grid {
-    //   position: relative;
-    // }
   }
 }
 </style>

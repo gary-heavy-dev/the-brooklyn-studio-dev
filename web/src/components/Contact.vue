@@ -5,17 +5,17 @@
       :image="content.hero.image"
       :margin="true"
     />
-    <div class="flex w-100">
-      <div class="container grid grid--12-desktop mb-100 copy--left image--full">
-        <div class="col-span--6 pt-100">
+    <div class="contact flex w-100">
+      <div class="contact__inner container grid grid--12-desktop mb-100 copy--left image--full">
+        <div class="col-span--6 pt-100 contact__info">
           <div
             v-for="(block, index) in content.textBlocks"
             :key="index"
-            class="contact__info mb-100 mw-readable"
+            class="mb-100 mw-readable"
           >
             <h2
               v-if="block.heading"
-              class="h2"
+              class="h2 upper"
             >{{ block.heading }}</h2>
             <BaseBlockContent
               v-if="block._rawCopy"
@@ -63,3 +63,19 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+.contact {
+
+  &__info {
+
+    @include desktop-down {
+      padding-top: 0;
+
+      > div {
+        margin-bottom: 50px;
+      }
+    }
+  }
+}
+</style>

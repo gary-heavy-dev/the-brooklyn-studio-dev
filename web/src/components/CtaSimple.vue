@@ -131,6 +131,7 @@ export default {
     }
 
     @include desktop-down {
+      max-width: 100vw;
       display: flex;
 
       .image-wrapper {
@@ -172,16 +173,14 @@ export default {
     }
   }
 
-  &--right {
+  &.copy--left {
 
-    .image-grid-ignore {
+    .reverse-mobile--false {
 
-      @include desktop {
+      .copy-wrapper {
 
-        position: relative;
-
-        &__inner {
-          width: 100%;
+        @include desktop-down {
+          padding-bottom: 40px;
         }
       }
     }
