@@ -22,6 +22,7 @@
             v-if="content.link"
             class="upper button mt-60"
             :to="content.link"
+            :aria-label="content.heading ? 'Link to ' + content.heading : content.linkText + ' Link'"
           >{{ content.linkText }}</g-link>
         </div>
       </div>
