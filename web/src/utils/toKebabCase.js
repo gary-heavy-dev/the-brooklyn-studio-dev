@@ -1,7 +1,6 @@
-import _ from 'lodash'
-
-function toKebabCase(s) {
-  return _.kebabCase(s)
-}
+const toKebabCase = string => string
+      .replace(/([a-z])([A-Z])/g, "$1-$2")
+      .replace(/[\s_]+/g, '-')
+      .toLowerCase();
 
 export default toKebabCase
