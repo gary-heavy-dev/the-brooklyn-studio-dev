@@ -26,6 +26,12 @@ import VueScrollactive from 'vue-scrollactive';
 
 // The Client API can be used here. Learn more: gridsome.org/docs/client-api
 export default function(Vue, { router, head, isClient }) {
+
+  head.link.push({
+    rel: 'preconnect',
+    href: 'https://cdn.sanity.io/'
+  })
+
   // Set default layout as a global component
   Vue.component('Layout', DefaultLayout)
 
