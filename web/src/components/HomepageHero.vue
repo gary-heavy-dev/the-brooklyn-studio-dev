@@ -9,14 +9,14 @@
         Some text right here!
       </div>
     </div>
-    <!-- <BaseImage
+    <BaseImage
       class="img-cover"
       v-if="$static.page.heroImages.images[2]"
       :lazy="true"
       :src="$static.page.heroImages.images[2]"
       :x="1440"
       :y="1024"
-    /> -->
+    />
   </section>
 </template>
 
