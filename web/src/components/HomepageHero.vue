@@ -5,17 +5,18 @@
   >
     <div class="flex ai-c jc-c h-100 w-100 pos-abs z-1">
       <div class="container text-center p-100">
-        <Logo class="white" />
+        <!-- <Logo class="white" /> -->
+        Some text right here!
       </div>
     </div>
-    <BaseImage
+    <!-- <BaseImage
       class="img-cover"
       v-if="$static.page.heroImages.images[2]"
       :lazy="true"
       :src="$static.page.heroImages.images[2]"
       :x="1440"
       :y="1024"
-    />
+    /> -->
   </section>
 </template>
 

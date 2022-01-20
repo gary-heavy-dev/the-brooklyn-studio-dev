@@ -74,7 +74,10 @@ export default {
   }
 
   .footer__logo {
-    border-bottom: 1px solid var(--color--gray-secondary);
+    
+    @include desktop-down {
+      border-bottom: 1px solid var(--color--gray-secondary);
+    }
 
     svg {
       display: block;
