@@ -1,9 +1,17 @@
 <template>
   <div class="menu__footer">
     <Logo class="white" />
-    <LogoInstagram
-      class="social-icon__instagram"
-    />
+    <a
+      v-if="$static.settings.socialLinkIg"
+      :href="$static.settings.socialLinkIg"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Link to The Brooklyn Studio Instagram Account"
+    >
+      <LogoInstagram
+        class="social-icon__instagram"
+      />
+    </a>
   </div>
 </template>
 

@@ -32,6 +32,7 @@
           :href="$static.settings.socialLinkIg"
           target="_blank"
           rel="noopener noreferrer"
+          aria-label="Link to The Brooklyn Studio Instagram Account"
         >
           <LogoInstagram
             class="social-icon__instagram"

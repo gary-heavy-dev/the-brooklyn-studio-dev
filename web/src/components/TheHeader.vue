@@ -5,7 +5,7 @@
     id="theHeader"
   >
     <div class="container w-100 flex jc-sb">
-      <g-link to="/" class="flex ai-c">
+      <g-link to="/" class="flex ai-c" aria-label="Link to Homepage">
         <LogoType
           class="the-header__logo"
         />

@@ -5,7 +5,7 @@
   >
     <div class="flex ai-c jc-c h-100 w-100 pos-abs z-1">
       <div class="container text-center p-100">
-        <!-- <Logo class="white" /> -->
+        <Logo class="white" />
       </div>
     </div>
     <BaseImage

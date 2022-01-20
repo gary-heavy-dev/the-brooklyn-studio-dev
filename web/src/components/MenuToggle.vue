@@ -3,6 +3,7 @@
     id="menuToggle"
     aria-expanded="false"
     aria-controls="menu"
+    aria-label="Toggle Menu"
     @click="toggleMenu"
   >
     <svg width="22" height="1" viewBox="0 0 22 1" fill="none" xmlns="http://www.w3.org/2000/svg">
