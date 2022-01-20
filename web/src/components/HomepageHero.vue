@@ -5,8 +5,7 @@
   >
     <div class="flex ai-c jc-c h-100 w-100 pos-abs z-1">
       <div class="container text-center p-100">
-        <!-- <Logo class="white" /> -->
-        Some text right here!
+        <Logo class="white" />
       </div>
     </div>
     <BaseImage
