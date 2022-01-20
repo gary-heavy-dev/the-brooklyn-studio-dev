@@ -1,24 +1,7 @@
-// img[lazy=loaded] {
-//   animation-duration: 1s;
-//   animation-fill-mode: both;
-//   animation-name: fadeIn;
+// .lazyload,
+// .lazyloading {
+// 	opacity: 0;
 // }
-
-// @keyframes fadeIn {
-//   0% {
-//     opacity: 0;
-//     // transform: translateY(20px);
-//   }
-//   100% {
-//     opacity: 1;
-//     // transform: translateY(0px);
-//   }
-// }
-
-.lazyload,
-.lazyloading {
-	opacity: 0;
-}
 .lazyloaded {
 	opacity: 1;
 	transition: opacity 300ms;

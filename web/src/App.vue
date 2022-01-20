@@ -43,7 +43,7 @@ export default {
 
 // .fade-enter,
 // .fade-leave-to {
-//   opacity: 0.00001;
+//   opacity: 0;
 // }
 
 main.main {
