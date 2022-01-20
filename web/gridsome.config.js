@@ -50,7 +50,12 @@ module.exports = {
 
     config
       .plugin('BundleAnalyzerPlugin')
-      .use(BundleAnalyzerPlugin, [{ analyzerMode: 'static' }])
+      .use(BundleAnalyzerPlugin, [
+        {
+          analyzerMode: 'static',
+          openAnalyzer: false
+        }
+      ])
   },
 
   plugins: [

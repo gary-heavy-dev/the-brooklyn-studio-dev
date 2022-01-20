@@ -41,10 +41,10 @@ export default {
   transition: all .25s;
 }
 
-// .fade-enter,
-// .fade-leave-to {
-//   opacity: 0;
-// }
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+}
 
 main.main {
   background-color: var(--color--white);
