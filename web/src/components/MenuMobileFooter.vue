@@ -45,3 +45,11 @@ export default {
   }
 }
 </style>
+
+<static-query>
+query {
+  settings: sanitySiteSettings(id: "siteSettings") {
+    socialLinkIg
+  }
+}
+</static-query>
