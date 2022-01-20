@@ -9,7 +9,7 @@ export default {
   components: {
     Homepage
   },
-    metaInfo() {
+  metaInfo() {
     return {
       title: 'Home',
       titleTemplate: '%s | The Brooklyn Studio',

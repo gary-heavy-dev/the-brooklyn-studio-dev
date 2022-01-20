@@ -8,6 +8,49 @@ import AboutUs from '~/components/AboutUs'
 export default {
   components: {
     AboutUs
+  },
+  metaInfo() {
+    return {
+      title: 'About Us',
+      titleTemplate: '%s | The Brooklyn Studio',
+      meta: [
+        {
+          key: 'description',
+          name: 'description',
+          content: 'Our approach to architecture and design is at once rigorously academic and endlessly playful. We take seriously our role as stewards of the built environment—always mindful of the historical, cultural, and environmental context in which we work.'
+        },
+        // {
+        //   key: 'og:title',
+        //   name: 'og:title',
+        //   content: (this.casestudy ? this.casestudy.title : '') + ' ' + this.$static.metadata.siteName
+        // },
+        // {
+        //   key: 'og:description',
+        //   name: 'og:description',
+        //   content: this.casestudy ? this.casestudy.description : '',
+        // },
+        // {
+        //   key: 'og:image',
+        //   name: 'og:image',
+        //   content: this.casestudy && this.casestudy.mainImage.asset ? this.casestudy.mainImage.asset.url : (this.$static.settings.ogImage ? this.$static.settings.ogImage.asset.url : '')
+        // },
+        // {
+        //   key: 'twitter:title',
+        //   name: 'twitter:title',
+        //   content: (this.casestudy ? this.casestudy.title : '') + ' ' + this.$static.metadata.siteName
+        // },
+        // {
+        //   key: 'twitter:description',
+        //   name: 'twitter:description',
+        //   content: this.casestudy ? this.casestudy.description : '',
+        // },
+        // {
+        //   key: 'twitter:image',
+        //   name: 'twitter:image',
+        //   content: this.casestudy && this.casestudy.mainImage.asset ? this.casestudy.mainImage.asset.url : (this.$static.settings.ogImage ? this.$static.settings.ogImage.asset.url : '')
+        // }
+      ]
+    }
   }
 }
 </script>
