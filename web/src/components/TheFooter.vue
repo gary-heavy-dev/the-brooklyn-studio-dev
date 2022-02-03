@@ -12,19 +12,22 @@
         <g-link to="/projects">Projects</g-link>
         <g-link to="/news">News</g-link>
         <g-link to="/contact">Contact</g-link>
+        <g-link to="/about-us/team">Team</g-link>
+        <g-link to="/careers">Careers</g-link>
       </nav>
-      <div class="the-footer__newsletter col-span--4 xsmall">
+      <div class="the-footer__newsletter col-span--6 xsmall flex fd-c jc-sb">
         <form
           action=""
           class="flex fd-c"
         >
-          <label for="">Join Our Newsletter</label>
+          <label for="">Join Our Newsletter:</label>
           <div class="input-wrapper">
-            <input type="email" placeholder="Your Email">
+            <input class="xxsmall" type="email" placeholder="Your Email">
             <button>Submit</button>
           </div>
-          <div class="xxsmall the-footer__newsletter-notice">By signing up, you are also agreeing to The Brooklyn Studio's Privacy Policy. You may unsubscribe at any time.</div>
+          <div class="xxsmall the-footer__newsletter-notice">By signing up, you are also agreeing to The Brooklyn Studio's <strong>Privacy Policy.</strong></div>
         </form>
+        <div class="xxsmall the-footer__credits desktop-only">© 2022 The Brooklyn Studio of Architecture | Privacy Policy</div>
       </div>
       <div class="social-icons">
         <a
@@ -40,8 +43,8 @@
         </a>
       </div>
     </div>
-    <div class="grid grid--12-desktop xxsmall">
-      <div class="the-footer__credits">© 2021 The Brooklyn Studio of Architecture and Interiors <span class="desktop-only">|</span> Privacy Policy</div>
+    <div class="grid grid--12-desktop xxsmall mobile-only">
+      <div class="xxsmall the-footer__credits text-center">© 2022 The Brooklyn Studio of Architecture<br>Privacy Policy</div>
     </div>
   </footer>
 </template>
@@ -82,6 +85,7 @@ export default {
 
     svg {
       display: block;
+      // max-width: 177px;
 
       @include desktop-down {
         width: 40.5%;
@@ -96,6 +100,10 @@ export default {
 
     a {
       display: block;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
 
       @include desktop {
         margin-bottom: 11px;
@@ -122,6 +130,7 @@ export default {
 
       .input-wrapper {
         margin-bottom: 15px;
+        max-width: 436px;
       }
     }
 
@@ -143,10 +152,6 @@ export default {
 
     @include desktop {
       grid-column: 4/12;
-    }
-
-    @include desktop-down {
-      text-align: center;
     }
   }
 
