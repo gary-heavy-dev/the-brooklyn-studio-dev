@@ -85,7 +85,7 @@ export default {
 
     svg {
       display: block;
-      // max-width: 177px;
+      max-width: 177px;
 
       @include desktop-down {
         width: 40.5%;
