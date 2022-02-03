@@ -44,8 +44,10 @@ query TeamMember ($id: ID!) {
       buildingTrait
       projectType
       favoriteAuthor
+      heroOfFiction
       favoriteArtist
       historicalFigure
+      treasuredPossession
       whereToLive
       qualityInOthers
       twoBooks

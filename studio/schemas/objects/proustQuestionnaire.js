@@ -59,6 +59,11 @@ export default {
       title: 'Who is your favorite author?'
     },
     {
+      name: 'heroOfFiction',
+      type: 'string',
+      title: 'Who is your hero of fiction?'
+    },
+    {
       name: 'favoriteArtist',
       type: 'string',
       title: 'Who is your favorite artist?'
@@ -67,6 +72,11 @@ export default {
       name: 'historicalFigure',
       type: 'string',
       title: 'Which historical figure do you most identify with?'
+    },
+    {
+      name: 'treasuredPossession',
+      type: 'string',
+      title: 'What is your most treasured possession?'
     },
     {
       name: 'whereToLive',
