@@ -24,7 +24,7 @@
         />
         <WorkFeedCard
           v-for="(project, index) in filteredProjects"
-          :key="index + project.title"
+          :key="index + project.project.title"
           :project="project"
         />
       </div>
@@ -60,9 +60,9 @@ export default {
   computed: {
     filteredProjects() {
       if (this.activeCategories.length) {
-        return this.content.projects.filter(project => project.projectCategories.some(category => this.activeCategories.includes(category.title)))
+        return this.content.projectReferences.filter(project => project.project.projectCategories.some(category => this.activeCategories.includes(category.title)))
       } else {
-        return this.content.projects
+        return this.content.projectReferences
       }
     }
   },

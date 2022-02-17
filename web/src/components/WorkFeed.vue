@@ -100,6 +100,35 @@ export default {
       }
       alt
     }
+    projectReferences {
+      altThumbnail {
+        asset {
+          url
+          metadata {
+            lqip
+          }
+        }
+        alt
+      }
+      project {
+        title
+        slug {
+          current
+        }
+        image {
+          asset {
+            url
+            metadata {
+              lqip
+            }
+          }
+          alt
+        }
+        projectCategories {
+          title
+        }
+      }
+    }
     projects {
       title
       slug {
@@ -139,6 +168,32 @@ export default {
       }
       alt
     }
+    projectReferences {
+      altThumbnail {
+        asset {
+          url
+          metadata {
+            lqip
+          }
+        }
+        alt
+      }
+      project {
+        title
+        slug {
+          current
+        }
+        image {
+          asset {
+            url
+            metadata {
+              lqip
+            }
+          }
+          alt
+        }
+      }
+    }
     projects {
       title
       slug {
@@ -168,6 +223,32 @@ export default {
         }
       }
       alt
+    }
+    projectReferences {
+      altThumbnail {
+        asset {
+          url
+          metadata {
+            lqip
+          }
+        }
+        alt
+      }
+      project {
+        title
+        slug {
+          current
+        }
+        image {
+          asset {
+            url
+            metadata {
+              lqip
+            }
+          }
+          alt
+        }
+      }
     }
     projects {
       title

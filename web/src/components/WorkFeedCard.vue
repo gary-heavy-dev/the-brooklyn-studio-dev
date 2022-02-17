@@ -1,18 +1,27 @@
 <template>
   <g-link
-    :to="'/projects/' + project.slug.current"
+    :to="'/projects/' + project.project.slug.current"
     class="work-feed-card mb-100 color--gray-tertiary"
   >
     <BaseImage
-      v-if="project.image"
-      :src="project.image"
+      v-if="project.altThumbnail"
+      :src="project.altThumbnail"
       :lazy="true"
       :sizes="sizes"
       :x="378"
       :y="302"
       class="mb-30"
     />
-    <h3>{{ project.title }}</h3>
+    <BaseImage
+      v-else-if="project.project.image"
+      :src="project.project.image"
+      :lazy="true"
+      :sizes="sizes"
+      :x="378"
+      :y="302"
+      class="mb-30"
+    />
+    <h3>{{ project.project.title }}</h3>
   </g-link>
 </template>
 
@@ -25,8 +34,8 @@ export default {
         tablet: 311,
         laptop: 410,
         desktop: 377,
-        hd: 511,
-        fourK: 1022 // by 1332
+        hd: 613,
+        fourK: 1226 // by 1332
       }
     }
   },

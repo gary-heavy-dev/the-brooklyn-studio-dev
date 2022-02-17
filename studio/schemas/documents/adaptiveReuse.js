@@ -38,6 +38,14 @@ export default {
           to: [{ type: 'project' }]
         }
       ]
+    },
+    {
+      name: 'projectReferences',
+      type: 'array',
+      title: 'Projects (New)',
+      of: [
+        { type: 'projectReference' }
+      ]
     }
   ]
 }

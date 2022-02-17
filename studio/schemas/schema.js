@@ -51,6 +51,7 @@ import linkInternal from './objects/linkInternal'
 import linkSimple from './objects/linkSimple'
 import list from './objects/list'
 import mainImage from './objects/mainImage'
+import projectReference from './objects/projectReference'
 import proustQuestionnaire from './objects/proustQuestionnaire'
 import scrollingGallery from './objects/scrollingGallery'
 import scrollingGallerySection from './objects/scrollingGallerySection'
@@ -105,6 +106,7 @@ export default createSchema({
     proustQuestionnaire,
     project,
     projectCategory,
+    projectReference,
     residentialArchitecture,
     scrollingGallery,
     scrollingGallerySection,

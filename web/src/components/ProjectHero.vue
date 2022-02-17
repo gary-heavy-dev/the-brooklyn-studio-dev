@@ -5,13 +5,15 @@
         v-if="displayTitle && displayTitle.displayTitleStatus"
         class="h1 color--white container"
       >
-        <div>{{ displayTitle.lineOne }}</div>
-        <div>{{ displayTitle.lineTwo }}</div>
+        {{ displayTitle.lineOne }}<br>
+        {{ displayTitle.lineTwo }}
       </h1>
       <h1
         v-else
-        class="h1 color--white"
-      >{{ heading }}</h1>
+        class="h1 color--white container"
+      >
+        {{ heading }}
+      </h1>
     </div>
     <BaseImage
       v-if="image"

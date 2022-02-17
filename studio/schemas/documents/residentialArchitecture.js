@@ -40,6 +40,14 @@ export default {
       ]
     },
     {
+      name: 'projectReferences',
+      type: 'array',
+      title: 'Projects (New)',
+      of: [
+        { type: 'projectReference' }
+      ]
+    },
+    {
       name: 'projectCategories',
       type: 'array',
       title: 'Project Categories',
