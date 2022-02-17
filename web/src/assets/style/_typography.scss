@@ -203,7 +203,26 @@ p.h5,
   line-height: var(--xx-small-line-height);
 }
 
+@keyframes slideOutIn {
+  from {
+    transform: scale3d(1, 1, 1);
+  }
+  to {
+    transform: scale3d(0, 1, 1);
+  }
+}
+
+@keyframes slideInOut {
+  from {
+    transform: scale3d(0, 1, 1);
+  }
+  to {
+    transform: scale3d(1, 1, 1);
+  }
+}
+
 .button {
+  position: relative;
   font-size: var(--button-font-size);
   color: var(--color--gray-tertiary);
   line-height: var(--button-line-height);
@@ -212,7 +231,6 @@ p.h5,
   letter-spacing: var(--letter-spacing--lg);
   padding-bottom: 7px;
   text-decoration: none;
-  border-bottom: 1px solid var(--color--gray-tertiary);
   transition: all 0.2s ease-in-out;
   width: max-content;
 
@@ -220,9 +238,42 @@ p.h5,
     padding-bottom: 3px;
   }
 
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    top: 100%;
+    left: 0;
+    background: currentColor;
+    pointer-events: none;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+  }
+
+  &::before {
+    transform-origin: 0% 50%;
+    z-index: 2;
+  }
+
+  &::after {
+    transform-origin: 100% 50%;
+    transform: scale3d(0, 1, 1);
+    animation-delay: 0.5s;
+  }
+
   &:hover {
-    color: var(--color--navy);
-    border-color: var(--color--navy);
+
+    &::before {
+      transform-origin: 100% 50%;
+      animation-name: slideOutIn;
+    }
+
+    &::after {
+      transform-origin: 0% 50%;
+      animation-name: slideInOut;
+    }
   }
 }
 
@@ -231,11 +282,6 @@ p.h5,
 
   color: var(--color--white);
   border-color: var(--color--white);
-
-  &:hover {
-    color: var(--color--gray-tertiary-light);
-    border-color: var(--color--gray-tertiary-light);
-  }
 }
 
 .sub {
