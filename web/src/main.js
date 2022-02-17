@@ -13,6 +13,11 @@ import gImageMap from './utils/gImageMap'
 // Import kebab case conversion utility for slug conversion
 import toKebabCase from './utils/toKebabCase'
 
+// Import Lottie Player 
+// import * as LottiePlayer from '@dotlottie/player-component'
+// import * as jlottie from '@lottiefiles/jlottie'
+// import { JLottieAnimation } from '@lottiefiles/jlottie'
+
 // Import lazysizes functionality
 import 'lazysizes'
 import 'lazysizes/plugins/parent-fit/ls.parent-fit'
@@ -45,7 +50,7 @@ export default function(Vue, { router, head, isClient }) {
   Vue.use(checkView)
 
   // Initialize VueScrollactive
-  Vue.use(VueScrollactive);
+  Vue.use(VueScrollactive)
 
   // Inject kebab case conversion utility
   Vue.prototype.$toKebabCase = toKebabCase

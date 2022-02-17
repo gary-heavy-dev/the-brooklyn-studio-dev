@@ -5,7 +5,8 @@
   >
     <div class="flex ai-c jc-c h-100 w-100 pos-abs z-1">
       <div class="container text-center p-100">
-        <Logo class="white" />
+        <!-- <Logo class="white" /> -->
+        <dotlottie-player src="https://assets6.lottiefiles.com/dotlotties/dlf10_hdnplzwy.lottie" autoplay />
       </div>
     </div>
     <BaseImage
@@ -21,10 +22,14 @@
 
 <script>
 import Logo from '~/components/Logo'
+// import { JLottieAnimation } from '@lottiefiles/jlottie'
+// import * as jlottie from '@lottiefiles/jlottie'
+import * as LottiePlayer from '@dotlottie/player-component'
 
 export default {
   components: {
-    Logo
+    Logo,
+    LottiePlayer
   },
   methods: {
     adjustHeader(e) {
