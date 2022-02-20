@@ -7,7 +7,8 @@ export default {
       name: 'project',
       title: 'Project Reference',
       type: 'reference',
-      to: [{ type: 'project' }]
+      to: [{ type: 'project' }],
+      validation: Rule => Rule.required()
     },
     {
       name: 'altThumbnail',

@@ -231,7 +231,7 @@ p.h5,
   letter-spacing: var(--letter-spacing--lg);
   padding-bottom: 7px;
   text-decoration: none;
-  transition: all 0.2s ease-in-out;
+  // transition: all 0.2s ease-in-out;
   width: max-content;
 
   @include desktop {
@@ -248,7 +248,7 @@ p.h5,
     left: 0;
     background: currentColor;
     pointer-events: none;
-    animation-duration: 0.5s;
+    animation-duration: 0.75s;
     animation-fill-mode: forwards;
   }
 
