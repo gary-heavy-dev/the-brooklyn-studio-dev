@@ -1,35 +1,32 @@
 <template>
-  <section
-    class="homepage-hero background--navy o-h"
-    v-view="adjustHeader"
-  >
-    <div class="flex ai-c jc-c h-100 w-100 pos-abs z-1">
-      <div class="container text-center p-100">
-        <!-- <Logo class="white" /> -->
-        <dotlottie-player src="https://assets6.lottiefiles.com/dotlotties/dlf10_hdnplzwy.lottie" autoplay />
+    <section
+      class="homepage-hero background--navy o-h"
+      v-view="adjustHeader"
+    >
+      <div class="flex ai-c jc-c h-100 w-100 pos-abs z-1">
+        <div class="container text-center p-100">
+          <!-- <Logo class="white" /> -->
+          <div id="logoAnimation"></div>
+        </div>
       </div>
-    </div>
-    <BaseImage
-      class="img-cover"
-      v-if="$static.page.heroImages.images[2]"
-      :lazy="true"
-      :src="$static.page.heroImages.images[2]"
-      :x="1440"
-      :y="1024"
-    />
-  </section>
+      <BaseImage
+        class="img-cover"
+        v-if="$static.page.heroImages.images[2]"
+        :lazy="true"
+        :src="$static.page.heroImages.images[2]"
+        :x="1440"
+        :y="1024"
+      />
+    </section>
 </template>
 
 <script>
 import Logo from '~/components/Logo'
-// import { JLottieAnimation } from '@lottiefiles/jlottie'
-// import * as jlottie from '@lottiefiles/jlottie'
-import * as LottiePlayer from '@dotlottie/player-component'
+// import { JLottieAnimation } from "./JLottie";
 
 export default {
   components: {
-    Logo,
-    LottiePlayer
+    Logo
   },
   methods: {
     adjustHeader(e) {
@@ -40,6 +37,19 @@ export default {
         document.body.classList.remove('home-hero-in-view')
       }
     }
+  },
+  mounted() {
+    window.jlottie = require('@lottiefiles/jlottie')
+
+    jlottie.loadAnimation({
+      // container: this.$refs.logoAnimation,
+      container: document.getElementById('logoAnimation'),
+      loop: false,
+      autoplay: true,
+      useWebWorker: false,
+      // path: 'https://assets6.lottiefiles.com/dotlotties/dlf10_hdnplzwy.lottie',
+      path: 'https://assets5.lottiefiles.com/datafiles/UY9mEPXUFRiLsvy/data.json'
+    })
   }
 }
 </script>
