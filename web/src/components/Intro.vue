@@ -10,7 +10,7 @@
             >{{ content.introLarge }}</span>
             <h2
               v-if="content.introHeading"
-              :class="['h2']"
+              :class="['h2', 'upper']"
             >{{ content.introHeading }}</h2>
             <BaseBlockContent
               v-if="content._rawIntroCopy"
