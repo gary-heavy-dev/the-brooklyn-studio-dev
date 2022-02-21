@@ -64,6 +64,11 @@ export default {
 <style lang="scss">
 .flexible-image-pair {
 
+  &__large-image,
+  &__small-image {
+    grid-row: 1;
+  }
+
   &__large-image {
     grid-column: span 4;
 
@@ -90,10 +95,26 @@ export default {
     }
   }
 
-  .large-location {
+  &.large-location {
 
-    &--left {
-      flex-direction: row-reverse;
+    &--right {
+
+      .flexible-image-pair {
+
+        &__large-image {
+
+          @include desktop {
+            grid-column: 6/13;
+          }
+        }
+
+        &__small-image {
+
+          @include desktop {
+            grid-column: 1/5;
+          }
+        }
+      }
     }
   }
 }
