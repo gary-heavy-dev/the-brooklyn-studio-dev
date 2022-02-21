@@ -51,7 +51,7 @@ export default {
   display: block;
 
   @include desktop-down {
-    margin-bottom: 30px;
+    margin-bottom: 40px;
   }
 }
 </style>
