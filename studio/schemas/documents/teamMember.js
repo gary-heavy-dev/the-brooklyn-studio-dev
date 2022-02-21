@@ -9,6 +9,12 @@ export default {
       title: 'Name'
     },
     {
+      name: 'lastName',
+      type: 'string',
+      title: 'Last Name',
+      description: 'Currently used for sorting purposes only.',
+    },
+    {
       name: 'slug',
       type: 'slug',
       title: 'Slug',

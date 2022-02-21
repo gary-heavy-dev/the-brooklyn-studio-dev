@@ -97,7 +97,7 @@ export default {
 
 <static-query>
 {
-  team: allSanityTeamMember(sortBy: "name", order: ASC) {
+  team: allSanityTeamMember(sortBy: "lastName", order: ASC) {
     edges {
       node {
         name
