@@ -54,14 +54,14 @@
         v-if="content.livingArchitect"
         class="mb-40"
       >
-        <h4>Which living architect do you most admire?</h4>
+        <h4>Which living architect or designer do you most admire?</h4>
         <span class="color--navy">{{ content.livingArchitect }}</span>
       </div>
       <div
         v-if="content.deadArchitect"
         class="mb-40"
       >
-        <h4>Which dead architect do you most admire?</h4>
+        <h4>Which dead architect or designer do you most admire?</h4>
         <span class="color--navy">{{ content.deadArchitect }}</span>
       </div>
       <div

@@ -36,12 +36,12 @@ export default {
     {
       name: 'livingArchitect',
       type: 'string',
-      title: 'Which living architect do you most admire?'
+      title: 'Which living architect or designer do you most admire?'
     },
     {
       name: 'deadArchitect',
       type: 'string',
-      title: 'Which dead architect do you most admire?'
+      title: 'Which dead architect or designer do you most admire?'
     },
     {
       name: 'buildingTrait',
