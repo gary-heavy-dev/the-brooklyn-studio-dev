@@ -141,6 +141,7 @@ export default {
     position: sticky;
     top: 0px;
     background-color: inherit;
+    border-bottom: 1px solid #908887;
 
     .h5 {
       
