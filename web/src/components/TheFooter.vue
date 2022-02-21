@@ -1,7 +1,7 @@
 <template>
   <footer class="the-footer p-40 color--gray-tertiary background--gray-light" id="theFooter">
     <div class="grid grid--12-desktop">
-      <div class="footer__logo col-span--2">
+      <div class="footer__logo col-span--2 flex">
         <Logo />
       </div>
       <nav
@@ -78,6 +78,7 @@ export default {
   }
 
   .footer__logo {
+    justify-content: flex-start;
     
     @include desktop-down {
       border-bottom: 1px solid var(--color--gray-secondary);
