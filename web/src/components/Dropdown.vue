@@ -5,7 +5,9 @@
       class="dropdown__title"
       aria-expanded="false"
       aria-controls="projects-dropdown"
-    >Projects</button>
+    >
+      <g-link to="/projects#residential-architecture">Projects</g-link>
+    </button>
     <ul
       class="dropdown__menu"
       id="projects-dropdown"
