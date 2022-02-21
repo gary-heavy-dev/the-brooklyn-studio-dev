@@ -4,10 +4,13 @@
       <div class="text-center">
         <swiper
           :options="swiperOption"
+          ref="linkGallerySwiper"
+          @slideChange="activeSlide"
         >
           <swiper-slide
             v-for="(link, index) in content.links"
             :key="index"
+            :data-slug="link.link.slug.current"
           >
             <BaseImage
               v-if="link.image"
@@ -40,7 +43,8 @@
               :key="index"
               @mouseover.native="showMe(link.link.slug.current)"
               @mouseleave.native="hideMe(link.link.slug.current)"
-              class="upper button"
+              :class="['upper button link-gallery__link', { 'active': index === 0}]"
+              :data-link-slug="link.link.slug.current"
             >{{ link.copy }}</g-link>
           </div>
         </div>
@@ -97,6 +101,11 @@ export default {
     Swiper,
     SwiperSlide
   },
+  computed: {
+    swiper() {
+      return this.$refs.linkGallerySwiper.$swiper
+    }
+  },
   data() {
     return {
       swiperOption: {
@@ -133,6 +142,22 @@ export default {
     hideMe(me) {
       const currentHide = document.querySelector(`div[data-image="${me}"]`)
       setTimeout(() => { currentHide.classList.remove('show-me') }, 150)
+    },
+    activeSlide() {
+      let slideIndex = this.swiper.realIndex + 1
+      let currentData = this.swiper.slides[slideIndex].dataset.slug
+      // console.log('slug:', currentData)
+      const links = document.getElementsByClassName('link-gallery__link')
+      // let activeLink = document.querySelector('[data-link-slug="' + currentData + '"]')
+      // console.log('links:', activeLink)
+      Array.prototype.forEach.call(links, function(link) {
+        // console.log('my slug:', link.dataset.linkSlug)
+        if (link.dataset.linkSlug == currentData) {
+          link.classList.add('active')
+        } else {
+          link.classList.remove('active')
+        }
+      })
     }
   }
 }
@@ -150,6 +175,17 @@ export default {
 
     @include desktop-down {
       @include container;
+    }
+  }
+
+  &__link {
+    transition: color 0.2s linear;
+
+    &.active {
+
+      @include desktop-down {
+        color: var(--color--navy);
+      }
     }
   }
 
