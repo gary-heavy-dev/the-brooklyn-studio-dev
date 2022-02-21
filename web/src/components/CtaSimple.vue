@@ -163,6 +163,7 @@ export default {
 
   &__large-copy {
     max-width: 400px;
+    font-weight: 500;
   }
 
   &:not(.image--full) {
