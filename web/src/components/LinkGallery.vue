@@ -146,12 +146,8 @@ export default {
     activeSlide() {
       let slideIndex = this.swiper.realIndex + 1
       let currentData = this.swiper.slides[slideIndex].dataset.slug
-      // console.log('slug:', currentData)
       const links = document.getElementsByClassName('link-gallery__link')
-      // let activeLink = document.querySelector('[data-link-slug="' + currentData + '"]')
-      // console.log('links:', activeLink)
       Array.prototype.forEach.call(links, function(link) {
-        // console.log('my slug:', link.dataset.linkSlug)
         if (link.dataset.linkSlug == currentData) {
           link.classList.add('active')
         } else {

@@ -7,6 +7,9 @@
       :auto-destroy="false"
       :delete-instance-on-destroy="true"
       :cleanup-styles-on-destroy="true"
+      @afterInit="updateCategory"
+      @slideChange="updateCategory"
+      ref="workFeedSwiper"
     >
       <swiper-slide
         :data-hash="$static.res.slug.current"
@@ -15,16 +18,16 @@
         <WorkFeedSlide :content="$static.res" />
       </swiper-slide>
       <swiper-slide
-        :data-hash="$static.ad.slug.current"
-        class="o-h"
-      >
-        <WorkFeedSlide :content="$static.ad" />
-      </swiper-slide>
-      <swiper-slide
         :data-hash="$static.int.slug.current"
         class="o-h"
       >
         <WorkFeedSlide :content="$static.int" />
+      </swiper-slide>
+      <swiper-slide
+        :data-hash="$static.ad.slug.current"
+        class="o-h"
+      >
+        <WorkFeedSlide :content="$static.ad" />
       </swiper-slide>
       <div class="swiper-button-prev" slot="button-prev">
         <SliderArrow />
@@ -33,6 +36,18 @@
         <SliderArrow />
       </div>
     </swiper>
+    <WorkFeedGrid
+      v-if="currentCategory == 'residential-architecture'"
+      :content="$static.res"
+    />
+    <WorkFeedGrid
+      v-else-if="currentCategory == 'interior-design'"
+      :content="$static.int"
+    />
+    <WorkFeedGrid
+      v-else-if="currentCategory == 'adaptive-reuse'"
+      :content="$static.ad"
+    />
   </div>
 </template>
 
@@ -40,6 +55,7 @@
 import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
 import 'swiper/css/swiper.css'
 import WorkFeedSlide from '~/components/WorkFeedSlide'
+import WorkFeedGrid from '~/components/WorkFeedGrid'
 import SliderArrow from '~/components/SliderArrow'
 
 export default {
@@ -47,6 +63,7 @@ export default {
     Swiper,
     SwiperSlide,
     WorkFeedSlide,
+    WorkFeedGrid,
     SliderArrow 
   },
   props: {
@@ -55,7 +72,7 @@ export default {
   },
   computed: {
     swiper() {
-        return this.$refs.swiper.swiper;
+      return this.$refs.workFeedSwiper.$swiper;
     }
   },
   data() {
@@ -78,6 +95,29 @@ export default {
             slidesPerView: 1.121,
           }
         }
+      },
+      currentCategory: ''
+    }
+  },
+  methods: {
+    updateCategory() {
+      let slideIndex = this.swiper.realIndex + 2
+      this.currentCategory = this.swiper.slides[slideIndex].dataset.hash
+      console.log(this.currentCategory, this.swiper.realIndex)
+    }
+  },
+  mounted() {
+    let slideIndex = this.swiper.realIndex + 2
+    this.currentCategory = this.swiper.slides[slideIndex].dataset.hash
+  },
+  watch: {
+    $route (to) {
+      if (to.hash == '#residential-architecture' && this.swiper.realIndex !== 0) {
+        this.swiper.slideToLoop(0)
+      } else if (to.hash == '#interior-design' && this.swiper.realIndex !== 1) {
+        this.swiper.slideToLoop(1)
+      } else if (to.hash == '#adaptive-reuse' && this.swiper.realIndex !== 2) {
+        this.swiper.slideToLoop(2)
       }
     }
   }

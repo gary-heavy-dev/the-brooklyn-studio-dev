@@ -65,7 +65,8 @@ export default {
 .flexible-image-pair {
 
   &__large-image,
-  &__small-image {
+  &__small-image,
+  .grid-spacer {
     grid-row: 1;
   }
 

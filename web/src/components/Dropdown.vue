@@ -6,20 +6,20 @@
       aria-expanded="false"
       aria-controls="projects-dropdown"
     >
-      <g-link to="/projects#residential-architecture">Projects</g-link>
+      <g-link to="/projects/#residential-architecture">Projects</g-link>
     </button>
     <ul
       class="dropdown__menu"
       id="projects-dropdown"
     >
       <li>
-        <g-link :to="'/projects#residential-architecture'">Residential Architecture</g-link>
+        <g-link :to="'/projects/#residential-architecture'">Residential Architecture</g-link>
       </li>
       <li>
-        <g-link :to="'/projects#adaptive-reuse'">Adaptive Reuse</g-link>
+        <g-link :to="'/projects/#adaptive-reuse'">Adaptive Reuse</g-link>
       </li>
       <li>
-        <g-link :to="'/projects#interior-design'">Interior Design</g-link>
+        <g-link :to="'/projects/#interior-design'">Interior Design</g-link>
       </li>
     </ul>
   </li>

@@ -25,13 +25,13 @@ export default {
                 {
                   buildHookId: '621532d8c49a3126bc8a6a9e',
                   title: 'STAGING Back-end',
-                  name: 'the-brooklyn-studio-studio',
+                  name: 'staging--the-brooklyn-studio-studio',
                   apiId: '00c0583e-4b97-42a7-a1ad-3d5fd8729974'
                 },
                 {
                   buildHookId: '6215337129122822c3b9ab1a',
                   title: 'STAGING Front-end',
-                  name: 'the-brooklyn-studio',
+                  name: 'staging--the-brooklyn-studio',
                   apiId: 'a5314cb6-038a-4b7a-99cd-fbbae8ca7ae2'
                 }
               ]
