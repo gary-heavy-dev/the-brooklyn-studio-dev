@@ -12,13 +12,13 @@ export default {
               sites: [
                 {
                   buildHookId: '616dc815ce48ec15c6260a13',
-                  title: 'Sanity Studio',
+                  title: 'LIVE Back-end',
                   name: 'the-brooklyn-studio-studio',
                   apiId: '00c0583e-4b97-42a7-a1ad-3d5fd8729974'
                 },
                 {
                   buildHookId: '616dc815546d21097fbe0bb2',
-                  title: 'Blog Website',
+                  title: 'LIVE Front-end',
                   name: 'the-brooklyn-studio',
                   apiId: 'a5314cb6-038a-4b7a-99cd-fbbae8ca7ae2'
                 }
