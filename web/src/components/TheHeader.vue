@@ -159,7 +159,7 @@ export default {
         display: flex;
         align-items: center;
 
-        &:last-child {
+        &:last-of-type {
 
           > a {
             padding-right: 0;

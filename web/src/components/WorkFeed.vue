@@ -118,7 +118,7 @@ export default {
   },
   methods: {
     updateCategory() {
-      eventHub.$emit('filter-cleared')
+      // eventHub.$emit('filter-cleared')
       let slideIndex = this.swiper.realIndex + 2
       this.currentCategory = this.swiper.slides[slideIndex].dataset.hash
       console.log(this.currentCategory, this.swiper.realIndex)

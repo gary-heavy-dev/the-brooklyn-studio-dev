@@ -1,5 +1,5 @@
 <template>
-  <div class="menu__footer">
+  <div class="menu__footer flex fd-c ai-c">
     <Logo class="white" />
     <a
       v-if="$static.settings.socialLinkIg"
