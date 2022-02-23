@@ -48,9 +48,16 @@
               />
             </swiper-slide>
           </swiper>
-          <div class="swiper__pagination"></div>
+          <div 
+            v-if="content.detailsGallery.length > 1"
+            class="swiper__pagination"
+          ></div>
         </div>
       </div>
+      <ProjectDetailsNavigation
+        :prev="prev"
+        :next="next"
+      />
     </div>
   </section>
 </template>
@@ -58,14 +65,18 @@
 <script>
 import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
 import 'swiper/css/swiper.css'
+import ProjectDetailsNavigation from '~/components/ProjectDetailsNavigation'
 
 export default {
   components: {
     Swiper,
-    SwiperSlide
+    SwiperSlide,
+    ProjectDetailsNavigation
   },
   props: {
-    content: Object
+    content: Object,
+    prev: Object,
+    next: Object
   },
   data() {
     return {

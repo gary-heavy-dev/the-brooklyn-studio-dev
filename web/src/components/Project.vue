@@ -6,7 +6,11 @@
       :image="content.image"
     />
     <FlexibleContent :content="content.flexibleContent" />
-    <ProjectDetails :content="content" />
+    <ProjectDetails
+      :content="content"
+      :prev="prev"
+      :next="next"
+    />
     <ProjectLightbox :content="content" />
   </div>
 </template>
@@ -25,7 +29,9 @@ export default {
     ProjectDetails
   },
   props: {
-    content: Object
+    content: Object,
+    prev: Object,
+    next: Object
   }
 }
 </script>

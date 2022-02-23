@@ -1,6 +1,10 @@
 <template>
   <Layout>
-    <Project :content="$page.project" />
+    <Project
+      :content="$page.project"
+      :prev="$page.prev"
+      :next="$page.next"
+    />
   </Layout>
 </template>
 
@@ -15,7 +19,19 @@ export default {
 </script>
 
 <page-query>
-query Project ($id: ID!) {
+query Project ($id: ID!, $prevId: ID!, $nextId: ID!) {
+  prev: sanityProject (id: $prevId) {
+    title
+    slug {
+      current
+    }
+  }
+  next: sanityProject (id: $nextId) {
+    title
+    slug {
+      current
+    }
+  }
   project: sanityProject (id: $id) {
     title
     slug {
