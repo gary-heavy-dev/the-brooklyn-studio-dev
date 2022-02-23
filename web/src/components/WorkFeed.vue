@@ -118,8 +118,6 @@ export default {
       const gridWrapper = document.getElementsByClassName('work-feed__grid')
 
       Array.prototype.forEach.call(gridWrapper, function(grid) {
-        let children = grid.firstChild.children.length
-        console.log('my chids:', children)
         if (grid.classList.contains('current-grid')) {
           grid.classList.add('filtering')
           setTimeout(() => grid.classList.remove('filtering'), 500)
@@ -138,7 +136,6 @@ export default {
   mounted() {
     let slideIndex = this.swiper.realIndex + 2
     this.currentCategory = this.swiper.slides[slideIndex].dataset.hash
-    console.log('grids', this.grids)
     const currentCat = this.currentCategory
     Array.prototype.forEach.call(this.grids, function(grid) {
       if (grid.dataset.category == currentCat) {

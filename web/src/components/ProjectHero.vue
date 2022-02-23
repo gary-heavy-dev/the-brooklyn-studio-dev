@@ -28,26 +28,11 @@
 
 <script>
 export default {
-  data() {
-    return {
-      componentKey: 0
-    }
-  },
   props: {
     displayTitle: Object,
     heading: String,
     image: Object
   },
-  methods: {
-    forceRerender() {
-      this.componentKey += 1
-    }
-  },
-  watch: {
-    $route (to, from) {
-      this.forceRerender
-    }
-  }
 }
 </script>
 

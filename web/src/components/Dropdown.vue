@@ -1,10 +1,14 @@
 <template>
-  <li class="dropdown">
+  <li
+    class="dropdown"
+    @mouseleave="closeDropdown"
+  >
     <button
       type="button"
       class="dropdown__title"
-      aria-expanded="false"
+      :aria-expanded="String(expanded)"
       aria-controls="projects-dropdown"
+      @click="expanded = !expanded"
     >
       <g-link to="/projects/#residential-architecture">Projects</g-link>
     </button>
@@ -24,6 +28,24 @@
     </ul>
   </li>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      expanded: false
+    }
+  },
+  methods: {
+    closeDropdown(e) {
+      this.expanded = false
+      const button = e.target.querySelector('button')
+      button.focus()
+      button.blur()
+    }
+  }
+}
+</script>
 
 <style lang="scss">
 .dropdown {
