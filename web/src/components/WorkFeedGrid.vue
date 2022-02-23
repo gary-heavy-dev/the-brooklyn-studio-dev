@@ -11,7 +11,20 @@
         v-for="(project, index) in filteredProjects"
         :key="index + project.project.title"
         :project="project"
+        :cardNumber="index"
       />
+    </div>
+    <div class="work-feed__navigation flex jc-sb color--gray-tertiary pb-80">
+      <g-link
+        :to="'/projects/#' + $toKebabCase(prev)"
+        class="sub upper"
+        @click.native="$scrollToTop"
+      >&lt; {{ prev }}</g-link>
+      <g-link
+        :to="'/projects/#' + $toKebabCase(next)"
+        class="sub upper"
+        @click.native="$scrollToTop"
+      >{{ next }} &gt;</g-link>
     </div>
   </div>
 </template>
@@ -26,7 +39,10 @@ export default {
     WorkFeedFilter
   },
   props: {
-    content: Object
+    content: Object,
+    status: Boolean,
+    prev: String,
+    next: String
   },
   data() {
     return {
@@ -53,19 +69,46 @@ export default {
     },
     clearCategories() {
       this.activeCategories = []
-    }
+    },
   },
-  // watch: { 
-  //   content: function(newVal, oldVal) { // watch it
-  //     console.log('Prop changed: ', newVal, ' | was: ', oldVal)
-  //     this.clearCategories
-  //   }
-  // }
+  mounted() {
+    const cardWrapper = document.getElementsByClassName('work-feed__grid')
+    setTimeout(() => Array.prototype.forEach.call(cardWrapper, function(card) {
+      card.classList.add('loaded')
+    }), 250)
+  },
+  beforeDestroy() {
+    const cardWrapper = document.getElementsByClassName('work-feed__grid')
+    setTimeout(() => Array.prototype.forEach.call(cardWrapper, function(card) {
+      card.classList.remove('loaded')
+    }), 250)
+  },
 }
 </script>
 
 <style lang="scss">
+.work-feed__navigation {
+  a {
+    text-decoration: none;
+  }
+}
+
 .work-feed__grid {
+  display: none;
+
+  &.loaded {
+    opacity: 1;
+    transition: opacity 0.2s linear;
+
+    &.filtering {
+      opacity: 0;
+      transition-delay: 0.3s;
+    }
+  }
+
+  &.current-grid {
+    display: block;
+  }
 
   .grid {
     grid-template-columns: repeat(1, 1fr);

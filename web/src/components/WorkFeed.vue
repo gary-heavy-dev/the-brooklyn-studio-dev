@@ -35,21 +35,23 @@
         <SliderArrow />
       </div>
     </swiper>
-    <!-- <WorkFeedGrid
-      v-if="currentFeed"
-      :content="currentFeed"
-    /> -->
     <WorkFeedGrid
-      v-show="currentCategory == 'residential-architecture'"
+      data-category="residential-architecture"
       :content="$static.res"
+      :prev="'Adaptive Reuse'"
+      :next="'Interior Design'"
     />
     <WorkFeedGrid
-      v-show="currentCategory == 'interior-design'"
+      data-category="interior-design"
       :content="$static.int"
+      :prev="'Residential Architecture'"
+      :next="'Adaptive Reuse'"
     />
     <WorkFeedGrid
-      v-show="currentCategory == 'adaptive-reuse'"
+      data-category="adaptive-reuse"
       :content="$static.ad"
+      :prev="'Interior Design'"
+      :next="'Residential Architecture'"
     />
   </div>
 </template>
@@ -60,7 +62,6 @@ import 'swiper/css/swiper.css'
 import WorkFeedSlide from '~/components/WorkFeedSlide'
 import WorkFeedGrid from '~/components/WorkFeedGrid'
 import SliderArrow from '~/components/SliderArrow'
-import eventHub from '~/utils/eventHub'
 
 export default {
   components: {
@@ -78,19 +79,10 @@ export default {
     swiper() {
       return this.$refs.workFeedSwiper.$swiper;
     },
-    // currentFeed() {
-    //   const res = this.$static.res
-    //   const int = this.$static.int
-    //   const ad = this.$static.ad
-
-    //   if (this.currentCategory == 'residential-architecture') {
-    //     return res
-    //   } else if (this.currentCategory == 'interior-design') {
-    //     return int
-    //   } else if (this.currentCategory == 'adaptive-reuse') {
-    //     return ad
-    //   }
-    // }
+    grids() {
+      const grids = document.getElementsByClassName('work-feed__grid')
+      return grids
+    }
   },
   data() {
     return {
@@ -118,15 +110,42 @@ export default {
   },
   methods: {
     updateCategory() {
-      // eventHub.$emit('filter-cleared')
       let slideIndex = this.swiper.realIndex + 2
       this.currentCategory = this.swiper.slides[slideIndex].dataset.hash
       console.log(this.currentCategory, this.swiper.realIndex)
+      let currentCat = this.currentCategory
+
+      const gridWrapper = document.getElementsByClassName('work-feed__grid')
+
+      Array.prototype.forEach.call(gridWrapper, function(grid) {
+        let children = grid.firstChild.children.length
+        console.log('my chids:', children)
+        if (grid.classList.contains('current-grid')) {
+          grid.classList.add('filtering')
+          setTimeout(() => grid.classList.remove('filtering'), 500)
+          setTimeout(() => grid.classList.remove('current-grid'), 500)
+        }
+        setTimeout(() => {
+          if (grid.dataset.category == currentCat) {
+            grid.classList.add('filtering')
+            grid.classList.add('current-grid')
+            setTimeout(() => grid.classList.remove('filtering'), 250)
+          }
+        }, 500);
+      })
     },
   },
   mounted() {
     let slideIndex = this.swiper.realIndex + 2
     this.currentCategory = this.swiper.slides[slideIndex].dataset.hash
+    console.log('grids', this.grids)
+    const currentCat = this.currentCategory
+    Array.prototype.forEach.call(this.grids, function(grid) {
+      if (grid.dataset.category == currentCat) {
+        grid.classList.add('current-grid')
+        grid.classList.add('loaded')
+      }
+    })
   },
   watch: {
     $route (to) {
@@ -141,6 +160,12 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+.work-feed {
+  transition: height 0.25s linear;
+}
+</style>
 
 <static-query>
 {

@@ -47,6 +47,13 @@ export default function(Vue, { router, head, isClient }) {
   // Initialize VueScrollactive
   Vue.use(VueScrollactive)
 
+  // Smooth scroll to top
+  Vue.prototype.$scrollToTop = () => window.scrollTo({
+    top: 0,
+    left: 0,
+    behavior: 'smooth'
+  })
+
   // Inject kebab case conversion utility
   Vue.prototype.$toKebabCase = toKebabCase
 

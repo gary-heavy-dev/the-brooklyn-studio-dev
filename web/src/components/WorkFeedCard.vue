@@ -2,6 +2,7 @@
   <g-link
     :to="'/projects/' + project.project.slug.current"
     class="work-feed-card mb-100 color--gray-tertiary"
+    :style="cardStagger"
   >
     <BaseImage
       v-if="project.altThumbnail"
@@ -39,13 +40,44 @@ export default {
       }
     }
   },
+  computed: {
+    cardStagger() {
+      return {
+        'transition-delay': 0.15 * this.cardNumber + 's'
+      }
+    }
+  },
   props: {
-    project: Object
+    project: Object,
+    cardNumber: Number
   }
 }
 </script>
 
 <style lang="scss">
+.loaded.filtering {
+
+  .work-feed-card,
+  .work-feed-filter {
+    opacity: 0;
+  }
+
+  .work-feed-card {
+    transform: translateY(20px);
+  }
+
+  .work-feed-filter {
+    transform: translateY(7px);
+  }
+}
+
+.work-feed-card,
+.work-feed-filter {
+  opacity: 1;
+  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+  transform: translateY(0px);
+}
+
 .work-feed-card {
   text-decoration: none;
   display: block;

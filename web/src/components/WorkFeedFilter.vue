@@ -42,6 +42,8 @@ export default {
 <style lang="scss">
 .work-feed-filter {
   grid-column: 1 / -1;
+  transition-delay: 0.45s;
+  transition-duration: 0.3s;
 
   ul {
     list-style: none;
