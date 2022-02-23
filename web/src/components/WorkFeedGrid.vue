@@ -54,7 +54,13 @@ export default {
     clearCategories() {
       this.activeCategories = []
     }
-  }
+  },
+  // watch: { 
+  //   content: function(newVal, oldVal) { // watch it
+  //     console.log('Prop changed: ', newVal, ' | was: ', oldVal)
+  //     this.clearCategories
+  //   }
+  // }
 }
 </script>
 

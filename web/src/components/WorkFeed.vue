@@ -7,7 +7,6 @@
       :auto-destroy="false"
       :delete-instance-on-destroy="true"
       :cleanup-styles-on-destroy="true"
-      @afterInit="updateCategory"
       @slideChange="updateCategory"
       ref="workFeedSwiper"
     >
@@ -36,16 +35,20 @@
         <SliderArrow />
       </div>
     </swiper>
+    <!-- <WorkFeedGrid
+      v-if="currentFeed"
+      :content="currentFeed"
+    /> -->
     <WorkFeedGrid
-      v-if="currentCategory == 'residential-architecture'"
+      v-show="currentCategory == 'residential-architecture'"
       :content="$static.res"
     />
     <WorkFeedGrid
-      v-else-if="currentCategory == 'interior-design'"
+      v-show="currentCategory == 'interior-design'"
       :content="$static.int"
     />
     <WorkFeedGrid
-      v-else-if="currentCategory == 'adaptive-reuse'"
+      v-show="currentCategory == 'adaptive-reuse'"
       :content="$static.ad"
     />
   </div>
@@ -57,6 +60,7 @@ import 'swiper/css/swiper.css'
 import WorkFeedSlide from '~/components/WorkFeedSlide'
 import WorkFeedGrid from '~/components/WorkFeedGrid'
 import SliderArrow from '~/components/SliderArrow'
+import eventHub from '~/utils/eventHub'
 
 export default {
   components: {
@@ -73,7 +77,20 @@ export default {
   computed: {
     swiper() {
       return this.$refs.workFeedSwiper.$swiper;
-    }
+    },
+    // currentFeed() {
+    //   const res = this.$static.res
+    //   const int = this.$static.int
+    //   const ad = this.$static.ad
+
+    //   if (this.currentCategory == 'residential-architecture') {
+    //     return res
+    //   } else if (this.currentCategory == 'interior-design') {
+    //     return int
+    //   } else if (this.currentCategory == 'adaptive-reuse') {
+    //     return ad
+    //   }
+    // }
   },
   data() {
     return {
@@ -101,10 +118,11 @@ export default {
   },
   methods: {
     updateCategory() {
+      eventHub.$emit('filter-cleared')
       let slideIndex = this.swiper.realIndex + 2
       this.currentCategory = this.swiper.slides[slideIndex].dataset.hash
       console.log(this.currentCategory, this.swiper.realIndex)
-    }
+    },
   },
   mounted() {
     let slideIndex = this.swiper.realIndex + 2
