@@ -1,5 +1,5 @@
 <template>
-  <section class="project-details flex background--gray-secondary p-100">
+  <section class="project-details flex fd-c background--gray-secondary p-100">
     <div class="project-details__inner grid grid--12-desktop container">
       <div class="project-details__copy col-span--6">
         <div class="project-details__intro pt-20 mb-60">

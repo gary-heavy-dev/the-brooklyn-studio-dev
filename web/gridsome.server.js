@@ -41,7 +41,7 @@ module.exports = function(api) {
       createPage({
         path: `/projects/${node.slug.current}`,
         component: './src/templates/SanityProject.vue',
-        queryVariables: {
+        context: {
           id: node.id,
           prevId: prev ? prev.node.id : null,
           nextId: next ? next.node.id : null

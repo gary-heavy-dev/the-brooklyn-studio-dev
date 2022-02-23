@@ -32,6 +32,6 @@ export default {
     content: Object,
     prev: Object,
     next: Object
-  }
+  },
 }
 </script>

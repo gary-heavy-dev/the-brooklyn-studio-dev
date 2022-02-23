@@ -1,7 +1,8 @@
 <template>
   <Layout>
     <Project
-      :content="$page.project"
+      :key="$page.post.slug.current"
+      :content="$page.post"
       :prev="$page.prev"
       :next="$page.next"
     />
@@ -14,12 +15,34 @@ import Project from '~/components/Project'
 export default {
   components: {
     Project
+  },
+  data() {
+    return {
+      heroKey: 0
+    }
+  },
+  methods: {
+    forceRerender() {
+      this.heroKey += 1
+    }
+  },
+  watch: {
+    $route (to, from) {
+      this.forceRerender
+      console.log('forced!', this.heroKey)
+    }
   }
 }
 </script>
 
 <page-query>
-query Project ($id: ID!, $prevId: ID!, $nextId: ID!) {
+query Post ($id: ID, $prevId: ID, $nextId: ID) {
+  metadata {
+    sanityOptions {
+      projectId
+      dataset
+    }
+  }
   prev: sanityProject (id: $prevId) {
     title
     slug {
@@ -32,7 +55,7 @@ query Project ($id: ID!, $prevId: ID!, $nextId: ID!) {
       current
     }
   }
-  project: sanityProject (id: $id) {
+  post: sanityProject (id: $id) {
     title
     slug {
       current
