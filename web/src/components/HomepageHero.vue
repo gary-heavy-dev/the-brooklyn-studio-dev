@@ -30,10 +30,16 @@ export default {
   methods: {
     adjustHeader(e) {
       // console.log("Home hero is:", e.percentTop, e.percentCenter, e.percentInView)
-      if (e.percentTop > 0) {
-        document.body.classList.add('home-hero-in-view')
-      } else {
-        document.body.classList.remove('home-hero-in-view')
+      if (this.$route.path == '/') {
+        if (e.percentTop > 0) {
+          document.body.classList.add('home-hero-in-view')
+        } else {
+          document.body.classList.remove('home-hero-in-view')
+          sessionStorage.setItem('intro', true)
+          document.body.classList.add('scroll-locked')
+          this.$emit('passed', true)
+          setTimeout(() => document.body.classList.remove('scroll-locked'), 10)
+        }
       }
     }
   },

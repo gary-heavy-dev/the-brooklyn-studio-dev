@@ -13,6 +13,10 @@ import gImageMap from './utils/gImageMap'
 // Import kebab case conversion utility for slug conversion
 import toKebabCase from './utils/toKebabCase'
 
+// Import Smoothscroll polyfill
+import smoothscroll from 'smoothscroll-polyfill';
+smoothscroll.polyfill()
+
 // Import lazysizes functionality
 import 'lazysizes'
 import 'lazysizes/plugins/parent-fit/ls.parent-fit'

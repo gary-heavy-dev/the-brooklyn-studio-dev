@@ -98,6 +98,10 @@ export default {
   z-index: 999999999;
   border-bottom: 1px solid var(--color--gray-secondary);
 
+  > .container {
+    z-index: inherit;
+  }
+
   > div,
   > div > nav > ul,
   > div > nav > ul > li > button {

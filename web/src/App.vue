@@ -1,6 +1,9 @@
 <template>
   <Layout>
-    <HomepageHero v-if="$route.path == '/'" />
+    <HomepageHero
+      v-show="$route.path == '/' && introStatus == null"
+      @passed="hideIntro"
+    />
     <TheHeader />
     <main class="main">
       <transition name="fade" mode="out-in">
@@ -21,6 +24,16 @@ export default {
     HomepageHero,
     TheHeader,
     TheFooter
+  },
+  data() {
+    return {
+      introStatus: sessionStorage.getItem('intro')
+    }
+  },
+  methods: {
+    hideIntro() {
+      this.introStatus = true
+    }
   },
   updated() {
     const b = document.body

@@ -64,6 +64,7 @@
             v-if="content.introLink && content.introLinkText"
             :to="content.introLink"
             class="upper button mt-60"
+            @click.native="$scrollToTop"
           >{{ content.introLinkText }}</g-link>
 
 
