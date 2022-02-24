@@ -7,7 +7,8 @@
             <span 
               v-if="content.introLarge"
               class="h3"
-            >{{ content.introLarge }}</span>
+              v-html="content.introLarge"
+            ></span>
             <h2
               v-if="content.introHeading"
               :class="['h2', 'upper']"
