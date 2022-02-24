@@ -22,7 +22,7 @@
       :y="302"
       class="mb-30"
     />
-    <h3>{{ project.project.title }}</h3>
+    <h3 v-html="project.project.title"></h3>
   </g-link>
 </template>
 
