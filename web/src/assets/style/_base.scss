@@ -3,6 +3,7 @@
 	box-sizing: border-box;
 	-webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  transition: all 0.2s linear;
 }
 
 body {
@@ -16,6 +17,17 @@ body {
 a {
   color: inherit;
   transition: color 0.2s linear;
+  text-decoration: none;
+}
+
+p {
+
+  a {
+    
+    &:hover {
+      color: var(--color--navy-light);
+    }
+  }
 }
 
 
@@ -23,7 +35,7 @@ a {
 .the-footer {
 
   a {
-    text-decoration: none;
+    // text-decoration: none;
 
     &:hover {
       color: var(--color--navy);
