@@ -31,6 +31,9 @@ export default {
               />
               <figcaption>{node.caption}</figcaption>
             </figure>
+          ),
+          wordBreak: ({ node }) => (
+            <span>&#8203;</span>
           )
         }
       }

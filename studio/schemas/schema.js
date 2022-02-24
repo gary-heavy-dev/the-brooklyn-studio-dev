@@ -55,6 +55,7 @@ import projectReference from './objects/projectReference'
 import proustQuestionnaire from './objects/proustQuestionnaire'
 import scrollingGallery from './objects/scrollingGallery'
 import scrollingGallerySection from './objects/scrollingGallerySection'
+import wordBreak from './objects/wordBreak'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -112,7 +113,8 @@ export default createSchema({
     scrollingGallerySection,
     siteSettings,
     team,
-    teamMember
+    teamMember,
+    wordBreak
 
     // When added to this list, object types can be used as
     // { type: 'typename' } in other document schemas

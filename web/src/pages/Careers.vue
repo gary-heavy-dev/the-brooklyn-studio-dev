@@ -19,7 +19,7 @@ export default {
     id
     title
     hero {
-      intro
+      _rawIntro
       image {
         asset {
           url

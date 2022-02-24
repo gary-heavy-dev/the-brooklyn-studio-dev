@@ -8,10 +8,16 @@
               v-if="content.title"
               class="h1 mb-60"
             >{{ content.title }}</h1>
-            <p
-              v-if="content.hero.intro"
+            <!-- <p
+              v-if="content.hero._rawIntro"
               class="h5 h5--alt"
-            >{{ content.hero.intro }}</p>
+            >{{ content.hero.intro }}</p> -->
+            <div class="h5 h5--alt">
+              <BaseBlockContent
+                v-if="content.hero._rawIntro"
+                :blocks="content.hero._rawIntro"
+              />
+            </div>
           </div>
         </div>
       </div>

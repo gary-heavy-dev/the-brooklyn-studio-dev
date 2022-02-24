@@ -11,7 +11,7 @@ export default {
     },
     {
       name: 'intro',
-      type: 'text',
+      type: 'excerptPortableText',
       title: 'Intro Text'
     }
   ]
