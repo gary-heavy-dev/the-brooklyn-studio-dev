@@ -15,7 +15,10 @@ import toKebabCase from './utils/toKebabCase'
 
 // Import Smoothscroll polyfill
 import smoothscroll from 'smoothscroll-polyfill';
-smoothscroll.polyfill()
+
+if (process.isClient && typeof window !== 'undefined') {
+  smoothscroll.polyfill()
+}
 
 // Import lazysizes functionality
 import 'lazysizes'

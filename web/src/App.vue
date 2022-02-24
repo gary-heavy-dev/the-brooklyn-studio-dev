@@ -27,7 +27,8 @@ export default {
   },
   data() {
     return {
-      introStatus: sessionStorage.getItem('intro')
+      // if (typeof sessionStorage !== 'undefined')
+      introStatus: typeof sessionStorage !== 'undefined' ? sessionStorage.getItem('intro') : null
     }
   },
   methods: {
