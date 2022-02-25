@@ -67,6 +67,12 @@ $screen-4k-min: calc(#{$screen-hd-max} + 1px);
   }
 }
 
+@mixin hd-to-laptop {
+  @media (min-width: #{$screen-desktop-min}) and (max-width: #{$screen-desktop-max}) {
+    @content;
+  }
+}
+
 @mixin four-k {
   @media (min-width: #{$screen-4k-min}) {
     @content;

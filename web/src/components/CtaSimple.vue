@@ -5,7 +5,7 @@
   >
     <div :class="'cta-simple__inner grid grid--12-desktop reverse-mobile--' + content.reverseMobile">
       <div :class="'copy-wrapper p-mobile-copy-block flex ai-c col-span--' + copySpan + ' p-' + (content.paddingSize === '0' ? '60' : content.paddingSize)">
-        <div class="copy-wrapper__inner mw-readable">
+        <div class="copy-wrapper__inner mw-readable w-100">
           <h2
             v-if="content.heading"
             class="upper h2"
@@ -23,7 +23,8 @@
             class="upper button mt-60"
             :to="content.link"
             :aria-label="content.heading ? 'Link to ' + content.heading : content.linkText + ' Link'"
-          >{{ content.linkText }}</g-link>
+            v-html="content.linkText"
+          ></g-link>
         </div>
       </div>
       <div class="grid-spacer col-span--1"></div>
@@ -137,6 +138,19 @@ export default {
 
       .image-wrapper {
         padding: 0;
+      }
+    }
+  }
+
+  .copy-wrapper {
+
+    a {
+
+      @include hd-to-laptop {
+
+        span {
+          display: block;
+        }
       }
     }
   }
