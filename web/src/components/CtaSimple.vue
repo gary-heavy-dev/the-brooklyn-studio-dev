@@ -28,7 +28,7 @@
         </div>
       </div>
       <div class="grid-spacer col-span--1"></div>
-      <div :class="'image-wrapper col-span--' + content.imageWidth + ' p-' + content.paddingSize">
+      <div :class="'image-wrapper flex ai-c col-span--' + content.imageWidth + ' p-' + content.paddingSize">
         <BaseImage
           v-if="content.image"
           :src="content.image"
@@ -134,6 +134,7 @@ export default {
 
     @include desktop-down {
       max-width: 100vw;
+      width: -webkit-fill-available;
       display: flex;
 
       .image-wrapper {
