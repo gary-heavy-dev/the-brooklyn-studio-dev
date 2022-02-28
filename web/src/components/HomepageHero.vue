@@ -7,7 +7,6 @@
         <scrollactive
           class="container text-center p-100"
           :duration="2000"
-          :offset="0"
         >
           <a
             href="#welcome"
