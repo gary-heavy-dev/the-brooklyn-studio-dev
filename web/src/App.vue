@@ -1,7 +1,7 @@
 <template>
   <Layout>
     <HomepageHero
-      v-if="$route.path == '/' && introStatus == null"
+      v-show="$route.path == '/' && introStatus == null"
       @passed="hideIntro"
     />
     <TheHeader />
