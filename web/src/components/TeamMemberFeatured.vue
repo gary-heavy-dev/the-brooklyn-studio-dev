@@ -50,20 +50,18 @@ export default {
     }
   },
   computed: {
+    staticMembers() {
+      return this.$static.allSanityTeamMember.edges.length
+    },
     featuredMember() {
       if (this.content.teamMember) {
         return this.content.teamMember
       } else {
-        return {
-          image: {
-            asset: {
-              url: 'https://placekitten.com/g/286/375'
-            },
-            alt: 'BKS KITTEN!'
-          }
-        }
+        const mems = this.$static.allSanityTeamMember.edges.length
+        const i = Math.floor(Math.random() * mems)
+        return this.$static.allSanityTeamMember.edges[i].node
       }
-    }
+    },
   }
 }
 </script>
@@ -112,11 +110,16 @@ export default {
   allSanityTeamMember {
     edges {
       node {
+        name
+        title
         image {
           asset {
             url
           }
           alt
+        }
+        slug {
+          current
         }
       }
     }
