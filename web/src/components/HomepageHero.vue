@@ -94,7 +94,7 @@ export default {
       transition-delay: 0.2s;
 
       &.lazyloaded {
-        opacity: 90%;
+        opacity: 0.9;
       }
     }
   }
