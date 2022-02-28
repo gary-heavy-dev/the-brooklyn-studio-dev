@@ -4,16 +4,34 @@
       v-view="adjustHeader"
     >
       <div class="flex ai-c jc-c h-100 w-100 pos-abs z-1">
-        <div class="container text-center p-100">
-          <!-- <Logo class="white" /> -->
-          <dotlottie-player src="https://assets6.lottiefiles.com/dotlotties/dlf10_hdnplzwy.lottie" autoplay />
-        </div>
+        <scrollactive
+          class="container text-center p-100"
+          :offset="0"
+          :duration="2000"
+        >
+          <a
+            href="#welcome"
+            class="scrollactive-item"
+            id="logoAnimation"
+          >
+            <dotlottie-player
+              class="mobile-only"
+              src="https://assets5.lottiefiles.com/dotlotties/dlf10_fzdw966g.lottie"
+              autoplay
+            />
+            <dotlottie-player
+              class="desktop-only"
+              src="https://assets2.lottiefiles.com/dotlotties/dlf10_vpwmpd5j.lottie"
+              autoplay
+            />
+          </a>
+        </scrollactive>
       </div>
       <BaseImage
         class="img-cover"
-        v-if="$static.page.heroImages.images[2]"
+        v-if="featuredImage"
         :lazy="true"
-        :src="$static.page.heroImages.images[2]"
+        :src="featuredImage"
         :x="1440"
         :y="1024"
       />
@@ -27,9 +45,15 @@ export default {
   components: {
     Logo
   },
+  computed: {
+    featuredImage() {
+      const ims = this.$static.page.heroImages.images.length
+      const i = Math.floor(Math.random() * ims)
+      return this.$static.page.heroImages.images[i]
+    }
+  },
   methods: {
     adjustHeader(e) {
-      // console.log("Home hero is:", e.percentTop, e.percentCenter, e.percentInView)
       if (this.$route.path == '/') {
         if (e.percentTop > 0) {
           document.body.classList.add('home-hero-in-view')
@@ -48,6 +72,48 @@ export default {
     if (typeof window !== 'undefined') {
       const LottiePlayer = require('@dotlottie/player-component')
     }
+    setTimeout(() => {
+      const logoAnimation = document.getElementById('logoAnimation')
+      logoAnimation.click()
+      // const theHeader = document.getElementById('theHeader')
+
+      // const EasingFunctions = {
+      //   // no easing, no acceleration
+      //   linear: t => t,
+      //   // accelerating from zero velocity
+      //   easeInQuad: t => t*t,
+      //   // decelerating to zero velocity
+      //   easeOutQuad: t => t*(2-t),
+      //   // acceleration until halfway, then deceleration
+      //   easeInOutQuad: t => t<.5 ? 2*t*t : -1+(4-2*t)*t,
+      //   // accelerating from zero velocity 
+      //   easeInCubic: t => t*t*t,
+      //   // decelerating to zero velocity 
+      //   easeOutCubic: t => (--t)*t*t+1,
+      //   // acceleration until halfway, then deceleration 
+      //   easeInOutCubic: t => t<.5 ? 4*t*t*t : (t-1)*(2*t-2)*(2*t-2)+1,
+      //   // accelerating from zero velocity 
+      //   easeInQuart: t => t*t*t*t,
+      //   // decelerating to zero velocity 
+      //   easeOutQuart: t => 1-(--t)*t*t*t,
+      //   // acceleration until halfway, then deceleration
+      //   easeInOutQuart: t => t<.5 ? 8*t*t*t*t : 1-8*(--t)*t*t*t,
+      //   // accelerating from zero velocity
+      //   easeInQuint: t => t*t*t*t*t,
+      //   // decelerating to zero velocity
+      //   easeOutQuint: t => 1+(--t)*t*t*t*t,
+      //   // acceleration until halfway, then deceleration 
+      //   easeInOutQuint: t => t<.5 ? 16*t*t*t*t*t : 1+16*(--t)*t*t*t*t
+      // }
+
+      // this.$smoothScroll({
+      //   scrollTo: theHeader,
+      //   duration: 2000,
+      //   offset: -1,
+      //   updateHistory: false,
+      //   easingFunction: EasingFunctions.easeInOutQuad
+      // })
+    }, 6000)
   }
 }
 </script>
@@ -58,6 +124,18 @@ export default {
 
   > div {
     height: 100%;
+  }
+
+  .base-image {
+    background-color: black;
+
+    img {
+      transition-delay: 0.2s;
+
+      &.lazyloaded {
+        opacity: 90%;
+      }
+    }
   }
 
   svg {

@@ -119,6 +119,11 @@ export default {
         },
         autoplay: {
           delay: 6000
+        },
+        breakpoints: {
+          1025: {
+            enabled: false
+          }
         }
       },
       sizes: {

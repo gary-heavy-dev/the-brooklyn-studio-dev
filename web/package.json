@@ -22,7 +22,8 @@
     "style-resources-loader": "^1.4.1",
     "swiper": "^5.4.5",
     "vue-awesome-swiper": "^4.1.1",
-    "vue-scrollactive": "^0.9.3"
+    "vue-scrollactive": "^0.9.3",
+    "vue2-smooth-scroll": "^1.6.0"
   },
   "devDependencies": {
     "sass": "^1.42.1",

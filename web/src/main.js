@@ -16,6 +16,8 @@ import toKebabCase from './utils/toKebabCase'
 // Import Smoothscroll polyfill
 import smoothscroll from 'smoothscroll-polyfill';
 
+import VueSmoothScroll from 'vue2-smooth-scroll'
+
 if (process.isClient && typeof window !== 'undefined') {
   smoothscroll.polyfill()
 }
@@ -53,6 +55,8 @@ export default function(Vue, { router, head, isClient }) {
 
   // Initialize VueScrollactive
   Vue.use(VueScrollactive)
+
+  Vue.use(VueSmoothScroll)
 
   // Smooth scroll to top
   Vue.prototype.$scrollToTop = () => window.scrollTo({

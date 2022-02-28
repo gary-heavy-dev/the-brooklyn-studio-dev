@@ -50,9 +50,6 @@ export default {
     }
   },
   computed: {
-    staticMembers() {
-      return this.$static.allSanityTeamMember.edges.length
-    },
     featuredMember() {
       if (this.content.teamMember) {
         return this.content.teamMember

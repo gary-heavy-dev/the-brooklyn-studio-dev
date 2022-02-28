@@ -2,7 +2,7 @@
   <header
     :class="['the-header background--white flex ai-c jc-c headroom', {'headroom--unpinned': scrolled}]"
     v-on="{ handleScroll }"
-    id="theHeader"
+    id="welcome"
   >
     <div class="container w-100 flex jc-sb">
       <g-link to="/" class="flex ai-c" aria-label="Link to Homepage">
@@ -112,6 +112,7 @@ export default {
 
   &__logo {
     height: 13px;
+    margin: auto 0;
 
     @include laptop {
       height: 17px;
