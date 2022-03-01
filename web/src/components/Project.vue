@@ -35,3 +35,15 @@ export default {
   },
 }
 </script>
+
+<style lang="scss">
+.project {
+
+  .flexible-content {
+
+    .base-image {
+      cursor: pointer;
+    }
+  }
+}
+</style>

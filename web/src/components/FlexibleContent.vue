@@ -92,9 +92,5 @@ export default {
       }
     }
   }
-
-  .base-image {
-    cursor: pointer;
-  }
 }
 </style>

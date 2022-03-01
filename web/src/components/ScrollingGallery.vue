@@ -13,6 +13,7 @@
             >{{ content.title }}</h2>
             <p
               v-if="content.intro"
+              class="h5"
             >{{ content.intro }}</p>
           </div>
           <div
@@ -32,10 +33,13 @@
               :sizes="sizes"
             />
             <h3
-              class="h4 upper mb-20"
+              class="h2 upper mb-20"
               v-if="section.heading"
             >{{ section.heading }}</h3>
-            <p v-if="section.copy">{{ section.copy }}</p>
+            <p
+              v-if="section.copy"
+              class="display"
+            >{{ section.copy }}</p>
           </div>
         </div>
       </div>
@@ -123,7 +127,7 @@ export default {
   }
 
   &__copy {
-    grid-column: span 4;
+    grid-column: span 5;
     position: relative;
     z-index: 10;
 
@@ -143,7 +147,7 @@ export default {
     &-section {
 
       @include desktop {
-        padding-top: 100px;
+        padding-top: 200px;
 
         &:last-child {
           padding-bottom: 65vh;
@@ -179,7 +183,7 @@ export default {
   &__gallery {
     overflow: hidden;
     margin-right: calc(var(--grid-margin) * -1);
-    grid-column: 6/13;
+    grid-column: 7/13;
     height: 100vh;
     padding-bottom: 100vh;
     position: sticky;

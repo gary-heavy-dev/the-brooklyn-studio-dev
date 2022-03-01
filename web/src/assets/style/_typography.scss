@@ -26,6 +26,8 @@
   --font-family-primary: 'Mallory', sans-serif;
   --body-font-size: 16px; 
   --body-line-height: 25px; 
+  --display-font-size: 16px;
+  --display-line-height: 25px;
   --letter-spacing: 0.03em;
   --letter-spacing--lg: 0.07em;
   --h1-font-size: 50px; 
@@ -61,6 +63,8 @@
   :root {
     --body-font-size: 18px; // 20 - 16
     --body-line-height: 27px; // 30 - 25
+    --display-font-size: 26px;
+    --display-line-height: 39px;
     --h1-font-size: 58px; // 65 - 50
     --h1-line-height: 61px; // 68 - 50
     --h2-font-size: 32px; // 40 - 25
@@ -88,7 +92,9 @@
 @include hd {
   :root {
     --body-font-size: 20px; 
-    --body-line-height: 30px; 
+    --body-line-height: 30px;
+    --display-font-size: 32px;
+    --display-line-height: 48px;
     --h1-font-size: 65px; 
     --h1-line-height: 68px; 
     --h2-font-size: 40px;
@@ -186,6 +192,11 @@ p.h5,
     line-height: var(--h5-line-height--alt);
     font-weight: 400;
   }
+}
+
+.display {
+  font-size: var(--display-font-size);
+  line-height: var(--display-line-height);
 }
 
 .small {
