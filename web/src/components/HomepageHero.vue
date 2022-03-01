@@ -5,12 +5,12 @@
     >
       <div class="flex ai-c jc-c h-100 w-100 pos-abs z-1">
         <dotlottie-player
-          class="mobile-only"
+          class="w-100 mobile-only"
           src="https://assets5.lottiefiles.com/dotlotties/dlf10_fzdw966g.lottie"
           autoplay
         />
         <dotlottie-player
-          class="desktop-only"
+          class="w-100 desktop-only"
           src="https://assets2.lottiefiles.com/dotlotties/dlf10_vpwmpd5j.lottie"
           autoplay
         />

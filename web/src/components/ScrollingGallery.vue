@@ -97,7 +97,7 @@ export default {
       console.log("I'm " + e.target.element.dataset.index + " and I'm ", e.target.rect)
       const me = e.target.element
       const myImage = document.querySelector(`div[data-image="${e.target.element.dataset.index}"]`)
-      const triggerDistance = (e.target.element.dataset.index == 2) ? 490 : 290
+      const triggerDistance = (e.target.element.dataset.index == 2) ? 565 : 290
 
       // if (e.percentTop <= 0.4 && e.percentTop >= 0) {
       if (e.target.rect.top < triggerDistance) {
