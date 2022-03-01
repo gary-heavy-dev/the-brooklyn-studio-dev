@@ -22,8 +22,8 @@
           :src="content.image"
           :lazy="true"
           :sizes="sizes"
-          :x="286"
-          :y="375"
+          :x="388"
+          :y="486"
         />
       </div>
       <div class="team-member__copy mw-readable">

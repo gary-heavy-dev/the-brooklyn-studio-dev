@@ -4,27 +4,16 @@
       v-view="adjustHeader"
     >
       <div class="flex ai-c jc-c h-100 w-100 pos-abs z-1">
-        <scrollactive
-          class="container text-center p-100"
-          :duration="2000"
-        >
-          <a
-            href="#welcome"
-            class="scrollactive-item"
-            id="logoAnimation"
-          >
-            <dotlottie-player
-              class="mobile-only"
-              src="https://assets5.lottiefiles.com/dotlotties/dlf10_fzdw966g.lottie"
-              autoplay
-            />
-            <dotlottie-player
-              class="desktop-only"
-              src="https://assets2.lottiefiles.com/dotlotties/dlf10_vpwmpd5j.lottie"
-              autoplay
-            />
-          </a>
-        </scrollactive>
+        <dotlottie-player
+          class="mobile-only"
+          src="https://assets5.lottiefiles.com/dotlotties/dlf10_fzdw966g.lottie"
+          autoplay
+        />
+        <dotlottie-player
+          class="desktop-only"
+          src="https://assets2.lottiefiles.com/dotlotties/dlf10_vpwmpd5j.lottie"
+          autoplay
+        />
       </div>
       <BaseImage
         class="img-cover"
@@ -71,10 +60,6 @@ export default {
     if (typeof window !== 'undefined') {
       const LottiePlayer = require('@dotlottie/player-component')
     }
-    setTimeout(() => {
-      const logoAnimation = document.getElementById('logoAnimation')
-      logoAnimation.click()
-    }, 7000)
   }
 }
 </script>
