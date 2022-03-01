@@ -19,8 +19,8 @@
                 :src="image"
                 :lazy="true"
                 :sizes="sizes"
-                :x="390"
-                :y="496"
+                :x="1584"
+                :y="2091"
               />
             </swiper-slide>
           </swiper>
