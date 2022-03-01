@@ -172,15 +172,14 @@ export default {
         }
       }
 
+      // @include laptop-down {
 
-      @include laptop-down {
-
-        p.h5 {
-          font-size: var(--body-font-size);
-          line-height: var(--body-line-height);
-          font-weight: 400;
-        }
-      }
+      //   p.h5 {
+      //     font-size: var(--body-font-size);
+      //     line-height: var(--body-line-height);
+      //     font-weight: 400;
+      //   }
+      // }
     }
 
     &-intro {
