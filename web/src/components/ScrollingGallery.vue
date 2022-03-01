@@ -13,8 +13,6 @@
             >{{ content.title }}</h2>
             <p
               v-if="content.intro"
-              v-view="showMeHideMe"
-              :data-index="0"
             >{{ content.intro }}</p>
           </div>
           <div
@@ -37,15 +35,14 @@
               class="h4 upper mb-20"
               v-if="section.heading"
             >{{ section.heading }}</h3>
-            <p class="h3" v-if="section.copy">{{ section.copy }}</p>
+            <p v-if="section.copy">{{ section.copy }}</p>
           </div>
         </div>
       </div>
       <div class="scrolling-gallery__gallery layered-image-gallery mb-100 desktop-only">
         <div
-          class="scrolling-gallery__gallery-image layered-image-gallery__image image-wrapper"
+          class="scrolling-gallery__gallery-image layered-image-gallery__image image-wrapper show-me"
           v-if="content.image"
-          data-image="0"
         >
           <BaseImage
             :src="content.image"
@@ -93,9 +90,11 @@ export default {
   methods: {
     showMeHideMe(e) {
       // console.log("I'm " + e.target.element.dataset.index + " and I'm ", e.percentTop, e.percentCenter, e.percentInView)
+      console.log("I'm " + e.target.element.dataset.index + " and I'm ", e.target.rect)
       const me = e.target.element
       const myImage = document.querySelector(`div[data-image="${e.target.element.dataset.index}"]`)
-      if (e.percentTop <= 1 && e.percentTop >= 0) {
+      // if (e.percentTop <= 0.4 && e.percentTop >= 0) {
+      if (e.target.rect.top < 290) {
         me.classList.add('show-me')
         myImage.classList.add('show-me')
       } else {
@@ -144,7 +143,11 @@ export default {
     &-section {
 
       @include desktop {
-        padding-bottom: 70vh;
+        padding-top: 100px;
+
+        &:last-child {
+          padding-bottom: 65vh;
+        }
       }
     }
 
@@ -168,7 +171,7 @@ export default {
 
       @include desktop {
         padding-top: 30vh;
-        padding-bottom: 50vh;
+        padding-bottom: 0;
       }
     }
   }
