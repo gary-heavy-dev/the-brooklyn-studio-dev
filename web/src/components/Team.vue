@@ -19,8 +19,8 @@
             :src="member.node.image"
             :lazy="true"
             :sizes="sizes"
-            :x="286"
-            :y="375"
+            :x="1042"
+            :y="1302"
           />
           <h3
             v-if="member.node.name"
