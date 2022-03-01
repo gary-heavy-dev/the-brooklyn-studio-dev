@@ -13,7 +13,7 @@
             >{{ content.title }}</h2>
             <p
               v-if="content.intro"
-              class="h5"
+              class="display"
             >{{ content.intro }}</p>
           </div>
           <div
@@ -94,11 +94,13 @@ export default {
   methods: {
     showMeHideMe(e) {
       // console.log("I'm " + e.target.element.dataset.index + " and I'm ", e.percentTop, e.percentCenter, e.percentInView)
-      // console.log("I'm " + e.target.element.dataset.index + " and I'm ", e.target.rect)
+      console.log("I'm " + e.target.element.dataset.index + " and I'm ", e.target.rect)
       const me = e.target.element
       const myImage = document.querySelector(`div[data-image="${e.target.element.dataset.index}"]`)
+      const triggerDistance = (e.target.element.dataset.index == 2) ? 490 : 290
+
       // if (e.percentTop <= 0.4 && e.percentTop >= 0) {
-      if (e.target.rect.top < 290) {
+      if (e.target.rect.top < triggerDistance) {
         me.classList.add('show-me')
         myImage.classList.add('show-me')
       } else {
