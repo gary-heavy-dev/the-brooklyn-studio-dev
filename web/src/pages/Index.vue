@@ -166,6 +166,7 @@ export default {
           }
           alt
           caption
+          captionStyle
         }
         links {
           copy
@@ -175,6 +176,7 @@ export default {
             }
             alt
             caption
+            captionStyle
           }
           link {
             ... on SanityAdaptiveReuse {

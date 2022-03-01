@@ -15,6 +15,15 @@ export default {
       }
     },
     {
+      name: 'captionStyle',
+      type: 'boolean',
+      title: 'Caption Style',
+      description: 'Switch this on for a dark color caption.',
+      options: {
+        isHighlighted: true
+      }
+    },
+    {
       name: 'alt',
       type: 'string',
       title: 'Alternative text',

@@ -62,6 +62,10 @@
             :y="810"
             :sizes="sizes"
           />
+          <div
+            v-if="content.image.caption !== ''"
+            :class="['image-caption xsmall', { 'color--white': !content.image.captionStyle}]"
+          >{{ content.image.caption }}</div>
         </div>
         <div
           class="link-gallery__gallery-image layered-image-gallery__image image-wrapper"
@@ -85,6 +89,10 @@
             :y="810"
             :sizes="sizes"
           />
+          <div
+            v-if="link.image.caption !== ''"
+            :class="['image-caption xsmall', { 'color--white': !link.image.captionStyle}]"
+          >{{ link.image.caption }}</div>
         </div>
       </div>
 
@@ -197,6 +205,13 @@ export default {
       grid-column: 8/13;
       margin-right: calc(var(--grid-margin) * -1);
       padding-bottom: 164%;
+    }
+
+    .image-caption {
+      position: absolute;
+      padding: 25px;
+      bottom: 0;
+      left: 0;
     }
   }
 
