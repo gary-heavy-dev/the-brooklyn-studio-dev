@@ -94,7 +94,7 @@ export default {
   methods: {
     showMeHideMe(e) {
       // console.log("I'm " + e.target.element.dataset.index + " and I'm ", e.percentTop, e.percentCenter, e.percentInView)
-      console.log("I'm " + e.target.element.dataset.index + " and I'm ", e.target.rect)
+      // console.log("I'm " + e.target.element.dataset.index + " and I'm ", e.target.rect)
       const me = e.target.element
       const myImage = document.querySelector(`div[data-image="${e.target.element.dataset.index}"]`)
       // if (e.percentTop <= 0.4 && e.percentTop >= 0) {
@@ -150,7 +150,7 @@ export default {
         padding-top: 200px;
 
         &:last-child {
-          padding-bottom: 65vh;
+          padding-bottom: 400px;
         }
       }
     }
@@ -169,12 +169,22 @@ export default {
           @include container;
         }
       }
+
+
+      @include laptop-down {
+
+        p.h5 {
+          font-size: var(--body-font-size);
+          line-height: var(--body-line-height);
+          font-weight: 400;
+        }
+      }
     }
 
     &-intro {
 
       @include desktop {
-        padding-top: 30vh;
+        padding-top: 300px;
         padding-bottom: 0;
       }
     }
