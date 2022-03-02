@@ -31,6 +31,8 @@
               :x="100"
               :y="100"
               :sizes="sizes"
+              :caption="section.image.caption"
+              :captionStyle="section.image.captionStyle"
             />
             <h3
               class="h2 upper mb-20"
@@ -53,6 +55,8 @@
             class="img-cover"
             :lazy="true"
             :sizes="sizes"
+            :caption="content.image.caption"
+            :captionStyle="content.image.captionStyle"
           />
         </div>
         <div
@@ -67,6 +71,8 @@
             :src="section.image"
             :lazy="true"
             :sizes="sizes"
+            :caption="section.image.caption"
+            :captionStyle="section.image.captionStyle"
           />
         </div>
       </div>
@@ -94,7 +100,7 @@ export default {
   methods: {
     showMeHideMe(e) {
       // console.log("I'm " + e.target.element.dataset.index + " and I'm ", e.percentTop, e.percentCenter, e.percentInView)
-      console.log("I'm " + e.target.element.dataset.index + " and I'm ", e.target.rect)
+      // console.log("I'm " + e.target.element.dataset.index + " and I'm ", e.target.rect)
       const me = e.target.element
       const myImage = document.querySelector(`div[data-image="${e.target.element.dataset.index}"]`)
       const triggerDistance = (e.target.element.dataset.index == 2) ? 565 : 290

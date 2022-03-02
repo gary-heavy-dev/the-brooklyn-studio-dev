@@ -29,6 +29,8 @@
           :sizes="sizes"
           :x="content.hero.image.asset.metadata.dimensions.width"
           :y="content.hero.image.asset.metadata.dimensions.height"
+          :caption="content.hero.image.caption"
+          :captionStyle="content.hero.image.captionStyle"
         />
       </div>
       <div class="hero--tertiary__content p-100">
@@ -50,6 +52,8 @@
             :sizes="sizes"
             :x="content.hero.image.asset.metadata.dimensions.width"
             :y="content.hero.image.asset.metadata.dimensions.height"
+            :caption="content.hero.image.caption"
+            :captionStyle="content.hero.image.captionStyle"
           />
         </div>
       </div>

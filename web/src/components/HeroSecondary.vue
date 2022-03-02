@@ -15,6 +15,8 @@
       :src="image"
       :x="1440"
       :y="500"
+      :caption="image.caption"
+      :captionStyle="image.captionStyle"
     />
   </div>
 </template>

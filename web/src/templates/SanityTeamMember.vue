@@ -24,6 +24,8 @@ query TeamMember ($id: ID!) {
     title
     _rawBio
     image {
+      caption
+      captionStyle
       asset {
         url
         metadata {

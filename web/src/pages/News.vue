@@ -19,6 +19,8 @@ export default {
     hero {
       image {
         alt
+        caption
+        captionStyle
         asset {
           url
           metadata {
@@ -35,6 +37,8 @@ export default {
       _rawExcerpt
       link
       mainImage {
+        caption
+        captionStyle
         asset {
           url
           metadata {

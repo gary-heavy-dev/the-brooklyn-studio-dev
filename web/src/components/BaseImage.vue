@@ -34,7 +34,10 @@
         :data-lightbox="src.asset.id"
       />
     </div>
-    <figcaption v-if="caption" class="caption">{{ caption }}</figcaption>
+    <figcaption
+      v-if="caption"
+      :class="['image-caption xsmall', { 'color--white': !captionStyle}]"
+    >{{ caption }}</figcaption>
   </figure>
 </template>
 
@@ -44,6 +47,7 @@ export default {
     lazy: Boolean,
     src: Object,
     caption: String,
+    captionStyle: Boolean,
     x: Number,
     y: Number,
     sizes: Object,
@@ -75,8 +79,16 @@ export default {
 </script>
 
 <style lang="scss">
+.image-caption {
+  position: absolute;
+  padding: 19px 25px;
+  bottom: 0;
+  left: 0;
+}
+
 .base-image {
   width: 100%;
+  position: relative;
 
   &__inner {
     display: flex;

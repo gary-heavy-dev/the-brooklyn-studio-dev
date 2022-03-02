@@ -45,6 +45,8 @@
                 :sizes="sizes"
                 :x="390"
                 :y="496"
+                :caption="image.caption"
+                :captionStyle="image.captionStyle"
               />
             </swiper-slide>
           </swiper>

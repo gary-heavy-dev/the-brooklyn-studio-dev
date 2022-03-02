@@ -22,6 +22,8 @@
       class="project-hero-mobile"
       :lazy="true"
       :src="image"
+      :caption="image.caption"
+      :captionStyle="image.captionStyle"
     />
   </div>
 </template>

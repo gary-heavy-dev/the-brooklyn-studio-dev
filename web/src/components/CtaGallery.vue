@@ -21,6 +21,8 @@
                 :sizes="sizes"
                 :x="1584"
                 :y="2091"
+                :caption="image.caption"
+                :captionStyle="image.captionStyle"
               />
             </swiper-slide>
           </swiper>

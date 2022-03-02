@@ -20,6 +20,8 @@ export default {
     title
     hero {
       image {
+        caption
+        captionStyle
         asset {
           url
           metadata {

@@ -64,6 +64,8 @@ export default {
       introLinkText
       introImagePrimary {
         alt
+        caption
+        captionStyle
         asset {
           url
           metadata {
@@ -76,6 +78,8 @@ export default {
       }
       introImageSecondary {
         alt
+        caption
+        captionStyle
         asset {
           url
           metadata {
@@ -96,6 +100,8 @@ export default {
         linkText
         link
         gallery {
+          caption
+          captionStyle
           asset {
             url
           }
@@ -117,6 +123,8 @@ export default {
         linkText
         link
         image {
+          caption
+          captionStyle
           asset {
             url
             metadata {
@@ -149,6 +157,8 @@ export default {
             current
           }
           image {
+            caption
+            captionStyle
             asset {
               url
             }
@@ -161,6 +171,8 @@ export default {
         title
         intro
         image {
+          caption
+          captionStyle
           asset {
             url
           }
@@ -171,6 +183,8 @@ export default {
         links {
           copy
           image {
+            caption
+            captionStyle
             asset {
               url
             }
@@ -184,6 +198,8 @@ export default {
                 current
               }
               heroImage {
+                caption
+                captionStyle
                 asset {
                   url
                   metadata {
@@ -198,6 +214,8 @@ export default {
                 current
               }
               heroImage {
+                caption
+                captionStyle
                 asset {
                   url
                   metadata {
@@ -212,6 +230,8 @@ export default {
                 current
               }
               heroImage {
+                caption
+                captionStyle
                 asset {
                   url
                   metadata {

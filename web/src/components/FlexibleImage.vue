@@ -8,6 +8,8 @@
         :sizes="content.imageLocation === 'center' ? sizesLandscape : sizesPortrait"
         :x="content.image.asset.metadata.dimensions.width"
         :y="content.image.asset.metadata.dimensions.height"
+        :caption="content.image.caption"
+        :captionStyle="content.image.captionStyle"
         @click.native="openLightbox"
       />
     </div>
@@ -54,6 +56,10 @@ export default {
 
   @include desktop-down {
     flex-direction: column;
+  }
+
+  @include desktop {
+    @include container;
   }
 
   &--center {

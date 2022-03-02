@@ -36,6 +36,8 @@
           :sizes="sizes"
           :x="content.image.asset.metadata.dimensions.width"
           :y="content.image.asset.metadata.dimensions.height"
+          :caption="content.image.caption"
+          :captionStyle="content.image.captionStyle"
         />
       </div>
     </div>

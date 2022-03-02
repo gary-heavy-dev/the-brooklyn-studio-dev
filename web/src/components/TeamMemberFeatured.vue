@@ -27,6 +27,8 @@
         :lazy="true"
         :x="286"
         :y="375"
+        :caption="featuredMember.image.caption"
+        :captionStyle="featuredMember.image.captionStyle"
       />
     </div>
   </section>
@@ -110,6 +112,8 @@ export default {
         name
         title
         image {
+          caption
+          captionStyle
           asset {
             url
           }

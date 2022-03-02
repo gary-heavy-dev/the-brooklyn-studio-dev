@@ -12,6 +12,8 @@
       :x="378"
       :y="302"
       class="mb-30"
+      :caption="project.altThumbnail.caption"
+      :captionStyle="project.altThumbnail.captionStyle"
     />
     <BaseImage
       v-else-if="project.project.image"
@@ -21,6 +23,8 @@
       :x="378"
       :y="302"
       class="mb-30"
+      :caption="project.project.image.caption"
+      :captionStyle="project.project.image.captionStyle"
     />
     <h3 v-html="project.project.title"></h3>
   </g-link>

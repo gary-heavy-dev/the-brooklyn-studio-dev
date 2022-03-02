@@ -12,6 +12,8 @@
         :sizes="sizes"
         :x="1284"
         :y="500"
+        :caption="content.heroImage.caption"
+        :captionStyle="content.heroImage.captionStyle"
       />
     </div>
   </div>

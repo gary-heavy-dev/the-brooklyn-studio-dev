@@ -62,6 +62,8 @@ export default {
     hero {
       image {
         alt
+        caption
+        captionStyle
         asset {
           url
           metadata {
@@ -75,6 +77,8 @@ export default {
       _rawIntroCopy
       introImagePrimary {
         alt
+        caption
+        captionStyle
         asset {
           url
           metadata {
@@ -87,6 +91,8 @@ export default {
       }
       introImageSecondary {
         alt
+        caption
+        captionStyle
         asset {
           url
           metadata {
@@ -104,6 +110,8 @@ export default {
         linkText
         link
         gallery {
+          caption
+          captionStyle
           asset {
             url
             metadata {
@@ -129,6 +137,8 @@ export default {
         linkText
         link
         image {
+          caption
+          captionStyle
           asset {
             url
             metadata {
@@ -156,6 +166,8 @@ export default {
         navTitle
         intro
         image {
+          caption
+          captionStyle
           asset {
             url
           }
@@ -165,6 +177,8 @@ export default {
           heading
           copy
           image {
+            caption
+            captionStyle
             asset {
               url
             }
@@ -186,6 +200,8 @@ export default {
         _type
         navTitle
         leftImage {
+          caption
+          captionStyle
           asset {
             url
             metadata {
@@ -204,6 +220,8 @@ export default {
           linkText
         }
         rightImage {
+          caption
+          captionStyle
           asset {
             url
             metadata {

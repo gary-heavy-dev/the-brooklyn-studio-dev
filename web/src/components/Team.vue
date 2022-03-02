@@ -21,6 +21,8 @@
             :sizes="sizes"
             :x="1042"
             :y="1302"
+            :caption="member.node.image.caption"
+            :captionStyle="member.node.image.captionStyle"
           />
           <h3
             v-if="member.node.name"
@@ -106,6 +108,8 @@ export default {
           current
         }
         image {
+          caption
+          captionStyle
           asset {
             url
           }

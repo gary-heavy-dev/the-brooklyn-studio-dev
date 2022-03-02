@@ -74,6 +74,8 @@ query Post ($id: ID!) {
     _rawExcerpt
     _rawBody
     mainImage {
+      caption
+      captionStyle
       asset {
         _id
         url

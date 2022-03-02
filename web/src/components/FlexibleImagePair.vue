@@ -8,6 +8,8 @@
         :x="733"
         :y="992"
         :sizes="sizesLarge"
+        :caption="content.imageLarge.caption"
+        :captionStyle="content.imageLarge.captionStyle"
         @click.native="openLightbox"
       />
     </div>
@@ -20,6 +22,8 @@
         :x="733"
         :y="992"
         :sizes="sizesSmall"
+        :caption="content.imageSmall.caption"
+        :captionStyle="content.imageSmall.captionStyle"
         @click.native="openLightbox"
       />
     </div>

@@ -24,6 +24,8 @@
           :sizes="sizes"
           :x="388"
           :y="486"
+          :caption="content.image.caption"
+          :captionStyle="content.image.captionStyle"
         />
       </div>
       <div class="team-member__copy mw-readable">

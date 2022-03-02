@@ -78,3 +78,13 @@
     }
   }
 }
+
+.swiper-slide {
+
+  .image-caption {
+
+    @include desktop-down {
+      @include visually-hidden;
+    }
+  }
+}

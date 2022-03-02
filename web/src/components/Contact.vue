@@ -32,6 +32,8 @@
             :sizes="sizes"
             :x="content.secondaryImage.asset.metadata.dimensions.width"
             :y="content.secondaryImage.asset.metadata.dimensions.height"
+            :caption="content.secondaryImage.caption"
+            :captionStyle="content.secondaryImage.captionStyle"
           />
         </div>
       </div>

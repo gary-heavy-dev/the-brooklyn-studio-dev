@@ -30,6 +30,8 @@
               :x="683"
               :y="529"
               :sizes="sizesSecondary"
+              :caption="content.introImageSecondary.caption"
+              :captionStyle="content.introImageSecondary.captionStyle"
             />
           </div>
         </div>
@@ -49,6 +51,8 @@
             :minX="minX"
             :x="content.introImagePrimary.asset.metadata.dimensions.width"
             :y="content.introImagePrimary.asset.metadata.dimensions.height"
+            :caption="content.introImagePrimary.caption"
+            :captionStyle="content.introImagePrimary.captionStyle"
           />
         </div>
       </div>
@@ -77,6 +81,8 @@
               :x="683"
               :y="529"
               :sizes="sizesSecondary"
+              :caption="content.introImageSecondary.caption"
+              :captionStyle="content.introImageSecondary.captionStyle"
             />
           </div>
         </div>

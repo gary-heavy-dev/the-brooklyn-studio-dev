@@ -19,6 +19,8 @@
               :sizes="sizes"
               :x="390"
               :y="496"
+              :caption="link.image.caption"
+              :captionStyle="link.image.captionStyle"
             />
           </swiper-slide>
         </swiper>
@@ -61,11 +63,9 @@
             :x="608"
             :y="810"
             :sizes="sizes"
+            :caption="content.image.caption"
+            :captionStyle="content.image.captionStyle"
           />
-          <div
-            v-if="content.image.caption !== ''"
-            :class="['image-caption xsmall', { 'color--white': !content.image.captionStyle}]"
-          >{{ content.image.caption }}</div>
         </div>
         <div
           class="link-gallery__gallery-image layered-image-gallery__image image-wrapper"
@@ -80,6 +80,8 @@
             :x="608"
             :y="810"
             :sizes="sizes"
+            :caption="link.image.caption"
+            :captionStyle="link.image.captionStyle"
           />
           <BaseImage
             v-else
@@ -88,6 +90,8 @@
             :x="608"
             :y="810"
             :sizes="sizes"
+            :caption="link.link.heroImage.caption"
+            :captionStyle="link.image.captionStyle"
           />
           <div
             v-if="link.image.caption !== ''"
@@ -177,6 +181,10 @@ export default {
   background-color: var(--color--gray-light);
   position: relative;
 
+  .image-caption {
+    padding: 25px;
+  }
+
   &__copy {
     grid-column: span 6;
     position: relative;
@@ -205,13 +213,6 @@ export default {
       grid-column: 8/13;
       margin-right: calc(var(--grid-margin) * -1);
       padding-bottom: 164%;
-    }
-
-    .image-caption {
-      position: absolute;
-      padding: 25px;
-      bottom: 0;
-      left: 0;
     }
   }
 

@@ -18,6 +18,8 @@ export default {
     title
     hero {
       image {
+        caption
+        captionStyle
         alt
         asset {
           url
@@ -30,6 +32,8 @@ export default {
     }
     secondaryImage {
       alt
+      caption
+      captionStyle
       asset {
         url
         metadata {

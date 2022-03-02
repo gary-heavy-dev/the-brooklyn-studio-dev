@@ -172,6 +172,8 @@ export default {
       current
     }
     heroImage {
+      caption
+      captionStyle
       asset {
         url
         metadata {
@@ -182,6 +184,8 @@ export default {
     }
     projectReferences {
       altThumbnail {
+        caption
+        captionStyle
         asset {
           url
           metadata {
@@ -196,6 +200,8 @@ export default {
           current
         }
         image {
+          caption
+          captionStyle
           asset {
             url
             metadata {
@@ -215,6 +221,8 @@ export default {
         current
       }
       image {
+        caption
+        captionStyle
         asset {
           url
           metadata {
@@ -240,6 +248,8 @@ export default {
       current
     }
     heroImage {
+      caption
+      captionStyle
       asset {
         url
         metadata {
@@ -250,6 +260,8 @@ export default {
     }
     projectReferences {
       altThumbnail {
+        caption
+        captionStyle
         asset {
           url
           metadata {
@@ -264,6 +276,8 @@ export default {
           current
         }
         image {
+          caption
+          captionStyle
           asset {
             url
             metadata {
@@ -280,6 +294,8 @@ export default {
         current
       }
       image {
+        caption
+        captionStyle
         asset {
           url
           metadata {
@@ -296,6 +312,8 @@ export default {
       current
     }
     heroImage {
+      caption
+      captionStyle
       asset {
         url
         metadata {
@@ -306,6 +324,8 @@ export default {
     }
     projectReferences {
       altThumbnail {
+        caption
+        captionStyle
         asset {
           url
           metadata {
@@ -320,6 +340,8 @@ export default {
           current
         }
         image {
+          caption
+          captionStyle
           asset {
             url
             metadata {
@@ -336,6 +358,8 @@ export default {
         current
       }
       image {
+        caption
+        captionStyle
         asset {
           url
           metadata {

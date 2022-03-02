@@ -72,6 +72,8 @@ query Post ($id: ID, $prevId: ID, $nextId: ID) {
       lineTwo
     }
     image {
+      caption
+      captionStyle
       asset {
         id
         url
@@ -86,6 +88,8 @@ query Post ($id: ID, $prevId: ID, $nextId: ID) {
       ... on SanityFlexibleImage {
         _type
         image {
+          caption
+          captionStyle
           asset {
             id
             url
@@ -105,6 +109,8 @@ query Post ($id: ID, $prevId: ID, $nextId: ID) {
       ... on SanityFlexibleImagePair {
         _type
         imageLarge {
+          caption
+          captionStyle
           asset {
             id
             url
@@ -119,6 +125,8 @@ query Post ($id: ID, $prevId: ID, $nextId: ID) {
           caption
         }
         imageSmall {
+          caption
+          captionStyle
           asset {
             id
             url
@@ -136,6 +144,8 @@ query Post ($id: ID, $prevId: ID, $nextId: ID) {
         _type
         text
         image {
+          caption
+          captionStyle
           asset {
             id
             url
@@ -169,6 +179,10 @@ query Post ($id: ID, $prevId: ID, $nextId: ID) {
       text
     }
     detailsGallery {
+      caption
+      captionStyle
+      caption
+      captionStyle
       asset {
         url
         metadata {

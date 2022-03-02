@@ -13,6 +13,8 @@
             :sizes="sizesLeft"
             :x="content.leftImage.asset.metadata.dimensions.width"
             :y="content.leftImage.asset.metadata.dimensions.height"
+            :caption="content.leftImage.caption"
+            :captionStyle="content.leftImage.captionStyle"
           />
         </div>
       </div>
@@ -43,6 +45,8 @@
             :sizes="sizesLeft"
             :x="content.rightImage.asset.metadata.dimensions.width"
             :y="content.rightImage.asset.metadata.dimensions.height"
+            :caption="content.rightImage.caption"
+            :captionStyle="content.rightImage.captionStyle"
           />
         </div>
       </div>
