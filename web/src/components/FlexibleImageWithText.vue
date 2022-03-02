@@ -4,7 +4,10 @@
       <div class="mw-readable">{{ content.text }}</div>
     </div>
     <div class="pb-60 mobile-only"></div>
-    <div class="flexible-image-with-text__image image-wrapper">
+    <div
+      class="flexible-image-with-text__image image-wrapper"
+      v-view="$iAmRevealed"
+    >
       <BaseImage
         v-if="content.image"
         :src="content.image"

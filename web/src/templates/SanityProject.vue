@@ -29,7 +29,6 @@ export default {
   watch: {
     $route (to, from) {
       this.forceRerender
-      console.log('forced!', this.heroKey)
     }
   }
 }

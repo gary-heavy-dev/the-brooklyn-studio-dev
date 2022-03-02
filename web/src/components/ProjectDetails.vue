@@ -33,6 +33,7 @@
           <swiper
             class="project-details__gallery"
             :options="swiperOption"
+            v-view="$iAmRevealed"
           >
             <swiper-slide
               v-for="(image, index) in content.detailsGallery"

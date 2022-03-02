@@ -51,7 +51,10 @@
           </div>
         </div>
       </div>
-      <div class="link-gallery__gallery layered-image-gallery desktop-only">
+      <div
+        v-view="$iAmRevealed"
+        class="link-gallery__gallery layered-image-gallery desktop-only"
+      >
         <div
           class="link-gallery__gallery-image layered-image-gallery__image image-wrapper"
           v-if="content.image"

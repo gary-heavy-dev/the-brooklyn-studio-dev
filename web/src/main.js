@@ -48,6 +48,16 @@ export default function(Vue, { router, head, isClient }) {
   // Inject global g-image srcset builder
   Vue.prototype.$gImageMap = gImageMap
 
+  // Inject general reveal util
+  Vue.prototype.$iAmRevealed = function() {
+    // console.log(this.percent)
+    this.element.classList.add('have-u-seen-me')
+
+    if (this.percent >= 0.2) {
+      this.element.classList.add('seent-it')
+    }
+  }
+
   // Add vue-check-view
   Vue.use(checkView)
 

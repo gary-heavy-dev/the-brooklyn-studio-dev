@@ -10,6 +10,7 @@
         :sizes="sizesLarge"
         :caption="content.imageLarge.caption"
         :captionStyle="content.imageLarge.captionStyle"
+        v-view="$iAmRevealed"
         @click.native="openLightbox"
       />
     </div>
@@ -24,6 +25,7 @@
         :sizes="sizesSmall"
         :caption="content.imageSmall.caption"
         :captionStyle="content.imageSmall.captionStyle"
+        v-view="$iAmRevealed"
         @click.native="openLightbox"
       />
     </div>

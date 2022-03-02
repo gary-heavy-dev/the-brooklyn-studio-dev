@@ -5,7 +5,10 @@
   >
     <div class="cta-complex__inner container grid grid--12-desktop">
       <div class="cta-complex__left-column">
-        <div class="image-wrapper">
+        <div
+          class="image-wrapper"
+          v-view="$iAmRevealed"
+        >
           <BaseImage
             :lazy="true"
             v-if="content.leftImage"
@@ -37,7 +40,10 @@
             class="upper button"
           >{{ link.linkText }}</g-link>
         </div>
-        <div class="image-wrapper">
+        <div
+          class="image-wrapper"
+          v-view="$iAmRevealed"
+        >
           <BaseImage
             :lazy="true"
             v-if="content.rightImage"

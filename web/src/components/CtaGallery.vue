@@ -9,6 +9,7 @@
           <swiper
             class="cta-gallery__gallery"
             :options="swiperOption"
+            v-view="$iAmRevealed"
           >
             <swiper-slide
               v-for="(image, index) in content.gallery"

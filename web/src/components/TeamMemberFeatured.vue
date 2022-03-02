@@ -29,6 +29,7 @@
         :y="375"
         :caption="featuredMember.image.caption"
         :captionStyle="featuredMember.image.captionStyle"
+        v-view="$iAmRevealed"
       />
     </div>
   </section>

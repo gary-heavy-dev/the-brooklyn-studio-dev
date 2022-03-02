@@ -28,7 +28,10 @@
         </div>
       </div>
       <div class="grid-spacer col-span--1"></div>
-      <div :class="'image-wrapper flex ai-c col-span--' + content.imageWidth + ' p-' + content.paddingSize">
+      <div
+        :class="'image-wrapper flex ai-c col-span--' + content.imageWidth + ' p-' + content.paddingSize"
+        v-view="$iAmRevealed"
+      >
         <BaseImage
           v-if="content.image"
           :src="content.image"

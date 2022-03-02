@@ -5,5 +5,14 @@
 
 .lazyloaded {
 	opacity: 1;
-	transition: opacity 700ms;
+	transition: opacity 750ms;
+}
+
+.have-u-seen-me {
+  opacity: 0;
+  transition: opacity 750ms linear;
+
+  &.seent-it {
+    opacity: 1;
+  }
 }

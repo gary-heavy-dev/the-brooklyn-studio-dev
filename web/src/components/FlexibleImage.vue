@@ -1,6 +1,9 @@
 <template>
   <div :class="'flexible-image w-100 mb-100 grid grid--12-desktop flexible-image--' + content.imageLocation">
-    <div class="flexible-image__inner image-wrapper">
+    <div
+      class="flexible-image__inner image-wrapper"
+      v-view="$iAmRevealed"
+    >
       <BaseImage
         v-if="content.image"
         :src="content.image"

@@ -45,7 +45,10 @@
           </div>
         </div>
       </div>
-      <div class="scrolling-gallery__gallery layered-image-gallery mb-100 desktop-only">
+      <div
+        v-view="$iAmRevealed"
+        class="scrolling-gallery__gallery layered-image-gallery mb-100 desktop-only"
+      >
         <div
           class="scrolling-gallery__gallery-image layered-image-gallery__image image-wrapper show-me"
           v-if="content.image"
