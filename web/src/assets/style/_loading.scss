@@ -8,15 +8,24 @@
 	transition: opacity 750ms;
 }
 
-.have-u-seen-me {
+// .have-u-seen-me {
+//   opacity: 0;
+//   transition: opacity 750ms linear;
+
+//   &.pre-seent {
+//     opacity: 1;
+//   }
+
+//   &.seent-it {
+//     opacity: 1;
+//   }
+// }
+
+.view-out--below {
   opacity: 0;
+}
+
+.view-in,
+.view-out--below {
   transition: opacity 750ms linear;
-
-  &.pre-seent {
-    opacity: 1;
-  }
-
-  &.seent-it {
-    opacity: 1;
-  }
 }
