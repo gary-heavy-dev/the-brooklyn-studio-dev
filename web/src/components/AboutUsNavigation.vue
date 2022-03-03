@@ -9,18 +9,22 @@
       :class="['about-us-nav__inner headroom flex ai-c jc-c xsmall color--gray-tertiary background--white w-100', {'headroom--stacked': scrolled}]"
       v-on="{ handleScroll }"
       :offset="60"
-      :duration="1000"
+      :duration="currentDuration"
       bezier-easing-value=".5,0,.35,1"
     >
       <a
+        :data-index="0"
         href="#approach"
         class="scrollactive-item"
+        @mouseover="setDuration"
       >Approach</a>
       <a
         v-for="(item, index) in content"
         :key="index"
+        :data-index="index + 1"
         :href="'#' + $toKebabCase(item.navTitle)"
         class="scrollactive-item"
+        @mouseover="setDuration"
       >{{ item.navTitle }}</a>
     </scrollactive>
   </nav>
@@ -35,10 +39,29 @@ export default {
     return {
       limitPosition: 0,
       scrolled: false,
-      lastPosition: 0
+      scrolling: false,
+      timer: null,
+      lastPosition: 0,
+      currentIndex: 0,
+      nextIndex: 0,
+      currentDuration: 1500
     };
   },
   methods: {
+    setDuration(e) {
+      console.log("hovered", this.scrolling, this.currentDuration)
+      if (this.scrolling === false) {
+        this.nextIndex = e.target.dataset.index
+        const diff = Math.abs(this.currentIndex - this.nextIndex)
+        if (diff > 1) {
+          this.currentDuration = 1000 + 500 * Math.abs(this.currentIndex - this.nextIndex)
+        } else {
+          this.currentDuration = 1500
+        }
+        // console.log('next index:', this.nextIndex)
+        // console.log("currentduration:", this.currentDuration)
+      }
+    },
     handleScroll() {
       // https://codepen.io/kode88/pen/XRpXej
       if (this.lastPosition < window.scrollY && this.limitPosition < window.scrollY) {
@@ -52,13 +75,48 @@ export default {
       }
       
       this.lastPosition = window.scrollY;
-      // this.scrolled = window.scrollY > 250;
-    }
+
+      if(this.timer !== null) {
+        clearTimeout(this.timer);        
+        console.log('scrolling', this.scrolling, 'duration', this.currentDuration)
+        this.scrolling = true
+      }
+      this.timer = setTimeout(function() {
+        console.log('stopped', this.scrolling, 'duration', this.currentDuration)
+        this.scrolling = false
+      }, 50);
+
+      // Adjust scrollactive duration
+      const self = this
+      const links = document.getElementsByClassName('scrollactive-item')
+      Array.prototype.forEach.call(links, function(link) {
+        if (link.classList.contains('is-active')) {
+          self.currentIndex = link.dataset.index
+          // console.log('current index', self.currentIndex)
+        }
+      })
+    },
   },
   created() {
     if (typeof window !== 'undefined') {
       window.addEventListener("scroll", this.handleScroll)
-    }
+
+      // var timer = null
+      // const self = this
+      // const adjustTimer = function() {
+      //   if(timer !== null) {
+      //     clearTimeout(timer);        
+      //     console.log('scrolling?', self.scrolling, 'duration', self.currentDuration)
+      //     self.scrolling = true
+      //   }
+      //   timer = setTimeout(function() {
+      //     self.scrolling = false
+      //     console.log('scrolling?', self.scrolling, 'duration', self.currentDuration)
+      //   }, 50);
+      // }
+
+      // window.addEventListener('scroll', adjustTimer);
+     }
   },
   destroyed() {
     if (typeof window !== 'undefined') {
