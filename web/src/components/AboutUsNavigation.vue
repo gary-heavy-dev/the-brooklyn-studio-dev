@@ -13,7 +13,7 @@
       bezier-easing-value=".5,0,.35,1"
     >
       <a
-        :data-index="0"
+        :data-index="1"
         href="#approach"
         class="scrollactive-item"
         @mouseover="setDuration"
@@ -63,6 +63,8 @@ export default {
       }
     },
     handleScroll() {
+      const self = this
+
       // https://codepen.io/kode88/pen/XRpXej
       if (this.lastPosition < window.scrollY && this.limitPosition < window.scrollY) {
         this.scrolled = false
@@ -82,12 +84,11 @@ export default {
         this.scrolling = true
       }
       this.timer = setTimeout(function() {
-        console.log('stopped', this.scrolling, 'duration', this.currentDuration)
-        this.scrolling = false
+        console.log('stopped', self.scrolling, 'duration', self.currentDuration)
+        self.scrolling = false
       }, 50);
 
       // Adjust scrollactive duration
-      const self = this
       const links = document.getElementsByClassName('scrollactive-item')
       Array.prototype.forEach.call(links, function(link) {
         if (link.classList.contains('is-active')) {
