@@ -22,7 +22,10 @@
       </div>
       <div class="intro-image intro-image--small flex fd-c desktop-only">
         <div class="grid grid--6-desktop container--left">
-          <div class="image-wrapper col-span--5 p-100">
+          <div
+            :class="['image-wrapper col-span--5 p-100', {'pre-seent': layout!== 'secondary'}]"
+            v-view="$iAmRevealed"
+          >
             <BaseImage
               :lazy="true"
               v-if="content.introImageSecondary"
@@ -129,7 +132,7 @@ export default {
   props: {
     content: Object,
     layout: String
-  }
+  },
 }
 </script>
 

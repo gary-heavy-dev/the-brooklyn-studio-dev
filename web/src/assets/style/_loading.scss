@@ -12,6 +12,10 @@
   opacity: 0;
   transition: opacity 750ms linear;
 
+  &.pre-seent {
+    opacity: 1;
+  }
+
   &.seent-it {
     opacity: 1;
   }

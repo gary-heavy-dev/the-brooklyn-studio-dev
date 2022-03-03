@@ -10,6 +10,7 @@
             class="cta-gallery__gallery"
             :options="swiperOption"
             v-view="$iAmRevealed"
+            ref="ctaGallerySwiper"
           >
             <swiper-slide
               v-for="(image, index) in content.gallery"
@@ -31,7 +32,10 @@
         </div>
       </div>
       <div class="cta-gallery__copy p-mobile-copy-block flex ai-c">
-        <div class="cta-gallery__copy-inner">
+        <div
+          class="cta-gallery__copy-inner"
+          v-view="startSwiper"
+        >
           <h2
             class="h2 upper"
             v-if="content.heading"
@@ -63,6 +67,11 @@ export default {
   props: {
     content: Object
   },
+  computed: {
+    swiper() {
+      return this.$refs.ctaGallerySwiper.$swiper
+    }
+  },
   data() {
     return {
       swiperOption: {
@@ -73,9 +82,6 @@ export default {
         pagination: {
           el: '.cta-gallery__swiper-pagination',
           clickable: true
-        },
-        autoplay: {
-          delay: 6000
         }
       },
       sizes: {
@@ -85,6 +91,13 @@ export default {
         desktop: 591,
         hd: 792,
         fourK: 1584
+      }
+    }
+  },
+  methods: {
+    startSwiper(e) {
+      if (e.percentInView > 0) {
+        this.swiper.autoplay.start()
       }
     }
   }
