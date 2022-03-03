@@ -12,7 +12,8 @@
   opacity: 0;
   transition: opacity 750ms linear;
 
-  &.pre-seent {
+  &.pre-seent,
+  &.view-in {
     opacity: 1;
   }
 
