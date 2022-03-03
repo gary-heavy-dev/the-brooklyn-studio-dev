@@ -21,7 +21,7 @@
       <a
         v-for="(item, index) in content"
         :key="index"
-        :data-index="index + 1"
+        :data-index="index + 2"
         :href="'#' + $toKebabCase(item.navTitle)"
         class="scrollactive-item"
         @mouseover="setDuration"
@@ -49,18 +49,18 @@ export default {
   },
   methods: {
     setDuration(e) {
-      console.log("hovered", this.scrolling, this.currentDuration)
       if (this.scrolling === false) {
         this.nextIndex = e.target.dataset.index
         const diff = Math.abs(this.currentIndex - this.nextIndex)
-        if (diff > 1) {
-          this.currentDuration = 1000 + 500 * Math.abs(this.currentIndex - this.nextIndex)
-        } else {
+        if (diff <= 1) {
           this.currentDuration = 1500
+        } else {
+          this.currentDuration = 1000 + 500 * Math.abs(this.currentIndex - this.nextIndex)
         }
         // console.log('next index:', this.nextIndex)
         // console.log("currentduration:", this.currentDuration)
       }
+      // console.log("hovered", this.scrolling, this.currentDuration)
     },
     handleScroll() {
       const self = this
@@ -80,11 +80,11 @@ export default {
 
       if(this.timer !== null) {
         clearTimeout(this.timer);        
-        console.log('scrolling', this.scrolling, 'duration', this.currentDuration)
+        // console.log('scrolling', this.scrolling, 'duration', this.currentDuration)
         this.scrolling = true
       }
       this.timer = setTimeout(function() {
-        console.log('stopped', self.scrolling, 'duration', self.currentDuration)
+        // console.log('stopped', self.scrolling, 'duration', self.currentDuration)
         self.scrolling = false
       }, 50);
 
@@ -101,23 +101,13 @@ export default {
   created() {
     if (typeof window !== 'undefined') {
       window.addEventListener("scroll", this.handleScroll)
-
-      // var timer = null
-      // const self = this
-      // const adjustTimer = function() {
-      //   if(timer !== null) {
-      //     clearTimeout(timer);        
-      //     console.log('scrolling?', self.scrolling, 'duration', self.currentDuration)
-      //     self.scrolling = true
-      //   }
-      //   timer = setTimeout(function() {
-      //     self.scrolling = false
-      //     console.log('scrolling?', self.scrolling, 'duration', self.currentDuration)
-      //   }, 50);
-      // }
-
-      // window.addEventListener('scroll', adjustTimer);
      }
+  },
+  mounted() {
+    setTimeout(() => {
+      this.currentIndex = 1
+      // console.log(this.currentIndex)
+    }, 500);
   },
   destroyed() {
     if (typeof window !== 'undefined') {
