@@ -12,11 +12,18 @@
       :duration="1000"
       bezier-easing-value=".5,0,.35,1"
     >
+    <!-- <scrollactive
+      id="aboutUsNavInner"
+      :class="['about-us-nav__inner headroom flex ai-c jc-c xsmall color--gray-tertiary background--white w-100', {'headroom--stacked': scrolled}]"
+      v-on="{ handleScroll }"
+      :offset="60"
+      :duration="currentDuration"
+      bezier-easing-value=".5,0,.35,1"
+    > -->
       <a
         :data-index="1"
         href="#approach"
         class="scrollactive-item"
-        @mouseover="setDuration"
       >Approach</a>
       <a
         v-for="(item, index) in content"
@@ -24,8 +31,21 @@
         :data-index="index + 2"
         :href="'#' + $toKebabCase(item.navTitle)"
         class="scrollactive-item"
-        @mouseover="setDuration"
       >{{ item.navTitle }}</a>
+      <!-- <a
+        :data-index="1"
+        href="#approach"
+        class="scrollactive-item"
+        @mouseover="setDuration"
+      >Approach</a> -->
+      <!-- <a
+        v-for="(item, index) in content"
+        :key="index"
+        :data-index="index + 2"
+        :href="'#' + $toKebabCase(item.navTitle)"
+        class="scrollactive-item"
+        @mouseover="setDuration"
+      >{{ item.navTitle }}</a> -->
     </scrollactive>
   </nav>
 </template>
@@ -39,32 +59,27 @@ export default {
     return {
       limitPosition: 0,
       scrolled: false,
-      scrolling: false,
+      // scrolling: false,
       timer: null,
       lastPosition: 0,
       currentIndex: 0,
       nextIndex: 0,
-      currentDuration: 1500
+      // currentDuration: 1500
     };
   },
   methods: {
-    setDuration(e) {
-      if (this.scrolling === false) {
-        this.nextIndex = e.target.dataset.index
-        const diff = Math.abs(this.currentIndex - this.nextIndex)
-        if (diff <= 1) {
-          this.currentDuration = 1500
-        } else {
-          this.currentDuration = 1000 + 500 * Math.abs(this.currentIndex - this.nextIndex)
-        }
-        // console.log('next index:', this.nextIndex)
-        // console.log("currentduration:", this.currentDuration)
-      }
-      // console.log("hovered", this.scrolling, this.currentDuration)
-    },
+    // setDuration(e) {
+    //   if (this.scrolling === false) {
+    //     this.nextIndex = e.target.dataset.index
+    //     const diff = Math.abs(this.currentIndex - this.nextIndex)
+    //     if (diff <= 1) {
+    //       this.currentDuration = 1500
+    //     } else {
+    //       this.currentDuration = 1000 + 500 * Math.abs(this.currentIndex - this.nextIndex)
+    //     }
+    //   }
+    // },
     handleScroll() {
-      const self = this
-
       // https://codepen.io/kode88/pen/XRpXej
       if (this.lastPosition < window.scrollY && this.limitPosition < window.scrollY) {
         this.scrolled = false
@@ -78,24 +93,23 @@ export default {
       
       this.lastPosition = window.scrollY;
 
-      if(this.timer !== null) {
-        clearTimeout(this.timer);        
-        // console.log('scrolling', this.scrolling, 'duration', this.currentDuration)
-        this.scrolling = true
-      }
-      this.timer = setTimeout(function() {
-        // console.log('stopped', self.scrolling, 'duration', self.currentDuration)
-        self.scrolling = false
-      }, 50);
+      // const self = this
 
-      // Adjust scrollactive duration
-      const links = document.getElementsByClassName('scrollactive-item')
-      Array.prototype.forEach.call(links, function(link) {
-        if (link.classList.contains('is-active')) {
-          self.currentIndex = link.dataset.index
-          // console.log('current index', self.currentIndex)
-        }
-      })
+      // if(this.timer !== null) {
+      //   clearTimeout(this.timer);        
+      //   this.scrolling = true
+      // }
+      // this.timer = setTimeout(function() {
+      //   self.scrolling = false
+      // }, 50);
+
+      // // Adjust scrollactive duration
+      // const links = document.getElementsByClassName('scrollactive-item')
+      // Array.prototype.forEach.call(links, function(link) {
+      //   if (link.classList.contains('is-active')) {
+      //     self.currentIndex = link.dataset.index
+      //   }
+      // })
     },
   },
   created() {
