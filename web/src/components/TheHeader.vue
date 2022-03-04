@@ -73,10 +73,6 @@ export default {
       this.lastPosition = window.scrollY;
       // this.scrolled = window.scrollY > 250;
     },
-    forceRerender() {
-      const theHeader = document.getElementById('theHeader')
-      theHeader.dblclick()
-    }
   },
   created() {
     if (typeof window !== 'undefined') {
@@ -89,11 +85,6 @@ export default {
   destroyed() {
     if (typeof window !== 'undefined') {
       window.removeEventListener("scroll", this.handleScroll);
-    }
-  },
-  watch: {
-    $route (to, from) {
-      this.forceRerender
     }
   }
 }
