@@ -10,12 +10,14 @@
           ref="anim"
           :animationData="animationData"
           :autoPlay="false"
+          @complete="amComplete"
         />
       </div>
       <div id="introImageOverlay"></div>
       <img
         v-if="featuredImage"
-        :src="featuredImage.asset.url"
+        :src="srcString"
+        :srcset="srcsetString"
         :alt="featuredImage.alt"
         @load="amLod"
       />
@@ -51,6 +53,12 @@ export default {
       const ims = this.$static.page.heroImages.images.length
       const i = Math.floor(Math.random() * ims)
       return this.$static.page.heroImages.images[i]
+    },
+    srcString() {
+      return String(this.$urlForImage(this.featuredImage, this.$static.metadata.sanityOptions))
+    },
+    srcsetString() {
+      return String(this.$gImageMap(this.featuredImage, this.sizes, this.$static.metadata.sanityOptions))
     }
   },
   methods: {
@@ -62,10 +70,11 @@ export default {
       e.target.classList.add("loaded")
       setTimeout(() => {
         this.$refs.anim.play()
-      }, 500);
-      setTimeout(() => {
         document.getElementById('introAnimation').classList.add('initial-fade')
-      }, 2800);
+      }, 500);
+    },
+    amComplete(e) {
+      console.log('dun!')
     }
   },
 }
@@ -96,8 +105,8 @@ body.close-intro .homepage-hero {
   #introImageOverlay {
     opacity: 0;
     background: rgb(0,0,0);
-    background: linear-gradient(0deg, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.15) 50%, rgba(0,0,0,0.70) 100%);
-    transition: opacity 1600ms ease-in-out;
+    background: linear-gradient(0deg, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.15) 50%, rgba(0,0,0,0.85) 100%);
+    transition: opacity 4000ms linear;
     position: absolute;
     top: 0;
     bottom: 0;
@@ -140,6 +149,12 @@ body.close-intro .homepage-hero {
 
 <static-query>
 {
+  metadata {
+    sanityOptions{
+      projectId
+      dataset
+    }
+  }
   page: sanityHome(id: "542616c1-f362-4f33-b903-4f4add184641") {
     heroImages {
       images {
