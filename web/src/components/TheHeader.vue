@@ -79,9 +79,6 @@ export default {
       window.addEventListener("scroll", this.handleScroll);
     }
   },
-  mounted() {
-    this.forceRerender
-  },
   destroyed() {
     if (typeof window !== 'undefined') {
       window.removeEventListener("scroll", this.handleScroll);
