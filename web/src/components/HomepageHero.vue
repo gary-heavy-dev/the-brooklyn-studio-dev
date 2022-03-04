@@ -105,8 +105,8 @@ body.close-intro .homepage-hero {
   #introImageOverlay {
     opacity: 0;
     background: rgb(0,0,0);
-    background: linear-gradient(0deg, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.15) 50%, rgba(0,0,0,0.85) 100%);
-    transition: opacity 4000ms linear;
+    background: linear-gradient(0deg, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.25) 25%, rgba(0,0,0,0.85) 100%);
+    transition: opacity 2100ms ease-in-out;
     position: absolute;
     top: 0;
     bottom: 0;
