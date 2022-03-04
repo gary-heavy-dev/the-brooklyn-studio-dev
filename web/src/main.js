@@ -16,8 +16,8 @@ import toKebabCase from './utils/toKebabCase'
 // Import Smoothscroll polyfill
 import smoothscroll from 'smoothscroll-polyfill';
 
-// Import Lottie Player
-import LottieVuePlayer from "@lottiefiles/vue-lottie-player"
+// Lottie Player
+import LottieAnimation from 'lottie-web-vue'
 
 if (process.isClient && typeof window !== 'undefined') {
   smoothscroll.polyfill()
@@ -67,8 +67,8 @@ export default function(Vue, { router, head, isClient }) {
   // Initialize VueScrollactive
   Vue.use(VueScrollactive)
 
-  // Initialize Lottie Player
-  Vue.use(LottieVuePlayer)
+  // Lottie
+  Vue.use(LottieAnimation)
 
   // Smooth scroll to top
   Vue.prototype.$scrollToTop = () => window.scrollTo({

@@ -17,12 +17,15 @@
     "gridsome-plugin-base-components": "^0.0.12",
     "gridsome-source-sanity": "^1.1.0",
     "lazysizes": "^5.3.2",
+    "lottie-web-vue": "^1.2.1",
     "sanity-blocks-vue-component": "^0.1.0",
     "sharp": "^0.29.1",
     "smoothscroll-polyfill": "^0.4.4",
     "style-resources-loader": "^1.4.1",
     "swiper": "^5.4.5",
     "vue-awesome-swiper": "^4.1.1",
+    "vue-lottie": "^0.2.1",
+    "vue-lottie-player": "^0.1.9",
     "vue-scrollactive": "^0.9.3"
   },
   "devDependencies": {

@@ -1,24 +1,27 @@
 <template>
     <section
       class="homepage-hero background--navy o-h"
+      id="introAnimation"
       @dblclick="closeIntro"
     >
       <div class="flex ai-c jc-c h-100 w-100 pos-abs z-1">
-        <!-- <dotlottie-player
-          class="w-100 mobile-only"
-          src="https://assets5.lottiefiles.com/dotlotties/dlf10_fzdw966g.lottie"
-          autoplay
-        />
-        <dotlottie-player
-          class="w-100 desktop-only"
-          src="https://assets2.lottiefiles.com/dotlotties/dlf10_vpwmpd5j.lottie"
-          autoplay
-        /> -->
         <!-- https://assets3.lottiefiles.com/packages/lf20_3wz8udr0.json -->
-        <lottie-vue-player :src="`https://assets5.lottiefiles.com/packages/lf20_ey5jrrlx.json`"
-                           :player-size="options.playerSize"
-        >
-        </lottie-vue-player>
+        <!-- https://assets10.lottiefiles.com/packages/lf20_ey5jrrlx.json -->
+        <!-- <vLottiePlayer
+          name="workoutMonkeyAnim"
+          loop
+          :animationData="require('./assets/workout-monkey.json')"
+        /> -->
+        <!-- <v-lottie-player
+          name="scooterAnim"
+          @animControl="play"
+          path="https://assets10.lottiefiles.com/packages/lf20_ey5jrrlx.json"
+        /> -->
+        <lottie-animation
+          ref="anim"
+          :animationData="animationData"
+          :autoPlay="false"
+        />
       </div>
       <img
         v-if="featuredImage"
@@ -26,27 +29,23 @@
         :alt="featuredImage.alt"
         @load="amLod"
       />
-      <!-- <BaseImage
-        id="introImage"
-        class="img-cover"
-        v-if="featuredImage"
-        :lazy="false"
-        :src="featuredImage"
-        :x="1440"
-        :y="1024"
-        :caption="featuredImage.caption"
-        :captionStyle="featuredImage.captionStyle"
-        @load="amLod"
-      /> -->
     </section>
 </template>
 
 <script>
 import Logo from '~/components/Logo'
+import LogoAnimation from '~/components/lottie/desktop-logo-animation.json'
+import LottieAnimation from 'lottie-web-vue'
 
 export default {
   components: {
     Logo,
+    lottieAnimation: LottieAnimation
+  },
+  data() {
+    return {
+      animationData: LogoAnimation
+    }
   },
   computed: {
     featuredImage() {
@@ -55,45 +54,21 @@ export default {
       return this.$static.page.heroImages.images[i]
     }
   },
-  data() {
-    return {
-      options: {
-        minimizable: false,
-        playerSize: "standard",
-        backgroundColor: '#ffffff00',
-        backgroundStyle: 'color',
-        // theme: {
-        //   controlsView: "standard",
-        //   active: "light",
-        //   light: {
-        //     color: '#3D4852',
-        //     backgroundColor: '#fff',
-        //     opacity: '0.7',
-        //   },
-        //   dark: {
-        //     color: '#fff',
-        //     backgroundColor: '#202020',
-        //     opacity: '0.7',
-        //   }
-        // }
-      }
-    }
-  },
   methods: {
     closeIntro() {
       document.body.classList.add('close-intro')
     },
     amLod(e) {
-      // console.log('am lod', e)
+      // console.log('am lod')
       e.target.classList.add("loaded")
+      setTimeout(() => {
+        this.$refs.anim.play()
+      }, 500);
+      setTimeout(() => {
+        document.getElementById('introAnimation').classList.add('initial-fade')
+      }, 2900);
     }
   },
-  // mounted() {
-  //   // Import Dotlottie Player Component
-  //   if (typeof window !== 'undefined') {
-  //     const LottiePlayer = require('@dotlottie/player-component')
-  //   }
-  // }
 }
 </script>
 
@@ -118,6 +93,16 @@ body.close-intro .homepage-hero {
   > div {
     height: 100%;
   }
+
+  &.initial-fade {
+    background-color: black;
+
+    img.loaded {
+      opacity: 0.7;
+      transition-duration: 1.35s;
+    }
+  }
+
 
   img {
     opacity: 0;
