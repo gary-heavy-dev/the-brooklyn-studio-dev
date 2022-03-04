@@ -1,32 +1,9 @@
 <template>
   <section class="link-gallery flex fd-c" :id="content.navTitle ? $toKebabCase(content.navTitle) : ''">
-    <div class="link-gallery__swiper-wrapper mobile-only w-100">
-      <div class="text-center">
-        <swiper
-          :options="swiperOption"
-          ref="linkGallerySwiper"
-          @slideChange="activeSlide"
-        >
-          <swiper-slide
-            v-for="(link, index) in content.links"
-            :key="index"
-            :data-slug="link.link.slug.current"
-          >
-            <BaseImage
-              v-if="link.image"
-              :src="link.image"
-              :lazy="true"
-              :sizes="sizes"
-              :x="390"
-              :y="496"
-              :caption="link.image.caption"
-              :captionStyle="link.image.captionStyle"
-            />
-          </swiper-slide>
-        </swiper>
-        <div class="swiper__pagination link-gallery__swiper-pagination"></div>
-      </div>
-    </div>
+    <LinkGallerySwiper
+      :content="content"
+      v-if="showSwiper"
+    />
     <div class="link-gallery__inner grid grid--12-desktop">
       <div class="link-gallery__copy flex ai-c p-mobile-copy-block">
         <div class="link-gallery__copy-inner">
@@ -108,39 +85,14 @@
 </template>
 
 <script>
-import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
-import 'swiper/css/swiper.css'
+import LinkGallerySwiper from '~/components/LinkGallerySwiper'
 
 export default {
   components: {
-    Swiper,
-    SwiperSlide
-  },
-  computed: {
-    swiper() {
-      return this.$refs.linkGallerySwiper.$swiper
-    }
+    LinkGallerySwiper
   },
   data() {
     return {
-      swiperOption: {
-        effect: 'fade',
-        loop: true,
-        speed: 300,
-        threshold: 10,
-        pagination: {
-          el: '.link-gallery__swiper-pagination',
-          clickable: true
-        },
-        autoplay: {
-          delay: 6000
-        },
-        breakpoints: {
-          1025: {
-            enabled: false
-          }
-        }
-      },
       sizes: {
         mobile: 338,
         tablet: 768,
@@ -148,7 +100,8 @@ export default {
         desktop: 608,
         hd: 815,
         fourK: 1630 // by 2170 tall
-      }
+      },
+      showSwiper: false
     }
   },
   props: {
@@ -163,18 +116,26 @@ export default {
       const currentHide = document.querySelector(`div[data-image="${me}"]`)
       setTimeout(() => { currentHide.classList.remove('show-me') }, 150)
     },
-    activeSlide() {
-      let slideIndex = this.swiper.realIndex + 1
-      let currentData = this.swiper.slides[slideIndex].dataset.slug
-      const links = document.getElementsByClassName('link-gallery__link')
-      Array.prototype.forEach.call(links, function(link) {
-        if (link.dataset.linkSlug == currentData) {
-          link.classList.add('active')
-        } else {
-          link.classList.remove('active')
-        }
-      })
+    toggleSwiper() {
+      if (typeof window !== undefined && window.innerWidth <= 1024) {
+        this.showSwiper = true
+      } else {
+        this.showSwiper = false
+      }
     }
+  },
+  created() {
+    if (typeof window !== 'undefined') {
+      window.addEventListener("resize", this.toggleSwiper);
+    }
+  },
+  destroyed() {
+    if (typeof window !== 'undefined') {
+      window.removeEventListener("resize", this.toggleSwiper);
+    }
+  },
+  mounted() {
+    this.toggleSwiper()
   }
 }
 </script>

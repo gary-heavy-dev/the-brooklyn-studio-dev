@@ -18,7 +18,7 @@
         :style="[minX ? { minHeight: minX + 'px' } : { minHeight: '0px' }]"
       />
       <img
-        v-else-if="ratio"
+        v-else-if="lazy && ratio"
         :data-srcset="srcsetString"
         :alt="src.alt"
         class="lazyload"
