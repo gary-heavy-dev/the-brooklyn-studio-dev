@@ -9,7 +9,7 @@
       :class="['about-us-nav__inner headroom flex ai-c jc-c xsmall color--gray-tertiary background--white w-100', {'headroom--stacked': scrolled}]"
       v-on="{ handleScroll }"
       :offset="60"
-      :duration="currentDuration"
+      :duration="1000"
       bezier-easing-value=".5,0,.35,1"
     >
       <a

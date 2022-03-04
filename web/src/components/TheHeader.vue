@@ -2,7 +2,7 @@
   <header
     :class="['the-header background--white flex ai-c jc-c headroom', {'headroom--unpinned': scrolled}]"
     v-on="{ handleScroll }"
-    id="welcome"
+    id="theHeader"
   >
     <div class="container w-100 flex jc-sb">
       <g-link to="/" class="flex ai-c" aria-label="Link to Homepage">
@@ -74,13 +74,17 @@ export default {
       // this.scrolled = window.scrollY > 250;
     },
     forceRerender() {
-      this.headerKey += 1
+      const theHeader = document.getElementById('theHeader')
+      theHeader.dblclick()
     }
   },
   created() {
     if (typeof window !== 'undefined') {
       window.addEventListener("scroll", this.handleScroll);
     }
+  },
+  mounted() {
+    this.forceRerender
   },
   destroyed() {
     if (typeof window !== 'undefined') {
