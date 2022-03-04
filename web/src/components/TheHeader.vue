@@ -53,7 +53,8 @@ export default {
     return {
       limitPosition: 78,
       scrolled: false,
-      lastPosition: 0
+      lastPosition: 0,
+      headerKey: 0
     };
   },
   methods: {
@@ -72,6 +73,9 @@ export default {
       this.lastPosition = window.scrollY;
       // this.scrolled = window.scrollY > 250;
     },
+    forceRerender() {
+      this.headerKey += 1
+    }
   },
   created() {
     if (typeof window !== 'undefined') {
@@ -81,6 +85,11 @@ export default {
   destroyed() {
     if (typeof window !== 'undefined') {
       window.removeEventListener("scroll", this.handleScroll);
+    }
+  },
+  watch: {
+    $route (to, from) {
+      this.forceRerender
     }
   }
 }
@@ -255,11 +264,8 @@ export default {
     transform: translateY(0%);
   }
 
-  body:not(.home-hero-in-view) {
-
-    .headroom--unpinned {
-      transform: translateY(-100%);
-    }
+  .headroom--unpinned {
+    transform: translateY(-100%);
   }
 }
 </style>

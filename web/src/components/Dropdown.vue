@@ -93,8 +93,7 @@ export default {
   }
 }
 
-.headroom:not(.headroom--unpinned),
-.home-hero-in-view .headroom {
+.headroom:not(.headroom--unpinned) {
 
   .dropdown {
 

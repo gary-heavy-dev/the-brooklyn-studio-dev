@@ -1,7 +1,7 @@
 <template>
     <section
       class="homepage-hero background--navy o-h"
-      v-view="adjustHeader"
+      @dblclick="closeIntro"
     >
       <div class="flex ai-c jc-c h-100 w-100 pos-abs z-1">
         <dotlottie-player
@@ -43,18 +43,8 @@ export default {
     }
   },
   methods: {
-    adjustHeader(e) {
-      if (this.$route.path == '/') {
-        if (e.percentTop > 0) {
-          document.body.classList.add('home-hero-in-view')
-        } else {
-          document.body.classList.remove('home-hero-in-view')
-          sessionStorage.setItem('intro', true)
-          document.body.classList.add('scroll-locked')
-          this.$emit('passed', true)
-          setTimeout(() => document.body.classList.remove('scroll-locked'), 10)
-        }
-      }
+    closeIntro() {
+      document.body.classList.add('close-intro')
     }
   },
   mounted() {
@@ -67,8 +57,18 @@ export default {
 </script>
 
 <style lang="scss">
+body.close-intro .homepage-hero {
+  display: none;
+}
+
 .homepage-hero {
   height: 100vh;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 99999999999999;
 
   > div {
     height: 100%;
