@@ -41,7 +41,7 @@ export default {
   },
   computed: {
     animationData() {
-      if (window.innerWidth <= 1024) {
+      if (typeof window !== 'undefined' && window.innerWidth <= 1024) {
         return this.mobileAnimation
       } else {
         return this.desktopAnimation
