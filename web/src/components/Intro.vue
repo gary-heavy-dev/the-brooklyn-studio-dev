@@ -157,7 +157,7 @@ export default {
 
       .h3 {
 
-        @media screen and (min-width: 1025px) and (max-width: 1067px) {
+        @media screen and (min-width: 1025px) and (max-width: 1144px) {
           font-size: 31px;
           line-height: 43px;
         }
