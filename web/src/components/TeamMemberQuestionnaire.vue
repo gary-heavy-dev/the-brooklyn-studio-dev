@@ -86,6 +86,13 @@
         <span class="color--gray-tertiary">{{ content.favoriteAuthor }}</span>
       </div>
       <div
+        v-if="content.heroOfFiction"
+        class="mb-40"
+      >
+        <h4 class="color--navy">Who is your hero of fiction?</h4>
+        <span class="color--gray-tertiary">{{ content.heroOfFiction }}</span>
+      </div>
+      <div
         v-if="content.favoriteArtist"
         class="mb-40"
       >
@@ -98,6 +105,13 @@
       >
         <h4 class="color--navy">Which historical figure do you most identify with?</h4>
         <span class="color--gray-tertiary">{{ content.historicalFigure }}</span>
+      </div>
+      <div
+        v-if="content.treasuredPossession"
+        class="mb-40"
+      >
+        <h4 class="color--navy">What is your most treasured possession?</h4>
+        <span class="color--gray-tertiary">{{ content.treasuredPossession }}</span>
       </div>
       <div
         v-if="content.whereToLive"
