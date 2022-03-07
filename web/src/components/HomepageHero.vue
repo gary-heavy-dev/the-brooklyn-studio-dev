@@ -120,7 +120,7 @@ body.close-intro .intro-animation {
   &__gradient {
     opacity: 0;
     background: linear-gradient(0deg, rgba(0,0,0,0.10) 0%, rgba(0,0,0,0.10) 25%, rgba(0,0,0,0.70) 100%);
-    transition: opacity 2100ms ease-in-out;
+    transition: opacity 1000ms ease-in-out;
   }
 
   &.initial-fade {
