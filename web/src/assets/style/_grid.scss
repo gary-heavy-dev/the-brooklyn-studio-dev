@@ -133,7 +133,7 @@
   &:hover {
 
     &::after {
-      width: 50%;
+      width: calc(2 / 3 * 100%);
     }
   }
 }
