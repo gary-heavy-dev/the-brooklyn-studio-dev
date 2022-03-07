@@ -79,6 +79,7 @@
           <div class="image-wrapper mobile-only">
             <BaseImage
               :lazy="true"
+              v-view="$iAmRevealed"
               v-if="content.introImageSecondary"
               :src="content.introImageSecondary"
               :x="683"

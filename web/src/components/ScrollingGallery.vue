@@ -25,6 +25,7 @@
           >
             <BaseImage
               class="img-cover mobile-only"
+              v-view="$iAmRevealed"
               v-if="section.image"
               :src="section.image"
               :lazy="true"

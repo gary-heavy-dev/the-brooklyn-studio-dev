@@ -234,6 +234,7 @@ export default {
             &:hover,
             &.active {
               background-color: var(--color--white);
+              color: var(--color--navy);
             }
           }
         }

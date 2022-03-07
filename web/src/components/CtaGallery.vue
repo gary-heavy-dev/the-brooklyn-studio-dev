@@ -4,7 +4,7 @@
     :id="content.navTitle ? $toKebabCase(content.navTitle) : ''"
   >
     <div class="cta-gallery__inner grid grid--12-desktop">
-      <div class="cta-gallery__gallery-wrapper">
+      <div class="cta-gallery__gallery-wrapper flex fd-c jc-c">
         <div class="cta-gallery__gallery-inner text-center">
           <swiper
             class="cta-gallery__gallery"
