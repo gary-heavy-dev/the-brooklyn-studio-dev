@@ -118,7 +118,7 @@
         class="mb-40"
       >
         <h4 class="color--navy">Stranded on a desert island, you have two books in your possession. What are they?</h4>
-        <span class="color--gray-tertiary">{{ content.twoBooks }}</span>
+        <span class="color--gray-tertiary" v-html="content.twoBooks"></span>
       </div>
     </div>
   </div>

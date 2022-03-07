@@ -1,10 +1,10 @@
 <template>
     <section
-      class="homepage-hero background--navy o-h"
+      class="intro-animation background--navy o-h"
       id="introAnimation"
       @dblclick="closeIntro"
     >
-      <div class="flex ai-c jc-c h-100 w-100 pos-abs z-1">
+      <div class="flex ai-c jc-c h-100 w-100 pos-abs z-2">
         <lottie-animation
           class="w-100"
           ref="anim"
@@ -13,7 +13,7 @@
           @complete="amComplete"
         />
       </div>
-      <div id="introImageOverlay"></div>
+      <div class="intro-animation__gradient"></div>
       <img
         v-if="featuredImage"
         :src="srcString"
@@ -21,6 +21,7 @@
         :alt="featuredImage.alt"
         @load="amLod"
       />
+      <div class="intro-animation__overlay z-1"></div>
     </section>
 </template>
 
@@ -71,7 +72,7 @@ export default {
       setTimeout(() => {
         this.$refs.anim.play()
         document.getElementById('introAnimation').classList.add('initial-fade')
-      }, 500);
+      }, 1000);
     },
     amComplete(e) {
       console.log('dun!')
@@ -81,7 +82,7 @@ export default {
 </script>
 
 <style lang="scss">
-body.close-intro .homepage-hero {
+body.close-intro .intro-animation {
   display: none;
 }
 
@@ -89,7 +90,7 @@ body.close-intro .homepage-hero {
   background: transparent;
 }
 
-.homepage-hero {
+.intro-animation {
   height: 100vh;
   position: fixed;
   top: 0;
@@ -102,11 +103,13 @@ body.close-intro .homepage-hero {
     height: 100%;
   }
 
-  #introImageOverlay {
-    opacity: 0;
-    background: rgb(0,0,0);
-    background: linear-gradient(0deg, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.25) 25%, rgba(0,0,0,0.85) 100%);
-    transition: opacity 2100ms ease-in-out;
+  &__overlay {
+    background-color: rgb(0 0 0 / 15%);
+    opacity: 1;
+  }
+
+  &__overlay,
+  &__gradient {
     position: absolute;
     top: 0;
     bottom: 0;
@@ -114,9 +117,15 @@ body.close-intro .homepage-hero {
     right: 0;
   }
 
+  &__gradient {
+    opacity: 0;
+    background: linear-gradient(0deg, rgba(0,0,0,0.10) 0%, rgba(0,0,0,0.10) 25%, rgba(0,0,0,0.70) 100%);
+    transition: opacity 2100ms ease-in-out;
+  }
+
   &.initial-fade {
 
-    #introImageOverlay {
+    .intro-animation__gradient {
       opacity: 1;
     }
   }
