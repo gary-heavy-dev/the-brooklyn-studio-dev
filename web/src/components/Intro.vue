@@ -152,6 +152,17 @@ export default {
     @include desktop {
       padding: 112px 0;
     }
+
+    .copy__content-inner {
+
+      .h3 {
+
+        @media screen and (min-width: 1025px) and (max-width: 1067px) {
+          font-size: 31px;
+          line-height: 43px;
+        }
+      }
+    }
   }
 
   .intro-image {
