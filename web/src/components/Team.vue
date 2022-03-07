@@ -13,25 +13,27 @@
           class="team-feed__card"
           :to="'/about-us/team/' + member.node.slug.current"
         >
-          <BaseImage
-            v-if="member.node.image"
-            class="mb-30"
-            :src="member.node.image"
-            :lazy="true"
-            :sizes="sizes"
-            :x="1042"
-            :y="1302"
-            :caption="member.node.image.caption"
-            :captionStyle="member.node.image.captionStyle"
-          />
-          <h3
-            v-if="member.node.name"
-            class="color--navy"
-          >{{ member.node.name }}</h3>
-          <span
-            v-if="member.node.title"
-            class="color--gray-tertiary sub upper"
-          >{{ member.node.title }}</span>
+          <div class="grid__card">
+            <BaseImage
+              v-if="member.node.image"
+              class="mb-30"
+              :src="member.node.image"
+              :lazy="true"
+              :sizes="sizes"
+              :x="1042"
+              :y="1302"
+              :caption="member.node.image.caption"
+              :captionStyle="member.node.image.captionStyle"
+            />
+            <h3
+              v-if="member.node.name"
+              class="color--navy"
+            >{{ member.node.name }}</h3>
+            <span
+              v-if="member.node.title"
+              class="color--gray-tertiary sub upper"
+            >{{ member.node.title }}</span>
+          </div>
         </g-link>
       </div>
     </div>

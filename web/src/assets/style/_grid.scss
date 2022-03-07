@@ -114,3 +114,26 @@
     }
   }
 }
+
+.grid__card {
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 1px;
+    bottom: -14px;
+    left: 0;
+    background: currentColor;
+    pointer-events: none;
+    transition: width 575ms ease-in-out;
+  }
+
+  &:hover {
+
+    &::after {
+      width: 50%;
+    }
+  }
+}
