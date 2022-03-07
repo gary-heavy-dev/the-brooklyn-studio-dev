@@ -6,7 +6,7 @@
           <div class="copy__content-inner mw-readable col-span--5">
             <h1
               v-if="content.title"
-              class="h1 mb-60"
+              class="h1 mb-60 "
             >{{ content.title }}</h1>
             <!-- <p
               v-if="content.hero._rawIntro"

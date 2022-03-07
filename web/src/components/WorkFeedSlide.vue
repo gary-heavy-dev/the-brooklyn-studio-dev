@@ -41,7 +41,6 @@ export default {
 </script>
 
 <style lang="scss">
-
 .work-feed-slide__title {
   opacity: 0;
   transform: translateY(10px);

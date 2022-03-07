@@ -45,6 +45,19 @@ export default {
       setTimeout(() => { b.classList.remove('menu--open') }, 400)
       setTimeout(() => { b.classList.remove('menu--closing') }, 700)
     }
+  },
+  created() {
+    if (typeof document !== "undefined") {
+      setTimeout(() => document.body.classList.add('page-loaded'), 300)
+    }
+  },
+  watch: {
+    $route (to, from) {
+      if (typeof document !== "undefined") {
+        document.body.classList.remove('page-loaded')
+        setTimeout(() => document.body.classList.add('page-loaded'), 300)
+      }
+    }
   }
 }
 </script>
@@ -58,6 +71,21 @@ export default {
 .fade-enter,
 .fade-leave-to {
   opacity: 0;
+}
+
+.page-loaded {
+
+  .fade--in-up {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+.fade--in-up {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.5s ease-in-out;
+  transition-delay: 0.2s;
 }
 
 main.main {

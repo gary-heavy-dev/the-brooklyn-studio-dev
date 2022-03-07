@@ -5,7 +5,7 @@
     <div class="project-hero__title mt-hh pos-abs z-1 w-100 flex jc-c">
       <h1
         v-if="displayTitle && displayTitle.displayTitleStatus"
-        class="h1 color--white container"
+        class="h1 color--white container fade--in-up"
       >
         {{ displayTitle.lineOne }}<br>
         {{ displayTitle.lineTwo }}

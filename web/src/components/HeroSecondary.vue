@@ -1,6 +1,6 @@
 <template>
   <div :class="['hero--secondary', 'pos-rel', 'o-h', 'overlay', { 'mb-100': margin}]">
-    <div class="secondary-hero__title pt-80 pos-abs z-1 w-100 flex jc-c">
+    <div class="secondary-hero__title fade--in-up pt-60 pos-abs z-1 w-100 flex jc-c">
       <h1
         v-if="title"
         class="h1 color--white container"
