@@ -8,6 +8,14 @@
 
 @font-face {
   font-family: 'Mallory';
+  src: url('~@/assets/fonts/Mallory-BookItalic.woff2') format('woff2'),
+      url('~@/assets/fonts/Mallory-BookItalic.woff') format('woff');
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Mallory';
   src: url('~@/assets/fonts/Mallory-Medium.woff2') format('woff2'),
       url('~@/assets/fonts/Mallory-Medium.woff') format('woff');
   font-weight: 500;
