@@ -4,13 +4,13 @@
       v-if="prev"
       class="sub upper"
       :to="'/projects/' + prev.slug.current"
-      @click.native="$scrollToTop"
+      @click.native="$jumpToTop"
     >&lt; {{ prev.title }}</g-link>
     <g-link
       v-if="next"
       class="sub upper"
       :to="'/projects/' + next.slug.current"
-      @click.native="$scrollToTop"
+      @click.native="$jumpToTop"
     >{{ next.title }} &gt;</g-link>
   </div>
 </template>

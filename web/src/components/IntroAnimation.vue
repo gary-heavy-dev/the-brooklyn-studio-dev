@@ -73,7 +73,7 @@ export default {
       // e.target.classList.add("loaded")
       setTimeout(() => {
         this.$refs.anim.play()
-      }, 1000);
+      }, 500);
     },
     amComplete(e) {
       console.log('dun!')
@@ -113,7 +113,13 @@ body.close-intro .intro-animation {
   }
 
   &__gradient {
-    background: linear-gradient(0deg, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.25) 25%, rgba(0,0,0,0.85) 100%);
+    background: linear-gradient(
+      to bottom,
+      rgba(black, 0.65),
+      rgba(black, 0.25) 75%,
+      rgba(black, 0.25)
+    );
+    // background: linear-gradient(0deg, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.25) 25%, rgba(0,0,0,0.65) 100%);
   }
 
   &__image-wrapper {

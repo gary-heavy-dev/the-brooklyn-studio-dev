@@ -1,6 +1,6 @@
 <template>
   <Layout>
-    <HomepageHero
+    <IntroAnimation
       v-show="$route.path == '/' && introStatus == null"
       @passed="hideIntro"
     />
@@ -15,13 +15,13 @@
 </template>
 
 <script>
-import HomepageHero from '~/components/HomepageHero'
+import IntroAnimation from '~/components/IntroAnimation'
 import TheHeader from '~/components/TheHeader'
 import TheFooter from '~/components/TheFooter'
 
 export default {
   components: {
-    HomepageHero,
+    IntroAnimation,
     TheHeader,
     TheFooter
   },

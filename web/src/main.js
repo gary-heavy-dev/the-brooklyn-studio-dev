@@ -71,6 +71,12 @@ export default function(Vue, { router, head, isClient }) {
     behavior: 'smooth'
   })
 
+  // Smooth scroll to top
+  Vue.prototype.$jumpToTop = () => window.scrollTo({
+    top: 0,
+    left: 0
+  })
+
   // Inject kebab case conversion utility
   Vue.prototype.$toKebabCase = toKebabCase
 

@@ -48,5 +48,9 @@ export default {
   @include desktop-down {
     margin-bottom: 40px;
   }
+
+  &.overlay {
+    box-shadow: inset 0px 500px 250px rgba(0, 0, 0, 0.5);
+  }
 }
 </style>
