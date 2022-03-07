@@ -6,24 +6,22 @@
     <button
       type="button"
       class="dropdown__title"
+      v-if="primary"
       :aria-expanded="String(expanded)"
       aria-controls="projects-dropdown"
       @click="expanded = !expanded"
     >
-      <g-link to="/projects/#residential-architecture">Projects</g-link>
+      <g-link :to="primary.link">{{ primary.linkText }}</g-link>
     </button>
     <ul
       class="dropdown__menu"
       id="projects-dropdown"
     >
-      <li>
-        <g-link :to="'/projects/#residential-architecture'">Residential Architecture</g-link>
-      </li>
-      <li>
-        <g-link :to="'/projects/#interior-design'">Interior Design</g-link>
-      </li>
-      <li>
-        <g-link :to="'/projects/#adaptive-reuse'">Adaptive Reuse</g-link>
+      <li
+        v-for="(link, index) in secondary"
+        :key="index"
+      >
+        <g-link :to="link.link">{{ link.linkText }}</g-link>
       </li>
     </ul>
   </li>
@@ -31,6 +29,10 @@
 
 <script>
 export default {
+  props: {
+    primary: Object,
+    secondary: Array
+  },
   data() {
     return {
       expanded: false
@@ -84,7 +86,7 @@ export default {
         transition: all 0.2s ease-in-out;
 
         &:hover,
-        &.active {
+        &.active--exact {
           background-color: var(--color--white);
           color: var(--color--navy);
         }

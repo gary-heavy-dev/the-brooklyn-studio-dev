@@ -16,13 +16,20 @@
       >
         <MenuToggle />
         <ul>
-          <li>
+          <li class="mobile-only">
             <g-link to="/about-us">About</g-link>
           </li>
+          <Dropdown
+            :primary="aboutDropdown.primary"
+            :secondary="aboutDropdown.secondary"
+          />
           <li class="mobile-only">
             <g-link to="/projects/#residential-architecture">Projects</g-link>
           </li>
-          <Dropdown />
+          <Dropdown
+            :primary="projectsDropdown.primary"
+            :secondary="projectsDropdown.secondary"
+          />
           <li>
             <g-link to="/news">News</g-link>
           </li>
@@ -54,7 +61,47 @@ export default {
       limitPosition: 78,
       scrolled: false,
       lastPosition: 0,
-      headerKey: 0
+      headerKey: 0,
+      projectsDropdown: {
+        primary: {
+          link: '/projects',
+          linkText: 'Projects'
+        },
+        secondary: [
+          {
+            link: '/projects/#residential-architecture',
+            linkText: 'Residential Architecture'
+          },
+          {
+            link: '/projects/#interior-design',
+            linkText: 'Interior Design'
+          },
+          {
+            link: '/projects/#adaptive-reuse',
+            linkText: 'Adaptive Reuse'
+          },
+        ]
+      },
+      aboutDropdown: {
+        primary: {
+          link: '/about-us',
+          linkText: 'About'
+        },
+        secondary: [
+          {
+            link: '/about-us',
+            linkText: 'About Us'
+          },
+          {
+            link: '/about-us/team',
+            linkText: 'Our Team'
+          },
+          {
+            link: '/careers',
+            linkText: 'Career Opportunities'
+          },
+        ]
+      }
     };
   },
   methods: {
@@ -194,8 +241,8 @@ export default {
     }
   }
 
-  a,
-  button {
+  > a,
+  button a {
     text-decoration: none;
     transition: color 0.2s linear;
 
