@@ -50,7 +50,10 @@ export default {
   }
 
   &.overlay {
-    box-shadow: inset 0px 500px 250px rgba(0, 0, 0, 0.5);
+
+    &::after {
+      box-shadow: inset 0px 500px 250px rgba(0, 0, 0, 0.5);
+    }
   }
 }
 </style>

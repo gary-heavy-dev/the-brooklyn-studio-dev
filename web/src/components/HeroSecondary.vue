@@ -34,10 +34,13 @@ export default {
 <style lang="scss">
 .hero--secondary {
 
-  &.overlay {
-    // box-shadow: inset 0px 500px 250px rgba(0, 0, 0, 0.3);
-    box-shadow: inset 0px 200px 100px rgba(0, 0, 0, 0.2);
-  }
+  // &.overlay {
+
+  //   &::after {
+  //     // box-shadow: inset 0px 200px 100px rgba(0, 0, 0, 0.2);
+  //     box-shadow: inset 0px 500px 250px rgba(0, 0, 0, 0.3);
+  //   }
+  // }
 
   &.mb-100 {
 
