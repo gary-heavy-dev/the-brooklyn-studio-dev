@@ -1,6 +1,6 @@
 <template>
   <div class="work-feed-slide">
-    <div class="work-feed-slide__title pt-60 pos-abs z-1">
+    <div class="work-feed-slide__title pt-80 pos-abs z-1">
       <h1 class="h1 color--white">{{ content.title }}</h1>
     </div>
     <div class="work-feed-slide__hero overlay mb-80 o-h">

@@ -2,7 +2,7 @@
   <div
     class="project-hero overlay pos-rel o-h mb-100"
   >
-    <div class="project-hero__title mt-hh pos-abs z-1 w-100 flex jc-c">
+    <div class="project-hero__title pt-80 pos-abs z-1 w-100 flex jc-c">
       <h1
         v-if="displayTitle && displayTitle.displayTitleStatus"
         class="h1 color--white container fade--in-up"
