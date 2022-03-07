@@ -13,15 +13,16 @@
           @complete="amComplete"
         />
       </div>
-      <div class="intro-animation__gradient"></div>
-      <img
-        v-if="featuredImage"
-        :src="srcString"
-        :srcset="srcsetString"
-        :alt="featuredImage.alt"
-        @load="amLod"
-      />
-      <div class="intro-animation__overlay z-1"></div>
+      <div class="intro-animation__image-wrapper">
+        <div class="intro-animation__gradient"></div>
+        <img
+          v-if="featuredImage"
+          :src="srcString"
+          :srcset="srcsetString"
+          :alt="featuredImage.alt"
+          @load="amLod"
+        />
+      </div>
     </section>
 </template>
 
@@ -68,10 +69,10 @@ export default {
     },
     amLod(e) {
       // console.log('am lod')
-      e.target.classList.add("loaded")
+      document.getElementById('introAnimation').classList.add('initial-fade')
+      // e.target.classList.add("loaded")
       setTimeout(() => {
         this.$refs.anim.play()
-        document.getElementById('introAnimation').classList.add('initial-fade')
       }, 1000);
     },
     amComplete(e) {
@@ -103,12 +104,6 @@ body.close-intro .intro-animation {
     height: 100%;
   }
 
-  &__overlay {
-    background-color: rgb(0 0 0 / 15%);
-    opacity: 1;
-  }
-
-  &__overlay,
   &__gradient {
     position: absolute;
     top: 0;
@@ -118,29 +113,26 @@ body.close-intro .intro-animation {
   }
 
   &__gradient {
+    background: linear-gradient(0deg, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.25) 25%, rgba(0,0,0,0.85) 100%);
+  }
+
+  &__image-wrapper {
     opacity: 0;
-    background: linear-gradient(0deg, rgba(0,0,0,0.10) 0%, rgba(0,0,0,0.10) 25%, rgba(0,0,0,0.70) 100%);
     transition: opacity 1000ms ease-in-out;
   }
 
   &.initial-fade {
 
-    .intro-animation__gradient {
+    .intro-animation__image-wrapper {
       opacity: 1;
     }
   }
 
 
   img {
-    opacity: 0;
-    transition: opacity 750ms linear;
     object-fit: cover;
     width: 100%;
     height: 100%;
-
-    &.loaded {
-      opacity: 1;
-    }
   }
 
   svg {
