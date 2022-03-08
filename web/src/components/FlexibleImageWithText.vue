@@ -1,7 +1,7 @@
 <template>
   <div :class="'flexible-image-with-text container grid grid--12-desktop ai-c mb-100 ' + content.aspectRatio + ' image--mobile-' + content.imageLocation + ' reverse-mobile--' + content.reverseMobile">
     <div class="flexible-image-with-text__text">
-      <div class="mw-readable">{{ content.text }}</div>
+      <div class="mw-readable" v-html="content.text"></div>
     </div>
     <div class="pb-60 mobile-only"></div>
     <div

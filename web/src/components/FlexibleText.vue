@@ -1,6 +1,6 @@
 <template>
   <div class="flexible-text container flex jc-c mb-100">
-    <div class="flexible-text__inner mw-readable--large">{{ content.text }}</div>
+    <div class="flexible-text__inner mw-readable--large" v-html="content.text"></div>
   </div>
 </template>
 
