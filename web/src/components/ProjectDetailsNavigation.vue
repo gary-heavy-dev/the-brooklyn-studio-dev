@@ -5,13 +5,13 @@
       class="sub upper"
       :to="'/projects/' + prev.slug.current"
       @click.native="$jumpToTop"
-    >&lt; {{ prev.title }}</g-link>
+    ><span>&lt; </span><span v-html="prev.title"></span></g-link>
     <g-link
       v-if="next"
-      class="sub upper"
+      class="sub upper next"
       :to="'/projects/' + next.slug.current"
       @click.native="$jumpToTop"
-    >{{ next.title }} &gt;</g-link>
+    ><span v-html="next.title"></span><span> &gt;</span></g-link>
   </div>
 </template>
 
@@ -47,9 +47,23 @@ export default {
 <style lang="scss">
 .project-details__navigation {
   grid-column: span 12;
+  align-items: flex-start;
 
   a {
     text-decoration: none;
+
+    @include desktop-down {
+      width: min-instrinsic;
+      width: min-content;
+      -ms-grid-columns: min-content;
+      display: flex;
+      flex-direction: column;
+
+      &.next {
+        flex-direction: column-reverse;
+        text-align: right;
+      }
+    }
   }
 }
 </style>
