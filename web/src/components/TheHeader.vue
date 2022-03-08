@@ -5,7 +5,12 @@
     id="theHeader"
   >
     <div class="container w-100 flex jc-sb">
-      <g-link to="/" class="flex ai-c" aria-label="Link to Homepage">
+      <g-link
+        to="/"
+        class="flex ai-c"
+        aria-label="Link to Homepage"
+        @click.native="$scrollToTop"
+      >
         <LogoType
           class="the-header__logo"
         />

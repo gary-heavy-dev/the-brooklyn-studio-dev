@@ -1,9 +1,14 @@
 <template>
   <footer class="the-footer p-40 color--gray-tertiary background--gray-light" id="theFooter">
     <div class="grid grid--12-desktop">
-      <div class="footer__logo col-span--2 flex">
+      <g-link
+        to="/"
+        aria-label="Link to Homepage"
+        class="footer__logo col-span--2 flex"
+        @click.native="$scrollToTop"
+      >
         <Logo />
-      </div>
+      </g-link>
       <nav
         class="the-footer__links xsmall"
         aria-label="Secondary Footer Navigation"
