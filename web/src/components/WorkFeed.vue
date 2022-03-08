@@ -82,13 +82,6 @@ export default {
     grids() {
       const grids = document.getElementsByClassName('work-feed__grid')
       return grids
-    },
-    indexModifier() {
-      if (typeof window !== 'undefined' && window.innerWidth >= 1025) {
-        return 0
-      } else {
-        return 0
-      }
     }
   },
   data() {
@@ -117,11 +110,11 @@ export default {
   },
   methods: {
     updateCategory() {
-      let slideIndex = this.swiper.realIndex + this.indexModifier
-      console.log('Updated! Slide index is:', slideIndex, 'Index mod is:', this.indexModifier)
-      this.currentCategory = this.swiper.slides[slideIndex].dataset.hash
-      let currentCat = this.currentCategory
-      console.log('Updated! Current cat is:', currentCat)
+      const slides = Object.values(this.swiper.slides)
+      const activeSlide = slides.filter(slide => (slide.dataset && slide.dataset.swiperSlideIndex == this.swiper.realIndex))
+      
+      this.currentCategory = activeSlide[0].dataset.hash
+      const currentCat = this.currentCategory
 
       const gridWrapper = document.getElementsByClassName('work-feed__grid')
 
@@ -139,36 +132,15 @@ export default {
           }
         }, 500);
       })
-    },
-    resizeCategory() {
-      // console.log('before', this.indexModifier)
-      setTimeout(() => {
-        this.updateCategory
-        // console.log('after', this.indexModifier)
-      }, 1000);
     }
   },
   mounted() {
-    let slideIndex = this.swiper.realIndex + this.indexModifier
-    // console.log('Mounted! Slide index is:', slideIndex, 'Index mod is:', this.indexModifier)
-
     const slides = Object.values(this.swiper.slides)
-    // Array.prototype.forEach.call(slides, function(slide) {
-    //   // console.log("slide:", slide.classList.contains('swiper-slide-active'))
-    //   if (slide.attributes) {
-    //     console.log("slide:", slide.classList.contains('swiper-slide-active'))
-    //   }
-    // })
-
     const activeSlide = slides.filter(slide => (slide.classList && slide.classList.contains('swiper-slide-active')))
 
     console.log('my cat:', activeSlide[0].dataset.hash)
-
-    // this.currentCategory = this.swiper.slides[slideIndex].dataset.hash
     this.currentCategory = activeSlide[0].dataset.hash
-
     const currentCat = this.currentCategory
-    console.log('Mounted! Current cat is:', currentCat)
 
     Array.prototype.forEach.call(this.grids, function(grid) {
       if (grid.dataset.category == currentCat) {
@@ -177,9 +149,9 @@ export default {
       }
     })
 
-    if (typeof window !== 'undefined') {
-      window.addEventListener('resize', this.resizeCategory())
-    }
+    // if (typeof window !== 'undefined') {
+    //   window.addEventListener('resize', this.updateCategory())
+    // }
   },
   watch: {
     $route (to) {
