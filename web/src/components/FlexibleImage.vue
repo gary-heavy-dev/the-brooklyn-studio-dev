@@ -1,5 +1,5 @@
 <template>
-  <div :class="'flexible-image w-100 mb-100 grid grid--12-desktop flexible-image--' + content.imageLocation">
+  <div :class="'flexible-image w-100 mb-100 grid grid--12-desktop flexible-image--' + content.imageLocation + ' flexible-image--' + content.margins">
     <div
       class="flexible-image__inner image-wrapper"
       v-view="$iAmRevealed"
@@ -59,6 +59,11 @@ export default {
 
   @include desktop-down {
     flex-direction: column;
+
+    &--margins {
+      margin-left: var(--grid-margin);
+      margin-right: var(--grid-margin);
+    }
   }
 
   @include desktop {
