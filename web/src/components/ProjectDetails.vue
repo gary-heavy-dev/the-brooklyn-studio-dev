@@ -29,11 +29,15 @@
         </div>
       </div>
       <div class="project-details__gallery-wrapper col-span--6">
-        <div class="project-details__gallery-inner text-center pos-rel">
+        <div
+          class="project-details__gallery-inner text-center pos-rel"
+          v-view="startSwiper"
+        >
           <swiper
             class="project-details__gallery"
             :options="swiperOption"
             v-view="$iAmRevealed"
+            ref="projectDetailsSwiper"
           >
             <swiper-slide
               v-for="(image, index) in content.detailsGallery"
@@ -81,6 +85,11 @@ export default {
     prev: Object,
     next: Object
   },
+  computed: {
+    swiper() {
+      return this.$refs.projectDetailsSwiper.$swiper
+    }
+  },
   data() {
     return {
       swiperOption: {
@@ -91,9 +100,6 @@ export default {
         pagination: {
           el: '.swiper__pagination',
           clickable: true
-        },
-        autoplay: {
-          delay: 6000
         }
       },
       sizes: {
@@ -103,6 +109,13 @@ export default {
         desktop: 591,
         hd: 792,
         fourK: 1584
+      }
+    }
+  },
+  methods: {
+    startSwiper(e) {
+      if (e.percentInView > 0) {
+        this.swiper.autoplay.start()
       }
     }
   }
