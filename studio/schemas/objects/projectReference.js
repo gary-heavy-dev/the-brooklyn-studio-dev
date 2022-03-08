@@ -12,9 +12,10 @@ export default {
     },
     {
       name: 'altThumbnail',
-      title: 'Alternate Thumbnail',
+      title: 'Thumbnail',
       type: 'mainImage',
-      description: 'If you\'d like an alternate thumbnail to display for this category, please upload it here. The recommended size is 1226px by 818px',
+      description: 'Please upload the thumbnail image for the project here. The recommended size is 1226px by 818px',
+      validation: Rule => Rule.required()
     }
   ],
   preview: {
