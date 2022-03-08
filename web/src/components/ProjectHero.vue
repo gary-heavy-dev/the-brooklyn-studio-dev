@@ -55,5 +55,17 @@ export default {
       box-shadow: inset 0px 500px 250px rgba(0, 0, 0, 0.5);
     }
   }
+
+
+  .project-hero-mobile {
+
+    &.base-image,
+    .base-image__inner,
+    img {
+      object-fit: cover;
+      object-position: top;
+      height: 100%;
+    }
+  }
 }
 </style>
