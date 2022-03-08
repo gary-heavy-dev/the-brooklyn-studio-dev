@@ -8,7 +8,7 @@
       :content="ctaObject"
       class="news__cta"
     />
-    <section class="awards pt-100 mb-100 flex fd-c">
+    <section class="awards p-100 flex fd-c">
       <div class="container">
         <h2 class="h2 upper">Awards</h2>
         <ul class="list--nostyle list--two-column color--gray-tertiary">
@@ -22,7 +22,10 @@
         </ul>
       </div>
     </section>
-    <section class="press flex fd-c">
+    <section
+      class="press flex fd-c"
+      v-if="content.press.length"
+    >
       <div class="container mb-100">
         <h2 class="h2 upper">Press</h2>
         <ul class="list--nostyle list--two-column color--gray-tertiary">
