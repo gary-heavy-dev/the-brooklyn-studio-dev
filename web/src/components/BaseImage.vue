@@ -80,6 +80,7 @@ export default {
   padding: 19px 25px;
   bottom: 0;
   left: 0;
+  font-weight: 500;
 }
 
 .base-image {
