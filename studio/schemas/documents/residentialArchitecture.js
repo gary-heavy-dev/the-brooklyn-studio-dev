@@ -29,20 +29,9 @@ export default {
       validation: Rule => Rule.required()
     },
     {
-      name: 'projects',
-      type: 'array',
-      title: 'Projects',
-      of: [
-        {
-          type: 'reference',
-          to: [{ type: 'project' }]
-        }
-      ]
-    },
-    {
       name: 'projectReferences',
       type: 'array',
-      title: 'Projects (New)',
+      title: 'Projects',
       of: [
         { type: 'projectReference' }
       ]

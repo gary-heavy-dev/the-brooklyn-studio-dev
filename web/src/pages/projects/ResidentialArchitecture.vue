@@ -32,23 +32,6 @@ export default {
       }
       alt
     }
-    projects {
-      title
-      slug {
-        current
-      }
-      image {
-        caption
-        captionStyle
-        asset {
-          url
-          metadata {
-            lqip
-          }
-        }
-        alt
-      }
-    }
     projectCategories {
       title
       slug {

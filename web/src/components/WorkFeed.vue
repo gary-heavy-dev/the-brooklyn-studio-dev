@@ -215,26 +215,6 @@ export default {
         }
       }
     }
-    projects {
-      title
-      slug {
-        current
-      }
-      image {
-        caption
-        captionStyle
-        asset {
-          url
-          metadata {
-            lqip
-          }
-        }
-        alt
-      }
-      projectCategories {
-        title
-      }
-    }
     projectCategories {
       title
       slug {
@@ -288,23 +268,6 @@ export default {
         }
       }
     }
-    projects {
-      title
-      slug {
-        current
-      }
-      image {
-        caption
-        captionStyle
-        asset {
-          url
-          metadata {
-            lqip
-          }
-        }
-        alt
-      }
-    }
   }
   ad: sanityAdaptiveReuse(id: "35a99ecb-fd40-41ae-a0e0-8ec5527ebf44") {
     title
@@ -350,23 +313,6 @@ export default {
           }
           alt
         }
-      }
-    }
-    projects {
-      title
-      slug {
-        current
-      }
-      image {
-        caption
-        captionStyle
-        asset {
-          url
-          metadata {
-            lqip
-          }
-        }
-        alt
       }
     }
   }
