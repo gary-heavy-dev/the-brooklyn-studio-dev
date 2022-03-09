@@ -65,30 +65,36 @@ export default {
   },
   methods: {
     closeIntro() {
-      document.body.classList.add('close-intro')
+      document.getElementById('introAnimation').classList.add('animation-hidden')
+      setTimeout(() => {
+        document.body.classList.remove('animation-playing') 
+      }, 1250);
+      setTimeout(() => {
+        this.$emit('passed', 'animation-complete')
+      }, 2510);
     },
     amLod() {
       // console.log('am lod')
+      document.body.classList.add('animation-playing')
       document.getElementById('introAnimation').classList.add('initial-fade')
+
       // e.target.classList.add("loaded")
       setTimeout(() => {
         this.$refs.anim.play()
       }, 500);
     },
     amComplete() {
-      document.getElementById('introAnimation').classList.add('animation-hidden')
-      console.log('dun!')
-      setTimeout(() => {
-        this.$emit('passed', 'animation-complete')
-      }, 2510);
+      // console.log('dun!')
+      this.closeIntro()
     }
   },
 }
 </script>
 
 <style lang="scss">
-body.close-intro .intro-animation {
-  display: none;
+body.animation-playing {
+  overflow: hidden;
+  height: 100vh;
 }
 
 .vue-lottie-player {
