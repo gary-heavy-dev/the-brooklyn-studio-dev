@@ -52,7 +52,7 @@ export default {
     },
     successMessage() {
       document.getElementById('newsletterForm').reset()
-      document.getElementById('newsletterInput').placeholder = 'Thanks for signing up!'
+      document.getElementById('newsletterInput').placeholder = 'Thank You For Signing Up!'
       setTimeout(function(){
         document.getElementById('newsletterButton').blur()
       }, 500)

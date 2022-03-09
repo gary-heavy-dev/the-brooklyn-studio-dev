@@ -14,17 +14,17 @@
         :cardNumber="index"
       />
     </div>
-    <div class="work-feed__navigation flex jc-sb color--gray-tertiary pb-80">
+    <div class="pre-footer__navigation flex jc-sb color--gray-tertiary pb-80">
       <g-link
         :to="'/projects/#' + $toKebabCase(prev)"
         class="sub upper"
         @click.native="$scrollToTop"
-      >&lt; {{ prev }}</g-link>
+      ><span>&lt; </span><span>{{ prev }}</span></g-link>
       <g-link
         :to="'/projects/#' + $toKebabCase(next)"
-        class="sub upper"
+        class="sub upper next"
         @click.native="$scrollToTop"
-      >{{ next }} &gt;</g-link>
+      ><span>{{ next }}</span><span> &gt;</span></g-link>
     </div>
   </div>
 </template>

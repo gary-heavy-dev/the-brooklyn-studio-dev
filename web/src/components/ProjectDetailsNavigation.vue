@@ -1,5 +1,5 @@
 <template>
-  <div class="project-details__navigation flex jc-sb color--gray-tertiary pt-100">
+  <div class="pre-footer__navigation flex jc-sb color--gray-tertiary pt-100">
     <g-link
       v-if="prev"
       class="sub upper"
@@ -43,27 +43,3 @@ export default {
   },
 }
 </script>
-
-<style lang="scss">
-.project-details__navigation {
-  grid-column: span 12;
-  align-items: flex-start;
-
-  a {
-    text-decoration: none;
-
-    @include desktop-down {
-      width: min-instrinsic;
-      width: min-content;
-      -ms-grid-columns: min-content;
-      display: flex;
-      flex-direction: column;
-
-      &.next {
-        flex-direction: column-reverse;
-        text-align: right;
-      }
-    }
-  }
-}
-</style>
