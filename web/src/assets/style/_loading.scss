@@ -8,6 +8,15 @@
 	transition: opacity 750ms;
 }
 
+.work-feed-slide__hero,
+.project-hero,
+.hero--secondary {
+
+  .lazyloaded {
+    transition: opacity 1000ms;
+  }
+}
+
 .have-u-seen-me {
   opacity: 0;
   transition: opacity 750ms linear;
