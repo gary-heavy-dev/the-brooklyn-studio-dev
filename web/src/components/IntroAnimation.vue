@@ -102,7 +102,7 @@ body.close-intro .intro-animation {
   right: 0;
   z-index: 99999999999999;
   transition: opacity 1.25s ease-in-out;
-  // transition-delay: 0.5s;
+  transition-delay: 0.5s;
 
   > div {
     height: 100%;
@@ -111,10 +111,10 @@ body.close-intro .intro-animation {
   &.animation-hidden {
     opacity: 0;
 
-    // .logo-animation {
-    //   transition: opacity 0.75s ease-in-out;
-    //   opacity: 0;
-    // }
+    .logo-animation {
+      transition: opacity 0.75s ease-in-out;
+      opacity: 0;
+    }
   }
 
   &__gradient {
