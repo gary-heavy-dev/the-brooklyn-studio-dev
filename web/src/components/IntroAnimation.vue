@@ -3,7 +3,7 @@
       class="intro-animation background--navy o-h"
       id="introAnimation"
       @dblclick="closeIntro"
-      v-if="introStatus == null"
+      v-show="introStatus == null"
     >
       <div class="flex ai-c jc-c h-100 w-100 pos-abs z-2">
         <lottie-animation
