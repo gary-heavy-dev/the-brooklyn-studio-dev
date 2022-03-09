@@ -66,6 +66,7 @@ export default {
   methods: {
     closeIntro() {
       document.getElementById('introAnimation').classList.add('animation-hidden')
+      sessionStorage.setItem('intro', true)
       setTimeout(() => {
         document.body.classList.remove('animation-playing') 
       }, 1250);
