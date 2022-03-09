@@ -48,6 +48,11 @@
     width: 25px;
     height: 100px;
 
+    &:focus,
+    *:focus {
+      outline: none;
+    }
+
     @include desktop {
       top: 15.85vw;
       width: 50px;
