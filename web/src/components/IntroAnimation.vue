@@ -3,6 +3,7 @@
       class="intro-animation background--navy o-h"
       id="introAnimation"
       @dblclick="closeIntro"
+      v-if="introStatus == null"
     >
       <div class="flex ai-c jc-c h-100 w-100 pos-abs z-2">
         <lottie-animation
@@ -40,7 +41,8 @@ export default {
   data() {
     return {
       desktopAnimation: DesktopLogoAnimation,
-      mobileAnimation: MobileLogoAnimation
+      mobileAnimation: MobileLogoAnimation,
+      introStatus: typeof sessionStorage !== 'undefined' ? sessionStorage.getItem('intro') : null
     }
   },
   computed: {
