@@ -78,7 +78,9 @@ export default {
     amComplete() {
       document.getElementById('introAnimation').classList.add('animation-hidden')
       console.log('dun!')
-      this.$emit('passed', 'animation-complete')
+      setTimeout(() => {
+        this.$emit('passed', 'animation-complete')
+      }, 2510);
     }
   },
 }

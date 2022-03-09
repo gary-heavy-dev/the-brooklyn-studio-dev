@@ -32,7 +32,7 @@ export default {
   },
   methods: {
     hideIntro() {
-      // this.introStatus = true
+      this.introStatus = true
       console.log('animation completed!')
     }
   },
