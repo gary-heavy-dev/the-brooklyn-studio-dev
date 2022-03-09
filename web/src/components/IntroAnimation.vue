@@ -1,30 +1,29 @@
 <template>
-    <section
-      class="intro-animation background--navy o-h"
-      id="introAnimation"
-      @dblclick="closeIntro"
-      v-show="introStatus == null"
-    >
-      <div class="flex ai-c jc-c h-100 w-100 pos-abs z-2">
-        <lottie-animation
-          class="w-100 logo-animation"
-          ref="anim"
-          :animationData="animationData"
-          :autoPlay="false"
-          @complete="amComplete"
-        />
-      </div>
-      <div class="intro-animation__image-wrapper">
-        <div class="intro-animation__gradient"></div>
-        <img
-          v-if="featuredImage"
-          :src="srcString"
-          :srcset="srcsetString"
-          :alt="featuredImage.alt"
-          @load="amLod"
-        />
-      </div>
-    </section>
+  <section
+    class="intro-animation background--navy o-h"
+    id="introAnimation"
+    @dblclick="closeIntro"
+  >
+    <div class="flex ai-c jc-c h-100 w-100 pos-abs z-2">
+      <lottie-animation
+        class="w-100 logo-animation"
+        ref="anim"
+        :animationData="animationData"
+        :autoPlay="false"
+        @complete="amComplete"
+      />
+    </div>
+    <div class="intro-animation__image-wrapper">
+      <div class="intro-animation__gradient"></div>
+      <img
+        v-if="featuredImage"
+        :src="srcString"
+        :srcset="srcsetString"
+        :alt="featuredImage.alt"
+        @load="amLod"
+      />
+    </div>
+  </section>
 </template>
 
 <script>
@@ -42,7 +41,6 @@ export default {
     return {
       desktopAnimation: DesktopLogoAnimation,
       mobileAnimation: MobileLogoAnimation,
-      introStatus: typeof sessionStorage !== 'undefined' ? sessionStorage.getItem('intro') : null
     }
   },
   computed: {
@@ -90,7 +88,7 @@ export default {
       // console.log('dun!')
       this.closeIntro()
     }
-  },
+  }
 }
 </script>
 

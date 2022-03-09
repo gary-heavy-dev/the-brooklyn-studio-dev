@@ -1,7 +1,7 @@
 <template>
   <Layout>
     <IntroAnimation
-      v-if="$route.path == '/' && introStatus == null"
+      v-show="$route.path == '/' && introStatus == null"
       @passed="hideIntro"
     />
     <TheHeader />
@@ -48,6 +48,9 @@ export default {
   created() {
     if (typeof document !== "undefined") {
       setTimeout(() => document.body.classList.add('page-loaded'), 300)
+
+      const storg = sessionStorage.getItem('intro')
+      console.log('storg:', storg)
     }
   },
   watch: {
