@@ -12,7 +12,7 @@
               v-for="(stat, index) in content.detailsBuildingInfo"
               :key="index"
             >
-              <h4 class="sub upper color--navy">{{ stat.heading }}</h4>
+              <h4 class="sub upper color--navy-light">{{ stat.heading }}</h4>
               <div class="xsmall mb-20">{{ stat.text }}</div>
             </div>
           </div>
@@ -22,7 +22,7 @@
               v-for="(credit, index) in content.detailsCredits"
               :key="index"
             >
-              <h4 class="sub upper color--navy">{{ credit.heading }}</h4>
+              <h4 class="sub upper color--navy-light">{{ credit.heading }}</h4>
               <div class="xsmall mb-20">{{ credit.text }}</div>
             </div>
           </div>

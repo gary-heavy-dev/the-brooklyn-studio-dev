@@ -27,7 +27,7 @@
             />
             <h3
               v-if="member.node.name"
-              class="color--navy"
+              class="color--navy-light"
             >{{ member.node.name }}</h3>
             <span
               v-if="member.node.title"

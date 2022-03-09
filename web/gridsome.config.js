@@ -35,6 +35,7 @@ module.exports = {
 
   templates: {
     SanityPost: '/:slug__current',
+    SanitySimplePage: '/:slug__current',
     SanityProject: '/pj/:slug__current',
     SanityTeamMember: '/about-us/team/:slug__current'
   },

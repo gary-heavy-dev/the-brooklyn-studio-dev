@@ -33,7 +33,7 @@
             v-for="(press, index) in content.press"
             :key="index"
           >
-            <span v-if="press.title" class="color--navy">{{ press.title }}</span>
+            <span v-if="press.title" class="color--navy-light">{{ press.title }}</span>
             <span v-if="press.pubDate">, {{ press.pubDate}}</span>
           </li>
         </ul>

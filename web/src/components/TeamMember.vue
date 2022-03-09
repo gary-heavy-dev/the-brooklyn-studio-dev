@@ -31,7 +31,7 @@
       <div class="team-member__copy mw-readable">
         <h1
           v-if="content.name"
-          class="h3 h3--alt color--navy"
+          class="h3 h3--alt color--navy-light"
         >{{ content.name }}</h1>
         <div
           v-if="content.title"

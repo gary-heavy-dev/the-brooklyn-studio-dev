@@ -52,6 +52,7 @@ import linkInternal from './objects/linkInternal'
 import linkSimple from './objects/linkSimple'
 import list from './objects/list'
 import mainImage from './objects/mainImage'
+import portableTextWrapper from './objects/portableTextWrapper'
 import projectReference from './objects/projectReference'
 import proustQuestionnaire from './objects/proustQuestionnaire'
 import scrollingGallery from './objects/scrollingGallery'
@@ -103,6 +104,7 @@ export default createSchema({
     mainImage,
     news,
     newsPage,
+    portableTextWrapper,
     post,
     press,
     proustQuestionnaire,

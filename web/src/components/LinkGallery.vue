@@ -165,7 +165,7 @@ export default {
     &.active {
 
       @include desktop-down {
-        color: var(--color--navy);
+        color: var(--color--navy-light);
       }
     }
   }

@@ -20,7 +20,7 @@ export default {
       }
     },
     {
-      name: 'subTitle',
+      name: 'subtitle',
       type: 'string',
       title: 'Subtitle',
       description: 'An optional subtitle that appears below the title in gray text.'
@@ -29,6 +29,13 @@ export default {
       name: 'body',
       type: 'bodyPortableText',
       title: 'Body Content'
+    },
+    {
+      name: 'sections',
+      type: 'array',
+      title: 'Sections',
+      description: 'Use sections to group headings. Each section has a larger bottom margin than the standard paragraph.',
+      of: [{ type: 'portableTextWrapper' }]
     }
   ],
   // preview: {

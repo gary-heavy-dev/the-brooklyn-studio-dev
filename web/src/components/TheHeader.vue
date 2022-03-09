@@ -239,7 +239,7 @@ export default {
             &:hover,
             &.active {
               background-color: var(--color--white);
-              color: var(--color--navy);
+              color: var(--color--navy-light);
             }
           }
         }
@@ -255,7 +255,7 @@ export default {
     &.active,
     &:hover {
       text-decoration: none;
-      color: var(--color--navy);
+      color: var(--color--navy-light);
     }
   }
 }

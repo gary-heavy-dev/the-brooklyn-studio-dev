@@ -88,7 +88,7 @@ export default {
         &:hover,
         &.active--exact {
           background-color: var(--color--white);
-          color: var(--color--navy);
+          color: var(--color--navy-light);
         }
       }
     }

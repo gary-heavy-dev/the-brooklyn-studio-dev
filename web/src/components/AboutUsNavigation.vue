@@ -128,7 +128,7 @@ export default {
     padding: 0 30px;
 
     &:hover {
-      color: var(--color--navy);
+      color: var(--color--navy-light);
     }
   }
 }

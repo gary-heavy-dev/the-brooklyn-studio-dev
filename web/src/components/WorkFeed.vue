@@ -138,7 +138,6 @@ export default {
     const slides = Object.values(this.swiper.slides)
     const activeSlide = slides.filter(slide => (slide.classList && slide.classList.contains('swiper-slide-active')))
 
-    console.log('my cat:', activeSlide[0].dataset.hash)
     this.currentCategory = activeSlide[0].dataset.hash
     const currentCat = this.currentCategory
 
