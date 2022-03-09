@@ -3,7 +3,6 @@
     class="intro-animation background--navy o-h"
     id="introAnimation"
     @dblclick="closeIntro"
-    v-if="status !== 'true'"
   >
     <div class="flex ai-c jc-c h-100 w-100 pos-abs z-2">
       <lottie-animation
@@ -79,17 +78,16 @@ export default {
       }, 2510);
     },
     amLod() {
-      // console.log('am lod')
-      document.body.classList.add('animation-playing')
+      if (this.status !== 'true') {
+        document.body.classList.add('animation-playing')
+      }
       document.getElementById('introAnimation').classList.add('initial-fade')
 
-      // e.target.classList.add("loaded")
       setTimeout(() => {
         this.$refs.anim.play()
       }, 500);
     },
     amComplete() {
-      // console.log('dun!')
       this.closeIntro()
     }
   },
