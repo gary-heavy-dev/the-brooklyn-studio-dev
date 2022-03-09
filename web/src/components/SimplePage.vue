@@ -4,7 +4,7 @@
       <div class="simple-page__title mb-80">
         <h1
           v-if="content.title"
-          class="h2 pt-80 mb-15 color--navy-light"
+          class="h1 pt-80 mb-15 color--navy-light"
         >{{ content.title }}</h1>
         <div
           v-if="content.subtitle"
@@ -47,8 +47,8 @@ export default {
   max-width: 1000px;
 
   h2 {
-    font-size: var(--h5-font-size);
-    line-height: var(--h5-line-height);
+    font-size: var(--h3-font-size);
+    line-height: var(--h3-line-height);
     margin-bottom: 13px;
   }
 
