@@ -90,7 +90,7 @@ export default function(Vue, { router, head, isClient }) {
         } else {
           resolve({ x: 0, y: 0 })
         }
-      }, 300)
+      }, 250)
     })
   }
 }

@@ -17,6 +17,7 @@
           <g-link
             class="upper button mt-60"
             :to="'/about-us/team/' + featuredMember.slug.current"
+            @click.native="$scrollToTop"
           ><span>Meet {{ featuredMember.name }}, </span><span v-if="featuredMember.title">{{ featuredMember.title }}</span></g-link>
         </div>
       </div>
