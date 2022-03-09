@@ -60,9 +60,11 @@ export default {
       ]
     },
     {
-      name: 'body',
-      type: 'bodyPortableText',
-      title: 'Body'
+      name: 'sections',
+      type: 'array',
+      title: 'Sections',
+      description: 'Use sections to group headings. Each section has a larger bottom margin than the standard paragraph.',
+      of: [{ type: 'portableTextWrapper' }]
     }
   ],
   orderings: [

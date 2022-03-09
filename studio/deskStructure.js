@@ -1,10 +1,10 @@
 import S from '@sanity/desk-tool/structure-builder'
-import { MdSettings, MdPersonOutline, MdPeopleAlt, MdOutlineHome, MdFingerprint, MdArchitecture, MdWork, MdWorkOutline, MdOutlineEmail, MdConstruction, MdCategory } from 'react-icons/md'
+import { MdSettings, MdPersonOutline, MdPeopleAlt, MdOutlineHome, MdFingerprint, MdArchitecture, MdWork, MdWorkOutline, MdOutlineEmail, MdConstruction, MdCategory, MdTextSnippet } from 'react-icons/md'
 import { FaRecycle, FaNewspaper, FaRegNewspaper, FaTrophy, FaPenFancy } from 'react-icons/fa'
 import { AiFillFormatPainter } from 'react-icons/ai'
 
 const hiddenDocTypes = listItem =>
-  !['about', 'adaptiveReuse', 'award', 'careers', 'careersPost', 'contact', 'category', 'home', 'interiorDesign', 'news', 'newsPage', 'post', 'press', 'project', 'projectCategory', 'residentialArchitecture', 'siteSettings', 'team', 'teamMember'].includes(listItem.getId())
+  !['about', 'adaptiveReuse', 'award', 'careers', 'careersPost', 'contact', 'category', 'home', 'interiorDesign', 'news', 'newsPage', 'post', 'press', 'project', 'projectCategory', 'residentialArchitecture', 'siteSettings', 'team', 'teamMember', 'simplePage'].includes(listItem.getId())
 
 export default () =>
   S.list()
@@ -118,6 +118,11 @@ export default () =>
         .icon(FaNewspaper)
         .schemaType('news')
         .child(S.documentTypeList('news').title('News posts')),
+      S.listItem()
+        .title('Simple Pages')
+        .icon(MdTextSnippet)
+        .schemaType('simplePage')
+        .child(S.documentTypeList('simplePage').title('Simple Pages')),
       S.listItem()
         .title('Press')
         .icon(FaPenFancy)

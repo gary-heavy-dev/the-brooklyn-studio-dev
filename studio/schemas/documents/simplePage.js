@@ -26,11 +26,6 @@ export default {
       description: 'An optional subtitle that appears below the title in gray text.'
     },
     {
-      name: 'body',
-      type: 'bodyPortableText',
-      title: 'Body Content'
-    },
-    {
       name: 'sections',
       type: 'array',
       title: 'Sections',
@@ -38,9 +33,4 @@ export default {
       of: [{ type: 'portableTextWrapper' }]
     }
   ],
-  // preview: {
-  //   select: {
-  //     title: 'title'
-  //   }
-  // }
 }

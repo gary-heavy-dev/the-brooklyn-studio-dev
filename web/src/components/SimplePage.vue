@@ -13,10 +13,6 @@
       </div>
       <div class="grid grid--12-desktop">
         <div class="content-column mb-100">
-          <!-- <BaseBlockContent
-            v-if="content._rawBody"
-            :blocks="content._rawBody"
-          /> -->
           <section
             v-for="(section, index) in content.sections"
             :key="index"
