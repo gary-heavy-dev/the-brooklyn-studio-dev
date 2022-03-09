@@ -27,18 +27,17 @@ export default {
   },
   data() {
     return {
-      // if (typeof sessionStorage !== 'undefined')
       introStatus: typeof sessionStorage !== 'undefined' ? sessionStorage.getItem('intro') : null
     }
   },
   methods: {
     hideIntro() {
-      this.introStatus = true
+      // this.introStatus = true
+      console.log('animation completed!')
     }
   },
   updated() {
     const b = document.body
-    // b.classList.remove('home-hero-in-view')
 
     if (b.classList.contains('menu--open')) {
       b.classList.add('menu--closing')

@@ -6,7 +6,7 @@
     >
       <div class="flex ai-c jc-c h-100 w-100 pos-abs z-2">
         <lottie-animation
-          class="w-100"
+          class="w-100 logo-animation"
           ref="anim"
           :animationData="animationData"
           :autoPlay="false"
@@ -67,7 +67,7 @@ export default {
     closeIntro() {
       document.body.classList.add('close-intro')
     },
-    amLod(e) {
+    amLod() {
       // console.log('am lod')
       document.getElementById('introAnimation').classList.add('initial-fade')
       // e.target.classList.add("loaded")
@@ -75,8 +75,10 @@ export default {
         this.$refs.anim.play()
       }, 500);
     },
-    amComplete(e) {
+    amComplete() {
+      document.getElementById('introAnimation').classList.add('animation-hidden')
       console.log('dun!')
+      this.$emit('passed', 'animation-complete')
     }
   },
 }
@@ -99,9 +101,20 @@ body.close-intro .intro-animation {
   left: 0;
   right: 0;
   z-index: 99999999999999;
+  transition: opacity 1.25s ease-in-out;
+  // transition-delay: 0.5s;
 
   > div {
     height: 100%;
+  }
+
+  &.animation-hidden {
+    opacity: 0;
+
+    // .logo-animation {
+    //   transition: opacity 0.75s ease-in-out;
+    //   opacity: 0;
+    // }
   }
 
   &__gradient {
