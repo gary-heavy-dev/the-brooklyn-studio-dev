@@ -21,17 +21,7 @@
         <g-link to="/careers">Careers</g-link>
       </nav>
       <div class="the-footer__newsletter col-span--6 xsmall flex fd-c jc-sb">
-        <form
-          action=""
-          class="flex fd-c"
-        >
-          <label for="">Join Our Newsletter:</label>
-          <div class="input-wrapper">
-            <input class="xxsmall" type="email" placeholder="Your Email">
-            <button>Submit</button>
-          </div>
-          <div class="xxsmall the-footer__newsletter-notice">By signing up, you are also agreeing to The Brooklyn Studio's <strong>Privacy Policy.</strong></div>
-        </form>
+        <NewsletterForm />
         <div class="xxsmall the-footer__credits desktop-only">© 2022 The Brooklyn Studio of Architecture | Privacy Policy</div>
       </div>
       <div class="social-icons">
@@ -57,11 +47,13 @@
 <script>
 import Logo from '~/components/Logo'
 import LogoInstagram from '~/components/LogoInstagram'
+import NewsletterForm from '~/components/NewsletterForm'
 
 export default {
   components: {
     Logo,
-    LogoInstagram
+    LogoInstagram,
+    NewsletterForm
   }
 }
 </script>

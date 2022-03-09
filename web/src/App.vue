@@ -3,7 +3,6 @@
     <IntroAnimation
       v-show="$route.path == '/' && introStatus == null"
       @passed="hideIntro"
-      :status="introStatus"
     />
     <TheHeader />
     <main class="main">
@@ -34,7 +33,6 @@ export default {
   methods: {
     hideIntro() {
       this.introStatus = true
-      console.log('animation completed!')
     }
   },
   updated() {

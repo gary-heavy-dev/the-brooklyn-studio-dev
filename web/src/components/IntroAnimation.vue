@@ -37,9 +37,9 @@ export default {
     Logo,
     lottieAnimation: LottieAnimation
   },
-  props: {
-    status: String
-  },
+  // props: {
+  //   status: String
+  // },
   data() {
     return {
       desktopAnimation: DesktopLogoAnimation,
@@ -69,7 +69,7 @@ export default {
   methods: {
     closeIntro() {
       document.getElementById('introAnimation').classList.add('animation-hidden')
-      sessionStorage.setItem('intro', true)
+      sessionStorage.setItem('intro', 'played')
       setTimeout(() => {
         document.body.classList.remove('animation-playing') 
       }, 1250);
@@ -78,7 +78,8 @@ export default {
       }, 2510);
     },
     amLod() {
-      if (this.status !== 'true') {
+      const sessionStatus = sessionStorage.getItem('intro')
+      if (sessionStatus !== 'played') {
         document.body.classList.add('animation-playing')
       }
       document.getElementById('introAnimation').classList.add('initial-fade')
@@ -90,9 +91,6 @@ export default {
     amComplete() {
       this.closeIntro()
     }
-  },
-  mounted() {
-    console.log('status:', this.status)
   }
 }
 </script>

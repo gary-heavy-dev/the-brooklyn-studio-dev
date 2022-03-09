@@ -21,6 +21,7 @@ import press from './documents/press'
 import project from './documents/project'
 import projectCategory from './documents/projectCategory'
 import residentialArchitecture from './documents/residentialArchitecture'
+import simplePage from './documents/simplePage'
 import siteSettings from './documents/siteSettings'
 import team from './documents/team'
 import teamMember from './documents/teamMember'
@@ -111,6 +112,7 @@ export default createSchema({
     residentialArchitecture,
     scrollingGallery,
     scrollingGallerySection,
+    simplePage,
     siteSettings,
     team,
     teamMember,
