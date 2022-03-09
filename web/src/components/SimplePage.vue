@@ -2,10 +2,10 @@
   <div class="simple-page flex fd-c">
     <div class="container">
       <div class="simple-page__title mb-80">
-        <h2
+        <h1
           v-if="content.title"
-          class="h3 pt-80 color--navy-light"
-        >{{ content.title }}</h2>
+          class="h2 pt-80 mb-15 color--navy-light"
+        >{{ content.title }}</h1>
         <div
           v-if="content.subtitle"
           class="upper sub--lg color--gray-tertiary"
@@ -20,7 +20,7 @@
           <section
             v-for="(section, index) in content.sections"
             :key="index"
-            class="mb-100"
+            class="mb-60"
           >
             <BaseBlockContent
               v-if="section._rawPortableText"
@@ -47,13 +47,9 @@ export default {
   max-width: 1000px;
 
   h2 {
-    font-size: var(--h3-font-size);
-    margin-bottom: 18px;
-  }
-
-  h3 {
     font-size: var(--h5-font-size);
-    margin-bottom: 11px;
+    line-height: var(--h5-line-height);
+    margin-bottom: 13px;
   }
 
   h1, h2, h3, h4, h5, strong {
