@@ -3,6 +3,7 @@
     <IntroAnimation
       v-show="$route.path == '/' && introStatus == null"
       @passed="hideIntro"
+      :status="introStatus"
     />
     <TheHeader />
     <main class="main">
@@ -48,9 +49,6 @@ export default {
   created() {
     if (typeof document !== "undefined") {
       setTimeout(() => document.body.classList.add('page-loaded'), 300)
-
-      const storg = sessionStorage.getItem('intro')
-      console.log('storg:', storg)
     }
   },
   watch: {

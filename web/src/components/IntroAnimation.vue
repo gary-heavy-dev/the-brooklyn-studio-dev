@@ -3,6 +3,7 @@
     class="intro-animation background--navy o-h"
     id="introAnimation"
     @dblclick="closeIntro"
+    v-if="status !== 'true'"
   >
     <div class="flex ai-c jc-c h-100 w-100 pos-abs z-2">
       <lottie-animation
@@ -36,6 +37,9 @@ export default {
   components: {
     Logo,
     lottieAnimation: LottieAnimation
+  },
+  props: {
+    status: String
   },
   data() {
     return {
@@ -88,6 +92,9 @@ export default {
       // console.log('dun!')
       this.closeIntro()
     }
+  },
+  mounted() {
+    console.log('status:', this.status)
   }
 }
 </script>
