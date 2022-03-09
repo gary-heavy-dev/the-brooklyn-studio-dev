@@ -39,7 +39,8 @@ export default {
     &::after {
 
       @include desktop-down {
-        box-shadow: inset 0px 51vw 25.5vw rgba(0, 0, 0, 0.2);
+        // box-shadow: inset 0px 51vw 25.5vw rgba(0, 0, 0, 0.2);
+        box-shadow: inset 0 20vw 10vw rgba(0, 0, 0, 0.5);
       }
     }
   }

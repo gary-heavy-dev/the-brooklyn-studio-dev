@@ -74,8 +74,6 @@
             class="upper button mt-60"
             @click.native="$scrollToTop"
           >{{ content.introLinkText }}</g-link>
-
-
           <div class="image-wrapper mobile-only">
             <BaseImage
               :lazy="true"
