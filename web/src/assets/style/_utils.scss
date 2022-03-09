@@ -497,7 +497,7 @@ body .p-mobile-copy-block {
     }
 
     &-left .image-wrapper {
-      margin-right: calc(var(--grid-margin) * -1);
+      margin-left: calc(var(--grid-margin) * -1);
     }
   }
 }

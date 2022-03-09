@@ -1,5 +1,5 @@
 <template>
-  <div :class="'flexible-image-with-text container grid grid--12-desktop ai-c mb-100 ' + content.aspectRatio + ' image--mobile-' + content.imageLocation + ' reverse-mobile--' + content.reverseMobile">
+  <div :class="'flexible-image-with-text container grid grid--12-desktop ai-c mb-100 ' + content.aspectRatio + ' image--mobile-' + content.justification + ' image--desktop-' + content.imageLocation + ' reverse-mobile--' + content.reverseMobile">
     <div class="flexible-image-with-text__text">
       <div class="mw-readable" v-html="content.text"></div>
     </div>
@@ -92,6 +92,26 @@ export default {
 
     @include desktop {
       padding-right: 73px;
+    }
+  }
+
+
+  &.image--desktop {
+
+    @include desktop {
+
+      &-left {
+
+        .image-wrapper {
+          grid-row: 1;
+        }
+
+        .flexible-image-with-text__text {
+          padding: 0;
+          grid-column: span 5/13;
+          grid-row: 1;
+        }
+      }
     }
   }
 }
