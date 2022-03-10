@@ -1,23 +1,33 @@
 <template>
-  <Careers :content="$page.page" />
+  <PageTertiary
+    :title="$page.page.title"
+    :content="$page.page"
+  />
 </template>
 
 <script>
-import Careers from '~/components/Careers'
+import PageTertiary from '~/components/PageTertiary'
 
 export default {
   components: {
-    Careers
+    PageTertiary 
+  },
+  computed: {
+    description() {
+      const des = this.$page.page.hero._rawIntro ? this.$toPlainText(this.$page.page.hero._rawIntro) : this.$page.settings.description
+      const count = 155
+      return des.slice(0, count) + (des.length > count ? '...' : '')
+    }
   },
   metaInfo() {
     return {
-      title: 'Careers',
+      title: this.$page.page.title,
       titleTemplate: '%s | The Brooklyn Studio',
       meta: [
         {
           key: 'description',
           name: 'description',
-          content: 'We are always looking for creative professionals who thrive in a collaborative environment. Our current openings are listed below.'
+          content: this.description
         },
         // {
         //   key: 'og:title',

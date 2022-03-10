@@ -79,7 +79,6 @@ export default {
     },
     amLod() {
       const sessionStatus = sessionStorage.getItem('intro')
-      console.log('the path:', this.$route.path)
       if (sessionStatus !== 'played' && this.$route.path == '/') {
         document.body.classList.add('animation-playing')
       }

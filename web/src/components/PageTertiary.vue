@@ -1,6 +1,9 @@
 <template>
   <Layout>
-    <HeroTertiary :content="content" />
+    <HeroTertiary
+      :title="title"
+      :content="content"
+    />
   </Layout>
 </template>
 
@@ -12,7 +15,8 @@ export default {
     HeroTertiary
   },
   props: {
-    content: Object
+    content: Object,
+    title: String
   }
 }
 </script>

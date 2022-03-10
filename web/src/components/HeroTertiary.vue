@@ -5,13 +5,9 @@
         <div class="copy__content grid grid--6-desktop container--left">
           <div class="copy__content-inner mw-readable col-span--5">
             <h1
-              v-if="content.title"
+              v-if="title"
               class="h1 mb-60 "
-            >{{ content.title }}</h1>
-            <!-- <p
-              v-if="content.hero._rawIntro"
-              class="h5 h5--alt"
-            >{{ content.hero.intro }}</p> -->
+            >{{ title }}</h1>
             <div class="h5 h5--alt">
               <BaseBlockContent
                 v-if="content.hero._rawIntro"
@@ -39,6 +35,23 @@
             v-if="content._type == 'careers' && content.posts"
             :posts="content.posts"
           />
+          <div v-if="title == 'Credits' && content.credits">
+            <div
+              v-for="(credit, index) in content.credits"
+              :key="index"
+              class="mb-40 credits"
+            >
+              <h2
+                v-if="credit.heading"
+                class="h5 credits__heading"
+              >{{ credit.heading }}</h2>
+              <div
+                v-if="credit.text"
+                class="color--gray-tertiary"
+                v-html="credit.text"
+              ></div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -81,7 +94,8 @@ export default {
     }
   },
   props: {
-    content: Object
+    content: Object,
+    title: String
   }
 }
 </script>
@@ -109,6 +123,16 @@ export default {
 
       .image-wrapper {
         grid-column: 2/5;
+      }
+    }
+  }
+
+  .credits {
+
+    &__heading {
+
+      @include desktop {
+        font-size: 20px;
       }
     }
   }

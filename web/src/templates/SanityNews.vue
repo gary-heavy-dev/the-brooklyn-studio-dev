@@ -13,7 +13,9 @@ export default {
   },
   computed: {
     description() {
-      return this.$page.post._rawExcerpt ? this.$toPlainText(this.$page.post._rawExcerpt) : 'The Brooklyn Studio is an interdisciplinary architecture and design firm committed to restoring and enhancing New York City\'s historic fabric.'
+      const des = this.$page.post._rawExcerpt ? this.$toPlainText(this.$page.post._rawExcerpt) : this.$page.settings.description
+      const count = 155
+      return des.slice(0, count) + (des.length > count ? '...' : '')
     }
   },
   metaInfo() {
@@ -64,6 +66,10 @@ export default {
 
 <page-query>
 query Post ($id: ID!) {
+  settings: sanitySiteSettings (id: "siteSettings") {
+    title
+    description
+  }
   post: sanityNews (id: $id) {
     title
     subtitle

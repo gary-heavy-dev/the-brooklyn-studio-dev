@@ -143,6 +143,7 @@ export default {
 
       @include desktop-down {
         font-size: 20px;
+        line-height: 32px;
       }
     }
 
