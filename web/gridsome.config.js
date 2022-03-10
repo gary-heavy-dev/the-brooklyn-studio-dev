@@ -76,7 +76,7 @@ module.exports = {
     {
       use: '@gridsome/plugin-google-analytics',
       options: {
-        id: 'UA-37055180-1'
+        id: 'UA-27552254-1'
       }
     }
   ]
