@@ -27,7 +27,7 @@
       />
       <button id="newsletterButton">Submit</button>
     </div>
-    <div class="xxsmall the-footer__newsletter-notice">By signing up, you are also agreeing to The Brooklyn Studio's <strong>Privacy Policy.</strong></div>
+    <div class="xxsmall the-footer__newsletter-notice">By signing up, you are also agreeing to The Brooklyn Studio's <strong><g-link to="/privacy-policy">Privacy Policy.</g-link></strong></div>
   </form>
 </template>
 

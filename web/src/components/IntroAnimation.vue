@@ -79,7 +79,8 @@ export default {
     },
     amLod() {
       const sessionStatus = sessionStorage.getItem('intro')
-      if (sessionStatus !== 'played') {
+      console.log('the path:', this.$route.path)
+      if (sessionStatus !== 'played' && this.$route.path == '/') {
         document.body.classList.add('animation-playing')
       }
       document.getElementById('introAnimation').classList.add('initial-fade')

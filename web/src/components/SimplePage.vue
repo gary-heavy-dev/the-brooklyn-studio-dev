@@ -38,18 +38,25 @@ export default {
 </script>
 
 <style lang="scss">
-.content-column {
-  grid-column: 2/12;
-  max-width: 1000px;
+.simple-page {
 
-  h2 {
-    font-size: var(--h3-font-size);
-    line-height: var(--h3-line-height);
-    margin-bottom: 13px;
+  h1 {
+    max-width: 870px;
   }
 
-  h1, h2, h3, h4, h5, strong {
-    color: var(--color--navy-light);
+  .content-column {
+    grid-column: 2/12;
+    max-width: 1000px;
+
+    h2 {
+      font-size: var(--h3-font-size);
+      line-height: var(--h3-line-height);
+      margin-bottom: 13px;
+    }
+
+    h1, h2, h3, h4, h5, strong {
+      color: var(--color--navy-light);
+    }
   }
 }
 </style>

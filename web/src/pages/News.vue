@@ -36,6 +36,9 @@ export default {
       title
       _rawExcerpt
       link
+      slug {
+        current
+      }
       mainImage {
         caption
         captionStyle

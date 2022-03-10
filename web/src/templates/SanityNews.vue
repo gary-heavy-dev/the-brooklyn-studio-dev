@@ -16,7 +16,7 @@ export default {
 
 <page-query>
 query Post ($id: ID!) {
-  post: sanitySimplePage (id: $id) {
+  post: sanityNews (id: $id) {
     title
     subtitle
     slug {

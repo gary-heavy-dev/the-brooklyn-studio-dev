@@ -7,7 +7,8 @@ export default {
     {
       name: 'title',
       type: 'string',
-      title: 'Title'
+      title: 'Title',
+      validation: Rule => Rule.required(),
     },
     {
       name: 'slug',
@@ -17,7 +18,8 @@ export default {
       options: {
         source: 'title',
         maxLength: 96
-      }
+      },
+      validation: Rule => Rule.required(),
     },
     {
       name: 'subtitle',

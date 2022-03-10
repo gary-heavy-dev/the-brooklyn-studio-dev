@@ -12,6 +12,12 @@ export default {
       description: 'Titles should be catchy, descriptive, and not too long'
     },
     {
+      name: 'subtitle',
+      type: 'string',
+      title: 'Subtitle',
+      description: 'An optional subtitle that appears below the post\'s title in gray text.'
+    },
+    {
       name: 'slug',
       type: 'slug',
       title: 'Slug',

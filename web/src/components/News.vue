@@ -55,12 +55,19 @@ export default {
     content: Object
   },
   computed: {
+    ctaLink() {
+      if (this.content.featuredNews.link) {
+        return this.content.featuredNews.link
+      } else if (this.content.featuredNews.slug.current) {
+        return '/news/' + this.content.featuredNews.slug.current
+      }
+    },
     ctaObject() {
       return {
         largeText: this.content.featuredNews.title,
         _rawCopy: this.content.featuredNews._rawExcerpt,
         linkText: 'Read More',
-        link: this.content.featuredNews.link,
+        link: this.ctaLink,
         image: {
           asset: {
             url: this.content.featuredNews.mainImage.asset.url,
