@@ -27,3 +27,5 @@ https://cwbarchitects.com/project/house-1/ https://brooklyn.studio/projects/bug-
 https://cwbarchitects.com/project/easthampton-northwest-woods/ https://brooklyn.studio/projects/easthampton-country-house/ 301
 https://cwbarchitects.com/project/* https://brooklyn.studio/projects 301
 https://cwbarchitects.com/* https://brooklyn.studio/:splat 301
+https://cwbarchitects.com https://brooklyn.studio/ 301!
+https://cwbarchitects.com/ https://brooklyn.studio/ 301!
