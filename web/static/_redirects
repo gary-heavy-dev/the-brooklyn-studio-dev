@@ -23,6 +23,29 @@ https://cwbarchitects.com/project/house-1/ https://brooklyn.studio/projects/bug-
 https://cwbarchitects.com/project/easthampton-northwest-woods/ https://brooklyn.studio/projects/easthampton-country-house/ 301
 https://cwbarchitects.com/project/* https://brooklyn.studio/projects 301
 https://cwbarchitects.com/* https://brooklyn.studio/:splat 301!
+
+https://www.cwbarchitects.com/firm/ https://brooklyn.studio/about-us 301
+https://www.cwbarchitects.com/people/ https://brooklyn.studio/about-us/team 301
+https://www.cwbarchitects.com/blog/ https://brooklyn.studio/news 301
+https://www.cwbarchitects.com/theme/workspaces/ https://brooklyn.studio/about-us 301
+https://www.cwbarchitects.com/press/ https://brooklyn.studio/news 301
+https://www.cwbarchitects.com/interiors/ https://brooklyn.studio/projects/#interior-design 301
+https://www.cwbarchitects.com/project-category/residential/ https://brooklyn.studio/projects/#residential-architecture 301
+https://www.cwbarchitects.com/project-category/row-houses/ https://brooklyn.studio/projects/#residential-architecture 301
+https://www.cwbarchitects.com/project-category/modern/ https://brooklyn.studio/projects/#residential-architecture 301
+https://www.cwbarchitects.com/project-category/traditional/ https://brooklyn.studio/projects/#residential-architecture 301
+https://www.cwbarchitects.com/project-category/apartments/ https://brooklyn.studio/projects/#residential-architecture 301
+https://www.cwbarchitects.com/project-category/houses/ https://brooklyn.studio/projects/#residential-architecture 301
+https://www.cwbarchitects.com/project-category/new-construction/ https://brooklyn.studio/projects/#residential-architecture 301
+https://www.cwbarchitects.com/project-category/commercial/ https://brooklyn.studio/projects/#adaptive-reuse 301
+https://www.cwbarchitects.com/project-category/office/ https://brooklyn.studio/projects/#adaptive-reuse 301
+https://www.cwbarchitects.com/project-category/retail/ https://brooklyn.studio/projects/#adaptive-reuse 301
+https://www.cwbarchitects.com/project-category/institution/ https://brooklyn.studio/projects/#adaptive-reuse 301
+https://www.cwbarchitects.com/project-category/academic/ https://brooklyn.studio/projects/#adaptive-reuse 301
+https://www.cwbarchitects.com/project-category/civic/ https://brooklyn.studio/projects/#adaptive-reuse 301
+https://www.cwbarchitects.com/project-category/adaptive-reuse/ https://brooklyn.studio/projects/#adaptive-reuse 301
+https://www.cwbarchitects.com/project/ https://brooklyn.studio/projects 301
+https://www.cwbarchitects.com/project/house-1/ https://brooklyn.studio/projects/bug-acres-of-woodstock 301
+https://www.cwbarchitects.com/project/easthampton-northwest-woods/ https://brooklyn.studio/projects/easthampton-country-house/ 301
+https://www.cwbarchitects.com/project/* https://brooklyn.studio/projects 301
 https://www.cwbarchitects.com/* https://brooklyn.studio/:splat 301!
-# https://cwbarchitects.com https://brooklyn.studio/ 301!
-# https://cwbarchitects.com/ https://brooklyn.studio/ 301!
