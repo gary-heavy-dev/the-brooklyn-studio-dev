@@ -55,7 +55,7 @@ export default {
       box-shadow: inset 0px 51vw 25.5vw rgba(0, 0, 0, 0.5);
 
       @include desktop {
-        box-shadow: inset 0px 29.5vw 14.75vw rgba(0, 0, 0, 0.5);
+        box-shadow: inset 0px 25.5vw 14.75vw rgba(0, 0, 0, 0.5);
       }
     }
   }

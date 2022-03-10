@@ -11,7 +11,7 @@ export default {
   },
   metaInfo() {
     return {
-      title: 'About Us',
+      title: 'About',
       titleTemplate: '%s | The Brooklyn Studio',
       meta: [
         {

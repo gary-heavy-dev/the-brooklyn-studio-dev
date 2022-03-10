@@ -7,23 +7,15 @@ export default {
     {
       name: 'title',
       type: 'string',
-      title: 'Title'
+      title: 'Title',
+      validation: Rule => Rule.required(),
     },
     {
       name: 'description',
       type: 'text',
       title: 'Description',
-      description: 'Describe your blog for search engines and social media.'
-    },
-    {
-      name: 'keywords',
-      type: 'array',
-      title: 'Keywords',
-      description: 'Add keywords that describes your blog.',
-      of: [{type: 'string'}],
-      options: {
-        layout: 'tags'
-      }
+      description: 'Describe your blog for search engines and social media. This will be used as the page title on any pages where a title isn\'t otherwise specified.',
+      validation: Rule => Rule.required()
     },
     {
       name: 'socialLinkIg',

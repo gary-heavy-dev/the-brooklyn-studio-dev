@@ -10,6 +10,9 @@ import urlForImage from './utils/urlForImage'
 // Import custom g-image srcset mapper
 import gImageMap from './utils/gImageMap'
 
+// Import portable to plain text conversion utility  
+import toPlainText from './utils/toPlainText'
+
 // Import kebab case conversion utility for slug conversion
 import toKebabCase from './utils/toKebabCase'
 
@@ -47,6 +50,9 @@ export default function(Vue, { router, head, isClient }) {
 
   // Inject global g-image srcset builder
   Vue.prototype.$gImageMap = gImageMap
+
+  // Inject text conversion util
+  Vue.prototype.$toPlainText = toPlainText
 
   // Inject general reveal util
   Vue.prototype.$iAmRevealed = function() {

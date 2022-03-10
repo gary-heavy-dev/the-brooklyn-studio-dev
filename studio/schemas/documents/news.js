@@ -43,8 +43,8 @@ export default {
       name: 'excerpt',
       type: 'excerptPortableText',
       title: 'Excerpt',
-      description:
-        'This ends up on summary pages, on Google, when people share your post in social media.'
+      description: 'This ends up on summary pages, on Google, when people share your post in social media. The contents of this field are also used for the SEO friendly page description.',
+      validation: Rule => Rule.required(),
     },
     {
       name: 'link',

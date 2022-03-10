@@ -29,6 +29,13 @@ export default {
       validation: Rule => Rule.required()
     },
     {
+      name: 'description',
+      type: 'text',
+      title: 'Page Description',
+      description: 'Add an optional SEO friendly description of this page. Aim for a description between 120 and 155 characters that accurately describes what this page is using relevant keywords where possible. If no description is provided the default description in the "Settings" tab will be used.',
+      validation: Rule => Rule.max(155)
+    },
+    {
       name: 'projectCategories',
       type: 'array',
       title: 'Project Categories',

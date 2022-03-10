@@ -13,8 +13,8 @@ export default {
   },
   metaInfo() {
     return {
-      title: 'Team',
-      titleTemplate: '%s | The Brooklyn Studio',
+      title: this.$page.page.title,
+      titleTemplate: '%s | ' + this.$page.settings.title,
       meta: [
         {
           key: 'description',
@@ -59,6 +59,10 @@ export default {
 
 <page-query>
 {
+  settings: sanitySiteSettings(id: "siteSettings") {
+    title
+    description
+  }
   page: sanityTeam(id: "cef832e0-d677-47bc-9b33-df2c355b9c60") {
     title
     hero {
