@@ -22,3 +22,4 @@ https://cwbarchitects.com/project-category/academic/ https://brooklyn.studio/pro
 https://cwbarchitects.com/project-category/civic/ https://brooklyn.studio/projects/#adaptive-reuse 301
 https://cwbarchitects.com/project-category/adaptive-reuse/ https://brooklyn.studio/projects/#adaptive-reuse 301
 https://cwbarchitects.com/interiors/ https://brooklyn.studio/projects/#interior-design 301
+https://cwbarchitects.com/* https://brooklyn.studio/:splat 301
