@@ -17,7 +17,7 @@ export default {
         {
           key: 'description',
           name: 'description',
-          content: 'The Brooklyn Studio is an interdisciplinary architecture and design firm committed to restoring and enhancing New York City\'s historic fabric.'
+          content: 'We are always looking for creative professionals who thrive in a collaborative environment. Our current openings are listed below.'
         },
         // {
         //   key: 'og:title',
