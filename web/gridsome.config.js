@@ -30,9 +30,8 @@ function addStyleResource (rule) {
 
 module.exports = {
   siteName: 'The Brooklyn Studio',
-  siteDescription:
-    'The Brooklyn Studio is an architecture and interior design firm based in Brooklyn and known for its adept and artful blend of historic renovation and modern design.',
-
+  siteUrl: 'https://brooklyn.studio',
+  siteDescription: 'The Brooklyn Studio is an architecture and interior design firm based in Brooklyn and known for its adept and artful blend of historic renovation and modern design.',
   templates: {
     SanitySimplePage: '/:slug__current',
     SanityNews: '/news/:slug__current',
@@ -78,6 +77,13 @@ module.exports = {
       options: {
         id: 'UA-27552254-1'
       }
-    }
+    },
+    {
+      use: '@gridsome/plugin-sitemap',
+      options: {
+        cacheTime: 600000, // default
+        exclude: ['/pj/**']
+      }
+    },
   ]
 }
