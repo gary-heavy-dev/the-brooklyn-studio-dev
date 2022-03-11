@@ -90,6 +90,11 @@
 
     &:not(.work-feed__slide) {
       width: 100% !important;
+
+      .base-image {
+        width: calc(100% + 2px);
+        transform: translateX(-1px);
+      }
     }
   }
 
