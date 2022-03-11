@@ -86,6 +86,13 @@
 
 .swiper-slide {
 
+  @-moz-document url-prefix() {
+
+    &:not(.work-feed__slide) {
+      width: 100% !important;
+    }
+  }
+
   .image-caption {
 
     @include desktop-down {

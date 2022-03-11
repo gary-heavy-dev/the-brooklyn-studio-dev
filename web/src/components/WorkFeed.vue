@@ -12,19 +12,19 @@
     >
       <swiper-slide
         :data-hash="$static.res.slug.current"
-        class="o-h"
+        class="o-h work-feed__slide"
       >
         <WorkFeedSlide :content="$static.res" />
       </swiper-slide>
       <swiper-slide
         :data-hash="$static.int.slug.current"
-        class="o-h"
+        class="o-h work-feed__slide"
       >
         <WorkFeedSlide :content="$static.int" />
       </swiper-slide>
       <swiper-slide
         :data-hash="$static.ad.slug.current"
-        class="o-h"
+        class="o-h work-feed__slide"
       >
         <WorkFeedSlide :content="$static.ad" />
       </swiper-slide>
