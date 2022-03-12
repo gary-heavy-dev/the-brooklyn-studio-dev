@@ -23,6 +23,9 @@ https://cwbarchitects.com/project-category/adaptive-reuse/ https://brooklyn.stud
 https://cwbarchitects.com/project/ https://brooklyn.studio/projects 301
 https://cwbarchitects.com/project/house-1/ https://brooklyn.studio/projects/bug-acres-of-woodstock 301
 https://cwbarchitects.com/project/easthampton-northwest-woods/ https://brooklyn.studio/projects/easthampton-country-house/ 301
+https://cwbarchitects.com/project/park-slope-modern-row-house/ https://brooklyn.studio/projects/park-slope-queen-anne/ 301
+https://cwbarchitects.com/project/cobble-hill-italianate/ https://brooklyn.studio/projects/cobble-hill-italianate-no-2 301
+https://cwbarchitects.com/project/park-slope-lighthouse-2/ https://brooklyn.studio/projects/park-slope-romanesque-revival 301
 https://cwbarchitects.com/project/* https://brooklyn.studio/projects 301
 https://cwbarchitects.com/* https://brooklyn.studio/:splat 301!
 
@@ -51,6 +54,9 @@ https://www.cwbarchitects.com/project-category/adaptive-reuse/ https://brooklyn.
 https://www.cwbarchitects.com/project/ https://brooklyn.studio/projects 301
 https://www.cwbarchitects.com/project/house-1/ https://brooklyn.studio/projects/bug-acres-of-woodstock 301
 https://www.cwbarchitects.com/project/easthampton-northwest-woods/ https://brooklyn.studio/projects/easthampton-country-house/ 301
+https://www.cwbarchitects.com/project/park-slope-modern-row-house/ https://brooklyn.studio/projects/park-slope-queen-anne/ 301
+https://www.cwbarchitects.com/project/cobble-hill-italianate/ https://brooklyn.studio/projects/cobble-hill-italianate-no-2 301
+https://www.cwbarchitects.com/project/park-slope-lighthouse-2/ https://brooklyn.studio/projects/park-slope-romanesque-revival 301
 https://www.cwbarchitects.com/project/* https://brooklyn.studio/projects 301
 https://www.cwbarchitects.com/* https://brooklyn.studio/:splat 301!
 
