@@ -3,6 +3,7 @@
     class="lightbox"
     id="projectLightbox"
   >
+    <div class="lightbox__title">{{ content.title }}</div>
     <ProjectLightboxClose
       @click.native="closeLightbox"
     />
@@ -23,20 +24,35 @@
           :src="image.asset.url"
         />
       </swiper-slide>
-      <div 
-        class="swiper-button-prev"
+      <div
+        class="swiper-button-prev desktop-only"
         slot="button-prev"
       >
         <SliderArrow />
       </div>
       <div
-        class="swiper-button-next"
+        class="swiper-button-next desktop-only"
         slot="button-next"
       >
         <SliderArrow />
       </div>
+      <div class="lightbox__mobile-nav mobile-only">
+        <div
+          class="swiper-button-prev"
+          slot="button-prev"
+        >
+          <SliderArrowSmall />
+        </div>
+        <div
+          class="swiper-button-next"
+          slot="button-next"
+        >
+          <SliderArrowSmall />
+        </div>
+        <div class="lightbox__pagination xsmall"></div>
+      </div>
     </swiper>
-    <div class="lightbox__pagination xsmall"></div>
+    <div class="lightbox__pagination xsmall desktop-only"></div>
   </div>
 </template>
 
@@ -46,13 +62,15 @@ import 'swiper/css/swiper.css'
 import eventHub from '~/utils/eventHub'
 import ProjectLightboxClose from '~/components/ProjectLightboxClose'
 import SliderArrow from '~/components/SliderArrow'
+import SliderArrowSmall from '~/components/SliderArrowSmall'
 
 export default {
   components: {
     Swiper,
     SwiperSlide,
     ProjectLightboxClose,
-    SliderArrow
+    SliderArrow,
+    SliderArrowSmall
   },
   data() {
     return {
@@ -149,13 +167,22 @@ export default {
     opacity: 1;
   }
 
+  &__title {
+    padding: 40px;
+    position: absolute;
+  }
+
   &__swiper {
     height: 100%;
 
     &-slide {
       display: flex;
       justify-content: center;
-      padding: 137px;
+      padding: 80px 40px;
+
+      @include desktop {
+        padding: 137px;
+      }
     }
   }
 
@@ -191,16 +218,43 @@ export default {
   .swiper-button-prev {
     color: var(--color--gray-tertiary);
     height: 100%;
-    width: 80px;
+    width: 8px;
     top: 21px;
+
+    @include laptop {
+      width: 30px;
+    }
+
+    @include desktop {
+      width: 50px;
+    }
   }
 
   .swiper-button-next {
-    right: 20px;
+    right: 40px;
   }
 
   .swiper-button-prev {
-    left: 20px;
+    left: 40px;
+  }
+
+  &__mobile-nav {
+
+    .swiper-button-next,
+    .swiper-button-prev {
+      height: 15px;
+      width: 10px;
+      top: unset;
+      bottom: 82px;
+    }
+
+    .swiper-button-next {
+      right: 25%;
+    }
+
+    .swiper-button-prev {
+      left: 25%;
+    }
   }
 }
 </style>
