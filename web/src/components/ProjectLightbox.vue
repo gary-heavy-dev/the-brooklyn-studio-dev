@@ -18,7 +18,7 @@
         :key="index"
         @click.native="closeLightbox"
       >
-        <div class="lightbox__caption">{{ image.caption }}</div>
+        <!-- <div class="lightbox__caption">{{ image.caption }}</div> -->
         <g-image
           class="lightbox__image"
           :src="image.asset.url"
@@ -168,8 +168,12 @@ export default {
   }
 
   &__title {
-    padding: 40px;
     position: absolute;
+    padding: 37px var(--grid-margin);
+
+    @include desktop {
+      padding: 40px;
+    }
   }
 
   &__swiper {
@@ -178,7 +182,7 @@ export default {
     &-slide {
       display: flex;
       justify-content: center;
-      padding: 80px 40px;
+      padding: 80px var(--grid-margin);
 
       @include desktop {
         padding: 137px;

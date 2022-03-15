@@ -27,6 +27,7 @@
 
     @include desktop-down {
       width: 16px;
+      right: var(--grid-margin);
     }
 
     &:first-child {
