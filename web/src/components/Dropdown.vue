@@ -8,14 +8,14 @@
       class="dropdown__title"
       v-if="primary"
       :aria-expanded="String(expanded)"
-      aria-controls="projects-dropdown"
+      :aria-controls="name + '-dropdown'"
       @click="expanded = !expanded"
     >
       <g-link :to="primary.link">{{ primary.linkText }}</g-link>
     </button>
     <ul
       class="dropdown__menu"
-      id="projects-dropdown"
+      :id="name + '-dropdown'"
     >
       <li
         v-for="(link, index) in secondary"
@@ -31,7 +31,8 @@
 export default {
   props: {
     primary: Object,
-    secondary: Array
+    secondary: Array,
+    name: String
   },
   data() {
     return {

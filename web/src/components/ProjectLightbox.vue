@@ -23,6 +23,7 @@
           data-sizes="auto"
           :src="image.asset.url"
           :srcset="$gImageMap(image.asset.url, sizes, $static.metadata.sanityOptions)"
+          :alt="image.alt"
         />
       </swiper-slide>
       <div
