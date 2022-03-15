@@ -4,7 +4,7 @@
     id="introAnimation"
     @dblclick="closeIntro"
   >
-    <div class="flex ai-c jc-c h-100 w-100 pos-abs z-2">
+    <div class="flex ai-c jc-c w-100 pos-abs z-2">
       <lottie-animation
         class="w-100 logo-animation"
         ref="anim"

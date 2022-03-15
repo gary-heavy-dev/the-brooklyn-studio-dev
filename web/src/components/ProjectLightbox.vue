@@ -18,10 +18,11 @@
         :key="index"
         @click.native="closeLightbox"
       >
-        <!-- <div class="lightbox__caption">{{ image.caption }}</div> -->
         <g-image
-          class="lightbox__image"
+          class="lightbox__image lazyload"
+          data-sizes="auto"
           :src="image.asset.url"
+          :srcset="$gImageMap(image.asset.url, sizes, $static.metadata.sanityOptions)"
         />
       </swiper-slide>
       <div
@@ -49,10 +50,10 @@
         >
           <SliderArrowSmall />
         </div>
-        <div class="lightbox__pagination xsmall"></div>
+        <!-- <div class="lightbox__pagination xsmall"></div> -->
       </div>
     </swiper>
-    <div class="lightbox__pagination xsmall desktop-only"></div>
+    <div class="lightbox__pagination xsmall"></div>
   </div>
 </template>
 
@@ -74,6 +75,7 @@ export default {
   },
   data() {
     return {
+      sizes: {},
       swiperOption: {
         effect: 'fade',
         loop: true,
@@ -182,7 +184,7 @@ export default {
     &-slide {
       display: flex;
       justify-content: center;
-      padding: 80px var(--grid-margin);
+      padding: 80px var(--grid-margin) 137px;
 
       @include desktop {
         padding: 137px;
@@ -202,6 +204,12 @@ export default {
     object-fit: contain;
     transition: opacity 0.3s linear;
   }
+
+  // &__image,
+  // &__image .base-image__inner,
+  // &__image img {
+  //   height: 100%;
+  // }
 
   &__caption {
     position: fixed;
@@ -262,3 +270,14 @@ export default {
   }
 }
 </style>
+
+<static-query>
+query {
+  metadata {
+    sanityOptions{
+      projectId
+      dataset
+    }
+  }
+}
+</static-query>
