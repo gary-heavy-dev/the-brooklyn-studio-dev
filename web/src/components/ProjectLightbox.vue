@@ -169,7 +169,7 @@ export default {
 
   &__title {
     position: absolute;
-    padding: 37px var(--grid-margin);
+    padding: 37px calc(var(--grid-margin) * 2.5) 37px var(--grid-margin);
 
     @include desktop {
       padding: 40px;
