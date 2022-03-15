@@ -12,7 +12,7 @@ export default {
   metaInfo() {
     return {
       title: 'Home',
-      titleTemplate: '%s | The Brooklyn Studio',
+      titleTemplate: '%s | ' + this.$page.settings.title,
       meta: [
         {
           key: 'description',
@@ -57,6 +57,10 @@ export default {
 
 <page-query>
 {
+  settings: sanitySiteSettings (id: "siteSettings") {
+    title
+    description
+  }
   page: sanityHome(id: "542616c1-f362-4f33-b903-4f4add184641") {
     introSection {
       introLarge

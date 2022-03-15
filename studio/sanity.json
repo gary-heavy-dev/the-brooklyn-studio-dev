@@ -18,7 +18,37 @@
     "dashboard-widget-document-list",
     "dashboard-widget-netlify",
     "asset-source-unsplash",
-    "color-list"
+    "color-list",
+    "@sanity/vision"
+  ],
+  "env": {
+    "development": {
+      "plugins": [
+        "@sanity/vision"
+      ],
+      "api": {
+        "dataset": "staging"
+      }
+    }
+  },
+  "__experimental_spaces": [
+    {
+      "name": "production",
+      "title": "Production",
+      "default": true,
+      "api": {
+        "projectId": "wups1rn4",
+        "dataset": "production"
+      }
+    },
+    {
+      "name": "staging",
+      "title": "Staging",
+      "api": {
+        "projectId": "wups1rn4",
+        "dataset": "staging"
+      }
+    }
   ],
   "parts": [
     {
