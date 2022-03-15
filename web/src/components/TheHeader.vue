@@ -25,6 +25,7 @@
             <g-link to="/about-us">About</g-link>
           </li>
           <Dropdown
+            :name="'about'"
             :primary="aboutDropdown.primary"
             :secondary="aboutDropdown.secondary"
           />
@@ -32,6 +33,7 @@
             <g-link to="/projects/#residential-architecture">Projects</g-link>
           </li>
           <Dropdown
+            :name="'projects'"
             :primary="projectsDropdown.primary"
             :secondary="projectsDropdown.secondary"
           />
