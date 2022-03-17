@@ -93,7 +93,11 @@ export default {
           renderFraction: function (currentClass, totalClass) {
             return '<span class="' + currentClass + '"></span>' + '<span>/</span>' + '<span class="' + totalClass + '"></span>'
           }
-        }
+        },
+        keyboard: {
+          enabled: true,
+          onlyInViewport: false,
+        },
       },
     }
   },
@@ -135,6 +139,21 @@ export default {
       // console.log("My index is:", slideIndex)
       this.openLightbox
       this.swiper.slideTo(slideIndex + 1, 0)
+    },
+    handleEscape(e) {
+      if (e.key == 'Escape') {
+        this.closeLightbox()
+      }
+    }
+  },
+  created() {
+    if (typeof window !== 'undefined') {
+      window.addEventListener("keydown", this.handleEscape)
+     }
+  },
+  destroyed() {
+    if (typeof window !== 'undefined') {
+      window.removeEventListener("keydown", this.handleEscape)
     }
   },
   mounted() {
@@ -154,10 +173,9 @@ export default {
 .lightbox {
   color: var(--color--gray-tertiary);
   position: fixed;
-  top: 0;
   left: 0;
   right: 0;
-  bottom: 0;
+  bottom: 99999999999999999px;
   z-index: -1;
   opacity: 0;
   width: 100vw;
@@ -168,6 +186,8 @@ export default {
   &--active {
     z-index: 9999999999999999999;
     opacity: 1;
+    top: 0;
+    bottom: 0;
   }
 
   &__title {
