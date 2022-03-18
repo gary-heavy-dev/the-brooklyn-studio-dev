@@ -51,7 +51,6 @@
         >
           <SliderArrowSmall />
         </div>
-        <!-- <div class="lightbox__pagination xsmall"></div> -->
       </div>
     </swiper>
     <div class="lightbox__pagination xsmall"></div>
