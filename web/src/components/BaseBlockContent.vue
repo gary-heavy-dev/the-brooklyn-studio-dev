@@ -20,6 +20,14 @@ export default {
   data() {
     return {
       serializers: {
+        marks: {
+          link: ({mark, children}) => {
+            const { blank, href } = mark
+            return blank ?
+              <a href={href} target="_blank" rel="noopener">{children}</a>
+              : <a href={href}>{children}</a>
+          }
+        },
         types: {
           mainImage: ({ node }) => (
             <figure>

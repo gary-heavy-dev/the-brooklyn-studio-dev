@@ -45,11 +45,11 @@
                 v-if="credit.heading"
                 class="h5 credits__heading"
               >{{ credit.heading }}</h2>
-              <div
-                v-if="credit.text"
+              <BaseBlockContent
+                v-if="credit._rawCopy"
                 class="color--gray-tertiary"
-                v-html="credit.text"
-              ></div>
+                :blocks="credit._rawCopy"
+              />
             </div>
           </div>
         </div>

@@ -57,7 +57,7 @@ export default {
     }
     credits {
       heading
-      text
+      _rawCopy
     }
   }
 }

@@ -53,7 +53,7 @@ export default {
       type: 'array',
       title: 'Credits Blocks',
       description: 'Add credit blocks using the following repeater field. The multi-line text fields support HTML so you can link websites or email addresses.',
-      of: [{ type: 'headingTextPair' }],
+      of: [{ type: 'headingPortablePair' }],
       fieldset: 'credits'
     }
   ]
