@@ -3,7 +3,7 @@
     class="lightbox"
     id="projectLightbox"
   >
-    <div class="lightbox__title">{{ content.title }}</div>
+    <div class="lightbox__title" v-html="content.title"></div>
     <ProjectLightboxClose
       @click.native="closeLightbox"
     />
