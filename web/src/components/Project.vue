@@ -4,6 +4,7 @@
       :displayTitle="content.displayTitle"
       :heading="content.title"
       :image="content.image"
+      :mobileImage="content.mobileHeroImage"
     />
     <FlexibleContent :content="content.flexibleContent" />
     <ProjectDetails

@@ -61,6 +61,12 @@ export default {
       validation: Rule => Rule.required()
     },
     {
+      name: 'mobileHeroImage',
+      type: 'mainImage',
+      title: 'Mobile Hero Image (Optional)',
+      description: 'If a specific crop is required for the mobile hero image, please upload one here. The ideal WxH for this image upload is 1024px by 1383px.'
+    },
+    {
       name: 'flexibleContent',
       type: 'array',
       title: 'FLEXIBLE CONTENT',

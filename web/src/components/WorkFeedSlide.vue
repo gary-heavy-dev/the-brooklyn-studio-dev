@@ -5,8 +5,19 @@
     </div>
     <div class="work-feed-slide__hero overlay mb-80 o-h">
       <BaseImage
+        v-if="content.mobileHeroImage"
+        class="project-hero-mobile mobile-only"
+        :src="content.mobileHeroImage"
+        :lazy="true"
+        :sizes="sizes"
+        :x="1284"
+        :y="500"
+        :caption="content.mobileHeroImage.caption"
+        :captionStyle="content.mobileHeroImage.captionStyle"
+      />
+      <BaseImage
         v-if="content.heroImage"
-        class="project-hero-mobile"
+        :class="['project-hero-mobile', {'desktop-only': content.mobileHeroImage}]"
         :src="content.heroImage"
         :lazy="true"
         :sizes="sizes"

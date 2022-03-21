@@ -138,6 +138,19 @@ query Post ($id: ID, $prevId: ID, $nextId: ID) {
       alt
       caption
     }
+    mobileHeroImage {
+      caption
+      captionStyle
+      asset {
+        id
+        url
+        metadata {
+          lqip
+        }
+      }
+      alt
+      caption
+    }
     flexibleContent {
       ... on SanityFlexibleImage {
         _type

@@ -18,8 +18,16 @@
       </h1>
     </div>
     <BaseImage
+      v-if="mobileImage"
+      class="mobile-only"
+      :lazy="true"
+      :src="mobileImage"
+      :caption="mobileImage.caption"
+      :captionStyle="mobileImage.captionStyle"
+    />
+    <BaseImage
       v-if="image"
-      class="project-hero-mobile"
+      :class="['project-hero-mobile', {'desktop-only': mobileImage}]"
       :lazy="true"
       :src="image"
       :caption="image.caption"
@@ -33,7 +41,8 @@ export default {
   props: {
     displayTitle: Object,
     heading: String,
-    image: Object
+    image: Object,
+    mobileImage: Object
   },
 }
 </script>

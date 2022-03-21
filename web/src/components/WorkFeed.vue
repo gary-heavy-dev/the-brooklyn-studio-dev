@@ -190,6 +190,17 @@ export default {
       }
       alt
     }
+    mobileHeroImage {
+      caption
+      captionStyle
+      asset {
+        url
+        metadata {
+          lqip
+        }
+      }
+      alt
+    }
     projectReferences {
       altThumbnail {
         caption
@@ -246,6 +257,17 @@ export default {
       }
       alt
     }
+    mobileHeroImage {
+      caption
+      captionStyle
+      asset {
+        url
+        metadata {
+          lqip
+        }
+      }
+      alt
+    }
     projectReferences {
       altThumbnail {
         caption
@@ -283,6 +305,17 @@ export default {
       current
     }
     heroImage {
+      caption
+      captionStyle
+      asset {
+        url
+        metadata {
+          lqip
+        }
+      }
+      alt
+    }
+    mobileHeroImage {
       caption
       captionStyle
       asset {
