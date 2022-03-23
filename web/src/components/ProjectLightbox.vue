@@ -174,7 +174,8 @@ export default {
   position: fixed;
   left: 0;
   right: 0;
-  bottom: 99999999999999999px;
+  top: 0;
+  bottom: 0;
   z-index: -1;
   opacity: 0;
   width: 100vw;
@@ -185,8 +186,6 @@ export default {
   &--active {
     z-index: 9999999999999999999;
     opacity: 1;
-    top: 0;
-    bottom: 0;
   }
 
   &__title {
