@@ -1,5 +1,5 @@
 <template>
-  <div class="menu__footer flex fd-c ai-c">
+  <div class="menu__footer flex fd-c ai-c w-100">
     <Logo class="white" />
     <a
       v-if="$static.settings.socialLinkIg"
@@ -29,14 +29,16 @@ export default {
 
 <style lang="scss">
 .menu__footer {
-  width: 50%;
   margin: auto auto 72px;
   text-align: center;
 
   .brooklyn-studio-logo {
     padding-top: 62px;
-    min-width: 200px;
-    max-width: 340px;
+    max-width: 177px;
+
+    @include desktop-down {
+      width: 40.5%;
+    }
   }
 
   .social-icon__instagram {
