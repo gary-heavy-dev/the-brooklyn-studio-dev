@@ -27,6 +27,7 @@ export default {
 
     svg {
       max-width: 100%;
+      width: 100%;
 
       @include desktop {
         max-width: 41%;
