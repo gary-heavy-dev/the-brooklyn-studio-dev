@@ -43,6 +43,9 @@
           <li>
             <g-link to="/contact">Contact</g-link>
           </li>
+          <li class="mobile-only">
+            <g-link to="/about-us/team">Our Team</g-link>
+          </li>
           <MenuMobileFooter class="mobile-only" />
         </ul>
       </nav>
@@ -239,7 +242,7 @@ export default {
             transition: all 0.2s ease-in-out;
 
             &:hover,
-            &.active {
+            &.active--exact {
               background-color: var(--color--white);
               color: var(--color--navy-light);
             }

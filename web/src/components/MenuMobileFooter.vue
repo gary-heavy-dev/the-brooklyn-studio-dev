@@ -1,17 +1,19 @@
 <template>
-  <div class="menu__footer flex fd-c ai-c w-100">
-    <Logo class="white" />
-    <a
-      v-if="$static.settings.socialLinkIg"
-      :href="$static.settings.socialLinkIg"
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label="Link to The Brooklyn Studio Instagram Account"
-    >
-      <LogoInstagram
-        class="social-icon__instagram"
-      />
-    </a>
+  <div class="menu__footer flex fd-c ai-c jc-c w-100">
+    <div class="menu__footer-inner flex fd-c ai-c w-100">
+      <Logo class="white" />
+      <a
+        v-if="$static.settings.socialLinkIg"
+        :href="$static.settings.socialLinkIg"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Link to The Brooklyn Studio Instagram Account"
+      >
+        <LogoInstagram
+          class="social-icon__instagram"
+        />
+      </a>
+    </div>
   </div>
 </template>
 
@@ -29,11 +31,11 @@ export default {
 
 <style lang="scss">
 .menu__footer {
-  margin: auto auto 72px;
+  height: 100%;
+  margin: 72px auto;
   text-align: center;
 
   .brooklyn-studio-logo {
-    padding-top: 62px;
     max-width: 177px;
 
     @include desktop-down {
