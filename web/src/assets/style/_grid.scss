@@ -132,8 +132,11 @@
 
   &:hover {
 
-    &::after {
-      width: calc(2 / 3 * 100%);
+    @include desktop {
+
+      &::after {
+        width: calc(2 / 3 * 100%);
+      }
     }
   }
 }
