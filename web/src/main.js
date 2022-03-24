@@ -13,6 +13,9 @@ import gImageMap from './utils/gImageMap'
 // Import portable to plain text conversion utility  
 import toPlainText from './utils/toPlainText'
 
+// Import HTML entity decoding function
+import decodeEntities from './utils/decodeEntities'
+
 // Import kebab case conversion utility for slug conversion
 import toKebabCase from './utils/toKebabCase'
 
@@ -53,6 +56,9 @@ export default function(Vue, { router, head, isClient }) {
 
   // Inject text conversion util
   Vue.prototype.$toPlainText = toPlainText
+
+  // Inject HTML decoding function
+  Vue.prototype.$decodeEntities = decodeEntities
 
   // Inject general reveal util
   Vue.prototype.$iAmRevealed = function() {
