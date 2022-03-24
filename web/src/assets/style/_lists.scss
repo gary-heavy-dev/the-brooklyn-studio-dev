@@ -10,6 +10,7 @@
 
     li {
       padding-right: var(--grid-gap);
+      break-inside: avoid;
     }
   }
 }
