@@ -39,7 +39,7 @@
         >{{ content.title }}</div>
         <BaseBlockContent
           v-if="content._rawBio"
-          class="small"
+          class="small team-member__bio"
           :blocks="content._rawBio"
         />
         <TeamMemberQuestionnaire
@@ -124,6 +124,16 @@ export default {
     @include desktop {
       grid-column: 6/13;
       padding-top: 110px;
+    }
+  }
+
+  &__bio {
+    margin-bottom: -50px;
+    position: relative;
+    z-index: 2;
+
+    @include desktop {
+      margin-bottom: -58px;
     }
   }
 
