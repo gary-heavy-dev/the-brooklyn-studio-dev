@@ -2,6 +2,7 @@ https://cwbarchitects.com/firm/ https://brooklyn.studio/about-us 301
 https://cwbarchitects.com/people/people/* https://brooklyn.studio/about-us/team/:splat 301
 https://cwbarchitects.com/people/* https://brooklyn.studio/about-us/team/:splat 301
 https://cwbarchitects.com/people/ https://brooklyn.studio/about-us/team 301
+https://cwbarchitects.com/blog/* https://brooklyn.studio/news 301
 https://cwbarchitects.com/blog/ https://brooklyn.studio/news 301
 https://cwbarchitects.com/theme/workspaces/ https://brooklyn.studio/about-us 301
 https://cwbarchitects.com/press/ https://brooklyn.studio/news 301
