@@ -90,8 +90,8 @@ export default {
     },
     amComplete() {
       this.closeIntro()
-    }
-  }
+    },
+  },
 }
 </script>
 
@@ -118,6 +118,13 @@ body.animation-playing {
 
   > div {
     height: 100%;
+  }
+
+  .logo-animation {
+
+    @include desktop-down {
+      padding-bottom: 50px;
+    }
   }
 
   &.animation-hidden {
