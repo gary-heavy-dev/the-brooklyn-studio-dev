@@ -282,18 +282,27 @@ p.h5,
     animation-delay: 0.5s;
   }
 
+  &:hover,
+  &.active {
+
+    &::before {
+      transform-origin: 100% 50%;
+      animation-name: slideOutIn;
+    }
+
+    &::after {
+      transform-origin: 0% 50%;
+      animation-name: slideInOut;
+    }
+  }
+
   &:hover {
 
-    @include desktop {
-
-      &::before {
-        transform-origin: 100% 50%;
-        animation-name: slideOutIn;
-      }
-
+    @include desktop-down {
+      
+      &::before,
       &::after {
-        transform-origin: 0% 50%;
-        animation-name: slideInOut;
+        animation-name: unset;
       }
     }
   }

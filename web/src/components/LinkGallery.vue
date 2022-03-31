@@ -22,7 +22,7 @@
               :key="index"
               @mouseover.native="showMe(link.link.slug.current)"
               @mouseleave.native="hideMe(link.link.slug.current)"
-              :class="['upper button link-gallery__link', { 'active': index === 0}]"
+              class="upper button link-gallery__link"
               :data-link-slug="link.link.slug.current"
             >{{ link.copy }}</g-link>
           </div>
