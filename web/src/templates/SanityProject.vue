@@ -40,8 +40,6 @@ export default {
   },
   metaInfo() {
     return {
-      title: this.$decodeEntities(this.$page.post.title),
-      titleTemplate: '%s | ' + this.$page.settings.title,
       meta: [
         {
           key: 'description',
