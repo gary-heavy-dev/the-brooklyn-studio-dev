@@ -150,8 +150,6 @@ export default {
 
 .team-member-questionnaire {
   background-color: inherit;
-  position: relative;
-  z-index: 1;
 
   &__intro {
     position: sticky;

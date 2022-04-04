@@ -127,16 +127,6 @@ export default {
     }
   }
 
-  &__bio {
-    margin-bottom: -50px;
-    position: relative;
-    z-index: 2;
-
-    @include desktop {
-      margin-bottom: -58px;
-    }
-  }
-
   .breadcrumbs {
     padding-top: 108px;
 
