@@ -34,12 +34,6 @@ export default {
     prev: Object,
     next: Object
   },
-  metaInfo() {
-    return {
-      title: this.$decodeEntities(this.$page.post.title),
-      titleTemplate: '%s | ' + this.$page.settings.title,
-    }
-  }
 }
 </script>
 

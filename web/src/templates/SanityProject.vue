@@ -26,6 +26,9 @@ export default {
       const des = this.$page.post.description ? this.$page.post.description : this.$page.settings.description
       const count = 155
       return des.slice(0, count) + (des.length > count ? '...' : '')
+    },
+    title() {
+      return this.$decodeEntities(this.$page.post.title)
     }
   },
   methods: {
@@ -40,6 +43,8 @@ export default {
   },
   metaInfo() {
     return {
+      title: this.title,
+      titleTemplate: '%s | ' + this.$page.settings.title,
       meta: [
         {
           key: 'description',
