@@ -66,8 +66,8 @@ export default {
       return {
         largeText: this.content.featuredNews.title,
         _rawCopy: this.content.featuredNews._rawExcerpt,
-        // linkText: 'Read More',
-        // link: this.ctaLink,
+        linkText: 'Read More About The Brooklyn Studio',
+        link: this.ctaLink,
         image: {
           asset: {
             url: this.content.featuredNews.mainImage.asset.url,
