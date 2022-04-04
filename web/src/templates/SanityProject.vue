@@ -44,7 +44,7 @@ export default {
   metaInfo() {
     return {
       title: this.title,
-      titleTemplate: '%s | ' + this.$page.settings.title,
+      titleTemplate: this.title + ' | ' + this.$page.settings.title,
       meta: [
         {
           key: 'description',
