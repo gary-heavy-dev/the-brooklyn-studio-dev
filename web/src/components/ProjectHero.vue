@@ -7,8 +7,8 @@
         v-if="displayTitle && displayTitle.displayTitleStatus"
         class="h1 color--white container fade--in-up"
       >
-        {{ displayTitle.lineOne }}<br>
-        {{ displayTitle.lineTwo }}
+        <span v-html="displayTitle.lineOne"></span><br>
+        <span v-html="displayTitle.lineTwo"></span>
       </h1>
       <h1
         v-else
