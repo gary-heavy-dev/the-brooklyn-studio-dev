@@ -28,7 +28,7 @@ export default {
       return des.slice(0, count) + (des.length > count ? '...' : '')
     },
     title() {
-      return this.$decodeEntities(this.$page.post.title)
+      return this.$page.post.title.replace(/&nbsp;/g, ' ')
     }
   },
   methods: {
@@ -44,7 +44,7 @@ export default {
   metaInfo() {
     return {
       title: this.title,
-      titleTemplate: this.title + ' | ' + this.$page.settings.title,
+      titleTemplate: '%s | ' + this.$page.settings.title,
       meta: [
         {
           key: 'description',
