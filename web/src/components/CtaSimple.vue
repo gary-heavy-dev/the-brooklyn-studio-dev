@@ -151,6 +151,7 @@ export default {
   .copy-wrapper {
 
     a {
+      width: auto;
 
       @include hd-to-laptop {
 
