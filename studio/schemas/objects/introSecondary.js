@@ -24,7 +24,7 @@ export default {
       name: 'introImageSecondary',
       type: 'mainImage',
       title: 'Intro Image (Secondary)',
-      description: 'This is the smaller image that appears below the intro section link. The ideal WxH for this image upload is 1312px by 874px.'
+      description: 'This is the smaller image that appears below the intro section link. The ideal WxH for this image upload is 1312px by 1010px.'
     }
   ]
 }
