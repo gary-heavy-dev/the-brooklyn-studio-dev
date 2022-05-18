@@ -28,6 +28,24 @@ export default {
       description: 'This can be used to schedule post for publishing'
     },
     {
+      name: 'publisher',
+      type: 'reference',
+      title: 'Publisher',
+      description: 'Add an optional publisher.',
+      to: {
+        type: 'publisher'
+      }
+    },
+    {
+      name: 'author',
+      type: 'reference',
+      title: 'Author',
+      description: 'Add an optional author.',
+      to: {
+        type: 'author'
+      }
+    },
+    {
       name: 'mainImage',
       type: 'mainImage',
       title: 'Main image'

@@ -7,6 +7,7 @@ import schemaTypes from 'all:part:@sanity/base/schema-type'
 // document schemas
 import about from './documents/about'
 import adaptiveReuse from './documents/adaptiveReuse'
+import author from './documents/author'
 import award from './documents/award'
 import careers from './documents/careers'
 import careersPost from './documents/careersPost'
@@ -20,6 +21,7 @@ import post from './documents/post'
 import press from './documents/press'
 import project from './documents/project'
 import projectCategory from './documents/projectCategory'
+import publisher from './documents/publisher'
 import residentialArchitecture from './documents/residentialArchitecture'
 import simplePage from './documents/simplePage'
 import siteSettings from './documents/siteSettings'
@@ -39,6 +41,7 @@ import flexibleImage from './objects/flexibleImage'
 import flexibleImagePair from './objects/flexibleImagePair'
 import flexibleImageWithText from './objects/flexibleImageWithText'
 import flexibleText from './objects/flexibleText'
+import gallerySimple from './objects/gallerySimple'
 import headingPortablePair from './objects/headingPortablePair'
 import headingTextPair from './objects/headingTextPair'
 import heroHome from './objects/heroHome'
@@ -70,6 +73,7 @@ export default createSchema({
     // in the studio.
     about,
     adaptiveReuse,
+    author,
     award,
     bodyPortableText,
     bioPortableText,
@@ -87,6 +91,7 @@ export default createSchema({
     flexibleImagePair,
     flexibleImageWithText,
     flexibleText,
+    gallerySimple,
     headingPortablePair,
     headingTextPair,
     heroHome,
@@ -111,6 +116,7 @@ export default createSchema({
     project,
     projectCategory,
     projectReference,
+    publisher,
     residentialArchitecture,
     scrollingGallery,
     scrollingGallerySection,

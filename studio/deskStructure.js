@@ -4,7 +4,7 @@ import { FaRecycle, FaNewspaper, FaRegNewspaper, FaTrophy, FaPenFancy } from 're
 import { AiFillFormatPainter } from 'react-icons/ai'
 
 const hiddenDocTypes = listItem =>
-  !['about', 'adaptiveReuse', 'award', 'careers', 'careersPost', 'contact', 'category', 'home', 'interiorDesign', 'news', 'newsPage', 'post', 'press', 'project', 'projectCategory', 'residentialArchitecture', 'siteSettings', 'team', 'teamMember', 'simplePage'].includes(listItem.getId())
+  !['about', 'adaptiveReuse', 'author', 'award', 'careers', 'careersPost', 'contact', 'category', 'home', 'interiorDesign', 'news', 'newsPage', 'post', 'press', 'project', 'projectCategory', 'publisher', 'residentialArchitecture', 'siteSettings', 'team', 'teamMember', 'simplePage'].includes(listItem.getId())
 
 export default () =>
   S.list()

@@ -1,13 +1,5 @@
 import React from 'react'
 
-// const wordBreakIcon = () => (
-//   <span style={{ fontWeight: 'bold'}}>WB</span>
-// )
-
-// const wordBreakRender = props => (
-//   <span style={{ backgroundColor: 'yellow' }}>|{props.children}|</span>
-// )
-
 export default {
   name: 'excerptPortableText',
   type: 'array',
@@ -23,14 +15,6 @@ export default {
           {title: 'Strong', value: 'strong'},
           {title: 'Emphasis', value: 'em'},
           {title: 'Code', value: 'code'},
-          // {
-          //   title: 'Word Break',
-          //   value: 'wordBreak',
-          //   blockEditor: {
-          //     icon: wordBreakIcon,
-          //     render: wordBreakRender
-          //   }
-          // }
         ],
         annotations: [
           {

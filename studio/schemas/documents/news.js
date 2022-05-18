@@ -34,6 +34,24 @@ export default {
       description: 'This can be used to schedule post for publishing'
     },
     {
+      name: 'publisher',
+      type: 'reference',
+      title: 'Publisher',
+      description: 'Add an optional publisher.',
+      to: {
+        type: 'publisher'
+      }
+    },
+    {
+      name: 'author',
+      type: 'reference',
+      title: 'Author',
+      description: 'Add an optional author.',
+      to: {
+        type: 'author'
+      }
+    },
+    {
       name: 'mainImage',
       type: 'mainImage',
       title: 'Main image',
@@ -55,7 +73,7 @@ export default {
     {
       name: 'categories',
       type: 'array',
-      title: 'Categories',
+      title: 'Categories/Tags',
       of: [
         {
           type: 'reference',
@@ -66,12 +84,25 @@ export default {
       ]
     },
     {
+      name: 'flexibleContent',
+      type: 'array',
+      title: 'FLEXIBLE CONTENT',
+      description: 'Choose from a list of different content types to build your page.',
+      of: [
+        { type: 'flexibleImage' },
+        { type: 'flexibleImagePair' },
+        { type: 'flexibleImageWithText' },
+        { type: 'flexibleText' },
+        { type: 'gallerySimple' },
+      ]
+    },
+    {
       name: 'sections',
       type: 'array',
       title: 'Sections',
       description: 'Use sections to group headings. Each section has a larger bottom margin than the standard paragraph.',
       of: [{ type: 'portableTextWrapper' }]
-    }
+    },
   ],
   orderings: [
     {
