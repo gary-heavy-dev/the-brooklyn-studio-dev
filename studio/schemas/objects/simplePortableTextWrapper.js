@@ -1,6 +1,9 @@
+import { MdTitle } from 'react-icons/md'
+
 export default {
   type: 'object',
   name: 'simplePortableTextWrapper',
+  icon: MdTitle,
   fields: [
     {
       name: 'excerptPortableText',

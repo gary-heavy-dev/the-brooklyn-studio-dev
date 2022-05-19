@@ -21,13 +21,14 @@ export default {
   preview: {
     select: {
       title: 'title',
-      subtitle: 'images.0.alt',
+      caption: 'images.0.caption',
+      alt: 'images.0.alt',
       image: 'images.0.asset'
     },
-    prepare({ title, subtitle, image }) {
+    prepare({ title, caption, alt, image }) {
       return {
-        title: 'Image Gallery',
-        subtitle: `${subtitle}`,
+        title: caption ? caption : alt,
+        subtitle: 'Image Gallery',
         media: image,
       };
     },

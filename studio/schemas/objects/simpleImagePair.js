@@ -21,13 +21,14 @@ export default {
   preview: {
     select: {
       title: 'title',
-      subtitle: 'imageLeft.alt',
+      caption: 'imageLeft.caption',
+      alt: 'imageLeft.alt',
       media: 'imageLeft',
     },
-    prepare({ subtitle, media }) {
+    prepare({ caption, alt, media }) {
       return {
-        title: "Image Pair",
-        subtitle: `${subtitle}`,
+        title: caption ? caption : alt,
+        subtitle: "Image Pair",
         media,
       }
     }
