@@ -41,7 +41,6 @@ import flexibleImage from './objects/flexibleImage'
 import flexibleImagePair from './objects/flexibleImagePair'
 import flexibleImageWithText from './objects/flexibleImageWithText'
 import flexibleText from './objects/flexibleText'
-import gallerySimple from './objects/gallerySimple'
 import headingPortablePair from './objects/headingPortablePair'
 import headingTextPair from './objects/headingTextPair'
 import heroHome from './objects/heroHome'
@@ -60,6 +59,10 @@ import projectReference from './objects/projectReference'
 import proustQuestionnaire from './objects/proustQuestionnaire'
 import scrollingGallery from './objects/scrollingGallery'
 import scrollingGallerySection from './objects/scrollingGallerySection'
+import simpleImagePair from './objects/simpleImagePair'
+import simpleImageWithText from './objects/simpleImageWithText'
+import simpleGallery from './objects/simpleGallery'
+import simplePortableTextWrapper from './objects/simplePortableTextWrapper'
 import wordBreak from './objects/wordBreak'
 
 // Then we give our schema to the builder and provide the result to Sanity
@@ -91,7 +94,6 @@ export default createSchema({
     flexibleImagePair,
     flexibleImageWithText,
     flexibleText,
-    gallerySimple,
     headingPortablePair,
     headingTextPair,
     heroHome,
@@ -120,7 +122,11 @@ export default createSchema({
     residentialArchitecture,
     scrollingGallery,
     scrollingGallerySection,
+    simpleImagePair,
+    simpleImageWithText,
     simplePage,
+    simpleGallery,
+    simplePortableTextWrapper,
     siteSettings,
     team,
     teamMember,

@@ -89,11 +89,10 @@ export default {
       title: 'FLEXIBLE CONTENT',
       description: 'Choose from a list of different content types to build your page.',
       of: [
-        { type: 'flexibleImage' },
-        { type: 'flexibleImagePair' },
-        { type: 'flexibleImageWithText' },
-        { type: 'flexibleText' },
-        { type: 'gallerySimple' },
+        { type: 'simplePortableTextWrapper', title: 'Portable Text (WYSIWYG)' },
+        { type: 'simpleImagePair', title: 'Image Pair' },
+        { type: 'simpleImageWithText', title: 'Image With Text' },
+        { type: 'simpleGallery', title: 'Image Gallery' },
       ]
     },
     {

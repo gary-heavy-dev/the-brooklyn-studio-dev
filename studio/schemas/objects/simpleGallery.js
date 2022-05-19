@@ -1,5 +1,5 @@
 export default {
-  name: 'gallerySimple',
+  name: 'simpleGallery',
   type: 'object',
   title: 'Simple Image Gallery',
   fields: [
@@ -8,14 +8,7 @@ export default {
       type: 'array',
       title: 'Images',
       description: 'Please add between 1 and 6 images. Uploaded images should be 2667px width. All images should be uploaded at the same height, which is up to you.',
-      of: [
-        {
-          type: 'reference',
-          to: {
-            type: 'mainImage'
-          }
-        }
-      ],
+      of: [{ type: 'mainImage' }],
       validation: Rule => [
         Rule.required()
           .min(1)
@@ -24,5 +17,19 @@ export default {
         Rule.unique()
       ]
     }
-  ]
+  ],
+  preview: {
+    select: {
+      title: 'title',
+      subtitle: 'images.0.alt',
+      image: 'images.0.asset'
+    },
+    prepare({ title, subtitle, image }) {
+      return {
+        title: 'Image Gallery',
+        subtitle: `${subtitle}`,
+        media: image,
+      };
+    },
+  },
 }
