@@ -1,33 +1,22 @@
 <template>
   <g-link
-    :to="'/projects/' + project.project.slug.current"
+    :to="'/news/' + post.slug.current"
     class="work-feed-card mb-100 color--gray-tertiary"
     :style="cardStagger"
   >
     <div class="grid__card">
       <BaseImage
-        v-if="project.altThumbnail"
-        :src="project.altThumbnail"
+        v-if="post.mainImage"
+        :src="post.mainImage"
         :lazy="true"
         :sizes="sizes"
         :x="378"
         :y="302"
         class="mb-30"
-        :caption="project.altThumbnail.caption"
-        :captionStyle="project.altThumbnail.captionStyle"
+        :caption="post.mainImage.caption"
+        :captionStyle="post.mainImage.captionStyle"
       />
-      <BaseImage
-        v-else-if="project.project.image"
-        :src="project.project.image"
-        :lazy="true"
-        :sizes="sizes"
-        :x="378"
-        :y="302"
-        class="mb-30"
-        :caption="project.project.image.caption"
-        :captionStyle="project.project.image.captionStyle"
-      />
-      <h3 v-html="project.project.title"></h3>
+      <h3 v-html="post.title"></h3>
     </div>
   </g-link>
 </template>
@@ -54,26 +43,22 @@ export default {
     }
   },
   props: {
-    project: Object,
+    post: Object,
     cardNumber: Number
   }
 }
 </script>
 
 <style lang="scss">
-.loaded.filtering {
+.loaded {
 
-  .work-feed-card,
-  .work-feed-filter {
+  .news-feed-card,
+  .news-feed-filter {
     opacity: 0;
   }
 
-  .work-feed-card {
+  .news-feed-card {
     transform: translateY(20px);
-  }
-
-  .work-feed-filter {
-    transform: translateY(7px);
   }
 }
 </style>

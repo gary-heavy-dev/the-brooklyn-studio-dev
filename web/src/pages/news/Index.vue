@@ -75,6 +75,7 @@ export default {
         }
       }
     }
+    _rawNewsFeedIntro
     featuredNews {
       title
       _rawExcerpt

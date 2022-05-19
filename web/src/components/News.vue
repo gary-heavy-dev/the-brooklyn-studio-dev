@@ -8,6 +8,7 @@
       :content="ctaObject"
       class="news__cta"
     />
+    <NewsFeedSlider :content="content" />
     <section class="awards p-100 flex fd-c">
       <div class="container">
         <h2 class="h2 upper">Awards</h2>
@@ -45,11 +46,13 @@
 <script>
 import HeroSecondary from '~/components/HeroSecondary'
 import CtaSimple from './CtaSimple.vue'
+import NewsFeedSlider from './NewsFeedSlider.vue'
 
 export default {
   components: {
     HeroSecondary,
-    CtaSimple
+    CtaSimple,
+    NewsFeedSlider
   },
   props: {
     content: Object
@@ -66,7 +69,7 @@ export default {
       return {
         largeText: this.content.featuredNews.title,
         _rawCopy: this.content.featuredNews._rawExcerpt,
-        linkText: 'Read More About The Brooklyn Studio',
+        linkText: 'Read More About<br>The Brooklyn Studio',
         link: this.ctaLink,
         image: {
           asset: {

@@ -37,14 +37,14 @@
             :primary="projectsDropdown.primary"
             :secondary="projectsDropdown.secondary"
           />
+          <li class="mobile-only">
+            <g-link to="/about-us/team">Our Team</g-link>
+          </li>
           <li>
             <g-link to="/news">News</g-link>
           </li>
           <li>
             <g-link to="/contact">Contact</g-link>
-          </li>
-          <li class="mobile-only">
-            <g-link to="/about-us/team">Our Team</g-link>
           </li>
           <MenuMobileFooter class="mobile-only" />
         </ul>
