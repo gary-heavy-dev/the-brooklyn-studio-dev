@@ -26,6 +26,11 @@ export default {
       }
     },
     {
+      name: 'newsFeedIntro',
+      type: 'excerptPortableText',
+      title: 'News Feed Intro'
+    },
+    {
       name: 'featuredNews',
       title: 'Featured Post',
       type: 'reference',
