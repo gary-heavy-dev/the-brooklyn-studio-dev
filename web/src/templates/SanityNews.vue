@@ -1,15 +1,15 @@
 <template>
   <Layout>
-    <SimplePage :content="$page.post" />
+    <NewsPost :content="$page.post" />
   </Layout>
 </template>
 
 <script>
-import SimplePage from '~/components/SimplePage'
+import NewsPost from '~/components/NewsPost'
 
 export default {
   components: {
-    SimplePage
+    NewsPost 
   },
   computed: {
     description() {
@@ -72,13 +72,57 @@ query Post ($id: ID!) {
   }
   post: sanityNews (id: $id) {
     title
-    subtitle
     slug {
       current
     }
-    _rawExcerpt
-    sections {
-      _rawPortableText
+    publishedAt
+    mainImage {
+      asset {
+        url
+      }
+      alt
+    }
+    flexibleContent {
+      ... on SanitySimpleImagePair {
+        imageLeft {
+          asset {
+            url
+          }
+          caption
+          alt
+        }
+        imageRight {
+          asset {
+            url
+          }
+          caption
+          alt
+        }
+      }
+      ... on SanitySimpleImageWithText {
+        image {
+          asset {
+            url
+          }
+          caption
+          alt
+        }
+        imageLocation
+        reverseMobile
+        _rawText
+      }
+      ... on SanitySimplePortableTextWrapper {
+        _rawExcerptPortableText
+      }
+      ... on SanitySimpleGallery {
+        images {
+          asset {
+            url
+          }
+          caption
+          alt
+        }
+      }
     }
   }
 }
