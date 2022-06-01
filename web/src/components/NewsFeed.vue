@@ -1,29 +1,48 @@
 <template>
-  <div class="news-feed flex pt-80">
+  <div class="news-feed flex fw">
+    <Breadcrumbs
+      :previous="breadcrumbLinks"
+      :current="title"
+    />
     <NewsFeedGrid :content="$static.news" />
   </div>
 </template>
 
 <script>
 import NewsFeedGrid from '~/components/NewsFeedGrid'
+import Breadcrumbs from '~/components/Breadcrumbs'
 
 export default {
   components: {
-    NewsFeedGrid
+    NewsFeedGrid,
+    Breadcrumbs
   },
+  props: {
+    title: String
+  },
+  data() {
+    return {
+      breadcrumbLinks: [
+        {
+          copy: 'Studio News',
+          link: '/news'
+        }
+      ]
+    }
+  }
 }
 </script>
 
 <static-query>
 {
-  news: allSanityNews {
+  news: allSanityNews(sortBy: "publishedAt") {
     edges {
       node {
         title
         slug {
           current
         }
-        publishedAt
+        publishedAt (format: "M/D/YY")
         mainImage {
           asset {
             url

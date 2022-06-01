@@ -1,5 +1,5 @@
 <template>
-  <NewsFeed />
+  <NewsFeed :title="pageTitle" />
 </template>
 
 <script>
@@ -9,9 +9,14 @@ export default {
   components: {
     NewsFeed
   },
+  data() {
+    return {
+      pageTitle: 'News Feed'
+    }
+  },
   metaInfo() {
     return {
-      title: 'News Feed',
+      title: this.pageTitle,
       titleTemplate: '%s | The Brooklyn Studio',
       meta: [
         {

@@ -626,3 +626,10 @@ body .p-mobile-copy-block {
     display: none !important;
   }
 }
+
+.cursor {
+
+  &--arrow {
+    cursor: default;
+  }
+}

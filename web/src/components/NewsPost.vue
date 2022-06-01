@@ -1,7 +1,10 @@
 <template>
-  <div class="news-post flex w-100">
+  <div class="news-post flex fw w-100">
+    <Breadcrumbs
+      :previous="breadcrumbLinks"
+      :current="content.title"
+    />
     <div class="container grid grid--12-desktop">
-      <Breadcrumbs />
       <NewsPostHero :content="content" />
       <FlexibleContent :content="[]" />
     </div>
@@ -22,5 +25,19 @@ export default {
   props: {
     content: Object
   },
+  data() {
+    return {
+      breadcrumbLinks: [
+        {
+          copy: 'Studio News',
+          link: '/news'
+        },
+        {
+          copy: 'News Feed',
+          link: '/news/feed'
+        }
+      ]
+    }
+  }
 }
 </script>

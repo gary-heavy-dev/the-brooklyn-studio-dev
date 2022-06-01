@@ -18,14 +18,14 @@
 import BaseImage from './BaseImage.vue';
 export default {
     props: {
-        content: Object
+      content: Object
     },
     data() {
       return {
         sizes: {
-          mobile: 480,
-          tablet: 768,
-          laptop: 1024,
+          mobile: 413,
+          tablet: 660,
+          laptop: 855,
           desktop: 1202,
           hd: 1603,
           fourK: 3206

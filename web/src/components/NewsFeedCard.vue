@@ -1,7 +1,7 @@
 <template>
   <g-link
     :to="'/news/' + post.slug.current"
-    class="work-feed-card mb-100 color--gray-tertiary"
+    class="news-feed-card mb-100 color--gray-tertiary"
     :style="cardStagger"
   >
     <div class="grid__card">
@@ -16,6 +16,7 @@
         :caption="post.mainImage.caption"
         :captionStyle="post.mainImage.captionStyle"
       />
+      <div class="sub color--gray-tertiary news-feed-card__date">{{ post.publishedAt }}</div>
       <h3 v-html="post.title"></h3>
     </div>
   </g-link>
@@ -50,15 +51,23 @@ export default {
 </script>
 
 <style lang="scss">
-.loaded {
+.news-feed-card,
+.news-feed-filter {
+  opacity: 0;
+}
+
+.page-loaded {
 
   .news-feed-card,
   .news-feed-filter {
-    opacity: 0;
+    opacity: 1;
   }
+}
 
-  .news-feed-card {
-    transform: translateY(20px);
+.news-feed-card {
+
+  &__date {
+    margin-bottom: 8px;
   }
 }
 </style>
