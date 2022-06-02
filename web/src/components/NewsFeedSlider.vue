@@ -1,27 +1,46 @@
 <template>
   <section class="news-feed-slider w-100 flex background--navy p-100">
-    <div class="news-feed-slider__inner grid grid--12-desktop container">
-      <div class="news-feed-slider__intro col-span--all">
-        <h2 class="h2">News Feed</h2>
-        <BaseBlockContent
-          class="mw-readable--large"
-          v-if="content._rawNewsFeedIntro"
-          :blocks="content._rawNewsFeedIntro"
-        />
-        <g-link
-          to="/news/feed" 
-          class="upper button mt-60 mb-80"
-        >Explore News Feed</g-link>
-        <swiper
-          :options="swiperOption"
-        >
-          <swiper-slide
-            v-for="(post, index) in shiftedNews"
-            :key="index"
-          >
-            <NewsFeedCard :post="post.node" />
-          </swiper-slide>
-        </swiper>
+    <div class="news-feed-slider__inner">
+      <div class="grid grid--12-desktop container">
+        <div class="news-feed-slider__intro col-span--all">
+          <h2 class="h2">News Feed</h2>
+          <BaseBlockContent
+            class="mw-readable--large"
+            v-if="content._rawNewsFeedIntro"
+            :blocks="content._rawNewsFeedIntro"
+          />
+          <g-link
+            to="/news/feed" 
+            class="upper button mt-60 mb-80"
+          >Explore News Feed</g-link>
+        </div>
+      </div>
+      <div class="swiper pos-rel">
+        <div class="swiper-button-prev" slot="button-prev">
+          <SliderArrow />
+        </div>
+        <div class="swiper-button-next" slot="button-next">
+          <SliderArrow />
+        </div>
+        <div class="w-100 flex">
+          <div class="container flex">
+            <swiper
+              :options="swiperOption"
+              class="swiper"
+              :auto-update="true"
+              :auto-destroy="false"
+              :delete-instance-on-destroy="true"
+              :cleanup-styles-on-destroy="true"
+            >
+              <swiper-slide
+                v-for="(post, index) in shiftedNews"
+                :key="index"
+              >
+                <NewsFeedCard :post="post.node" />
+              </swiper-slide>
+            </swiper>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -31,6 +50,7 @@
 import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
 import 'swiper/css/swiper.css'
 import NewsFeedCard from '~/components/NewsFeedCard'
+import SliderArrow from '~/components/SliderArrow'
 
 export default {
   props: {
@@ -39,29 +59,38 @@ export default {
   components: {
     Swiper,
     SwiperSlide,
-    NewsFeedCard
+    NewsFeedCard,
+    SliderArrow
   },
   computed: {
     shiftedNews() {
-      const newArray = this.$static.news.edges
-      newArray.shift()
-      console.log(newArray)
-      return newArray 
+      function removeFirst(element, index) {
+        return index > 0;
+      }
+      const arr = this.$static.news.edges.filter(removeFirst)
+      return arr
     }
   },
   data() {
     return {
+      newsArray: [],
       swiperOption: {
         navigation: {
           nextEl: '.swiper-button-next',
           prevEl: '.swiper-button-prev',
         },
-        slidesPerView: 3,
-        slidesPerGroup: 3,
+        slidesPerView: 1,
         spaceBetween: 36,
         loop: true,
         speed: 500,
         threshold: 10,
+        breakpoints: {
+          1025: {
+            slidesPerView: 3,
+            slidesPerGroup: 3,
+            spaceBetween: 36,
+          }
+        }
       },
     }
   },
@@ -70,6 +99,22 @@ export default {
 
 <style lang="scss">
 .news-feed-slider {
+
+  .swiper {
+
+    .swiper-button-prev,
+    .swiper-button-next {
+      top: 33.425vw;
+
+      @include desktop {
+        top: 10.425vw;
+      }
+    }
+  }
+
+  .news-feed-card {
+    margin-bottom: 0;
+  }
 
   .grid__card {
 
