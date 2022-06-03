@@ -83,6 +83,14 @@ export default {
   font-weight: 500;
 }
 
+.news-post {
+
+  .image-caption {
+    font-weight: 400;
+    position: relative;
+  }
+}
+
 .base-image {
   width: 100%;
   position: relative;

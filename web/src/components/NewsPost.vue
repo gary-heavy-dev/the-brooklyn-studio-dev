@@ -4,10 +4,10 @@
       :previous="breadcrumbLinks"
       :current="content.title"
     />
-    <div class="container grid grid--12-desktop">
+    <div class="container">
       <NewsPostHero :content="content" />
-      <FlexibleContent :content="[]" />
     </div>
+    <FlexibleContent :content="content.flexibleContent" />
   </div>
 </template>
 
@@ -21,7 +21,7 @@ export default {
     Breadcrumbs,
     NewsPostHero,
     FlexibleContent
-  },
+},
   props: {
     content: Object
   },
@@ -41,3 +41,24 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+.news-post {
+
+  * {
+    grid-gap: 0 36px;
+  }
+
+  .flexible-text {
+
+    @include desktop {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+
+      > div {
+        grid-column: 2/12;
+      }
+    }
+  }
+}
+</style>

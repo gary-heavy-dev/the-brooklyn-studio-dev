@@ -1,5 +1,5 @@
 <template>
-  <div class="news-post-hero col-span--all">
+  <div class="news-post-hero mb-100">
     <BaseImage
       v-if="content.mainImage"
       :src="content.mainImage"
@@ -8,9 +8,18 @@
       :x="1205"
       :y="1041"
       :caption="content.mainImage.caption"
+      class="mb-80"
     />
-    <h1>{{ content.title }}</h1>
-    <div class="news-post-hero__meta-info">Meta / info / goes / here</div>
+      <div class="grid grid--12-desktop">
+        <h1
+          v-if="content.title"
+          class="h3 mb-40 col-span--inset-1"
+        >{{ content.title }}</h1>
+        <div class="news-post-hero__meta-info color--gray-tertiary sub upper col-span--inset-1">
+          <span v-if="content.publishedAt">{{ content.publishedAt }} <span> / </span></span>
+          <span v-if="content.publisher && content.publisher.title">{{ content.publisher.title }} <span> / </span></span>
+        </div>
+      </div>
   </div>
 </template>
 
@@ -35,3 +44,22 @@ export default {
     components: { BaseImage }
 }
 </script>
+
+<style lang="scss">
+.news-post-hero {
+
+  &__meta-info {
+    text-align: right;
+
+    > span {
+
+      &:last-child {
+
+        span {
+          display: none;
+        }
+      }
+    }
+  }
+}
+</style>

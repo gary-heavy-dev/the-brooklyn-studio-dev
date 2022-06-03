@@ -75,7 +75,10 @@ query Post ($id: ID!) {
     slug {
       current
     }
-    publishedAt
+    publishedAt (format: "MMMM D, YYYY")
+    publisher {
+      title
+    }
     mainImage {
       asset {
         url
@@ -84,6 +87,7 @@ query Post ($id: ID!) {
     }
     flexibleContent {
       ... on SanitySimpleImagePair {
+        _type
         imageLeft {
           asset {
             url
@@ -100,9 +104,16 @@ query Post ($id: ID!) {
         }
       }
       ... on SanitySimpleImageWithText {
+        _type
         image {
           asset {
             url
+            metadata {
+              dimensions {
+                width
+                height
+              }
+            }
           }
           caption
           alt
@@ -112,9 +123,11 @@ query Post ($id: ID!) {
         _rawText
       }
       ... on SanitySimplePortableTextWrapper {
+        _type
         _rawExcerptPortableText
       }
       ... on SanitySimpleGallery {
+        _type
         images {
           asset {
             url

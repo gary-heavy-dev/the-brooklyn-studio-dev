@@ -116,6 +116,10 @@
     &--all {
       grid-column: 1/-1;
     }
+
+    &--inset-1 {
+      grid-column: 2/12;
+    }
   }
 }
 

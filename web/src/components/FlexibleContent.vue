@@ -37,12 +37,20 @@
         v-if="block._type === 'flexibleImagePair'"
         :content="block"
       />
+      <FlexibleImagePairSimple
+        v-if="block._type === 'simpleImagePair'"
+        :content="block"
+      />
       <FlexibleImageWithText
         v-if="block._type === 'flexibleImageWithText'"
         :content="block"
       />
+      <FlexibleImageWithTextSimple
+        v-if="block._type === 'simpleImageWithText'"
+        :content="block"
+      />
       <FlexibleText
-        v-if="block._type === 'flexibleText'"
+        v-if="block._type === 'flexibleText' | block._type === 'simplePortableTextWrapper'"
         :content="block"
       />
     </div>
@@ -58,7 +66,9 @@ import CtaSimple from '~/components/CtaSimple'
 import TeamMemberFeatured from '~/components/TeamMemberFeatured'
 import FlexibleImage from '~/components/FlexibleImage'
 import FlexibleImagePair from '~/components/FlexibleImagePair'
+import FlexibleImagePairSimple from '~/components/FlexibleImagePairSimple'
 import FlexibleImageWithText from '~/components/FlexibleImageWithText'
+import FlexibleImageWithTextSimple from '~/components/FlexibleImageWithTextSimple'
 import FlexibleText from '~/components/FlexibleText'
 
 export default {
@@ -71,7 +81,9 @@ export default {
     TeamMemberFeatured,
     FlexibleImage,
     FlexibleImagePair,
+    FlexibleImagePairSimple,
     FlexibleImageWithText,
+    FlexibleImageWithTextSimple,
     FlexibleText
   },
   props: {

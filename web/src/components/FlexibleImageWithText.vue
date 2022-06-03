@@ -12,7 +12,7 @@
         v-if="content.image"
         :src="content.image"
         :lazy="true"
-        :sizes="content.aspectRatio === 'landscape' ? sizesLandscape : sizesPortrait"
+        :sizes="content.aspectRatio ? (content.aspectRatio === 'landscape' ? sizesLandscape : sizesPortrait) : sizesPortrait"
         :x="content.image.asset.metadata.dimensions.width"
         :y="content.image.asset.metadata.dimensions.height"
         :caption="content.image.caption"
