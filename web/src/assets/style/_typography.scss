@@ -137,7 +137,7 @@ body {
   font-feature-settings: "onum";
 }
 
-p {
+p:not(:last-child) {
   margin-bottom: 13px;
 
   @include desktop {
