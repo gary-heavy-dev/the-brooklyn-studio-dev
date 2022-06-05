@@ -1,6 +1,9 @@
 <template>
-  <section class="flexible-image-gallery container grid grid--12-desktop">
-    <div class="col-span--inset-1">
+  <section class="flexible-image-gallery container grid grid--12-desktop mb-100">
+    <div
+      class="col-span--inset-1"
+      v-view="startSwiper"
+    >
       <swiper
         :options="swiperOption"
         class="swiper"
@@ -8,6 +11,8 @@
         :auto-destroy="false"
         :delete-instance-on-destroy="true"
         :cleanup-styles-on-destroy="true"
+        v-view="$iAmRevealed"
+        ref="flexibleImageGallery"
       >
         <swiper-slide
           v-for="(image, index) in content.images"
@@ -25,6 +30,7 @@
           />
         </swiper-slide>
       </swiper>
+      <div class="swiper__pagination flexible-image-gallery__swiper-pagination text-center"></div>
     </div>
   </section>
 </template>
@@ -41,6 +47,11 @@ export default {
     Swiper,
     SwiperSlide,
   },
+  computed: {
+    swiper() {
+      return this.$refs.flexibleImageGallery.$swiper
+    }
+  },
   data() {
     return {
       swiperOption: {
@@ -48,6 +59,10 @@ export default {
         loop: true,
         speed: 300,
         threshold: 10,
+        pagination: {
+          el: '.flexible-image-gallery__swiper-pagination',
+          clickable: true
+        }
       },
       sizes: {
         mobile: 480,
@@ -59,5 +74,12 @@ export default {
       },
     }
   },
+  methods: {
+    startSwiper(e) {
+      if (e.percentInView > 0) {
+        this.swiper.autoplay.start()
+      }
+    }
+  }
 }
 </script>
