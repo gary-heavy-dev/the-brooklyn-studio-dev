@@ -55,8 +55,7 @@ export default {
       display: grid;
       grid-template-columns: repeat(12, 1fr);
 
-      > div,
-      > p {
+      > * {
         grid-column: 2/12;
       }
     }
