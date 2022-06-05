@@ -95,6 +95,15 @@ export default {
     .image-caption {
       background: var(--color--white);
       text-align: center;
+      height: auto;
+      width: 100%;
+      padding: 19px 25px;
+      margin: 0;
+      clip: unset;
+
+      @include desktop {
+        padding: 31px 31px 0;
+      }
     }
   }
 }

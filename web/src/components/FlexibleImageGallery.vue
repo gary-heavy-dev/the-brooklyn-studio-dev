@@ -83,3 +83,17 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+.flexible-image-gallery {
+
+  .swiper__pagination {
+    position: relative;
+    transform: unset;
+
+    .swiper-pagination-bullet {
+      background-color: var(--color--gray-tertiary);
+    }
+  }
+}
+</style>
