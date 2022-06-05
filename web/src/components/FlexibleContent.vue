@@ -33,6 +33,10 @@
         v-if="block._type === 'flexibleImage'"
         :content="block"
       />
+      <FlexibleImageGallery
+        v-if="block._type === 'simpleGallery'"
+        :content="block"
+      />
       <FlexibleImagePair
         v-if="block._type === 'flexibleImagePair'"
         :content="block"
@@ -65,6 +69,7 @@ import CtaGallery from '~/components/CtaGallery'
 import CtaSimple from '~/components/CtaSimple'
 import TeamMemberFeatured from '~/components/TeamMemberFeatured'
 import FlexibleImage from '~/components/FlexibleImage'
+import FlexibleImageGallery from '~/components/FlexibleImageGallery'
 import FlexibleImagePair from '~/components/FlexibleImagePair'
 import FlexibleImagePairSimple from '~/components/FlexibleImagePairSimple'
 import FlexibleImageWithText from '~/components/FlexibleImageWithText'
@@ -80,6 +85,7 @@ export default {
     CtaSimple,
     TeamMemberFeatured,
     FlexibleImage,
+    FlexibleImageGallery,
     FlexibleImagePair,
     FlexibleImagePairSimple,
     FlexibleImageWithText,

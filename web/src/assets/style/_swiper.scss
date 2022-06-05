@@ -105,6 +105,17 @@
 
 .swiper-slide {
 
+  &-active {
+    opacity: 1 !important;
+  }
+
+  &:not(.swiper-slide-active) {
+
+    .image-caption {
+      opacity: 0;
+    }
+  }
+
   @-moz-document url-prefix() {
 
     &:not(.work-feed__slide) {

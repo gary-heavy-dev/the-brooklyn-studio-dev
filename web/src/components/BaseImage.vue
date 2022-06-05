@@ -89,6 +89,14 @@ export default {
     font-weight: 400;
     position: relative;
   }
+
+  .flexible-image-gallery {
+
+    .image-caption {
+      background: var(--color--white);
+      text-align: center;
+    }
+  }
 }
 
 .base-image {
