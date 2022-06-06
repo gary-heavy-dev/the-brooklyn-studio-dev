@@ -93,7 +93,10 @@ export default {
     &--true {
 
       .grid-spacer {
-        display: none;
+
+        @include desktop-down {
+          display: none;
+        }
       }
     }
   }
