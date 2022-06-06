@@ -110,6 +110,10 @@ export default {
         top: 10.425vw;
       }
     }
+
+    .swiper-container {
+      padding-bottom: 14px;
+    }
   }
 
   .news-feed-card {
