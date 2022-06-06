@@ -7,7 +7,7 @@
     >
       <BaseBlockContent :blocks="content._rawText" />
     </div>
-    <div class="pb-60 mobile-only"></div>
+    <div class="pb-60 mobile-only grid-spacer"></div>
     <div
       class="flexible-image-with-text__image image-wrapper"
       v-view="$iAmRevealed"
@@ -88,6 +88,15 @@ export default {
     }
   }
 
+  &.reverse-mobile {
+
+    &--true {
+
+      .grid-spacer {
+        display: none;
+      }
+    }
+  }
 
   &.image--desktop {
 
