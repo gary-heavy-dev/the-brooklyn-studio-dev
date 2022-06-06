@@ -48,10 +48,11 @@ export default {
   methods: {
     setStyle() {
       const captionAdjust = this.$el.querySelector(".image-caption").clientHeight / -2
-      const theText = this.$el.querySelector(".flexible-image-with-text__text")
-      // console.log('captionshouldadjustby', captionAdjust)
-      // console.log(theText)
-      this.style = { transform: 'translateY(' + captionAdjust + 'px)' }
+      if (window.innerWidth > 1024) {
+        this.style = { transform: 'translateY(' + captionAdjust + 'px)' }
+      } else {
+        this.style = { transform: 'translateY(0px)' }
+      }
     }
   },
   created() {
