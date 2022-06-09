@@ -225,16 +225,74 @@ export default {
         &:last-of-type {
 
           > a {
-            padding-right: 0;
+
+            @include desktop {
+              margin-right: 0;
+            }
+
+            @include desktop-down {
+              padding-right: 0;
+            }
+          }
+        }
+
+        > a,
+        > button > a {
+
+          @include desktop {
+            position: relative;
+            display: inline-block;
+            line-height: normal;
+
+            &:after {
+              content: "";
+              position: absolute;
+              right: 0;
+              bottom: -3px;
+              background: var(--color--navy-light);
+              height: 1px;
+              width: 0;
+              transition: width 0.35s ease-in-out, background 0.35s ease-in-out, opacity 0.35s ease-in-out;
+              opacity: 0;
+            }
+
+            &:hover,
+            &.active {
+
+              &:after {
+                left: 0;
+                right: auto;
+                width: 100%;
+              }
+            }
+
+            &.active {
+
+              &:after {
+                opacity: 0.5;
+              }
+            }
+
+            &:hover {
+
+              &:after {
+                background: var(--color--navy);
+                opacity: 1;
+              }
+            }
           }
         }
 
         > a,
         > button {
-          padding: 0 31.5px;
-          display: inline-block;
+
+          @include desktop {
+            margin: 0 31.5px;
+            display: inline-block;
+          }
 
           @include desktop-down {
+            padding: 0 31.5px;
             font-size: 25px;
             width: 100%;
             padding: 19px var(--grid-margin);
