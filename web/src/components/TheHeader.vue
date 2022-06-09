@@ -116,7 +116,7 @@ export default {
   },
   methods: {
     handleScroll() {
-      // https://codepen.io/kode88/pen/XRpXej
+      // via https://codepen.io/kode88/pen/XRpXej
       if (this.lastPosition < window.scrollY && this.limitPosition < window.scrollY) {
         this.scrolled = true;
         // move up!
