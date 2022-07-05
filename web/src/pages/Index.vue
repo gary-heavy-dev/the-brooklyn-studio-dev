@@ -9,9 +9,27 @@ export default {
   components: {
     Homepage
   },
+  computed: {
+    pageTitle() {
+      return 'Home' 
+    },
+    // firstHeroImage() {
+    //   return this.$page.page.slides.length ? this.$page.page.slides[0].image : null
+    // },
+    // ogImage() {
+    //   return this.$page.page.ogImage || this.firstHeroImage || this.$page.settings.ogImage
+    // },
+    // twitterImage() {
+    //   return this.$page.page.twitterImage || this.firstHeroImage || this.$page.settings.twitterImage
+    // },
+    // metaDescription () {
+    //   const description = this.$page.page.description || this.$page.settings.description
+    //   return description ? this.$translateString(this.$context.locale, description) : ''
+    // }
+  },
   metaInfo() {
     return {
-      title: 'Home',
+      title: this.pageTitle,
       titleTemplate: '%s | ' + this.$page.settings.title,
       meta: [
         {
@@ -22,32 +40,37 @@ export default {
         // {
         //   key: 'og:title',
         //   name: 'og:title',
-        //   content: (this.casestudy ? this.casestudy.title : '') + ' ' + this.$static.metadata.siteName
+        //   content: 'Phil Young\'s English School | ' + this.pageTitle
         // },
         // {
         //   key: 'og:description',
         //   name: 'og:description',
-        //   content: this.casestudy ? this.casestudy.description : '',
+        //   content: this.metaDescription
         // },
         // {
         //   key: 'og:image',
         //   name: 'og:image',
-        //   content: this.casestudy && this.casestudy.mainImage.asset ? this.casestudy.mainImage.asset.url : (this.$static.settings.ogImage ? this.$static.settings.ogImage.asset.url : '')
+        //   content: this.ogImage ? `${this.ogImage.asset.url}?w=1200&h=630&fit=crop` : ''
         // },
         // {
         //   key: 'twitter:title',
         //   name: 'twitter:title',
-        //   content: (this.casestudy ? this.casestudy.title : '') + ' ' + this.$static.metadata.siteName
+        //   content: 'Phil Young\'s English School | ' + this.pageTitle
         // },
         // {
         //   key: 'twitter:description',
         //   name: 'twitter:description',
-        //   content: this.casestudy ? this.casestudy.description : '',
+        //   content: this.metaDescription
         // },
         // {
         //   key: 'twitter:image',
         //   name: 'twitter:image',
-        //   content: this.casestudy && this.casestudy.mainImage.asset ? this.casestudy.mainImage.asset.url : (this.$static.settings.ogImage ? this.$static.settings.ogImage.asset.url : '')
+        //   content: this.twitterImage ? `${this.twitterImage.asset.url}?w=800&h=418&fit=crop` : ''
+        // },
+        // {
+        //   key: 'twitter:card',
+        //   name: 'twitter:card',
+        //   content: 'summary_large_image'
         // }
       ]
     }
