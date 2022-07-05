@@ -16,16 +16,17 @@ export default {
     // firstHeroImage() {
     //   return this.$page.page.slides.length ? this.$page.page.slides[0].image : null
     // },
-    // ogImage() {
-    //   return this.$page.page.ogImage || this.firstHeroImage || this.$page.settings.ogImage
-    // },
+    ogImage() {
+      // return this.$page.page.ogImage || this.firstHeroImage || this.$page.settings.ogImage
+      return this.$page.settings.ogImage
+    },
     // twitterImage() {
     //   return this.$page.page.twitterImage || this.firstHeroImage || this.$page.settings.twitterImage
     // },
-    // metaDescription () {
-    //   const description = this.$page.page.description || this.$page.settings.description
-    //   return description ? this.$translateString(this.$context.locale, description) : ''
-    // }
+    metaDescription () {
+      const description = 'The Brooklyn Studio is an interdisciplinary architecture and design firm committed to restoring and enhancing New York City\'s historic fabric.'
+      return description
+    }
   },
   metaInfo() {
     return {
@@ -37,31 +38,31 @@ export default {
           name: 'description',
           content: 'The Brooklyn Studio is an interdisciplinary architecture and design firm committed to restoring and enhancing New York City\'s historic fabric.'
         },
-        // {
-        //   key: 'og:title',
-        //   name: 'og:title',
-        //   content: 'Phil Young\'s English School | ' + this.pageTitle
-        // },
-        // {
-        //   key: 'og:description',
-        //   name: 'og:description',
-        //   content: this.metaDescription
-        // },
-        // {
-        //   key: 'og:image',
-        //   name: 'og:image',
-        //   content: this.ogImage ? `${this.ogImage.asset.url}?w=1200&h=630&fit=crop` : ''
-        // },
-        // {
-        //   key: 'twitter:title',
-        //   name: 'twitter:title',
-        //   content: 'Phil Young\'s English School | ' + this.pageTitle
-        // },
-        // {
-        //   key: 'twitter:description',
-        //   name: 'twitter:description',
-        //   content: this.metaDescription
-        // },
+        {
+          key: 'og:title',
+          name: 'og:title',
+          content: this.$page.settings.title + ' | ' + this.pageTitle
+        },
+        {
+          key: 'og:description',
+          name: 'og:description',
+          content: this.metaDescription
+        },
+        {
+          key: 'og:image',
+          name: 'og:image',
+          content: this.ogImage ? `${this.ogImage.asset.url}?w=1200&h=630&fit=crop` : ''
+        },
+        {
+          key: 'twitter:title',
+          name: 'twitter:title',
+          content: this.$page.settings.title + ' | ' + this.pageTitle
+        },
+        {
+          key: 'twitter:description',
+          name: 'twitter:description',
+          content: this.metaDescription
+        },
         // {
         //   key: 'twitter:image',
         //   name: 'twitter:image',
@@ -83,6 +84,11 @@ export default {
   settings: sanitySiteSettings (id: "siteSettings") {
     title
     description
+    ogImage {
+      asset {
+        url
+      }
+    }
   }
   page: sanityHome(id: "542616c1-f362-4f33-b903-4f4add184641") {
     introSection {
