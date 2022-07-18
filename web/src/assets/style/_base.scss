@@ -21,13 +21,14 @@ a {
 
 .main p a {
   position: relative;
+  display: inline-block;
 
   &::before {
     content: '';
     border-bottom: 1px solid var(--color--gray-tertiary-light);
     width: 100%;
     position: absolute;
-    bottom: -1px;
+    bottom: 0px;
     left: 0;
     transition: border-color 0.2s linear;
   }
