@@ -11,7 +11,9 @@
       :aria-controls="name + '-dropdown'"
       @click="expanded = !expanded"
     >
-      <g-link :to="primary.link">{{ primary.linkText }}</g-link>
+      <g-link
+        :to="primary.link"
+      >{{ primary.linkText }}</g-link>
     </button>
     <ul
       class="dropdown__menu"
@@ -21,7 +23,9 @@
         v-for="(link, index) in secondary"
         :key="index"
       >
-        <g-link :to="link.link">{{ link.linkText }}</g-link>
+        <g-link
+          :to="link.link"
+        >{{ link.linkText }}</g-link>
       </li>
     </ul>
   </li>
@@ -43,8 +47,23 @@ export default {
     closeDropdown(e) {
       this.expanded = false
       const button = e.target.querySelector('button')
+      console.log('me button:', button)
       button.focus()
       button.blur()
+    },
+    // closeOnRouteChange(e) {
+    //   this.expanded = false
+    //   const link = e.target
+    //   const button = link.closest('.dropdown').firstChild
+    //   console.log('link:', link, 'button:', button)
+    //   button.focus()
+    //   button.blur()
+    // }
+  },
+  watch: {
+    $route (to, from) {
+      this.closeOnRouteChange
+      console.log('Changin!', this.expanded)
     }
   }
 }
@@ -96,7 +115,7 @@ export default {
   }
 }
 
-.headroom:not(.headroom--unpinned) {
+.page-loaded .headroom:not(.headroom--unpinned) {
 
   .dropdown {
 
