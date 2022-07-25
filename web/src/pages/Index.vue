@@ -52,7 +52,7 @@ export default {
         {
           key: 'og:image',
           name: 'og:image',
-          content: this.ogImage ? `${this.ogImage.asset.url}?w=1200&h=630&fit=crop` : ''
+          content: this.ogImage ? this.ogImage.asset.url : ''
         },
         {
           key: 'twitter:title',
@@ -67,7 +67,7 @@ export default {
         {
           key: 'twitter:image',
           name: 'twitter:image',
-          content: this.twitterImage ? `${this.twitterImage.asset.url}?w=800&h=418&fit=crop` : ''
+          content: this.twitterImage ? this.twitterImage.asset.url : ''
         },
         {
           key: 'twitter:card',
