@@ -56,22 +56,22 @@ export default {
         },
         {
           key: 'twitter:title',
-          property: 'twitter:title',
+          name: 'twitter:title',
           content: this.$page.settings.title + ' | ' + this.pageTitle
         },
         {
           key: 'twitter:description',
-          property: 'twitter:description',
+          name: 'twitter:description',
           content: this.metaDescription
         },
         {
           key: 'twitter:image',
-          property: 'twitter:image',
+          name: 'twitter:image',
           content: this.twitterImage ? this.twitterImage.asset.url : ''
         },
         {
           key: 'twitter:card',
-          property: 'twitter:card',
+          name: 'twitter:card',
           content: 'summary_large_image'
         }
       ]

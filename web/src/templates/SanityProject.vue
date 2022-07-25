@@ -64,17 +64,17 @@ export default {
         },
         {
           key: 'og:title',
-          name: 'og:title',
+          property: 'og:title',
           content: this.$page.settings.title + ' | ' + this.pageTitle
         },
         {
           key: 'og:description',
-          name: 'og:description',
+          property: 'og:description',
           content: this.metaDescription
         },
         {
           key: 'og:image',
-          name: 'og:image',
+          property: 'og:image',
           content: this.ogImage ? `${this.ogImage.asset.url}?w=1200&h=630&fit=crop` : ''
         },
         {
