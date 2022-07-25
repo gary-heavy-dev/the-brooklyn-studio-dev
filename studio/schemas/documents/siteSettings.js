@@ -34,6 +34,13 @@ export default {
       fieldset: 'seo'
     },
     {
+      name: 'ogImage',
+      type: 'mainImage',
+      title: 'OG Image',
+      description: 'Upload a default sharecard image for Facebook (Open Graph). The ideal dimensions for this image are 1200px by 630px.',
+      fieldset: 'seo'
+    },
+    {
       name: 'twitterImage',
       type: 'mainImage',
       title: 'Twitter Image',
