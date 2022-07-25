@@ -39,10 +39,10 @@ export default {
           name: 'description',
           content: this.metaDescription
         },
-        {
+         {
           key: 'og:title',
           name: 'og:title',
-          content: 'Phil Young\'s English School | ' + this.pageTitle
+          content: this.$page.settings.title + ' | ' + this.pageTitle
         },
         {
           key: 'og:description',
@@ -57,7 +57,7 @@ export default {
         {
           key: 'twitter:title',
           name: 'twitter:title',
-          content: 'Phil Young\'s English School | ' + this.pageTitle
+          content: this.$page.settings.title + ' | ' + this.pageTitle
         },
         {
           key: 'twitter:description',
