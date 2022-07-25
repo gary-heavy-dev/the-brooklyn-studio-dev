@@ -20,9 +20,10 @@ export default {
       // return this.$page.page.ogImage || this.firstHeroImage || this.$page.settings.ogImage
       return this.$page.settings.ogImage
     },
-    // twitterImage() {
-    //   return this.$page.page.twitterImage || this.firstHeroImage || this.$page.settings.twitterImage
-    // },
+    twitterImage() {
+      // return this.$page.page.twitterImage || this.firstHeroImage || this.$page.settings.twitterImage
+      return this.$page.settings.twitterImage
+    },
     metaDescription () {
       const description = 'The Brooklyn Studio is an interdisciplinary architecture and design firm committed to restoring and enhancing New York City\'s historic fabric.'
       return description
@@ -36,7 +37,7 @@ export default {
         {
           key: 'description',
           name: 'description',
-          content: 'The Brooklyn Studio is an interdisciplinary architecture and design firm committed to restoring and enhancing New York City\'s historic fabric.'
+          content: this.metaDescription
         },
         {
           key: 'og:title',
@@ -85,6 +86,11 @@ export default {
     title
     description
     ogImage {
+      asset {
+        url
+      }
+    }
+    twitterImage {
       asset {
         url
       }
