@@ -41,12 +41,12 @@ export default {
         },
         {
           key: 'og:title',
-          name: 'og:title',
+          property: 'og:title',
           content: this.$page.settings.title + ' | ' + this.pageTitle
         },
         {
           key: 'og:description',
-          name: 'og:description',
+          property: 'og:description',
           content: this.metaDescription
         },
         {
@@ -56,22 +56,22 @@ export default {
         },
         {
           key: 'twitter:title',
-          name: 'twitter:title',
+          property: 'twitter:title',
           content: this.$page.settings.title + ' | ' + this.pageTitle
         },
         {
           key: 'twitter:description',
-          name: 'twitter:description',
+          property: 'twitter:description',
           content: this.metaDescription
         },
         {
           key: 'twitter:image',
-          name: 'twitter:image',
+          property: 'twitter:image',
           content: this.twitterImage ? this.twitterImage.asset.url : ''
         },
         {
           key: 'twitter:card',
-          name: 'twitter:card',
+          property: 'twitter:card',
           content: 'summary_large_image'
         }
       ]
