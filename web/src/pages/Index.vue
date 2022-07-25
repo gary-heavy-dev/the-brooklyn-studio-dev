@@ -51,7 +51,7 @@ export default {
         },
         {
           key: 'og:image',
-          name: 'og:image',
+          property: 'og:image',
           content: this.ogImage ? this.ogImage.asset.url : ''
         },
         {
