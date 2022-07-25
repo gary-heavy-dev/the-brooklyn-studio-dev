@@ -21,17 +21,17 @@ export default {
         },
         // {
         //   key: 'og:title',
-        //   name: 'og:title',
+        //   property: 'og:title',
         //   content: (this.casestudy ? this.casestudy.title : '') + ' ' + this.$static.metadata.siteName
         // },
         // {
         //   key: 'og:description',
-        //   name: 'og:description',
+        //   property: 'og:description',
         //   content: this.casestudy ? this.casestudy.description : '',
         // },
         // {
         //   key: 'og:image',
-        //   name: 'og:image',
+        //   property: 'og:image',
         //   content: this.casestudy && this.casestudy.mainImage.asset ? this.casestudy.mainImage.asset.url : (this.$static.settings.ogImage ? this.$static.settings.ogImage.asset.url : '')
         // },
         // {
