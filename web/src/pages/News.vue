@@ -36,17 +36,17 @@ export default {
         // },
         // {
         //   key: 'twitter:title',
-        //   name: 'twitter:title',
+        //   property: 'twitter:title',
         //   content: (this.casestudy ? this.casestudy.title : '') + ' ' + this.$static.metadata.siteName
         // },
         // {
         //   key: 'twitter:description',
-        //   name: 'twitter:description',
+        //   property: 'twitter:description',
         //   content: this.casestudy ? this.casestudy.description : '',
         // },
         // {
         //   key: 'twitter:image',
-        //   name: 'twitter:image',
+        //   property: 'twitter:image',
         //   content: this.casestudy && this.casestudy.mainImage.asset ? this.casestudy.mainImage.asset.url : (this.$static.settings.ogImage ? this.$static.settings.ogImage.asset.url : '')
         // }
       ]

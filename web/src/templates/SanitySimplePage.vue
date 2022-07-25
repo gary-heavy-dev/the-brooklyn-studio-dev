@@ -58,22 +58,22 @@ export default {
         },
         {
           key: 'twitter:title',
-          name: 'twitter:title',
+          property: 'twitter:title',
           content: this.$page.settings.title + ' | ' + this.pageTitle
         },
          {
           key: 'twitter:description',
-          name: 'twitter:description',
+          property: 'twitter:description',
           content: this.metaDescription
         },
         {
           key: 'twitter:image',
-          name: 'twitter:image',
+          property: 'twitter:image',
           content: this.twitterImage ? `${this.twitterImage.asset.url}?w=800&h=418&fit=crop` : ''
         },
         {
           key: 'twitter:card',
-          name: 'twitter:card',
+          property: 'twitter:card',
           content: 'summary_large_image'
         }
       ]
