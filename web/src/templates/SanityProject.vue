@@ -22,13 +22,24 @@ export default {
     }
   },
   computed: {
-    description() {
+    pageTitle() {
+      return this.$page.post.title.replace(/&nbsp;/g, ' ')
+    },
+    // firstHeroImage() {
+    //   return this.$page.page.slides.length ? this.$page.page.slides[0].image : null
+    // },
+    ogImage() {
+      // return this.$page.page.ogImage || this.firstHeroImage || this.$page.settings.ogImage
+      return this.$page.settings.ogImage
+    },
+    twitterImage() {
+      // return this.$page.page.twitterImage || this.firstHeroImage || this.$page.settings.twitterImage
+      return this.$page.settings.twitterImage
+    },
+    metaDescription() {
       const des = this.$page.post.description ? this.$page.post.description : this.$page.settings.description
       const count = 155
       return des.slice(0, count) + (des.length > count ? '...' : '')
-    },
-    title() {
-      return this.$page.post.title.replace(/&nbsp;/g, ' ')
     }
   },
   methods: {
@@ -43,44 +54,49 @@ export default {
   },
   metaInfo() {
     return {
-      title: this.title,
+      title: this.pageTitle,
       titleTemplate: '%s | ' + this.$page.settings.title,
       meta: [
         {
           key: 'description',
           name: 'description',
-          content: this.description
+          content: this.metaDescription
         },
-        // {
-        //   key: 'og:title',
-        //   name: 'og:title',
-        //   content: (this.casestudy ? this.casestudy.title : '') + ' ' + this.$static.metadata.siteName
-        // },
-        // {
-        //   key: 'og:description',
-        //   name: 'og:description',
-        //   content: this.casestudy ? this.casestudy.description : '',
-        // },
-        // {
-        //   key: 'og:image',
-        //   name: 'og:image',
-        //   content: this.casestudy && this.casestudy.mainImage.asset ? this.casestudy.mainImage.asset.url : (this.$static.settings.ogImage ? this.$static.settings.ogImage.asset.url : '')
-        // },
-        // {
-        //   key: 'twitter:title',
-        //   name: 'twitter:title',
-        //   content: (this.casestudy ? this.casestudy.title : '') + ' ' + this.$static.metadata.siteName
-        // },
-        // {
-        //   key: 'twitter:description',
-        //   name: 'twitter:description',
-        //   content: this.casestudy ? this.casestudy.description : '',
-        // },
-        // {
-        //   key: 'twitter:image',
-        //   name: 'twitter:image',
-        //   content: this.casestudy && this.casestudy.mainImage.asset ? this.casestudy.mainImage.asset.url : (this.$static.settings.ogImage ? this.$static.settings.ogImage.asset.url : '')
-        // }
+        {
+          key: 'og:title',
+          name: 'og:title',
+          content: this.$page.settings.title + ' | ' + this.pageTitle
+        },
+        {
+          key: 'og:description',
+          name: 'og:description',
+          content: this.metaDescription
+        },
+        {
+          key: 'og:image',
+          name: 'og:image',
+          content: this.ogImage ? `${this.ogImage.asset.url}?w=1200&h=630&fit=crop` : ''
+        },
+        {
+          key: 'twitter:title',
+          name: 'twitter:title',
+          content: this.$page.settings.title + ' | ' + this.pageTitle
+        },
+         {
+          key: 'twitter:description',
+          name: 'twitter:description',
+          content: this.metaDescription
+        },
+        {
+          key: 'twitter:image',
+          name: 'twitter:image',
+          content: this.twitterImage ? `${this.twitterImage.asset.url}?w=800&h=418&fit=crop` : ''
+        },
+        {
+          key: 'twitter:card',
+          name: 'twitter:card',
+          content: 'summary_large_image'
+        }
       ]
     }
   }
@@ -92,6 +108,16 @@ query Post ($id: ID, $prevId: ID, $nextId: ID) {
   settings: sanitySiteSettings (id: "siteSettings") {
     title
     description
+    ogImage {
+      asset {
+        url
+      }
+    }
+    twitterImage {
+      asset {
+        url
+      }
+    }
   }
   metadata {
     sanityOptions {
