@@ -34,6 +34,13 @@ export default {
       fieldset: 'seo'
     },
     {
+      name: 'twitterImage',
+      type: 'mainImage',
+      title: 'Twitter Image',
+      description: 'Upload a default sharecard image for Twitter. The ideal dimensions for this image are 800px by 418px.',
+      fieldset: 'seo'
+    },
+    {
       name: 'socialLinkIg',
       type: 'string',
       title: 'Instagram Account Link',
