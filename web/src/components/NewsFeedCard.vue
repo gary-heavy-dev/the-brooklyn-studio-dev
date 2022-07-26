@@ -6,7 +6,7 @@
   >
     <div class="grid__card">
       <BaseImage
-        v-if="post.mainImage"
+        v-if="post.mainImage && post.mainImage.asset"
         :src="post.mainImage"
         :lazy="true"
         :sizes="sizes"
