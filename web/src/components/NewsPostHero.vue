@@ -1,7 +1,7 @@
 <template>
   <div class="news-post-hero mb-100">
     <BaseImage
-      v-if="content.mainImage"
+      v-if="content.mainImage && content.mainImage.asset"
       :src="content.mainImage"
       :lazy="true"
       :sizes="sizes"
