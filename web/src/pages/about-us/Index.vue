@@ -11,7 +11,7 @@ export default {
   },
   computed: {
     pageTitle() {
-      return 'About' 
+      return this.$page.page.title 
     },
     // firstHeroImage() {
     //   return this.$page.page.slides.length ? this.$page.page.slides[0].image : null
