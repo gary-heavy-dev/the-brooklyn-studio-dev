@@ -1,7 +1,8 @@
 <template>
   <li
     class="dropdown"
-    @mouseleave="closeDropdown"
+    @mouseleave="handleLeave"
+    @mouseenter="handleEnter"
   >
     <button
       type="button"
@@ -9,7 +10,7 @@
       v-if="primary"
       :aria-expanded="String(expanded)"
       :aria-controls="name + '-dropdown'"
-      @click="expanded = !expanded"
+      @click="handleClick"
     >
       <g-link
         :to="primary.link"
@@ -46,11 +47,27 @@ export default {
   methods: {
     closeDropdown(e) {
       this.expanded = false
-      const button = e.target.querySelector('button')
-      console.log('me button:', button)
+      e.target.classList.remove('dropdown--active')
+    },
+    openDropdown(e) {
+      this.expanded = true
+      e.target.classList.add('dropdown--active')
+    },
+    handleEnter(e) {
+      this.openDropdown(e)
+    },
+    handleLeave(e) {
+      this.closeDropdown(e)
+    },
+    handleClick(e) {
+      const button = e.target.parentNode
+      const parent = e.target.parentNode.parentNode
+
+      parent.classList.remove('dropdown--active')
       button.focus()
       button.blur()
-    },
+      this.closeDropdown(e)
+    }
     // closeOnRouteChange(e) {
     //   this.expanded = false
     //   const link = e.target
@@ -60,12 +77,12 @@ export default {
     //   button.blur()
     // }
   },
-  watch: {
-    $route (to, from) {
-      this.closeOnRouteChange
-      console.log('Changin!', this.expanded)
-    }
-  }
+  // watch: {
+  //   $route (to, from) {
+  //     this.closeOnRouteChange
+  //     console.log('Changin!', this.expanded)
+  //   }
+  // }
 }
 </script>
 
@@ -117,7 +134,7 @@ export default {
 
 .page-loaded .headroom:not(.headroom--unpinned) {
 
-  .dropdown {
+  .dropdown--active {
 
     &:hover,
     &:focus-within {
