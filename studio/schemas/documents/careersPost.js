@@ -26,19 +26,19 @@ export default {
       of: [{ type: 'headingPortablePair' }],
       description: 'Use these blocks to add intro sections such as "Description" and "Your Impact".'
     },
-    {
-      name: 'responsibilities',
-      type: 'array',
-      title: 'Responsibility List',
-      description: 'Add individual lists with headings below.',
-      of: [{ type: 'list' }]
-    },
-    {
-      name: 'requirements',
-      type: 'array',
-      title: 'Qualifications List',
-      description: 'Add qualification requirements below.',
-      of: [{ type: 'string' }]
-    }
+    // {
+    //   name: 'responsibilities',
+    //   type: 'array',
+    //   title: 'Responsibility List',
+    //   description: 'Add individual lists with headings below.',
+    //   of: [{ type: 'list' }]
+    // },
+    // {
+    //   name: 'requirements',
+    //   type: 'array',
+    //   title: 'Qualifications List',
+    //   description: 'Add qualification requirements below.',
+    //   of: [{ type: 'string' }]
+    // }
   ]
 }
