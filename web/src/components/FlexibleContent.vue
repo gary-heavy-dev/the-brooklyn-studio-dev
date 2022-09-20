@@ -53,6 +53,10 @@
         v-if="block._type === 'simpleImageWithText'"
         :content="block"
       />
+      <FlexiblePullQuote
+        v-if="block._type === 'flexiblePullQuote'"
+        :content="block"
+      />
       <FlexibleText
         v-if="block._type === 'flexibleText' | block._type === 'simplePortableTextWrapper'"
         :content="block"
@@ -74,6 +78,7 @@ import FlexibleImagePair from '~/components/FlexibleImagePair'
 import FlexibleImagePairSimple from '~/components/FlexibleImagePairSimple'
 import FlexibleImageWithText from '~/components/FlexibleImageWithText'
 import FlexibleImageWithTextSimple from '~/components/FlexibleImageWithTextSimple'
+import FlexiblePullQuote from '~/components/FlexiblePullQuote'
 import FlexibleText from '~/components/FlexibleText'
 
 export default {
@@ -90,6 +95,7 @@ export default {
     FlexibleImagePairSimple,
     FlexibleImageWithText,
     FlexibleImageWithTextSimple,
+		FlexiblePullQuote,
     FlexibleText
   },
   props: {

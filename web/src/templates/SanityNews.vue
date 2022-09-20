@@ -9,11 +9,11 @@ import NewsPost from '~/components/NewsPost'
 
 export default {
   components: {
-    NewsPost 
+    NewsPost
   },
   computed: {
     pageTitle() {
-      return this.$page.post.title 
+      return this.$page.post.title
     },
     // firstHeroImage() {
     //   return this.$page.page.slides.length ? this.$page.page.slides[0].image : null
@@ -115,6 +115,10 @@ query Post ($id: ID!) {
       alt
     }
     flexibleContent {
+			... on SanityFlexiblePullQuote {
+						_type
+						text
+					}
       ... on SanitySimpleImagePair {
         _type
         imageLeft {

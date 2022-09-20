@@ -22,7 +22,7 @@ export default {
 
 <style lang="scss">
 .flexible-text {
-
+	max-width: 1200px;
   &__inner {
 
     @include desktop {

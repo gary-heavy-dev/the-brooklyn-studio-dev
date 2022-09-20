@@ -55,8 +55,7 @@ export default {
       name: 'mainImage',
       type: 'mainImage',
       title: 'Main image',
-      description: 'Please upload an image 2170px wide. The height is up to you!',
-      validation: Rule => Rule.required()
+      description: 'Please upload an image 2170px wide. The height is up to you!'
     },
     {
       name: 'excerpt',
@@ -94,6 +93,7 @@ export default {
         { type: 'simpleImagePair', title: 'Image Pair' },
         { type: 'simpleImageWithText', title: 'Image With Text' },
         { type: 'simpleGallery', title: 'Image Gallery' },
+        { type: 'flexiblePullQuote' },
       ]
     },
     {

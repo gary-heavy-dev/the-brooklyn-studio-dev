@@ -10,7 +10,7 @@
             :blocks="content._rawNewsFeedIntro"
           />
           <g-link
-            to="/news/feed" 
+            to="/news/feed"
             class="upper button mt-60 mb-80"
           >Explore News Feed</g-link>
         </div>
@@ -150,6 +150,10 @@ export default {
           alt
         }
         flexibleContent {
+					... on SanityFlexiblePullQuote {
+						_type
+						text
+					}
           ... on SanitySimpleImagePair {
             imageLeft {
               asset {

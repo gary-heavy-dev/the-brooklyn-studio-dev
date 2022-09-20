@@ -50,6 +50,10 @@ export default {
           alt
         }
         flexibleContent {
+					... on SanityFlexiblePullQuote {
+						_type
+						text
+					}
           ... on SanitySimpleImagePair {
             imageLeft {
               asset {
