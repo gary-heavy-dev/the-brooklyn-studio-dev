@@ -1,9 +1,5 @@
 import React from 'react'
 
-const h4Text = (props) => (
-  <span style={{fontSize: '23px', lineHeight: '28px'}}>{props.children}</span>
-)
-
 export default {
   name: 'excerptPortableText',
   type: 'array',
@@ -16,13 +12,7 @@ export default {
       // lists: [],
       styles: [
         {title: 'Normal', value: 'normal'},
-        {
-          title: 'H4',
-          value: 'h4',
-          blockEditor: {
-            render: h4Text
-          }
-        }
+        {title: 'H4', value: 'h4'},
       ],
       lists: [
         {title: 'Bullet', value: 'bullet'},

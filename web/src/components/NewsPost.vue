@@ -59,6 +59,14 @@ export default {
         grid-column: 2/12;
       }
     }
+
+		h4 {
+			margin-bottom: 13px;
+
+			@include desktop {
+				margin-bottom: 22px;
+			}
+		}
   }
 }
 </style>
