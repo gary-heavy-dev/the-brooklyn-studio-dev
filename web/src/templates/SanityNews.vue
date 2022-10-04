@@ -116,9 +116,9 @@ query Post ($id: ID!) {
     }
     flexibleContent {
 			... on SanityFlexiblePullQuote {
-						_type
-						text
-					}
+        _type
+        text
+      }
       ... on SanitySimpleImagePair {
         _type
         imageLeft {

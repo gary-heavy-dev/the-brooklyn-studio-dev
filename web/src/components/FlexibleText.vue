@@ -6,6 +6,7 @@
       v-html="content.text"
     ></div>
     <BaseBlockContent
+      class="flexible-portable-text__inner"
       v-else-if="content._rawExcerptPortableText"
       :blocks="content._rawExcerptPortableText"
     />
@@ -22,12 +23,17 @@ export default {
 
 <style lang="scss">
 .flexible-text {
-	max-width: 1250px;
+  
   &__inner {
+    max-width: 1250px;
 
     @include desktop {
       text-align: center;
     }
   }
+}
+
+.flexible-portable-text__inner {
+  max-width: 1000px;
 }
 </style>

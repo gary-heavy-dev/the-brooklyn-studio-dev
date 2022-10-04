@@ -1,11 +1,13 @@
 <template>
   <div class="flexible-quote container flex jc-c mb-100">
-    <div
-      v-if="content.text"
-      class="flexible-quote__inner color--navy-light"
-      v-html="content.text"
-    ></div>
-    <BaseBlockContent v-else-if="content._text" :blocks="content._text" />
+		<div class="flexible-quote__inner">
+			<div
+				v-if="content.text"
+				class="color--navy-light"
+				v-html="content.text"
+			></div>
+			<BaseBlockContent v-else-if="content._text" :blocks="content._text" />
+		</div>
   </div>
 </template>
 
@@ -20,11 +22,14 @@ export default {
 <style lang="scss">
 .flexible-quote {
 	position: relative;
+
   &__inner {
 		font-size: var(--h3-font-size);
     line-height: var(--h3-line-height);
-    text-align: left;
 		padding: 40px 0;
+		position: relative;
+		display: flex;
+		justify-content: center;
 
 		@include desktop {
 			max-width: 60%;
@@ -45,22 +50,15 @@ export default {
 
     &::before {
 			content: '\201C';
-			margin-top: -35px;
-
-			@include desktop {
-				margin: -40px;
-			}
+			left: 0;
+			transform: translateX(-125%) translateY(-50%);
     }
 
     &::after {
 			content: '\201D';
-			margin-top: 65px;
-			margin-left: -20px;
-
-			@include desktop {
-				margin-left: 20px;
-				margin-top: 70px;
-			}
+			right: 0;
+			bottom: 0;
+			transform: translateX(100%) translateY(100%);
     }
 
   }
