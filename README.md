@@ -31,7 +31,7 @@ If you want to turn off preview you can set `watchMode: false` in gridsome-conf
 
 Netlify automatically deploys new changes commited to master on GitHub. If you want to change deployment branch, do so in [build & deploy settings on Netlify](https://www.netlify.com/docs/continuous-deployment/#branches-deploys).
 
-This starter comes with a Netlify-widget that lets you trigger new deploys from Sanity Studio.
+This theme comes with a Netlify-widget that lets you trigger new deploys from Sanity Studio.
 
 ## Stuck? Get help
 
