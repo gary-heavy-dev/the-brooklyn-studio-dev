@@ -2,14 +2,14 @@
   environment = { NODE_VERSION = "14.17.6" }
 
 [context.production.environment]
-  GRIDSOME_SANITY_DATASET = 'production'
-  NODE_ENV = "production"
+  GRIDSOME_SANITY_DATASET = "production"
+  NODE_ENV = "development"
 
 [context.staging.environment]
-  GRIDSOME_SANITY_DATASET = 'staging'
+  GRIDSOME_SANITY_DATASET = "staging"
   NODE_ENV = "development"
 
 [context.branch-deploy.environment]
-  GRIDSOME_SANITY_DATASET = 'staging'
+  GRIDSOME_SANITY_DATASET = "staging"
   NODE_ENV = "development"
   
