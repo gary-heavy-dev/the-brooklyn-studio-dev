@@ -21,6 +21,25 @@
     "color-list",
     "@sanity/vision"
   ],
+  "__experimental_spaces": [
+    {
+      "name": "production",
+      "title": "Production",
+      "default": true,
+      "api": {
+        "projectId": "wups1rn4",
+        "dataset": "production"
+      }
+    },
+    {
+      "name": "staging",
+      "title": "Staging",
+      "api": {
+        "projectId": "wups1rn4",
+        "dataset": "staging"
+      }
+    }
+  ],
   "parts": [
     {
       "name": "part:@sanity/base/schema",
