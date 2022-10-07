@@ -29,6 +29,11 @@
       "api": {
         "dataset": "staging"
       }
+    },
+    "production": {
+      "api": {
+        "dataset": "production"
+      }
     }
   },
   "__experimental_spaces": [
