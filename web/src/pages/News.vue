@@ -1,19 +1,17 @@
 <template>
-  <Layout>
-    <NewsPost :content="$page.post" />
-  </Layout>
+  <News :content="$page.page" />
 </template>
 
 <script>
-import NewsPost from '~/components/NewsPost'
+import News from '~/components/News'
 
 export default {
   components: {
-    NewsPost
+    News 
   },
   computed: {
     pageTitle() {
-      return this.$page.post.title 
+      return 'News' 
     },
     // firstHeroImage() {
     //   return this.$page.page.slides.length ? this.$page.page.slides[0].image : null
@@ -26,10 +24,9 @@ export default {
       // return this.$page.page.twitterImage || this.firstHeroImage || this.$page.settings.twitterImage
       return this.$page.settings.twitterImage
     },
-    metaDescription() {
-      const des = this.$page.post._rawExcerpt ? this.$toPlainText(this.$page.post._rawExcerpt) : this.$page.settings.description
-      const count = 155
-      return des.slice(0, count) + (des.length > count ? '...' : '')
+    metaDescription () {
+      const description = 'The Brooklyn Studio is an interdisciplinary architecture and design firm committed to restoring and enhancing New York City\'s historic fabric.'
+      return description
     }
   },
   metaInfo() {
@@ -84,7 +81,7 @@ export default {
 </script>
 
 <page-query>
-query Post ($id: ID!) {
+{
   settings: sanitySiteSettings (id: "siteSettings") {
     title
     description
@@ -99,76 +96,53 @@ query Post ($id: ID!) {
       }
     }
   }
-  post: sanityNews (id: $id) {
+  page: sanityNewsPage(id: "b921b006-dafd-49a5-a3d7-eef55a00358f") {
     title
-    slug {
-      current
-    }
-    publishedAt (format: "MMMM D, YYYY")
-    publisher {
-      title
-    }
-    mainImage {
-      asset {
-        url
-      }
-      alt
-    }
-    flexibleContent {
-			... on SanityFlexiblePullQuote {
-        _type
-        text
-      }
-      ... on SanitySimpleImagePair {
-        _type
-        imageLeft {
-          asset {
-            url
-          }
-          caption
-          alt
-        }
-        imageRight {
-          asset {
-            url
-          }
-          caption
-          alt
-        }
-      }
-      ... on SanitySimpleImageWithText {
-        _type
-        image {
-          asset {
-            url
-            metadata {
-              dimensions {
-                width
-                height
-              }
+    hero {
+      image {
+        alt
+        caption
+        captionStyle
+        asset {
+          url
+          metadata {
+            dimensions {
+              height
+              width
             }
           }
-          caption
-          alt
         }
-        imageLocation
-        reverseMobile
-        _rawText
       }
-      ... on SanitySimplePortableTextWrapper {
-        _type
-        _rawExcerptPortableText
+    }
+    featuredNews {
+      title
+      _rawExcerpt
+      link
+      slug {
+        current
       }
-      ... on SanitySimpleGallery {
-        _type
-        images {
-          asset {
-            url
+      mainImage {
+        caption
+        captionStyle
+        asset {
+          url
+          metadata {
+            dimensions {
+              height
+              width
+            }
           }
-          caption
-          alt
         }
+        alt
       }
+    }
+    awards {
+      title
+      year
+    }
+    press {
+      title
+      pubDate
     }
   }
 }

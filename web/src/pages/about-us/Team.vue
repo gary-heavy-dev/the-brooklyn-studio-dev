@@ -39,7 +39,7 @@ export default {
         {
           key: 'description',
           name: 'description',
-          content: 'The Brooklyn Studio is an interdisciplinary architecture and design firm committed to restoring and enhancing New York City\'s historic fabric.'
+          content: this.metaDescription
         },
         {
           key: 'og:title',

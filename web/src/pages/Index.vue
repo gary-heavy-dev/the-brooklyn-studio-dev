@@ -39,7 +39,7 @@ export default {
           name: 'description',
           content: this.metaDescription
         },
-        {
+         {
           key: 'og:title',
           property: 'og:title',
           content: this.$page.settings.title + ' | ' + this.pageTitle
@@ -52,7 +52,7 @@ export default {
         {
           key: 'og:image',
           property: 'og:image',
-          content: this.ogImage ? this.ogImage.asset.url : ''
+          content: this.ogImage ? `${this.ogImage.asset.url}?w=1200&h=630&fit=crop` : ''
         },
         {
           key: 'twitter:title',
@@ -67,7 +67,7 @@ export default {
         {
           key: 'twitter:image',
           property: 'twitter:image',
-          content: this.twitterImage ? this.twitterImage.asset.url : ''
+          content: this.twitterImage ? `${this.twitterImage.asset.url}?w=800&h=418&fit=crop` : ''
         },
         {
           key: 'twitter:card',
