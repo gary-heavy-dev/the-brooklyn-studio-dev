@@ -3,10 +3,6 @@
   "project": {
     "name": "The Brooklyn Studio"
   },
-  "api": {
-    "projectId": "wups1rn4",
-    "dataset": "staging"
-  },
   "plugins": [
     "@sanity/base",
     "@sanity/components",
