@@ -62,9 +62,9 @@ module.exports = {
     {
       use: 'gridsome-source-sanity',
       options: {
-        // ...clientConfig.sanity,
-        projectId: 'wups1rn4',
-        dataset: 'production',
+        ...clientConfig.sanity,
+        // projectId: 'wups1rn4',
+        // dataset: 'production',
         typeName: 'Sanity',
         token: process.env.SANITY_TOKEN,
         overlayDrafts: !isProd,

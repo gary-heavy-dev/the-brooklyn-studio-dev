@@ -70,6 +70,19 @@ export default {
       }
     }
 
+    &.image--desktop {
+
+      @include desktop {
+
+        &-left {
+
+          .flexible-image-with-text__text {
+            grid-column: span 4/13;
+          }
+        }
+      }
+    }
+
     .flexible-image-with-text__image {
 
       @include desktop {
