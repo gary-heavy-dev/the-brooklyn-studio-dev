@@ -110,6 +110,10 @@ export default {
             link: '/careers',
             linkText: 'Career Opportunities'
           },
+          {
+            link: '/credits',
+            linkText: 'Site Credits'
+          },
         ]
       }
     };

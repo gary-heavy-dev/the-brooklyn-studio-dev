@@ -7,7 +7,7 @@
     >
       <h3
         v-if="block.heading"
-        class="h5 mb-15"
+        class="h3 mb-15"
       >{{ block.heading }}</h3>
       <BaseBlockContent
         v-if="block._rawCopy"

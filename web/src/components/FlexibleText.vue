@@ -34,6 +34,8 @@ export default {
 }
 
 .flexible-portable-text__inner {
-  max-width: 1000px;
+  max-width: 60ch;
+  width: 100%;
+  margin: 0 auto;
 }
 </style>

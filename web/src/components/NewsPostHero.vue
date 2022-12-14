@@ -5,8 +5,6 @@
       :src="content.mainImage"
       :lazy="true"
       :sizes="sizes"
-      :x="1205"
-      :y="1041"
       :caption="content.mainImage.caption"
       class="mb-80"
     />

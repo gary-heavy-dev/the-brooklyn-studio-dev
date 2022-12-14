@@ -32,35 +32,22 @@ export default {
 		justify-content: center;
 
 		@include desktop {
-			max-width: 60%;
+			max-width: 38ch;
 			padding: 0;
 		}
 
-		&::before,
-		&::after {
-			color: var(--color--white);
+		&::before {
+			color: var(--color--gray);
 			position: absolute;
 			font-size: 70px;
-			-webkit-text-stroke: 1px var(--color--navy);
+			content: '\201C';
+			left: 0;
+			transform: translateX(-125%) translateY(-50%);
 
 			@include desktop {
 				font-size: 100px;
 			}
 		}
-
-    &::before {
-			content: '\201C';
-			left: 0;
-			transform: translateX(-125%) translateY(-50%);
-    }
-
-    &::after {
-			content: '\201D';
-			right: 0;
-			bottom: 0;
-			transform: translateX(100%) translateY(100%);
-    }
-
   }
 }
 </style>
