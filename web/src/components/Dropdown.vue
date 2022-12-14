@@ -1,8 +1,7 @@
 <template>
   <li
     class="dropdown"
-    @mouseleave="handleLeave"
-    @mouseenter="handleEnter"
+    @mouseleave="closeDropdown"
   >
     <button
       type="button"
@@ -10,11 +9,9 @@
       v-if="primary"
       :aria-expanded="String(expanded)"
       :aria-controls="name + '-dropdown'"
-      @click="handleClick"
+      @click="expanded = !expanded"
     >
-      <g-link
-        :to="primary.link"
-      >{{ primary.linkText }}</g-link>
+      <g-link :to="primary.link">{{ primary.linkText }}</g-link>
     </button>
     <ul
       class="dropdown__menu"
@@ -24,9 +21,7 @@
         v-for="(link, index) in secondary"
         :key="index"
       >
-        <g-link
-          :to="link.link"
-        >{{ link.linkText }}</g-link>
+        <g-link :to="link.link">{{ link.linkText }}</g-link>
       </li>
     </ul>
   </li>
@@ -47,42 +42,11 @@ export default {
   methods: {
     closeDropdown(e) {
       this.expanded = false
-      e.target.classList.remove('dropdown--active')
-    },
-    openDropdown(e) {
-      this.expanded = true
-      e.target.classList.add('dropdown--active')
-    },
-    handleEnter(e) {
-      this.openDropdown(e)
-    },
-    handleLeave(e) {
-      this.closeDropdown(e)
-    },
-    handleClick(e) {
-      const button = e.target.parentNode
-      const parent = e.target.parentNode.parentNode
-
-      parent.classList.remove('dropdown--active')
+      const button = e.target.querySelector('button')
       button.focus()
       button.blur()
-      this.closeDropdown(e)
     }
-    // closeOnRouteChange(e) {
-    //   this.expanded = false
-    //   const link = e.target
-    //   const button = link.closest('.dropdown').firstChild
-    //   console.log('link:', link, 'button:', button)
-    //   button.focus()
-    //   button.blur()
-    // }
-  },
-  // watch: {
-  //   $route (to, from) {
-  //     this.closeOnRouteChange
-  //     console.log('Changin!', this.expanded)
-  //   }
-  // }
+  }
 }
 </script>
 
@@ -132,9 +96,9 @@ export default {
   }
 }
 
-.page-loaded .headroom:not(.headroom--unpinned) {
+.headroom:not(.headroom--unpinned) {
 
-  .dropdown--active {
+  .dropdown {
 
     &:hover,
     &:focus-within {
