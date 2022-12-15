@@ -3,7 +3,7 @@
     <div class="news-feed-slider__inner">
       <div class="grid grid--12-desktop container">
         <div class="news-feed-slider__intro col-span--all">
-          <h2 class="h2">News Feed</h2>
+          <h2 class="h2 upper">News Feed</h2>
           <BaseBlockContent
             class="mw-readable--large"
             v-if="content._rawNewsFeedIntro"
