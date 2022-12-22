@@ -6,15 +6,15 @@
   >
     <div class="grid__card">
       <BaseImage
-        v-if="post.mainImage && post.mainImage.asset"
-        :src="post.mainImage"
+        v-if="post.altThumbnail && post.altThumbnail.asset"
+        :src="post.altThumbnail"
         :lazy="true"
         :sizes="sizes"
         :x="378"
         :y="302"
         class="mb-30"
-        :caption="post.mainImage.caption"
-        :captionStyle="post.mainImage.captionStyle"
+        :caption="post.altThumbnail.caption"
+        :captionStyle="post.altThumbnail.captionStyle"
       />
       <div class="sub color--gray-tertiary news-feed-card__date">{{ post.publishedAt }}</div>
       <h3 v-html="post.title"></h3>

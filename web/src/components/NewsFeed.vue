@@ -43,6 +43,17 @@ export default {
           current
         }
         publishedAt (format: "M/D/YY")
+        altThumbnail {
+          caption
+          captionStyle
+          asset {
+            url
+            metadata {
+              lqip
+            }
+          }
+          alt
+        }
         mainImage {
           asset {
             url

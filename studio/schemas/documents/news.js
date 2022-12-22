@@ -52,6 +52,13 @@ export default {
       }
     },
     {
+      name: 'altThumbnail',
+      title: 'Thumbnail',
+      type: 'mainImage',
+      description: 'Please upload the thumbnail image for your news post here. The recommended size is 1226px by 981px',
+      validation: Rule => Rule.required()
+    },
+    {
       name: 'mainImage',
       type: 'mainImage',
       title: 'Main image',
