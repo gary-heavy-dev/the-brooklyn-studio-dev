@@ -13,9 +13,6 @@ const clientConfig = require('./client-config')
 const isProd = process.env.NODE_ENV === 'production'
 
 const path = require('path')
-// const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
-  .BundleAnalyzerPlugin
 
 function addStyleResource (rule) {
   rule.use('style-resource')
@@ -47,15 +44,6 @@ module.exports = {
     types.forEach(type => {
       addStyleResource(config.module.rule('scss').oneOf(type))
     })
-
-    config
-      .plugin('BundleAnalyzerPlugin')
-      .use(BundleAnalyzerPlugin, [
-        {
-          analyzerMode: 'static',
-          openAnalyzer: false
-        }
-      ])
   },
 
   plugins: [
