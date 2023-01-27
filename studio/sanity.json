@@ -1,5 +1,9 @@
 {
   "root": true,
+  "api": {
+    "projectId": "wups1rn4",
+    "dataset": "staging"
+  },
   "project": {
     "name": "The Brooklyn Studio"
   },
