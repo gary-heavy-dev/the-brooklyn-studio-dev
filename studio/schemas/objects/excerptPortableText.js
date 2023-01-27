@@ -12,6 +12,7 @@ export default {
       // lists: [],
       styles: [
         {title: 'Normal', value: 'normal'},
+        {title: 'H3', value: 'h3'},
         {title: 'H4', value: 'h4'},
       ],
       lists: [

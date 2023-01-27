@@ -27,6 +27,9 @@ export default {
               <a href={href} target="_blank" rel="noopener">{children}</a>
               : <a href={href}>{children}</a>
           },
+          h3: ({mark, children}) => {
+            return <h3>{children}</h3>
+          },
           h4: ({mark, children}) => {
             return <h4>{children}</h4>
           }

@@ -3,17 +3,6 @@
   "project": {
     "name": "The Brooklyn Studio"
   },
-  "api": {
-    "projectId": "wups1rn4",
-    "dataset": "staging"
-  },
-  "env": {
-    "development": {
-      "api": {
-        "dataset": "staging"
-      }
-    }
-  },
   "plugins": [
     "@sanity/base",
     "@sanity/components",
@@ -32,6 +21,7 @@
     {
       "name": "production",
       "title": "Production",
+      "default": true,
       "api": {
         "projectId": "wups1rn4",
         "dataset": "production"
@@ -40,7 +30,6 @@
     {
       "name": "staging",
       "title": "Staging",
-      "default": true,
       "api": {
         "projectId": "wups1rn4",
         "dataset": "staging"
