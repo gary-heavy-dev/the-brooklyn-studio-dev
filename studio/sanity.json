@@ -32,7 +32,6 @@
     {
       "name": "production",
       "title": "Production",
-      "default": true,
       "api": {
         "projectId": "wups1rn4",
         "dataset": "production"
@@ -41,6 +40,7 @@
     {
       "name": "staging",
       "title": "Staging",
+      "default": true,
       "api": {
         "projectId": "wups1rn4",
         "dataset": "staging"
