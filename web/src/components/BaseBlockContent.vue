@@ -26,6 +26,9 @@ export default {
             return blank ?
               <a href={href} target="_blank" rel="noopener">{children}</a>
               : <a href={href}>{children}</a>
+          },
+          h4: ({mark, children}) => {
+            return <h4>{children}</h4>
           }
         },
         types: {
