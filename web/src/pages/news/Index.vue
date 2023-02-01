@@ -7,11 +7,11 @@ import News from '~/components/News'
 
 export default {
   components: {
-    News 
+    News
   },
   computed: {
     pageTitle() {
-      return 'News' 
+      return 'News'
     },
     // firstHeroImage() {
     //   return this.$page.page.slides.length ? this.$page.page.slides[0].image : null

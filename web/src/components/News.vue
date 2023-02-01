@@ -4,6 +4,7 @@
       :title="content.title"
       :image="content.hero.image"
     />
+		{{ content.featuredNews.mainImage.asset }}
     <CtaSimple
       :content="ctaObject"
       class="news__cta"
@@ -73,11 +74,11 @@ export default {
         link: this.ctaLink,
         image: {
           asset: {
-            url: this.content.featuredNews.mainImage.asset.url,
+            url: this?.content?.featuredNews?.mainImage?.asset?.url,
             metadata: {
               dimensions: {
-                height: this.content.featuredNews.mainImage.asset.metadata.dimensions.height,
-                width: this.content.featuredNews.mainImage.asset.metadata.dimensions.width
+                height: this?.content?.featuredNews?.mainImage?.asset?.metadata?.dimensions?.height,
+                width: this?.content?.featuredNews?.mainImage?.asset?.metadata?.dimensions?.width
               }
             }
           },
