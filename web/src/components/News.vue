@@ -4,8 +4,8 @@
       :title="content.title"
       :image="content.hero.image"
     />
-		{{ content.featuredNews.mainImage.asset }}
     <CtaSimple
+			v-if="ctaImage.asset"
       :content="ctaObject"
       class="news__cta"
     />
@@ -58,6 +58,15 @@ export default {
   props: {
     content: Object
   },
+	data() {
+		return {
+			ctaImage: this.content.featuredNews.altThumbnail.asset
+			? this.content.featuredNews.altThumbnail
+			: this.content.featuredNews.mainImage.asset
+			? this.content.featuredNews.mainImage
+			: ''
+		}
+	},
   computed: {
     ctaLink() {
       if (this.content.featuredNews.link) {
@@ -74,15 +83,15 @@ export default {
         link: this.ctaLink,
         image: {
           asset: {
-            url: this?.content?.featuredNews?.mainImage?.asset?.url,
+            url: this.ctaImage.asset.url,
             metadata: {
               dimensions: {
-                height: this?.content?.featuredNews?.mainImage?.asset?.metadata?.dimensions?.height,
-                width: this?.content?.featuredNews?.mainImage?.asset?.metadata?.dimensions?.width
+                height: this.ctaImage.asset.metadata.dimensions.height,
+                width: this.ctaImage.asset.metadata.dimensions.width
               }
             }
           },
-          alt: this.content.featuredNews.mainImage.alt
+          alt: this.ctaImage.alt
         },
         bgColor: {
           title: 'gray-light'

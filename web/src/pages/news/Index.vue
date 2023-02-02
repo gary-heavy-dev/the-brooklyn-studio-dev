@@ -24,8 +24,9 @@ export default {
       // return this.$page.page.twitterImage || this.firstHeroImage || this.$page.settings.twitterImage
       return this.$page.settings.twitterImage
     },
-    metaDescription () {
-      const description = 'The Brooklyn Studio is an architecture and interior design firm committed to restoring and enhancing New York City\'s historic fabric.'
+    metaDescription() {
+      const description =
+        "The Brooklyn Studio is an architecture and interior design firm committed to restoring and enhancing New York City's historic fabric."
       return description
     }
   },
@@ -122,6 +123,20 @@ export default {
       slug {
         current
       }
+			altThumbnail {
+          caption
+          captionStyle
+          asset {
+            url
+            metadata {
+              dimensions {
+								height
+								width
+            	}
+            }
+          }
+          alt
+        }
       mainImage {
         caption
         captionStyle
