@@ -23,7 +23,7 @@ export default {
 
 <style lang="scss">
 .flexible-text {
-  
+
   &__inner {
     max-width: 1250px;
 

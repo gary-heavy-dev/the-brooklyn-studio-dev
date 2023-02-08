@@ -1,9 +1,6 @@
 <template>
   <div class="news-post flex fw w-100">
-    <Breadcrumbs
-      :previous="breadcrumbLinks"
-      :current="content.title"
-    />
+    <Breadcrumbs :previous="breadcrumbLinks" :current="content.title" />
     <div class="container">
       <NewsPostHero :content="content" />
     </div>
@@ -21,7 +18,7 @@ export default {
     Breadcrumbs,
     NewsPostHero,
     FlexibleContent
-},
+  },
   props: {
     content: Object
   },
@@ -43,14 +40,26 @@ export default {
 </script>
 
 <style lang="scss">
-.news-post {
+@import '../assets/style/utils';
 
+.news-post {
   * {
     grid-gap: 0 36px;
   }
 
-  .flexible-text {
+	// Apply smaller margin-bottoms to flexible content of blog-posts
+	.flexible-image-with-text-simple,
+	.flexible-image-with-text,
+	.flexible-image,
+	.flexible-image-gallery,
+	.flexible-image-pair,
+	.flexible-image-pair-simple,
+	.flexible-quote,
+	.flexible-text {
+		@extend .mb-50;
+	}
 
+  .flexible-text {
     @include desktop {
       display: grid;
       grid-template-columns: repeat(12, 1fr);
@@ -60,13 +69,13 @@ export default {
       }
     }
 
-		h4 {
-			margin-bottom: 13px;
+    h4 {
+      margin-bottom: 13px;
 
-			@include desktop {
-				margin-bottom: 22px;
-			}
-		}
+      @include desktop {
+        margin-bottom: 22px;
+      }
+    }
   }
 }
 </style>
