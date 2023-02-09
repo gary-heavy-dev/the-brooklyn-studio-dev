@@ -38,11 +38,11 @@ export default {
   margin: 0 auto;
 
 	@include tablet {
-		max-width: 595px;
+		max-width: 575px;
 	}
 
 	@include laptop {
-		max-width: 650px;
+		max-width: 630px;
 	}
 
 	@include desktop {

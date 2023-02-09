@@ -46,11 +46,10 @@ export default {
 
 <style lang="scss">
 .news-post-hero {
-  &__headline,
-  &__meta-info {
-	// max-width: ;
+	&__headline,
+	&__meta-info {
 	width: 100%;
-  margin: 0 auto;
+	margin: 0 auto;
 
 	@include tablet {
 		max-width: 575px;
@@ -63,16 +62,16 @@ export default {
 	@include desktop {
 		max-width: 700px;
 	}
-  }
+	}
 
-  &__meta-info {
-    > span {
-      &:last-child {
-        span {
-          display: none;
-        }
-      }
-    }
-  }
+	&__meta-info {
+		> span {
+			&:last-child {
+				span {
+					display: none;
+				}
+			}
+		}
+	}
 }
 </style>
