@@ -1,7 +1,12 @@
 <template>
   <div class="news-post-hero mb-100">
     <div class="news-post-hero__headline grid grid--12-desktop">
-      <h1 v-if="content.title" class="h3 mb-40 col-span--all">{{ content.title }}</h1>
+			<div class="mb-40 col-span--inset-1">
+				<h1 v-if="content.title" class="h3">{{ content.title }}</h1>
+				<div v-if="content.subtitle" class="upper sub--lg color--gray-tertiary">
+					{{ content.subtitle }}
+				</div>
+			</div>
     </div>
     <BaseImage
       v-if="content.mainImage && content.mainImage.asset"
@@ -46,32 +51,31 @@ export default {
 
 <style lang="scss">
 .news-post-hero {
-	&__headline,
-	&__meta-info {
-	width: 100%;
-	margin: 0 auto;
+  &__meta-info {
+    width: 100%;
+    margin: 0 auto;
 
-	@include tablet {
-		max-width: 575px;
-	}
+    @include tablet {
+      max-width: 575px;
+    }
 
-	@include laptop {
-		max-width: 630px;
-	}
+    @include laptop {
+      max-width: 630px;
+    }
 
-	@include desktop {
-		max-width: 700px;
-	}
-	}
+    @include desktop {
+      max-width: 700px;
+    }
+  }
 
-	&__meta-info {
-		> span {
-			&:last-child {
-				span {
-					display: none;
-				}
-			}
-		}
-	}
+  &__meta-info {
+    > span {
+      &:last-child {
+        span {
+          display: none;
+        }
+      }
+    }
+  }
 }
 </style>

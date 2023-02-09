@@ -79,7 +79,7 @@ export default {
       return {
         largeText: this.content.featuredNews.title,
         _rawCopy: this.content.featuredNews._rawExcerpt,
-        linkText: 'Read More About<br>The Brooklyn Studio',
+        linkText: 'Read More',
         link: this.ctaLink,
         image: {
           asset: {

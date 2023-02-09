@@ -13,7 +13,7 @@ export default {
   },
   computed: {
     pageTitle() {
-      return this.$page.post.title 
+      return this.$page.post.title
     },
     // firstHeroImage() {
     //   return this.$page.page.slides.length ? this.$page.page.slides[0].image : null
@@ -101,6 +101,7 @@ query Post ($id: ID!) {
   }
   post: sanityNews (id: $id) {
     title
+		subtitle
     slug {
       current
     }
