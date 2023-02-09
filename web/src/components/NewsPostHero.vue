@@ -3,7 +3,7 @@
     <div class="news-post-hero__headline grid grid--12-desktop">
 			<div class="mb-40 col-span--inset-1">
 				<h1 v-if="content.title" class="h3">{{ content.title }}</h1>
-				<div v-if="content.subtitle" class="upper sub--lg color--gray-tertiary">
+				<div v-if="content.subtitle" class="upper sub--lg color--gray-tertiary mt-15">
 					{{ content.subtitle }}
 				</div>
 			</div>

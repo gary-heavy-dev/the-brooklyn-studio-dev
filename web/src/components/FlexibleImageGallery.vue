@@ -24,6 +24,7 @@
           />
         </swiper-slide>
         <div
+					v-if="content.images.length > 1"
           class="swiper__pagination flexible-image-gallery__swiper-pagination text-center"
           slot="pagination"
         ></div>

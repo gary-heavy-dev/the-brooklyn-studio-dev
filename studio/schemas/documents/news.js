@@ -100,6 +100,7 @@ export default {
         { type: 'simpleImagePair', title: 'Image Pair' },
         { type: 'simpleImageWithText', title: 'Image With Text' },
         { type: 'simpleGallery', title: 'Image Gallery' },
+				{ type: 'fullWidthImage', title: 'Full Width Image'},
         { type: 'flexiblePullQuote' },
       ]
     },

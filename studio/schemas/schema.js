@@ -42,6 +42,7 @@ import flexibleImagePair from './objects/flexibleImagePair'
 import flexibleImageWithText from './objects/flexibleImageWithText'
 import flexiblePullQuote from './objects/flexiblePullQuote'
 import flexibleText from './objects/flexibleText'
+import fullWidthImage from './objects/fullWidthImage'
 import headingPortablePair from './objects/headingPortablePair'
 import headingTextPair from './objects/headingTextPair'
 import heroHome from './objects/heroHome'
@@ -96,6 +97,7 @@ export default createSchema({
     flexibleImageWithText,
     flexiblePullQuote,
     flexibleText,
+    fullWidthImage,
     headingPortablePair,
     headingTextPair,
     heroHome,
