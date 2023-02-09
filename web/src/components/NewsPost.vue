@@ -61,6 +61,7 @@ export default {
 	.flexible-image-pair-simple,
 	.flexible-quote,
 	.flexible-text,
+	.full-width-image,
 	.news-post-hero {
 		@extend .mb-50;
 	}

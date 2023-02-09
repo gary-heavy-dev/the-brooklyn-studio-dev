@@ -27,7 +27,9 @@ export default {
       return this.$page.settings.twitterImage
     },
     metaDescription() {
-      const des = this.$page.post._rawExcerpt ? this.$toPlainText(this.$page.post._rawExcerpt) : this.$page.settings.description
+      const des = this.$page.post._rawExcerpt
+        ? this.$toPlainText(this.$page.post._rawExcerpt)
+        : this.$page.settings.description
       const count = 155
       return des.slice(0, count) + (des.length > count ? '...' : '')
     }
@@ -120,6 +122,14 @@ query Post ($id: ID!) {
         _type
         text
       }
+			... on SanityFullWidthImage {
+            _type
+            caption
+            alt
+            asset {
+              url
+            }
+          }
       ... on SanitySimpleImagePair {
         _type
         imageLeft {

@@ -61,6 +61,10 @@
         v-if="block._type === 'flexibleText' | block._type === 'simplePortableTextWrapper'"
         :content="block"
       />
+      <FullWidthImage
+        v-if="block._type === 'fullWidthImage'"
+        :content="block"
+      />
     </div>
   </div>
 </template>
@@ -80,6 +84,7 @@ import FlexibleImageWithText from '~/components/FlexibleImageWithText'
 import FlexibleImageWithTextSimple from '~/components/FlexibleImageWithTextSimple'
 import FlexiblePullQuote from '~/components/FlexiblePullQuote'
 import FlexibleText from '~/components/FlexibleText'
+import FullWidthImage from './FullWidthImage.vue'
 
 export default {
   components: {
@@ -96,7 +101,8 @@ export default {
     FlexibleImageWithText,
     FlexibleImageWithTextSimple,
 		FlexiblePullQuote,
-    FlexibleText
+    FlexibleText,
+		FullWidthImage
   },
   props: {
     content: Array
