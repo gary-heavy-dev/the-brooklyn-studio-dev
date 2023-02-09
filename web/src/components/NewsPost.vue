@@ -43,6 +43,11 @@ export default {
 @import '../assets/style/utils';
 
 .news-post {
+
+	.flexible-content {
+	width: 100%;
+	}
+
   * {
     grid-gap: 0 36px;
   }

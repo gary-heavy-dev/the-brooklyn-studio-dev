@@ -106,7 +106,7 @@ export default {
 
 <style lang="scss">
 .flexible-content {
-	width: 100%;
+
   &__item {
 
     > .mb-100 {
