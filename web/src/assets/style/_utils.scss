@@ -331,6 +331,18 @@ body .p-mobile-copy-block {
   }
 }
 
+.mb-50 {
+  margin-bottom: 30px;
+
+  @include laptop {
+    margin-bottom: 40px;
+  }
+
+  @include desktop {
+    margin-bottom: 50px;
+  }
+}
+
 .mb-60 {
   margin-bottom: 40px;
 
@@ -365,6 +377,10 @@ body .p-mobile-copy-block {
   @include desktop {
     margin-bottom: 100px;
   }
+}
+
+.mt-15 {
+	margin-top: 15px;
 }
 
 .mt-60 {
@@ -520,7 +536,7 @@ body .p-mobile-copy-block {
     &.image {
 
       &--full {
-        
+
         .image-wrapper {
 
           @include desktop {
@@ -586,7 +602,7 @@ body .p-mobile-copy-block {
   &::after {
     content: '';
     position: absolute;
-    top: 0; left: 0; 
+    top: 0; left: 0;
     width: 100%;
     height: 100%;
     box-shadow: inset 0 54vw 27vw rgba(0,0,0,.5);
@@ -621,8 +637,15 @@ body .p-mobile-copy-block {
 }
 
 .desktop-only {
-  
+
   @include desktop-down {
     display: none !important;
+  }
+}
+
+.cursor {
+
+  &--arrow {
+    cursor: default;
   }
 }

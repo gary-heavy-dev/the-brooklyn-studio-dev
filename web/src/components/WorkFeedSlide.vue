@@ -3,7 +3,7 @@
     <div class="work-feed-slide__title pt-80 pos-abs z-1">
       <h1 class="h1 color--white">{{ content.title }}</h1>
     </div>
-    <div class="work-feed-slide__hero overlay mb-80 o-h">
+    <div class="work-feed-slide__hero overlay o-h">
       <BaseImage
         v-if="content.mobileHeroImage"
         class="project-hero-mobile mobile-only"

@@ -22,9 +22,11 @@ export default {
     {
       name: 'textBlocks',
       type: 'array',
-      title: 'Heading/Copy Blocks',
+      // title: 'Heading/Copy Blocks',
+      title: 'Heading/Copy Blocks/List Items',
       of: [{ type: 'headingPortablePair' }],
-      description: 'Use these blocks to add intro sections such as "Description" and "Your Impact".'
+      // description: 'Use these blocks to add intro sections such as "Description" and "Your Impact".'
+      description: 'Use these blocks to create the bulk of your post.  Add headings, descriptions, and lists for responsibilites and requirements.'
     },
     {
       name: 'responsibilities',

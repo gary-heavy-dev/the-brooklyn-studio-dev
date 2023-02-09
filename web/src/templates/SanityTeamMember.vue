@@ -42,7 +42,7 @@ export default {
           name: 'description',
           content: this.metaDescription
         },
-         {
+        {
           key: 'og:title',
           property: 'og:title',
           content: this.$page.settings.title + ' | ' + this.pageTitle

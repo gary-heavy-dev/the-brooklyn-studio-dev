@@ -1,11 +1,11 @@
 {
   "root": true,
-  "project": {
-    "name": "The Brooklyn Studio"
-  },
   "api": {
     "projectId": "wups1rn4",
-    "dataset": "production"
+    "dataset": "staging"
+  },
+  "project": {
+    "name": "The Brooklyn Studio"
   },
   "plugins": [
     "@sanity/base",

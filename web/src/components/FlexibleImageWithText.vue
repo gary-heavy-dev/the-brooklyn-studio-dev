@@ -12,7 +12,7 @@
         v-if="content.image"
         :src="content.image"
         :lazy="true"
-        :sizes="content.aspectRatio === 'landscape' ? sizesLandscape : sizesPortrait"
+        :sizes="content.aspectRatio ? (content.aspectRatio === 'landscape' ? sizesLandscape : sizesPortrait) : sizesPortrait"
         :x="content.image.asset.metadata.dimensions.width"
         :y="content.image.asset.metadata.dimensions.height"
         :caption="content.image.caption"
@@ -67,6 +67,19 @@ export default {
 
       @include desktop {
         grid-column: span 5;
+      }
+    }
+
+    &.image--desktop {
+
+      @include desktop {
+
+        &-left {
+
+          .flexible-image-with-text__text {
+            grid-column: span 4/13;
+          }
+        }
       }
     }
 

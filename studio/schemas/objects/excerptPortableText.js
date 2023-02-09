@@ -8,11 +8,13 @@ export default {
     {
       title: 'Block',
       type: 'block',
-      // styles: [{title: 'Normal', value: 'normal'}],
-      lists: [],
       styles: [
         {title: 'Normal', value: 'normal'},
-        {title: 'H4', value: 'h4'},
+        {title: 'H4', value: 'h4'}
+      ],
+      lists: [
+        {title: 'Bullet', value: 'bullet'},
+        {title: 'Numbered', value: 'number'}
       ],
       marks: {
         decorators: [

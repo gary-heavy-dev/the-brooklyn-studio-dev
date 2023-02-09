@@ -1,7 +1,7 @@
 <template>
   <div class="work-feed">
     <swiper
-      class="swiper"
+      class="swiper mb-80"
       :options="swiperOption"
       :auto-update="true"
       :auto-destroy="false"

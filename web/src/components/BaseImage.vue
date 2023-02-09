@@ -83,6 +83,31 @@ export default {
   font-weight: 500;
 }
 
+.news-post {
+
+  .image-caption {
+    font-weight: 400;
+    position: relative;
+  }
+
+  .flexible-image-gallery {
+
+    .image-caption {
+      background: var(--color--white);
+      text-align: center;
+      height: auto;
+      width: 100%;
+      padding: 19px 25px;
+      margin: 0;
+      clip: unset;
+
+      @include desktop {
+        padding: 31px 31px 0;
+      }
+    }
+  }
+}
+
 .base-image {
   width: 100%;
   position: relative;

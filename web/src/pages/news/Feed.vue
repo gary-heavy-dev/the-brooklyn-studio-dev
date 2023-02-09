@@ -1,19 +1,17 @@
 <template>
-  <Layout>
-    <SimplePage :content="$page.post" />
-  </Layout>
+  <NewsFeed :title="pageTitle" />
 </template>
 
 <script>
-import SimplePage from '~/components/SimplePage'
+import NewsFeed from '~/components/NewsFeed'
 
 export default {
   components: {
-    SimplePage
+    NewsFeed
   },
   computed: {
     pageTitle() {
-      return this.$page.post.title 
+      return 'News Feed' 
     },
     // firstHeroImage() {
     //   return this.$page.page.slides.length ? this.$page.page.slides[0].image : null
@@ -39,7 +37,7 @@ export default {
         {
           key: 'description',
           name: 'description',
-          content: this.metaDescription
+          content: 'The Brooklyn Studio is an architecture and interior design firm committed to restoring and enhancing New York City\'s historic fabric.'
         },
         {
           key: 'og:title',
@@ -83,7 +81,7 @@ export default {
 </script>
 
 <page-query>
-query Post ($id: ID!) {
+{
   settings: sanitySiteSettings (id: "siteSettings") {
     title
     description
@@ -96,16 +94,6 @@ query Post ($id: ID!) {
       asset {
         url
       }
-    }
-  }
-  post: sanitySimplePage (id: $id) {
-    title
-    subtitle
-    slug {
-      current
-    }
-    sections {
-      _rawPortableText
     }
   }
 }

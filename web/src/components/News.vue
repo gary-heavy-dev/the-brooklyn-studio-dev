@@ -5,9 +5,11 @@
       :image="content.hero.image"
     />
     <CtaSimple
+			v-if="ctaImage.asset"
       :content="ctaObject"
       class="news__cta"
     />
+    <NewsFeedSlider :content="content" />
     <section class="awards p-100 flex fd-c">
       <div class="container">
         <h2 class="h2 upper">Awards</h2>
@@ -45,15 +47,26 @@
 <script>
 import HeroSecondary from '~/components/HeroSecondary'
 import CtaSimple from './CtaSimple.vue'
+import NewsFeedSlider from './NewsFeedSlider.vue'
 
 export default {
   components: {
     HeroSecondary,
-    CtaSimple
+    CtaSimple,
+    NewsFeedSlider
   },
   props: {
     content: Object
   },
+	data() {
+		return {
+			ctaImage: this.content.featuredNews.altThumbnail.asset
+			? this.content.featuredNews.altThumbnail
+			: this.content.featuredNews.mainImage.asset
+			? this.content.featuredNews.mainImage
+			: ''
+		}
+	},
   computed: {
     ctaLink() {
       if (this.content.featuredNews.link) {
@@ -66,22 +79,22 @@ export default {
       return {
         largeText: this.content.featuredNews.title,
         _rawCopy: this.content.featuredNews._rawExcerpt,
-        linkText: 'Read More About The Brooklyn Studio',
+        linkText: 'Read More',
         link: this.ctaLink,
         image: {
           asset: {
-            url: this.content.featuredNews.mainImage.asset.url,
+            url: this.ctaImage.asset.url,
             metadata: {
               dimensions: {
-                height: this.content.featuredNews.mainImage.asset.metadata.dimensions.height,
-                width: this.content.featuredNews.mainImage.asset.metadata.dimensions.width
+                height: this.ctaImage.asset.metadata.dimensions.height,
+                width: this.ctaImage.asset.metadata.dimensions.width
               }
             }
           },
-          alt: this.content.featuredNews.mainImage.alt
+          alt: this.ctaImage.alt
         },
         bgColor: {
-          title: 'gray-light'
+          title: 'white'
         },
         imageStyle: 'full',
         imageWidth: '7',

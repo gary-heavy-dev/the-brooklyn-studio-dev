@@ -1,7 +1,7 @@
 <template>
   <Layout>
     <IntroAnimation
-      v-show="$route.path == '/' && introStatus == null"
+      v-show="introStatus == null"
       @passed="hideIntro"
     />
     <TheHeader />

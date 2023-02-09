@@ -11,22 +11,10 @@ export default {
                 'NOTE: Because these sites are static builds, they need to be re-deployed to see the changes when documents are published.',
               sites: [
                 {
-                  buildHookId: '616dc815ce48ec15c6260a13',
-                  title: 'LIVE Back-end',
-                  name: 'the-brooklyn-studio-studio',
-                  apiId: '00c0583e-4b97-42a7-a1ad-3d5fd8729974'
-                },
-                {
                   buildHookId: '616dc815546d21097fbe0bb2',
                   title: 'LIVE Front-end',
                   name: 'the-brooklyn-studio',
                   apiId: 'a5314cb6-038a-4b7a-99cd-fbbae8ca7ae2'
-                },
-                {
-                  buildHookId: '621532d8c49a3126bc8a6a9e',
-                  title: 'STAGING Back-end',
-                  name: 'staging--the-brooklyn-studio-studio',
-                  apiId: '00c0583e-4b97-42a7-a1ad-3d5fd8729974'
                 },
                 {
                   buildHookId: '6215337129122822c3b9ab1a',

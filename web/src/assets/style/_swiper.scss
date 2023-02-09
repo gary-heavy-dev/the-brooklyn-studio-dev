@@ -43,10 +43,13 @@
 
   .swiper-button-prev,
   .swiper-button-next {
-    top: 59.85vw;
+    top: 50%;
+    // top: 59.85vw;
     color: white;
-    width: 25px;
-    height: 100px;
+    width: 5%;
+    height: auto;
+    // height: 100px;
+    transform: translateY(-25%);
 
     &:focus,
     *:focus {
@@ -54,12 +57,23 @@
     }
 
     @include desktop {
-      top: 15.85vw;
-      width: 50px;
+      width: var(--grid-margin);
     }
 
     &::after {
       content: '';
+    }
+
+    svg {
+      width: 100%;
+      max-width: 55px;
+      min-width: 26px;
+
+      @include desktop {
+        max-width: 115px;
+        min-width: 100px;
+        padding: 0 27px 0 34px;
+      }
     }
   }
 
@@ -67,7 +81,11 @@
     left: var(--grid-margin);
 
     @include desktop {
-      left: 3.5%;
+      left: 0;
+    }
+
+    svg {
+      margin-left: auto;
     }
   }
 
@@ -75,16 +93,28 @@
     right: var(--grid-margin);
 
     @include desktop {
-      right: 3.5%;
+      right: 0;
     }
 
     svg {
       transform: rotate(180deg);
+      margin-right: auto;
     }
   }
 }
 
 .swiper-slide {
+
+  &-active {
+    opacity: 1 !important;
+  }
+
+  &:not(.swiper-slide-active) {
+
+    .image-caption {
+      opacity: 0;
+    }
+  }
 
   @-moz-document url-prefix() {
 

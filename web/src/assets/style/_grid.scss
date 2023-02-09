@@ -54,6 +54,16 @@
     }
   }
 
+  &--7 {
+
+    &-desktop {
+
+      @include desktop {
+        grid-template-columns: repeat(7, 1fr);
+      }
+    }
+  }
+
   &--12 {
 
     &-desktop {
@@ -112,6 +122,14 @@
     &--7 {
       grid-column: span 7;
     }
+
+    &--all {
+      grid-column: 1/-1;
+    }
+
+    &--inset-1 {
+      grid-column: 2/12;
+    }
   }
 }
 
@@ -138,5 +156,23 @@
         width: calc(2 / 3 * 100%);
       }
     }
+  }
+}
+
+.news-feed-card,
+.work-feed-card,
+.work-feed-filter {
+  opacity: 1;
+  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+  transform: translateY(0px);
+}
+
+.news-feed-card,
+.work-feed-card {
+  text-decoration: none;
+  display: block;
+
+  @include desktop-down {
+    margin-bottom: 40px;
   }
 }

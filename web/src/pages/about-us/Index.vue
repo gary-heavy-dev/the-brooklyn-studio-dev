@@ -25,7 +25,7 @@ export default {
       return this.$page.settings.twitterImage
     },
     metaDescription () {
-      const description = 'The Brooklyn Studio is an interdisciplinary architecture and design firm committed to restoring and enhancing New York City\'s historic fabric.'
+      const description = 'The Brooklyn Studio is an architecture and interior design firm committed to restoring and enhancing New York City\'s historic fabric.'
       return description
     }
   },
@@ -69,7 +69,7 @@ export default {
           property: 'twitter:image',
           content: this.twitterImage ? `${this.twitterImage.asset.url}?w=800&h=418&fit=crop` : ''
         },
-         {
+        {
           key: 'twitter:card',
           property: 'twitter:card',
           content: 'summary_large_image'

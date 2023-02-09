@@ -82,7 +82,7 @@ export default {
           property: 'twitter:title',
           content: this.$page.settings.title + ' | ' + this.pageTitle
         },
-         {
+        {
           key: 'twitter:description',
           property: 'twitter:description',
           content: this.metaDescription

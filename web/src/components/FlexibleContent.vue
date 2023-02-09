@@ -33,16 +33,36 @@
         v-if="block._type === 'flexibleImage'"
         :content="block"
       />
+      <FlexibleImageGallery
+        v-if="block._type === 'simpleGallery'"
+        :content="block"
+      />
       <FlexibleImagePair
         v-if="block._type === 'flexibleImagePair'"
+        :content="block"
+      />
+      <FlexibleImagePairSimple
+        v-if="block._type === 'simpleImagePair'"
         :content="block"
       />
       <FlexibleImageWithText
         v-if="block._type === 'flexibleImageWithText'"
         :content="block"
       />
+      <FlexibleImageWithTextSimple
+        v-if="block._type === 'simpleImageWithText'"
+        :content="block"
+      />
+      <FlexiblePullQuote
+        v-if="block._type === 'flexiblePullQuote'"
+        :content="block"
+      />
       <FlexibleText
-        v-if="block._type === 'flexibleText'"
+        v-if="block._type === 'flexibleText' | block._type === 'simplePortableTextWrapper'"
+        :content="block"
+      />
+      <FullWidthImage
+        v-if="block._type === 'fullWidthImage'"
         :content="block"
       />
     </div>
@@ -57,9 +77,14 @@ import CtaGallery from '~/components/CtaGallery'
 import CtaSimple from '~/components/CtaSimple'
 import TeamMemberFeatured from '~/components/TeamMemberFeatured'
 import FlexibleImage from '~/components/FlexibleImage'
+import FlexibleImageGallery from '~/components/FlexibleImageGallery'
 import FlexibleImagePair from '~/components/FlexibleImagePair'
+import FlexibleImagePairSimple from '~/components/FlexibleImagePairSimple'
 import FlexibleImageWithText from '~/components/FlexibleImageWithText'
+import FlexibleImageWithTextSimple from '~/components/FlexibleImageWithTextSimple'
+import FlexiblePullQuote from '~/components/FlexiblePullQuote'
 import FlexibleText from '~/components/FlexibleText'
+import FullWidthImage from './FullWidthImage.vue'
 
 export default {
   components: {
@@ -70,9 +95,14 @@ export default {
     CtaSimple,
     TeamMemberFeatured,
     FlexibleImage,
+    FlexibleImageGallery,
     FlexibleImagePair,
+    FlexibleImagePairSimple,
     FlexibleImageWithText,
-    FlexibleText
+    FlexibleImageWithTextSimple,
+		FlexiblePullQuote,
+    FlexibleText,
+		FullWidthImage
   },
   props: {
     content: Array

@@ -33,7 +33,7 @@ https://cwbarchitects.com/project/* https://brooklyn.studio/projects 301!
 https://cwbarchitects.com/* https://brooklyn.studio/:splat 301! 
 
 https://www.cwbarchitects.com/firm/ https://brooklyn.studio/about-us 301! 
-https://www.cwbarchitects.com/people/people/* https://brooklyn.studio/about-us/team/:splat3 01! 
+https://www.cwbarchitects.com/people/people/* https://brooklyn.studio/about-us/team/:splat3 301! 
 https://www.cwbarchitects.com/people/* https://brooklyn.studio/about-us/team/:splat 301! 
 https://www.cwbarchitects.com/people/ https://brooklyn.studio/about-us/team 301! 
 https://www.cwbarchitects.com/blog/ https://brooklyn.studio/news 301! 

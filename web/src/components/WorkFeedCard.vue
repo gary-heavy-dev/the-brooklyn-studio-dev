@@ -76,20 +76,4 @@ export default {
     transform: translateY(7px);
   }
 }
-
-.work-feed-card,
-.work-feed-filter {
-  opacity: 1;
-  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
-  transform: translateY(0px);
-}
-
-.work-feed-card {
-  text-decoration: none;
-  display: block;
-
-  @include desktop-down {
-    margin-bottom: 40px;
-  }
-}
 </style>

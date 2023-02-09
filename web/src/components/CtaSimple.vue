@@ -24,7 +24,7 @@
             :to="content.link"
             :aria-label="content.heading ? 'Link to ' + content.heading : content.linkText + ' Link'"
             v-html="content.linkText"
-          ></g-link>
+				></g-link>
         </div>
       </div>
       <div class="grid-spacer col-span--1"></div>
@@ -151,7 +151,7 @@ export default {
   .copy-wrapper {
 
     a {
-      width: auto;
+      // width: auto;
 
       @include hd-to-laptop {
 

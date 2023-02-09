@@ -1,19 +1,19 @@
 <template>
   <Layout>
-    <SimplePage :content="$page.post" />
+    <NewsPost :content="$page.post" />
   </Layout>
 </template>
 
 <script>
-import SimplePage from '~/components/SimplePage'
+import NewsPost from '~/components/NewsPost'
 
 export default {
   components: {
-    SimplePage
+    NewsPost
   },
   computed: {
     pageTitle() {
-      return this.$page.post.title 
+      return this.$page.post.title
     },
     // firstHeroImage() {
     //   return this.$page.page.slides.length ? this.$page.page.slides[0].image : null
@@ -27,7 +27,9 @@ export default {
       return this.$page.settings.twitterImage
     },
     metaDescription() {
-      const des = this.$page.post._rawExcerpt ? this.$toPlainText(this.$page.post._rawExcerpt) : this.$page.settings.description
+      const des = this.$page.post._rawExcerpt
+        ? this.$toPlainText(this.$page.post._rawExcerpt)
+        : this.$page.settings.description
       const count = 155
       return des.slice(0, count) + (des.length > count ? '...' : '')
     }
@@ -101,13 +103,83 @@ query Post ($id: ID!) {
   }
   post: sanityNews (id: $id) {
     title
-    subtitle
+		subtitle
     slug {
       current
     }
-    _rawExcerpt
-    sections {
-      _rawPortableText
+    publishedAt (format: "MMMM D, YYYY")
+    publisher {
+      title
+    }
+    mainImage {
+      asset {
+        url
+      }
+      alt
+    }
+    flexibleContent {
+			... on SanityFlexiblePullQuote {
+        _type
+        text
+      }
+			... on SanityFullWidthImage {
+            _type
+            caption
+            alt
+            asset {
+              url
+            }
+          }
+      ... on SanitySimpleImagePair {
+        _type
+        imageLeft {
+          asset {
+            url
+          }
+          caption
+          alt
+        }
+        imageRight {
+          asset {
+            url
+          }
+          caption
+          alt
+        }
+      }
+      ... on SanitySimpleImageWithText {
+        _type
+        image {
+          asset {
+            url
+            metadata {
+              dimensions {
+                width
+                height
+              }
+            }
+          }
+          caption
+          alt
+        }
+        imageLocation
+        reverseMobile
+        _rawText
+      }
+      ... on SanitySimplePortableTextWrapper {
+        _type
+        _rawExcerptPortableText
+      }
+      ... on SanitySimpleGallery {
+        _type
+        images {
+          asset {
+            url
+          }
+          caption
+          alt
+        }
+      }
     }
   }
 }

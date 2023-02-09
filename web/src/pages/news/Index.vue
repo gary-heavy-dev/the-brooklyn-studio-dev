@@ -1,19 +1,17 @@
 <template>
-  <Layout>
-    <SimplePage :content="$page.post" />
-  </Layout>
+  <News :content="$page.page" />
 </template>
 
 <script>
-import SimplePage from '~/components/SimplePage'
+import News from '~/components/News'
 
 export default {
   components: {
-    SimplePage
+    News
   },
   computed: {
     pageTitle() {
-      return this.$page.post.title 
+      return 'News'
     },
     // firstHeroImage() {
     //   return this.$page.page.slides.length ? this.$page.page.slides[0].image : null
@@ -26,8 +24,9 @@ export default {
       // return this.$page.page.twitterImage || this.firstHeroImage || this.$page.settings.twitterImage
       return this.$page.settings.twitterImage
     },
-    metaDescription () {
-      const description = 'The Brooklyn Studio is an architecture and interior design firm committed to restoring and enhancing New York City\'s historic fabric.'
+    metaDescription() {
+      const description =
+        "The Brooklyn Studio is an architecture and interior design firm committed to restoring and enhancing New York City's historic fabric."
       return description
     }
   },
@@ -83,7 +82,7 @@ export default {
 </script>
 
 <page-query>
-query Post ($id: ID!) {
+{
   settings: sanitySiteSettings (id: "siteSettings") {
     title
     description
@@ -98,14 +97,68 @@ query Post ($id: ID!) {
       }
     }
   }
-  post: sanitySimplePage (id: $id) {
+  page: sanityNewsPage(id: "b921b006-dafd-49a5-a3d7-eef55a00358f") {
     title
-    subtitle
-    slug {
-      current
+    hero {
+      image {
+        alt
+        caption
+        captionStyle
+        asset {
+          url
+          metadata {
+            dimensions {
+              height
+              width
+            }
+          }
+        }
+      }
     }
-    sections {
-      _rawPortableText
+    _rawNewsFeedIntro
+    featuredNews {
+      title
+      _rawExcerpt
+      link
+      slug {
+        current
+      }
+			altThumbnail {
+          caption
+          captionStyle
+          asset {
+            url
+            metadata {
+              dimensions {
+								height
+								width
+            	}
+            }
+          }
+          alt
+        }
+      mainImage {
+        caption
+        captionStyle
+        asset {
+          url
+          metadata {
+            dimensions {
+              height
+              width
+            }
+          }
+        }
+        alt
+      }
+    }
+    awards {
+      title
+      year
+    }
+    press {
+      title
+      pubDate
     }
   }
 }
