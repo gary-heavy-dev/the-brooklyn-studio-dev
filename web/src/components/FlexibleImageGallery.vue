@@ -1,9 +1,6 @@
 <template>
   <section class="flexible-image-gallery container grid grid--12-desktop mb-100">
-    <div
-      class="col-span--inset-1"
-      v-view="startSwiper"
-    >
+    <div class="col-span--inset-1" v-view="startSwiper">
       <swiper
         :options="swiperOption"
         class="swiper"
@@ -14,10 +11,7 @@
         v-view="$iAmRevealed"
         ref="flexibleImageGallery"
       >
-        <swiper-slide
-          v-for="(image, index) in content.images"
-          :key="index"
-        >
+        <swiper-slide v-for="(image, index) in content.images" :key="index">
           <BaseImage
             v-if="image"
             :src="image"
@@ -29,8 +23,11 @@
             :captionStyle="true"
           />
         </swiper-slide>
+        <div
+          class="swiper__pagination flexible-image-gallery__swiper-pagination text-center"
+          slot="pagination"
+        ></div>
       </swiper>
-      <div class="swiper__pagination flexible-image-gallery__swiper-pagination text-center"></div>
     </div>
   </section>
 </template>
@@ -45,7 +42,7 @@ export default {
   },
   components: {
     Swiper,
-    SwiperSlide,
+    SwiperSlide
   },
   computed: {
     swiper() {
@@ -71,7 +68,7 @@ export default {
         desktop: 999,
         hd: 1333,
         fourK: 2666
-      },
+      }
     }
   },
   methods: {
@@ -86,7 +83,6 @@ export default {
 
 <style lang="scss">
 .flexible-image-gallery {
-
   .swiper__pagination {
     position: relative;
     transform: unset;

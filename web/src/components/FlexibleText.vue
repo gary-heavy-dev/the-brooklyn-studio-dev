@@ -32,10 +32,21 @@ export default {
     }
   }
 }
-
 .flexible-portable-text__inner {
-  max-width: 52ch;
-  width: 100%;
+	max-width: 52ch;
+	width: 100%;
   margin: 0 auto;
+
+	@include tablet {
+		max-width: 595px;
+	}
+
+	@include laptop {
+		max-width: 650px;
+	}
+
+	@include desktop {
+		max-width: 700px;
+	}
 }
 </style>
