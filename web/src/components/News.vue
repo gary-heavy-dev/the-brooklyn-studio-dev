@@ -94,7 +94,7 @@ export default {
           alt: this.ctaImage.alt
         },
         bgColor: {
-          title: 'gray-light'
+          title: 'white'
         },
         imageStyle: 'full',
         imageWidth: '7',
