@@ -136,6 +136,29 @@ export default {
     @include desktop {
       @include container;
     }
+
+    .scrolling-gallery__gallery {
+      overflow: hidden;
+      margin-right: calc(var(--grid-margin) * -1);
+      grid-column: 7/13;
+      height: 100vh;
+      padding-bottom: 100vh;
+      position: sticky;
+      top: 0;
+
+      .layered-image-gallery {
+
+        &__image {
+          margin-bottom: 50px;
+          object-fit: cover;
+          height: 100%;
+
+          &:first-child {
+            opacity: 0;
+          }
+        }
+      }
+    }
   }
 
   &__copy {
@@ -153,29 +176,6 @@ export default {
 
       @include desktop-down {
         padding-top: 0;
-      }
-
-      .scrolling-gallery__gallery {
-        overflow: hidden;
-        margin-right: calc(var(--grid-margin) * -1);
-        grid-column: 7/13;
-        height: 100vh;
-        padding-bottom: 100vh;
-        position: sticky;
-        top: 0;
-
-        .layered-image-gallery {
-
-          &__image {
-            margin-bottom: 50px;
-            object-fit: cover;
-            height: 100%;
-
-            &:first-child {
-              opacity: 0;
-            }
-          }
-        }
       }
     }
 
