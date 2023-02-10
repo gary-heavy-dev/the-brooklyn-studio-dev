@@ -131,11 +131,6 @@ export default {
         heading
         _rawCopy
       }
-      responsibilities {
-        heading
-        listItems
-      }
-      requirements
     }
   }
 }
