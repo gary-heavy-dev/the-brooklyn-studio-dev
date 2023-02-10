@@ -27,20 +27,6 @@ export default {
       of: [{ type: 'headingPortablePair' }],
       // description: 'Use these blocks to add intro sections such as "Description" and "Your Impact".'
       description: 'Use these blocks to create the bulk of your post.  Add headings, descriptions, and lists for responsibilites and requirements.'
-    },
-    {
-      name: 'responsibilities',
-      type: 'array',
-      title: 'Responsibility List',
-      description: 'Add individual lists with headings below.',
-      of: [{ type: 'list' }]
-    },
-    {
-      name: 'requirements',
-      type: 'array',
-      title: 'Qualifications List',
-      description: 'Add qualification requirements below.',
-      of: [{ type: 'string' }]
     }
   ]
 }
