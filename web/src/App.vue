@@ -1,9 +1,5 @@
 <template>
   <Layout>
-    <IntroAnimation
-      v-show="introStatus == null"
-      @passed="hideIntro"
-    />
     <TheHeader />
     <main class="main">
       <transition name="fade" mode="out-in">
@@ -15,25 +11,13 @@
 </template>
 
 <script>
-import IntroAnimation from '~/components/IntroAnimation'
 import TheHeader from '~/components/TheHeader'
 import TheFooter from '~/components/TheFooter'
 
 export default {
   components: {
-    IntroAnimation,
     TheHeader,
     TheFooter
-  },
-  data() {
-    return {
-      introStatus: typeof sessionStorage !== 'undefined' ? sessionStorage.getItem('intro') : null
-    }
-  },
-  methods: {
-    hideIntro() {
-      this.introStatus = true
-    }
   },
   updated() {
     const b = document.body
