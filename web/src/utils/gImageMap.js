@@ -7,6 +7,7 @@ const gImageMap = (source, sizes, data) => {
     laptop: 1024,
     desktop: 1440,
     hd: 1920,
+		lgDesktop: 2880,
     fourK: 3840
   }
 
@@ -22,6 +23,7 @@ const gImageMap = (source, sizes, data) => {
         urlForImage(source, data).width(s.laptop).auto('format').toString() + ' ' + s.laptop + 'w, ' +
         urlForImage(source, data).width(s.desktop).auto('format').toString() + ' ' + s.desktop + 'w, ' +
         urlForImage(source, data).width(s.hd).auto('format').toString() + ' ' + s.hd + 'w, ' +
+        urlForImage(source, data).width(s.hd).auto('format').toString() + ' ' + s.lgDesktop + 'w, ' +
         urlForImage(source, data).width(s.fourK).auto('format').toString() + ' ' + s.fourK + 'w'
 }
 
