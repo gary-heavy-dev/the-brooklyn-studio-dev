@@ -40,7 +40,8 @@ export default {
         hd: 792,
         fourK: 1584
       },
-      style: {}
+      style: {},
+			imageCaption: ''
     }
   },
   props: {
@@ -48,11 +49,14 @@ export default {
   },
   methods: {
     setStyle() {
-      const captionAdjust = this.$el.querySelector('.image-caption').clientHeight / -2
-      if (window.innerWidth > 1024) {
-        this.style = { transform: 'translateY(' + captionAdjust + 'px)' }
-      } else {
-        this.style = { transform: 'translateY(0px)' }
+      const imageCaption = this.$el.querySelector('.image-caption')
+      if (imageCaption) {
+        const captionAdjust = imageCaption.clientHeight / -2
+        if (window.innerWidth > 1024) {
+          this.style = { transform: 'translateY(' + captionAdjust + 'px)' }
+        } else {
+          this.style = { transform: 'translateY(0px)' }
+        }
       }
     }
   },
@@ -74,13 +78,17 @@ export default {
 
 <style lang="scss">
 .flexible-image-with-text-simple {
+  @include tablet {
+    max-width: 575px;
+  }
+
   @include laptop {
     max-width: 630px;
   }
-	@include desktop {
-		max-width: none;
-	}
 
+  @include desktop {
+    max-width: none;
+  }
 
   > div:not(.grid-spacer) {
     @include desktop {
