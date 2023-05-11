@@ -106,7 +106,8 @@ export default {
     &--true {
       .grid-spacer {
         @include desktop-down {
-          display: none;
+          // display: none;
+          padding-bottom: 20px;
         }
       }
     }
