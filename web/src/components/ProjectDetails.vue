@@ -123,9 +123,6 @@ export default {
       if (e.percentInView > 0) {
         this.swiper.autoplay.start()
       }
-    },
-    log(item) {
-      console.log(item)
     }
   }
 }
