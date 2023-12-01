@@ -12,6 +12,18 @@ export default {
       name: 'text',
       type: 'string',
       title: 'Text'
+    },
+    {
+      name: 'link',
+      type: 'string',
+      title: 'Link URL',
+      description: 'For internal links please use the relative URL, for example "/about-us/team".'
+    },
+    {
+      name: 'newTab',
+      type: 'boolean',
+      title: 'New Tab',
+      description: 'Switch this on to open link in new tab'
     }
   ],
   preview: {
