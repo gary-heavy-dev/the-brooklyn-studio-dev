@@ -100,7 +100,7 @@ export default {
     return {
       swiperOption: {
         effect: 'fade',
-        loop: true,
+        loop: this.swiperEnabled(),
         speed: 300,
         threshold: 10,
         pagination: {
@@ -123,6 +123,9 @@ export default {
       if (e.percentInView > 0) {
         this.swiper.autoplay.start()
       }
+    },
+    swiperEnabled() {
+      this.content.detailsGallery.length > 1 ? true : false
     }
   }
 }
