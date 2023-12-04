@@ -269,6 +269,8 @@ query Post ($id: ID, $prevId: ID, $nextId: ID) {
     detailsBuildingInfo {
       heading
       text
+      link
+      newTab
     }
     detailsCredits {
       heading

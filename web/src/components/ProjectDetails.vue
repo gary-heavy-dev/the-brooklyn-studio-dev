@@ -13,7 +13,13 @@
               :key="index"
             >
               <h4 class="sub upper color--navy-light">{{ stat.heading }}</h4>
-              <div class="xsmall mb-20">{{ stat.text }}</div>
+              <div v-if="stat.link && stat.newTab" class="xsmall mb-20">
+                <a class="project-details--building-info-link" v-bind:href="stat.link" target="_blank" rel="noopener">{{ stat.text }}</a>
+              </div>
+              <div v-else-if="stat.link && !stat.newTab" class="xsmall mb-20">
+                <a class="project-details--building-info-link" v-bind:href="stat.link">{{ stat.text }}</a>
+              </div>
+              <div v-else class="xsmall mb-20">{{ stat.text }}</div>
             </div>
           </div>
           <div class="col-span--4">
@@ -55,7 +61,7 @@
               />
             </swiper-slide>
           </swiper>
-          <div 
+          <div
             v-if="content.detailsGallery.length > 1"
             class="swiper__pagination"
           ></div>
@@ -94,7 +100,7 @@ export default {
     return {
       swiperOption: {
         effect: 'fade',
-        loop: true,
+        loop: this.swiperEnabled(),
         speed: 300,
         threshold: 10,
         pagination: {
@@ -117,6 +123,9 @@ export default {
       if (e.percentInView > 0) {
         this.swiper.autoplay.start()
       }
+    },
+    swiperEnabled() {
+      this.content.detailsGallery.length > 1 ? true : false
     }
   }
 }

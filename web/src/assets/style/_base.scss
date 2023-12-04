@@ -57,6 +57,35 @@ a {
   }
 }
 
+.project-details--building-info-link {
+  border-bottom: 1px solid var(--color--gray-tertiary-light);
+  transition: border-color 0.2s linear;
+
+
+  &::after {
+    content: '';
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    padding: 2px 0px 4px 5px;
+    margin-right: 4px;
+    background-position: 90% 60%;
+    background-repeat: no-repeat;
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAiIGhlaWdodD0iMTAiIHZpZXdCb3g9IjAgMCAxMCAxMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEwIDYuMDM0MzZWNi4yNzc0SDkuNTEzODNWMC44MjQ2MTlMMC4zNDMyMDQgMTBMMCA5LjY1NjhMOS4xNzUzOCAwLjQ4NjE3MUgzLjcyMjZWMEg5Ljk5OTkzTDEwIDYuMDM0MzZaIiBmaWxsPSJibGFjayIvPgo8L3N2Zz4K");
+  }
+
+  &:hover {
+
+    &.project-details--building-info-link {
+      border-color: var(--color--navy-light);
+    }
+
+    &::after {
+      background-position: 100% 50%;
+    }
+  }
+}
+
 p {
 
   a {
