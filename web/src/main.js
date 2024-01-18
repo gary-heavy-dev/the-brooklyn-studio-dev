@@ -10,14 +10,14 @@ import urlForImage from './utils/urlForImage'
 // Import custom g-image srcset mapper
 import gImageMap from './utils/gImageMap'
 
-// Import portable to plain text conversion utility  
+// Import portable to plain text conversion utility
 import toPlainText from './utils/toPlainText'
 
 // Import kebab case conversion utility for slug conversion
 import toKebabCase from './utils/toKebabCase'
 
 // Import Smoothscroll polyfill
-import smoothscroll from 'smoothscroll-polyfill';
+import smoothscroll from 'smoothscroll-polyfill'
 
 if (process.isClient && typeof window !== 'undefined') {
   smoothscroll.polyfill()
@@ -32,11 +32,13 @@ import 'lazysizes/plugins/parent-fit/ls.parent-fit'
 import checkView from 'vue-check-view'
 
 // Import vue-scrollactive plugin
-import VueScrollactive from 'vue-scrollactive';
+import VueScrollactive from 'vue-scrollactive'
+
+// Google Analytics
+import VueGtag from 'vue-gtag'
 
 // The Client API can be used here. Learn more: gridsome.org/docs/client-api
 export default function(Vue, { router, head, isClient }) {
-
   head.link.push({
     rel: 'preconnect',
     href: 'https://cdn.sanity.io/'
@@ -63,7 +65,11 @@ export default function(Vue, { router, head, isClient }) {
       this.element.classList.add('seent-it')
     }
   }
-
+  Vue.use(VueGtag, {
+    config: {
+      id: 'G-5MGC86ELRQ'
+    }
+  })
   // Add vue-check-view
   Vue.use(checkView)
 
@@ -71,17 +77,19 @@ export default function(Vue, { router, head, isClient }) {
   Vue.use(VueScrollactive)
 
   // Smooth scroll to top
-  Vue.prototype.$scrollToTop = () => window.scrollTo({
-    top: 0,
-    left: 0,
-    behavior: 'smooth'
-  })
+  Vue.prototype.$scrollToTop = () =>
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: 'smooth'
+    })
 
   // Smooth scroll to top
-  Vue.prototype.$jumpToTop = () => window.scrollTo({
-    top: 0,
-    left: 0
-  })
+  Vue.prototype.$jumpToTop = () =>
+    window.scrollTo({
+      top: 0,
+      left: 0
+    })
 
   // Inject kebab case conversion utility
   Vue.prototype.$toKebabCase = toKebabCase
