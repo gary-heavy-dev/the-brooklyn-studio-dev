@@ -4,7 +4,7 @@
     <div class="flex w-100">
       <div class="team-feed__grid container">
         <g-link
-          v-for="(member, index) in $static.team.edges"
+          v-for="(member, index) in sortedTeamMembers"
           :key="index"
           class="team-feed__card"
           :to="'/about-us/team/' + member.node.slug.current"
@@ -61,7 +61,20 @@ export default {
   },
   props: {
     content: Object
-  }
+  },
+	computed: {
+  sortedTeamMembers() {
+    return this.$static.team.edges.sort((a, b) => {
+      if (a.node.excludeAsFeaturedTeamMember && !b.node.excludeAsFeaturedTeamMember) {
+        return 1;
+      }
+      if (!a.node.excludeAsFeaturedTeamMember && b.node.excludeAsFeaturedTeamMember) {
+        return -1;
+      }
+      return 0;
+    });
+  },
+}
 }
 </script>
 

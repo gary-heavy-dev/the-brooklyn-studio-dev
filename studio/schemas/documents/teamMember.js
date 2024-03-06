@@ -12,7 +12,7 @@ export default {
       name: 'lastName',
       type: 'string',
       title: 'Last Name',
-      description: 'Currently used for sorting purposes only.',
+      description: 'Currently used for sorting purposes only.'
     },
     {
       name: 'slug',
@@ -57,7 +57,7 @@ export default {
       name: 'excludeAsFeaturedTeamMember',
       type: 'boolean',
       title: 'Exclude as a Featured Team Member',
-      description: 'Exclude this team member from the randomized featured team member section on the homepage.',
+      description: 'Check to omit this team member from the randomized featured section on the homepage and to list them last on the Team page.',
       initialValue: false
     }
   ],
