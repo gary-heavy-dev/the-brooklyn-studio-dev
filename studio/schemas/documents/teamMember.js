@@ -42,10 +42,23 @@ export default {
       description: 'The ideal WxH for this image upload is 1042px by 1302px.'
     },
     {
+      name: 'secondaryImage',
+      type: 'mainImage',
+      title: 'Optional Second Image',
+      description: 'Upload an optional second image to be displayed on the "Team Members" page. The ideal WxH for this image upload is 1042px by 1302px.'
+    },
+    {
       name: 'questionnaire',
       type: 'proustQuestionnaire',
       title: 'The Proust Questionnaire',
-      options: { collapsible: true }
+      options: {collapsible: true}
+    },
+    {
+      name: 'excludeAsFeaturedTeamMember',
+      type: 'boolean',
+      title: 'Exclude as a Featured Team Member',
+      description: 'Exclude this team member from the randomized featured team member section on the homepage.',
+      initialValue: false
     }
   ],
   preview: {

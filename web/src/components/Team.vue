@@ -1,10 +1,6 @@
 <template>
   <div class="team-feed">
-    <HeroSecondary
-      :title="content.title"
-      :image="content.hero.image"
-      :margin="true"
-    />
+    <HeroSecondary :title="content.title" :image="content.hero.image" :margin="true" />
     <div class="flex w-100">
       <div class="team-feed__grid container">
         <g-link
@@ -15,24 +11,28 @@
         >
           <div class="grid__card">
             <BaseImage
-              v-if="member.node.image"
+              v-if="member.node.secondaryImage || member.node.image"
               class="mb-30"
-              :src="member.node.image"
+              :src="member.node.secondaryImage ? member.node.secondaryImage : member.node.image"
               :lazy="true"
               :sizes="sizes"
               :x="1042"
               :y="1302"
-              :caption="member.node.image.caption"
-              :captionStyle="member.node.image.captionStyle"
+              :caption="
+                member.node.secondaryImage
+                  ? member.node.secondaryImage.caption
+                  : member.node.image.caption
+              "
+              :captionStyle="
+                member.node.secondaryImage
+                  ? member.node.secondaryImage.captionStyle
+                  : member.node.image.captionStyle
+              "
             />
-            <h3
-              v-if="member.node.name"
-              class="color--navy-light"
-            >{{ member.node.name }}</h3>
-            <span
-              v-if="member.node.title"
-              class="color--gray-tertiary sub upper"
-            >{{ member.node.title }}</span>
+            <h3 v-if="member.node.name" class="color--navy-light">{{ member.node.name }}</h3>
+            <span v-if="member.node.title" class="color--gray-tertiary sub upper">{{
+              member.node.title
+            }}</span>
           </div>
         </g-link>
       </div>
@@ -67,7 +67,6 @@ export default {
 
 <style lang="scss">
 .team-feed {
-
   &__grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -87,7 +86,7 @@ export default {
     text-decoration: none;
     margin-bottom: 40px;
     grid-column: span 1;
-    
+
     @include laptop {
       margin-bottom: 100px;
     }
@@ -117,6 +116,15 @@ export default {
           }
           alt
         }
+        secondaryImage {
+          caption
+          captionStyle
+          asset {
+            url
+          }
+          alt
+        }
+				excludeAsFeaturedTeamMember
       }
     }
   }

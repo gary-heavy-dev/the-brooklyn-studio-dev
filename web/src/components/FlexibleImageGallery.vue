@@ -87,7 +87,6 @@ export default {
   .swiper__pagination {
     position: relative;
     transform: unset;
-
     .swiper-pagination-bullet {
       background-color: var(--color--gray-tertiary);
     }

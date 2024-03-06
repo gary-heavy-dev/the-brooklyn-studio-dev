@@ -1,24 +1,20 @@
 <template>
   <section
     class="team-member-featured flex color--white background--navy w-100 p-100 p-mobile-copy-block"
-    :id="content.navTitle ?  $toKebabCase(content.navTitle) : ''"
+    :id="content.navTitle ? $toKebabCase(content.navTitle) : ''"
   >
     <div class="team-member-featured__inner container grid grid--12-desktop">
       <div class="team-member-featured__copy flex ai-c">
         <div class="team-member-featured__copy-inner">
-          <h2
-            v-if="content.heading"
-            class="upper h2"
-          >{{ content.heading }}</h2>
-          <BaseBlockContent
-            v-if="content._rawCopy"
-            :blocks="content._rawCopy"
-          />
+          <h2 v-if="content.heading" class="upper h2">{{ content.heading }}</h2>
+          <BaseBlockContent v-if="content._rawCopy" :blocks="content._rawCopy" />
           <g-link
             class="upper button mt-60"
             :to="'/about-us/team/' + featuredMember.slug.current"
             @click.native="$scrollToTop"
-          ><span>Meet {{ featuredMember.name }}, </span><span v-if="featuredMember.title">{{ featuredMember.title }}</span></g-link>
+            ><span>Meet {{ featuredMember.name }}, </span
+            ><span v-if="featuredMember.title">{{ featuredMember.title }}</span></g-link
+          >
         </div>
       </div>
       <BaseImage
@@ -58,20 +54,23 @@ export default {
       if (this.content.teamMember) {
         return this.content.teamMember
       } else {
-        const mems = this.$static.allSanityTeamMember.edges.length
-        const i = Math.floor(Math.random() * mems)
-        return this.$static.allSanityTeamMember.edges[i].node
+        const mems = this.$static.allSanityTeamMember.edges
+        let randomMember
+        do {
+          const i = Math.floor(Math.random() * mems.length)
+          randomMember = mems[i].node
+        } while (randomMember.excludeAsFeaturedTeamMember === true)
+
+        return randomMember
       }
-    },
+    }
   }
 }
 </script>
 
 <style lang="scss">
 .team-member-featured {
-
   &__copy {
-
     @include desktop {
       grid-column: span 8;
     }
@@ -81,7 +80,6 @@ export default {
     }
 
     .button {
-
       @include desktop-down {
         margin-bottom: 41px;
 
@@ -93,7 +91,6 @@ export default {
   }
 
   .base-image {
-
     @include desktop {
       grid-column: span 3/13;
     }
@@ -121,6 +118,7 @@ export default {
           }
           alt
         }
+				excludeAsFeaturedTeamMember
         slug {
           current
         }
