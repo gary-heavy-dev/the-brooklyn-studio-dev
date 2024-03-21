@@ -1,9 +1,3 @@
-// First, we must import the schema creator
-import createSchema from 'part:@sanity/base/schema-creator'
-
-// Then import schema types from any plugins that might expose them
-import schemaTypes from 'all:part:@sanity/base/schema-type'
-
 // document schemas
 import about from './documents/about'
 import adaptiveReuse from './documents/adaptiveReuse'
@@ -68,75 +62,64 @@ import simplePortableTextWrapper from './objects/simplePortableTextWrapper'
 import wordBreak from './objects/wordBreak'
 
 // Then we give our schema to the builder and provide the result to Sanity
-export default createSchema({
-  // We name our schema
-  name: 'blog',
-  // Then proceed to concatenate our our document type
-  // to the ones provided by any plugins that are installed
-  types: schemaTypes.concat([
-    // The following are document types which will appear
-    // in the studio.
-    about,
-    adaptiveReuse,
-    author,
-    award,
-    bodyPortableText,
-    bioPortableText,
-    careers,
-    careersPost,
-    category,
-    contact,
-    ctaComplex,
-    ctaGallery,
-    ctaSimple,
-    displayTitle,
-    excerptPortableText,
-    featuredTeamMember,
-    flexibleImage,
-    flexibleImagePair,
-    flexibleImageWithText,
-    flexiblePullQuote,
-    flexibleText,
-    fullWidthImage,
-    headingPortablePair,
-    headingTextPair,
-    heroHome,
-    heroSecondary,
-    heroTertiary,
-    home,
-    interiorDesign,
-    introSection,
-    introSecondary,
-    linkGallery,
-    linkGalleryItem,
-    linkInternal,
-    linkSimple,
-    list,
-    mainImage,
-    news,
-    newsPage,
-    portableTextWrapper,
-    post,
-    press,
-    proustQuestionnaire,
-    project,
-    projectCategory,
-    projectReference,
-    publisher,
-    residentialArchitecture,
-    scrollingGallery,
-    scrollingGallerySection,
-    simpleImagePair,
-    simpleImageWithText,
-    simplePage,
-    simpleGallery,
-    simplePortableTextWrapper,
-    siteSettings,
-    team,
-    teamMember,
-    wordBreak
-
-    // When added to this list, object types can be used as
-    // { type: 'typename' } in other document schemas
-  ])
-})
+export default [
+  about,
+  adaptiveReuse,
+  author,
+  award,
+  bodyPortableText,
+  bioPortableText,
+  careers,
+  careersPost,
+  category,
+  contact,
+  ctaComplex,
+  ctaGallery,
+  ctaSimple,
+  displayTitle,
+  excerptPortableText,
+  featuredTeamMember,
+  flexibleImage,
+  flexibleImagePair,
+  flexibleImageWithText,
+  flexiblePullQuote,
+  flexibleText,
+  fullWidthImage,
+  headingPortablePair,
+  headingTextPair,
+  heroHome,
+  heroSecondary,
+  heroTertiary,
+  home,
+  interiorDesign,
+  introSection,
+  introSecondary,
+  linkGallery,
+  linkGalleryItem,
+  linkInternal,
+  linkSimple,
+  list,
+  mainImage,
+  news,
+  newsPage,
+  portableTextWrapper,
+  post,
+  press,
+  proustQuestionnaire,
+  project,
+  projectCategory,
+  projectReference,
+  publisher,
+  residentialArchitecture,
+  scrollingGallery,
+  scrollingGallerySection,
+  simpleImagePair,
+  simpleImageWithText,
+  simplePage,
+  simpleGallery,
+  simplePortableTextWrapper,
+  siteSettings,
+  team,
+  teamMember,
+  wordBreak
+]

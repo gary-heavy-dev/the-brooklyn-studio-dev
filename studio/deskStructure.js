@@ -1,12 +1,11 @@
-import S from '@sanity/desk-tool/structure-builder'
-import { MdSettings, MdPersonOutline, MdPeopleAlt, MdOutlineHome, MdFingerprint, MdArchitecture, MdWork, MdWorkOutline, MdOutlineEmail, MdConstruction, MdCategory, MdTextSnippet } from 'react-icons/md'
-import { FaRecycle, FaNewspaper, FaRegNewspaper, FaTrophy, FaPenFancy } from 'react-icons/fa'
-import { AiFillFormatPainter } from 'react-icons/ai'
+import {MdSettings, MdPersonOutline, MdPeopleAlt, MdOutlineHome, MdFingerprint, MdArchitecture, MdWork, MdWorkOutline, MdOutlineEmail, MdConstruction, MdCategory, MdTextSnippet} from 'react-icons/md'
+import {FaRecycle, FaNewspaper, FaRegNewspaper, FaTrophy, FaPenFancy} from 'react-icons/fa'
+import {AiFillFormatPainter} from 'react-icons/ai'
 
 const hiddenDocTypes = listItem =>
   !['about', 'adaptiveReuse', 'author', 'award', 'careers', 'careersPost', 'contact', 'category', 'home', 'interiorDesign', 'news', 'newsPage', 'post', 'press', 'project', 'projectCategory', 'publisher', 'residentialArchitecture', 'siteSettings', 'team', 'teamMember', 'simplePage'].includes(listItem.getId())
 
-export default () =>
+export default (S) =>
   S.list()
     .title('Content')
     .items([
@@ -16,6 +15,7 @@ export default () =>
         .child(
           S.editor()
             .id('siteSettings')
+            .schemaType('siteSettings')
             .documentId('siteSettings')
         ),
       S.divider(),
@@ -25,6 +25,7 @@ export default () =>
         .child(
           S.editor()
             .id('542616c1-f362-4f33-b903-4f4add184641')
+            .schemaType('home')
             .documentId('542616c1-f362-4f33-b903-4f4add184641')
         ),
       S.listItem()
@@ -33,6 +34,7 @@ export default () =>
         .child(
           S.editor()
             .id('09600be0-7d43-4636-8569-fed6ef5d2985')
+            .schemaType('about')
             .documentId('09600be0-7d43-4636-8569-fed6ef5d2985')
         ),
       S.listItem()
@@ -41,6 +43,7 @@ export default () =>
         .child(
           S.editor()
             .id('cef832e0-d677-47bc-9b33-df2c355b9c60')
+            .schemaType('team')
             .documentId('cef832e0-d677-47bc-9b33-df2c355b9c60')
         ),
       S.listItem()
@@ -49,6 +52,7 @@ export default () =>
         .child(
           S.editor()
             .id('cc52b76e-c3b4-4ac3-ba41-4871af585480')
+            .schemaType('contact')
             .documentId('cc52b76e-c3b4-4ac3-ba41-4871af585480')
         ),
       S.listItem()
@@ -57,6 +61,7 @@ export default () =>
         .child(
           S.editor()
             .id('b921b006-dafd-49a5-a3d7-eef55a00358f')
+            .schemaType('newsPage')
             .documentId('b921b006-dafd-49a5-a3d7-eef55a00358f')
         ),
       S.listItem()
@@ -65,6 +70,7 @@ export default () =>
         .child(
           S.editor()
             .id('b5f270ac-9a77-4236-bf33-70041dd025c6')
+            .schemaType('careers')
             .documentId('b5f270ac-9a77-4236-bf33-70041dd025c6')
         ),
       S.divider(),
@@ -74,6 +80,7 @@ export default () =>
         .child(
           S.editor()
             .id('a81592fc-d8ae-4c15-8315-9005a57b2d75')
+            .schemaType('residentialArchitecture')
             .documentId('a81592fc-d8ae-4c15-8315-9005a57b2d75')
         ),
       S.listItem()
@@ -82,6 +89,7 @@ export default () =>
         .child(
           S.editor()
             .id('ee8279ca-9f8d-47c5-926a-c88d46d45d5b')
+            .schemaType('interiorDesign')
             .documentId('ee8279ca-9f8d-47c5-926a-c88d46d45d5b')
         ),
       S.listItem()
@@ -90,6 +98,7 @@ export default () =>
         .child(
           S.editor()
             .id('35a99ecb-fd40-41ae-a0e0-8ec5527ebf44')
+            .schemaType('adaptiveReuse')
             .documentId('35a99ecb-fd40-41ae-a0e0-8ec5527ebf44')
         ),
       S.divider(),

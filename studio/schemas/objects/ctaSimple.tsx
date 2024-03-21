@@ -1,4 +1,8 @@
-export default {
+import ColorSelector, {colorHexValidator} from '../../components/ColorSelector'
+import React from 'react'
+import {defineField, defineType} from 'sanity'
+
+export default defineType({
   name: 'ctaSimple',
   type: 'object',
   title: 'Simple CTA',
@@ -38,27 +42,47 @@ export default {
       name: 'image',
       type: 'mainImage',
       title: 'Image',
-      description: 'If no image is included the text and heading will be centered on desktop widths.',
       description: 'Please upload an image 2170px wide. The height is up to you!'
     },
-    {
-      name: "bgColor",
-      type: "colorlist", // required
-      title: "Background Color",
-      options: {
-        borderradius: {
-          outer: "100%",
-          inner: "100%"
-        },
-        list: [
-          { title: "white", value: "white" },
-          { title: "gray-light", value: "#F8F7F7" },
-          { title: "gray-tertiary-light", value: "#CBD0CC" },
-          { title: "navy", value: "#262C3E" }
-        ]
+    // {
+    //   name: "bgColor",
+    //   type: "colorlist", // required
+    //   title: "Background Color",
+    //   options: {
+    //     borderradius: {
+    //       outer: "100%",
+    //       inner: "100%"
+    //     },
+    //     list: [
+    //       { title: "white", value: "white" },
+    //       { title: "gray-light", value: "#F8F7F7" },
+    //       { title: "gray-tertiary-light", value: "#CBD0CC" },
+    //       { title: "navy", value: "#262C3E" }
+    //     ]
+    //   },
+    //   validation: Rule => Rule.required()
+    // },
+    defineField({
+      name: 'bgColor',
+      title: 'Background Color',
+      type: 'string',
+      components: {
+        input: props => (
+          <ColorSelector
+            {...props}
+            withHexInput
+            withColorNames
+            list={[
+              {title: 'white', value: 'white'},
+              {title: 'gray-light', value: '#F8F7F7'},
+              {title: 'gray-tertiary-light', value: '#CBD0CC'},
+              {title: 'navy', value: '#262C3E'}
+            ]}
+          />
+        )
       },
-      validation: Rule => Rule.required()
-    },
+      validation: Rule => Rule.custom(colorHexValidator).required()
+    }),
     {
       name: 'imageStyle',
       type: 'string',
@@ -66,8 +90,8 @@ export default {
       description: 'If the image should extend to the edge of the page, select "full-width".',
       options: {
         list: [
-          { title: 'Full-Width', value: 'full' },
-          { title: 'Contained', value: 'contained' }
+          {title: 'Full-Width', value: 'full'},
+          {title: 'Contained', value: 'contained'}
         ],
         layout: 'radio'
       },
@@ -80,9 +104,9 @@ export default {
       description: 'Select which side you\'d like the image to appear on.',
       options: {
         list: [
-          { title: 'Small (~42%)', value: '5' },
-          { title: 'Medium (~50%)', value: '6' },
-          { title: 'Large (~56%)', value: '7' }
+          {title: 'Small (~42%)', value: '5'},
+          {title: 'Medium (~50%)', value: '6'},
+          {title: 'Large (~56%)', value: '7'}
         ],
         layout: 'radio'
       },
@@ -123,4 +147,4 @@ export default {
       validation: Rule => Rule.required()
     }
   ]
-}
+})

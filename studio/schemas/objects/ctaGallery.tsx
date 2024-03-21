@@ -1,4 +1,8 @@
-export default {
+import ColorSelector, {colorHexValidator} from '../../components/ColorSelector'
+import React from 'react'
+import {defineField, defineType} from 'sanity'
+
+export default defineType({
   name: 'ctaGallery',
   title: 'CTA Gallery',
   type: 'object',
@@ -38,24 +42,45 @@ export default {
         { type: 'mainImage' }
       ]
     },
-    {
-      name: "bgColor",
-      type: "colorlist", // required
-      title: "Background Color",
-      options: {
-        borderradius: {
-          outer: "100%",
-          inner: "100%"
-        },
-        list: [
-          { title: "white", value: "white" },
-          { title: "gray-light", value: "#F8F7F7" },
-          { title: "gray-tertiary-light", value: "#CBD0CC" },
-          { title: "navy", value: "#262C3E" }
-        ]
+    // {
+    //   name: "bgColor",
+    //   type: "colorlist", // required
+    //   title: "Background Color",
+    //   options: {
+    //     borderradius: {
+    //       outer: "100%",
+    //       inner: "100%"
+    //     },
+    //     list: [
+    //       { title: "white", value: "white" },
+    //       { title: "gray-light", value: "#F8F7F7" },
+    //       { title: "gray-tertiary-light", value: "#CBD0CC" },
+    //       { title: "navy", value: "#262C3E" }
+    //     ]
+    //   },
+    //   validation: Rule => Rule.required()
+    // },
+    defineField({
+      name: 'bgColor',
+      title: 'Background Color',
+      type: 'string',
+      components: {
+        input: props => (
+          <ColorSelector
+            {...props}
+            withHexInput
+            withColorNames
+            list={[
+              {title: 'white', value: 'white'},
+              {title: 'gray-light', value: '#F8F7F7'},
+              {title: 'gray-tertiary-light', value: '#CBD0CC'},
+              {title: 'navy', value: '#262C3E'}
+            ]}
+          />
+        )
       },
-      validation: Rule => Rule.required()
-    },
+      validation: Rule => Rule.custom(colorHexValidator).required()
+    }),
     {
       name: 'imageGalleryLocation',
       type: 'string',
@@ -90,4 +115,4 @@ export default {
       validation: Rule => Rule.required()
     }
   ]
-}
+})
