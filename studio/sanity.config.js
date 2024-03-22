@@ -5,6 +5,7 @@ import {visionTool} from '@sanity/vision'
 import {media} from 'sanity-plugin-media'
 import schemas from './schemas/schemas'
 import deskStructure from './deskStructure'
+import {simplerColorInput} from 'sanity-plugin-simpler-color-input'
 
 export default defineConfig([
   {
@@ -12,6 +13,17 @@ export default defineConfig([
     projectId: process.env.SANITY_STUDIO_API_PROJECT_ID,
     dataset: process.env.SANITY_STUDIO_API_DATASET,
     plugins: [
+      simplerColorInput({
+        // Note: These are all optional
+        defaultColorFormat: 'rgba',
+        defaultColorList: [
+          {label: 'white', value: '#ffffff'},
+          {label: 'gray-light', value: '#F8F7F7'},
+          {label: 'gray-tertiary-light', value: '#CBD0CC'},
+          {label: 'navy', value: '#262C3E'}
+        ],
+        enableSearch: true
+      }),
       structureTool({
         structure: deskStructure
       }),

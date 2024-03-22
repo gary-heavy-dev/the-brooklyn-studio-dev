@@ -44,73 +44,31 @@ export default defineType({
       title: 'Image',
       description: 'Please upload an image 2170px wide. The height is up to you!'
     },
-    // {
-    //   name: "bgColor",
-    //   type: "colorlist", // required
-    //   title: "Background Color",
-    //   options: {
-    //     borderradius: {
-    //       outer: "100%",
-    //       inner: "100%"
-    //     },
-    //     list: [
-    //       { title: "white", value: "white" },
-    //       { title: "gray-light", value: "#F8F7F7" },
-    //       { title: "gray-tertiary-light", value: "#CBD0CC" },
-    //       { title: "navy", value: "#262C3E" }
-    //     ]
-    //   },
-    //   validation: Rule => Rule.required()
-    // },
-    // {
-    //   name: 'bgColor',
+    // defineField({
+    //   name: 'backgroundColor',
     //   title: 'Background Color',
     //   type: 'string',
-    //   // components: {input: ColorSelector},
-    //   options: {
-    //     list: [
-    //       {title: 'white', value: 'white'},
-    //       {title: 'gray-light', value: '#F8F7F7'},
-    //       {title: 'gray-tertiary-light', value: '#CBD0CC'},
-    //       {title: 'navy', value: '#262C3E'}
-    //     ]
+    //   components: {
+    //     input: props => (
+    //       <ColorSelector
+    //         {...props}
+    //         list={[
+    //           {title: '#FFFFFF', value: 'white'},
+    //           {title: '#F8F7F7', value: 'gray-light'},
+    //           {title: '#CBD0CC', value: 'gray-tertiary-light'},
+    //           {title: '#262C3E', value: 'navy'}
+    //         ]}
+    //       />
+    //     )
     //   },
-    //   validation: Rule => Rule.required()
-    // },
-    // defineField({
-    //   name: 'bgCol',
-    //   title: 'BG Col',
-    //   type: 'string',
-    //   components: {input: ColorSelector},
-    //   options: {
-    //     list: [
-    //       {title: 'white', value: 'white'},
-    //       {title: 'gray-light', value: '#F8F7F7'},
-    //       {title: 'gray-tertiary-light', value: '#CBD0CC'},
-    //       {title: 'navy', value: '#262C3E'}
-    //     ]
-    //   },
-    //   validation: Rule => Rule.required()
+    //   validation: Rule => Rule.custom(colorHexValidator).required()
     // }),
-    defineField({
-      name: 'bgColor',
-      title: 'Color',
-      type: 'string',
-      components: {
-        input: props => (
-          <ColorSelector
-            {...props}
-            list={[
-              {title: 'white', value: '#FFFFFF'},
-              {title: 'gray-light', value: '#F8F7F7'},
-              {title: 'gray-tertiary-light', value: '#CBD0CC'},
-              {title: 'navy', value: '#262C3E'}
-            ]}
-          />
-        )
-      },
-      validation: Rule => Rule.custom(colorHexValidator).required()
-    }),
+    {
+      name: 'backgroundColor',
+      title: 'Background Color',
+      type: 'simplerColor',
+      validation: Rule => Rule.required()
+    },
     {
       name: 'imageStyle',
       type: 'string',

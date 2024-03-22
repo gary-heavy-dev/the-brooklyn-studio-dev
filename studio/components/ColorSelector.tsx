@@ -51,7 +51,7 @@ const ColorCircle = ({
       )}
     </Card>
   )
-};
+}
 
 type ColorObject = {
   title: string;
@@ -74,6 +74,7 @@ type ColorSelectorProps = StringInputProps &
 
 const ColorSelector = ({
   value = '',
+  title = '',
   onChange,
   list,
   withHexInput,
@@ -88,19 +89,19 @@ const ColorSelector = ({
     const hasHashSymbol = hexChars.startsWith('#')
 
     return (hasHashSymbol ? '' : '#') + hexChars.replace(/^#/, '').substring(0, 6).toUpperCase()
-  };
+  }
 
   const handleChange = useCallback(
     (event: React.ChangeEvent<HTMLInputElement>) =>
       onChange(
-        event.currentTarget.value ? set(preprocessValue(event.currentTarget.value)) : unset()
+        event.currentTarget.title ? set(preprocessValue(event.currentTarget.title)) : unset()
       ),
     [onChange]
   )
 
   const handleSelect = useCallback(
-    (hex: string) => onChange(hex && hex !== value ? set(preprocessValue(hex)) : unset()),
-    [onChange, value]
+    (hex: string) => onChange(hex && hex !== title ? set(preprocessValue(hex)) : unset()),
+    [onChange, title]
   )
 
   return (
@@ -118,7 +119,7 @@ const ColorSelector = ({
             <Avatar
               size={1}
               style={{
-                backgroundColor: value,
+                backgroundColor: title,
                 border: '1px solid var(--card-hairline-soft-color)'
               }}
             />
@@ -128,7 +129,7 @@ const ColorSelector = ({
               padding={3}
               placeholder={'#FFFFFF'}
               onChange={handleChange}
-              value={value}
+              value={title}
             />
           </Grid>
         </>
@@ -150,10 +151,10 @@ const ColorSelector = ({
             {list.map(colorItem => {
               return (
                 <ColorCircle
-                  key={colorItem.value}
-                  colorName={colorItem.title}
-                  hex={colorItem.value}
-                  active={colorItem.value === value}
+                  key={colorItem.title}
+                  colorName={colorItem.value}
+                  hex={colorItem.title}
+                  active={colorItem.title === value}
                   withColorName={!!withColorNames}
                   onClickHandler={handleSelect}
                 />

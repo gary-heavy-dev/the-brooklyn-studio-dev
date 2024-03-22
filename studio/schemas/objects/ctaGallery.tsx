@@ -41,39 +41,12 @@ export default defineType({
         {type: 'mainImage'}
       ]
     },
-    // {
-    //   name: "bgColor",
-    //   type: "colorlist", // required
-    //   title: "Background Color",
-    //   options: {
-    //     borderradius: {
-    //       outer: "100%",
-    //       inner: "100%"
-    //     },
-    //     list: [
-    //       { title: "white", value: "white" },
-    //       { title: "gray-light", value: "#F8F7F7" },
-    //       { title: "gray-tertiary-light", value: "#CBD0CC" },
-    //       { title: "navy", value: "#262C3E" }
-    //     ]
-    //   },
-    //   validation: Rule => Rule.required()
-    // },
-    defineField({
-      name: 'bgColor',
+    {
+      name: 'backgroundColor',
       title: 'Background Color',
-      type: 'string',
-      components: {input: ColorSelector},
-      options: {
-        list: [
-          {title: 'white', value: 'white'},
-          {title: 'gray-light', value: '#F8F7F7'},
-          {title: 'gray-tertiary-light', value: '#CBD0CC'},
-          {title: 'navy', value: '#262C3E'}
-        ]
-      },
+      type: 'simplerColor',
       validation: Rule => Rule.required()
-    }),
+    },
     {
       name: 'imageGalleryLocation',
       type: 'string',

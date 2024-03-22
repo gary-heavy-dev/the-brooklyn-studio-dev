@@ -93,8 +93,8 @@ export default {
           },
           alt: this.ctaImage.alt
         },
-        bgColor: {
-          title: 'white'
+        backgroundColor: {
+          label: 'white'
         },
         imageStyle: 'full',
         imageWidth: '7',

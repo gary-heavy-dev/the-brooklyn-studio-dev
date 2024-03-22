@@ -159,6 +159,10 @@ export default {
           }
           alt
         }
+        backgroundColor {
+          label
+          value
+        }
         imageGalleryLocation
         reverseMobile
         paddingSize
@@ -185,7 +189,10 @@ export default {
           }
           alt
         }
-        bgColor
+        backgroundColor {
+          label
+          value
+        }
         imageStyle
         imageWidth
         textLocation

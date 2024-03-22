@@ -1,6 +1,6 @@
 <template>
   <section
-    :class="'cta-simple w-100 copy--' + content.textLocation + ' background--' + content.bgColor + ' image--' + content.imageStyle"
+    :class="'cta-simple w-100 copy--' + content.textLocation + ' background--' + content.backgroundColor.label + ' image--' + content.imageStyle"
     :id="content.navTitle ?  $toKebabCase(content.navTitle) : ''"
   >
     <div :class="'cta-simple__inner grid grid--12-desktop reverse-mobile--' + content.reverseMobile">
@@ -103,10 +103,6 @@ export default {
   },
   props: {
     content: Object
-  },
-  mounted() {
-    console.log("bgColor", this.content.bgColor)
-    console.log("imStyle", this.content.imageStyle)
   },
   computed: {
     copySpan() {

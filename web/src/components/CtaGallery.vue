@@ -1,6 +1,6 @@
 <template>
   <section
-    :class="'cta-gallery w-100 flex cta-gallery--' + content.imageGalleryLocation + ' background--' + content.bgColor.title + ' p-' + content.paddingSize"
+    :class="'cta-gallery w-100 flex cta-gallery--' + content.imageGalleryLocation + ' background--' + content.backgroundColor.label + ' p-' + content.paddingSize"
     :id="content.navTitle ? $toKebabCase(content.navTitle) : ''"
   >
     <div class="cta-gallery__inner grid grid--12-desktop">

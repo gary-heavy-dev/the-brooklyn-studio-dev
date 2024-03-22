@@ -2,7 +2,7 @@ export default {
   name: 'about',
   type: 'document',
   title: 'About',
-  __experimental_actions: [/*'create',*/ 'update', /*'delete',*/ 'publish'], 
+  __experimental_actions: ['update', 'publish'],
   fieldsets: [
     {
       name: 'hero',
