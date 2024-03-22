@@ -44,25 +44,6 @@ export default defineType({
       title: 'Image',
       description: 'Please upload an image 2170px wide. The height is up to you!'
     },
-    // defineField({
-    //   name: 'backgroundColor',
-    //   title: 'Background Color',
-    //   type: 'string',
-    //   components: {
-    //     input: props => (
-    //       <ColorSelector
-    //         {...props}
-    //         list={[
-    //           {title: '#FFFFFF', value: 'white'},
-    //           {title: '#F8F7F7', value: 'gray-light'},
-    //           {title: '#CBD0CC', value: 'gray-tertiary-light'},
-    //           {title: '#262C3E', value: 'navy'}
-    //         ]}
-    //       />
-    //     )
-    //   },
-    //   validation: Rule => Rule.custom(colorHexValidator).required()
-    // }),
     {
       name: 'backgroundColor',
       title: 'Background Color',

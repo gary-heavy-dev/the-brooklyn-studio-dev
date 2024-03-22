@@ -7,6 +7,8 @@ import schemas from './schemas/schemas'
 import deskStructure from './deskStructure'
 import {simplerColorInput} from 'sanity-plugin-simpler-color-input'
 
+export const LOCKED_DOCUMENT_TYPES = ['siteSettings', 'home', 'about', 'adaptiveReuse', 'careers', 'contact', 'interiorDesign', 'newsPage', 'residentialArchitecture', 'team']
+
 export default defineConfig([
   {
     title: process.env.SANITY_PROJECT_NAME,
@@ -36,12 +38,12 @@ export default defineConfig([
     document: {
       newDocumentOptions: (prev, {creationContext}) => {
         if (creationContext.type === 'global') {
-          return prev.filter((template) => !['siteSettings'].includes(template.templateId))
+          return prev.filter((template) => !LOCKED_DOCUMENT_TYPES.includes(template.templateId))
         }
         return prev
       },
       actions: (prev, {schemaType}) => {
-        if (schemaType === 'siteSettings') {
+        if (LOCKED_DOCUMENT_TYPES.includes(schemaType)) {
           return prev.filter(({action}) => !['unpublish', 'delete', 'duplicate'].includes(action))
         }
         return prev

@@ -40,7 +40,7 @@ export default {
       name: 'introSection',
       type: 'introSecondary',
       title: 'INTRO',
-      options: { collapsible: true }
+      options: {collapsible: true}
     },
     {
       name: 'flexibleContent',
@@ -48,12 +48,12 @@ export default {
       title: 'FLEXIBLE CONTENT',
       description: 'Choose from a list of different content types to build your page.',
       of: [
-        { type: 'linkGallery' },
-        { type: 'ctaGallery' },
-        { type: 'ctaSimple' },
-        { type: 'featuredTeamMember' },
-        { type: 'scrollingGallery' },
-        { type: 'ctaComplex' }
+        {type: 'linkGallery'},
+        {type: 'ctaGallery'},
+        {type: 'ctaSimple'},
+        {type: 'featuredTeamMember'},
+        {type: 'scrollingGallery'},
+        {type: 'ctaComplex'}
       ]
     }
   ]
