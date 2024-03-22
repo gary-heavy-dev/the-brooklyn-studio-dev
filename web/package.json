@@ -27,5 +27,8 @@
     "vue-awesome-swiper": "^4.1.1",
     "vue-gtag": "^1.16.1",
     "vue-scrollactive": "^0.9.3"
+  },
+  "resolutions": {
+    "sharp": "^0.29.0"
   }
 }

@@ -164,6 +164,6 @@ const ColorSelector = ({
       )}
     </Stack>
   )
-};
+}
 
 export default ColorSelector

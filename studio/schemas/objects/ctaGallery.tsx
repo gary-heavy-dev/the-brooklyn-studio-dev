@@ -39,7 +39,7 @@ export default defineType({
       title: 'Image Gallery',
       description: 'The ideal WxH for these image uploads is 1584px by 2091px',
       of: [
-        { type: 'mainImage' }
+        {type: 'mainImage'}
       ]
     },
     // {
@@ -88,8 +88,8 @@ export default defineType({
       description: 'Select which side you\'d like the image gallery to appear on.',
       options: {
         list: [
-          { title: 'Right', value: 'right' },
-          { title: 'Left', value: 'left' }
+          {title: 'Right', value: 'right'},
+          {title: 'Left', value: 'left'}
         ],
         layout: 'radio'
       }

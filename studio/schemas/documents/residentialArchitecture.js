@@ -46,7 +46,7 @@ export default {
       type: 'array',
       title: 'Projects',
       of: [
-        { type: 'projectReference' }
+        {type: 'projectReference'}
       ]
     },
     {
@@ -56,7 +56,7 @@ export default {
       of: [
         {
           type: 'reference',
-          to: [{ type: 'projectCategory' }]
+          to: [{type: 'projectCategory'}]
         }
       ]
     }
