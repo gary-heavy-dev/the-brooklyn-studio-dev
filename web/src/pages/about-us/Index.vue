@@ -161,10 +161,6 @@ export default {
         }
         imageGalleryLocation
         reverseMobile
-        bgColor {
-          title
-          value
-        }
         paddingSize
       }
       ... on SanityCtaSimple {
@@ -189,10 +185,7 @@ export default {
           }
           alt
         }
-        bgColor {
-          title
-          value
-        }
+        bgColor
         imageStyle
         imageWidth
         textLocation

@@ -1,87 +1,169 @@
-import type { StringInputProps } from 'sanity';
-import { set, unset } from 'sanity';
-import { Stack, Flex, TextInput, Text, Avatar, Card, Grid } from '@sanity/ui';
-import React, { useCallback } from 'react';
+import {Avatar, Card, Flex, Grid, Stack, Text, TextInput} from '@sanity/ui'
+import React, {useCallback} from 'react'
+import {set, StringInputProps, unset} from 'sanity'
 
-type ColorList = {
+export function colorHexValidator(value?: string) {
+  if (value && !value.match(/^#[a-fA-f0-9]{6}$/)) {
+    return 'Color must be a valid hex (e.g. #A4F23B)'
+  }
+  return true
+}
+
+type ColorCircleProps = {
+  colorName: string;
+  hex: string;
+  active: boolean;
+  withColorName: boolean;
+  onClickHandler: (hex: string) => void;
+};
+
+const ColorCircle = ({
+  colorName,
+  hex,
+  active,
+  withColorName,
+  onClickHandler
+}: ColorCircleProps) => {
+  return (
+    <Card paddingRight={2} paddingBottom={4}>
+      <div
+        style={{
+          padding: '4px',
+          borderRadius: '50%',
+          backgroundColor: active ? hex : 'transparent',
+          border: active ? '1px solid var(--card-hairline-soft-color)' : '1px solid transparent',
+          cursor: 'pointer'
+        }}
+        onClick={() => onClickHandler(hex)}
+      >
+        <Avatar
+          size={1}
+          style={{
+            backgroundColor: hex,
+            border: '1px solid var(--card-hairline-soft-color)'
+          }}
+        />
+      </div>
+      {withColorName && (
+        <Text size={1} align={'center'} style={{marginTop: '.5em'}}>
+          {colorName}
+        </Text>
+      )}
+    </Card>
+  )
+};
+
+type ColorObject = {
   title: string;
   value: string;
 };
 
-type SchemaTypeOption = { list: ColorList[] } | undefined;
+type ColorSelectorProps = StringInputProps &
+  (
+    | {
+        list: ColorObject[];
+        withColorNames?: boolean;
+        withHexInput?: boolean;
+      }
+    | {
+        list?: never;
+        withColorNames?: never;
+        withHexInput: true;
+      }
+  );
 
 const ColorSelector = ({
-  schemaType,
   value = '',
   onChange,
-}: StringInputProps) => {
-  const schemeTypeOptions = schemaType.options as SchemaTypeOption;
+  list,
+  withHexInput,
+  withColorNames
+}: ColorSelectorProps) => {
+  // Removes non-hex chars from the string, trims to 6 chars,
+  // adds a # at the beginning and upper cases it
+  const preprocessValue = (str: string) => {
+    const validHexChars = /[0-9a-fA-F]/g
+    const hexChars = str.match(validHexChars)?.join('') || ''
+
+    const hasHashSymbol = hexChars.startsWith('#')
+
+    return (hasHashSymbol ? '' : '#') + hexChars.replace(/^#/, '').substring(0, 6).toUpperCase()
+  };
 
   const handleChange = useCallback(
     (event: React.ChangeEvent<HTMLInputElement>) =>
       onChange(
-        event.currentTarget.value ? set(event.currentTarget.value) : unset(),
+        event.currentTarget.value ? set(preprocessValue(event.currentTarget.value)) : unset()
       ),
-    [onChange],
-  );
+    [onChange]
+  )
 
   const handleSelect = useCallback(
-    (hex: string) => onChange(hex ? set(hex) : unset()),
-    [onChange],
-  );
+    (hex: string) => onChange(hex && hex !== value ? set(preprocessValue(hex)) : unset()),
+    [onChange, value]
+  )
 
   return (
     <Stack space={3}>
-      <Grid columns={2} gap={1}>
-        <Avatar size={1} style={{ backgroundColor: value, width: '100%' }} />
-        <TextInput
-          fontSize={1}
-          padding={3}
-          placeholder='Enter hex (#ffffff) or select color below'
-          onChange={handleChange}
-          value={value}
-        />
-      </Grid>
-      <Card borderTop paddingTop={3}>
-        <Flex direction={'row'} wrap={'wrap'}>
-          {schemeTypeOptions.list.map(({ title, value }) => {
-            return (
-              <ColorCircle
-                key={value}
-                colorName={title}
-                hex={value}
-                onClickHandler={handleSelect}
-              />
-            );
-          })}
-        </Flex>
-      </Card>
+      {withHexInput && (
+        <>
+          <Text size={1}>Enter hex</Text>
+          <Grid
+            columns={2}
+            gap={1}
+            style={{
+              gridTemplateColumns: 'auto 1fr'
+            }}
+          >
+            <Avatar
+              size={1}
+              style={{
+                backgroundColor: value,
+                border: '1px solid var(--card-hairline-soft-color)'
+              }}
+            />
+            <TextInput
+              style={{flexGrow: 1}}
+              fontSize={1}
+              padding={3}
+              placeholder={'#FFFFFF'}
+              onChange={handleChange}
+              value={value}
+            />
+          </Grid>
+        </>
+      )}
+      {list && (
+        <Card
+          borderTop={withHexInput}
+          paddingTop={withHexInput ? 3 : 0}
+          style={{
+            transform: 'translateX(-4px)'
+          }}
+        >
+          {withHexInput && (
+            <Text size={1} style={{marginBottom: '.5em'}}>
+              or select color below
+            </Text>
+          )}
+          <Flex direction={'row'} wrap={'wrap'}>
+            {list.map(colorItem => {
+              return (
+                <ColorCircle
+                  key={colorItem.value}
+                  colorName={colorItem.title}
+                  hex={colorItem.value}
+                  active={colorItem.value === value}
+                  withColorName={!!withColorNames}
+                  onClickHandler={handleSelect}
+                />
+              )
+            })}
+          </Flex>
+        </Card>
+      )}
     </Stack>
-  );
-};
-
-export default ColorSelector;
-
-type ColorCircle = {
-  colorName: string;
-  hex: string;
-  onClickHandler: (hex: string) => void;
-};
-
-const ColorCircle = ({ colorName, hex, onClickHandler }: ColorCircle) => {
-  return (
-    <Card paddingRight={2} paddingBottom={4}>
-      <Avatar
-        size={2}
-        style={{
-          backgroundColor: hex,
-          cursor: 'pointer',
-        }}
-        onClick={() => onClickHandler(hex)}
-      />
-      <Text size={1} align={'center'} style={{ marginTop: '1em' }}>
-        {colorName}
-      </Text>
-    </Card>
-  );
+  )
 }
+
+export default ColorSelector

@@ -1,5 +1,6 @@
-import ColorSelector from '../../components/ColorSelector'
+import ColorSelector, {colorHexValidator} from '../../components/ColorSelector'
 import {defineField, defineType} from 'sanity'
+import React from 'react'
 
 export default defineType({
   name: 'ctaSimple',
@@ -61,20 +62,54 @@ export default defineType({
     //   },
     //   validation: Rule => Rule.required()
     // },
+    // {
+    //   name: 'bgColor',
+    //   title: 'Background Color',
+    //   type: 'string',
+    //   // components: {input: ColorSelector},
+    //   options: {
+    //     list: [
+    //       {title: 'white', value: 'white'},
+    //       {title: 'gray-light', value: '#F8F7F7'},
+    //       {title: 'gray-tertiary-light', value: '#CBD0CC'},
+    //       {title: 'navy', value: '#262C3E'}
+    //     ]
+    //   },
+    //   validation: Rule => Rule.required()
+    // },
+    // defineField({
+    //   name: 'bgCol',
+    //   title: 'BG Col',
+    //   type: 'string',
+    //   components: {input: ColorSelector},
+    //   options: {
+    //     list: [
+    //       {title: 'white', value: 'white'},
+    //       {title: 'gray-light', value: '#F8F7F7'},
+    //       {title: 'gray-tertiary-light', value: '#CBD0CC'},
+    //       {title: 'navy', value: '#262C3E'}
+    //     ]
+    //   },
+    //   validation: Rule => Rule.required()
+    // }),
     defineField({
       name: 'bgColor',
-      title: 'Background Color',
+      title: 'Color',
       type: 'string',
-      components: {input: ColorSelector},
-      options: {
-        list: [
-          {title: 'white', value: 'white'},
-          {title: 'gray-light', value: '#F8F7F7'},
-          {title: 'gray-tertiary-light', value: '#CBD0CC'},
-          {title: 'navy', value: '#262C3E'}
-        ]
+      components: {
+        input: props => (
+          <ColorSelector
+            {...props}
+            list={[
+              {title: 'white', value: '#FFFFFF'},
+              {title: 'gray-light', value: '#F8F7F7'},
+              {title: 'gray-tertiary-light', value: '#CBD0CC'},
+              {title: 'navy', value: '#262C3E'}
+            ]}
+          />
+        )
       },
-      validation: Rule => Rule.required()
+      validation: Rule => Rule.custom(colorHexValidator).required()
     }),
     {
       name: 'imageStyle',
