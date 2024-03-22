@@ -1,5 +1,4 @@
-import ColorSelector, {colorHexValidator} from '../../components/ColorSelector'
-import React from 'react'
+import ColorSelector from '../../components/ColorSelector'
 import {defineField, defineType} from 'sanity'
 
 export default defineType({
@@ -64,22 +63,16 @@ export default defineType({
       name: 'bgColor',
       title: 'Background Color',
       type: 'string',
-      components: {
-        input: props => (
-          <ColorSelector
-            {...props}
-            withHexInput
-            withColorNames
-            list={[
-              {title: 'white', value: 'white'},
-              {title: 'gray-light', value: '#F8F7F7'},
-              {title: 'gray-tertiary-light', value: '#CBD0CC'},
-              {title: 'navy', value: '#262C3E'}
-            ]}
-          />
-        )
+      components: {input: ColorSelector},
+      options: {
+        list: [
+          {title: 'white', value: 'white'},
+          {title: 'gray-light', value: '#F8F7F7'},
+          {title: 'gray-tertiary-light', value: '#CBD0CC'},
+          {title: 'navy', value: '#262C3E'}
+        ]
       },
-      validation: Rule => Rule.custom(colorHexValidator).required()
+      validation: Rule => Rule.required()
     }),
     {
       name: 'imageGalleryLocation',
