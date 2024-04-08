@@ -8,6 +8,7 @@ import deskStructure from './deskStructure'
 import {simplerColorInput} from 'sanity-plugin-simpler-color-input'
 import {dashboardTool} from '@sanity/dashboard'
 import {netlifyWidget} from 'sanity-plugin-dashboard-widget-netlify'
+import {CustomNavbar} from './components/customNavBar/customNavBar'
 
 export const LOCKED_DOCUMENT_TYPES = ['siteSettings', 'home', 'about', 'adaptiveReuse', 'careers', 'contact', 'interiorDesign', 'newsPage', 'residentialArchitecture', 'team']
 
@@ -15,6 +16,7 @@ export default defineConfig([
   {
     projectId: process.env.SANITY_STUDIO_API_PROJECT_ID,
     dataset: 'production',
+    name: 'production',
     basePath: '/production',
     title: 'Production Workspace',
     plugins: [
@@ -54,6 +56,11 @@ export default defineConfig([
     schema: {
       types: schemas
     },
+    studio: {
+      components: {
+        navbar: CustomNavbar
+      }
+    },
     document: {
       newDocumentOptions: (prev, {creationContext}) => {
         if (creationContext.type === 'global') {
@@ -72,6 +79,7 @@ export default defineConfig([
   {
     projectId: process.env.SANITY_STUDIO_API_PROJECT_ID,
     dataset: 'staging',
+    name: 'staging',
     basePath: '/staging',
     title: 'Staging Workspace',
     plugins: [
@@ -110,6 +118,11 @@ export default defineConfig([
     ],
     schema: {
       types: schemas
+    },
+    studio: {
+      components: {
+        navbar: CustomNavbar
+      }
     },
     document: {
       newDocumentOptions: (prev, {creationContext}) => {
