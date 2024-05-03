@@ -11,7 +11,7 @@ export default {
   },
   computed: {
     pageTitle() {
-      return 'Home' 
+      return 'Home'
     },
     // firstHeroImage() {
     //   return this.$page.page.slides.length ? this.$page.page.slides[0].image : null
@@ -132,6 +132,10 @@ export default {
       _rawIntroSmall
     }
     flexibleContent {
+      ... on SanityFlexibleText {
+        _type
+        text
+      }
       ... on SanityCtaGallery {
         _type
         heading
