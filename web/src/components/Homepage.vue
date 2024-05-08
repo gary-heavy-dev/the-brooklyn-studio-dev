@@ -1,14 +1,8 @@
 <template>
   <Layout>
     <div class="home">
-			<IntroAnimation
-				v-show="introStatus == null"
-				@passed="hideIntro"
-    	/>
-      <Intro
-        :content="content.introSection"
-        :layout="'primary'"
-      />
+      <IntroAnimation v-show="introStatus == null" @passed="hideIntro" />
+      <Intro :content="content.introSection" :layout="'primary'" class="home-intro--neuhaus" />
       <FlexibleContent :content="content.flexibleContent" />
     </div>
   </Layout>
@@ -22,13 +16,13 @@ import IntroAnimation from '~/components/IntroAnimation'
 export default {
   components: {
     Intro,
-		IntroAnimation,
+    IntroAnimation,
     FlexibleContent
   },
   props: {
     content: Object
   },
-	data() {
+  data() {
     return {
       introStatus: typeof sessionStorage !== 'undefined' ? sessionStorage.getItem('intro') : null
     }
@@ -37,6 +31,14 @@ export default {
     hideIntro() {
       this.introStatus = true
     }
-  },
+  }
 }
 </script>
+
+<!-- remove class on intro component above and remove this style tag after neuhaus image reverts to original image -->
+<!-- Revert sizesPrimaryLarge sizes in Into.vue -->
+<style>
+.home-intro--neuhaus .intro__column .intro-image .image-wrapper .base-image .base-image__inner img {
+  object-fit: contain;
+}
+</style>
