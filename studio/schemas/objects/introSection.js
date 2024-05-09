@@ -11,6 +11,17 @@ export default {
       description: 'This is the larger text that appears first in the Intro section.'
     },
     {
+      name: 'introLinkOne',
+      type: 'string',
+      title: 'Intro Link One'
+    },
+    {
+      name: 'introLinkTextOne',
+      type: 'string',
+      title: 'Intro Link One Text',
+      description: 'This is the copy for the link in the Intro section. For example: "Read more about the studio".'
+    },
+    {
       name: 'introSmall',
       type: 'excerptPortableText',
       title: 'Intro Text (Small)',
@@ -19,12 +30,12 @@ export default {
     {
       name: 'introLink',
       type: 'string',
-      title: 'Intro Link'
+      title: 'Intro Link Two'
     },
     {
       name: 'introLinkText',
       type: 'string',
-      title: 'Intro Link Text',
+      title: 'Intro Link Two Text',
       description: 'This is the copy for the link in the Intro section. For example: "Read more about the studio".'
     },
     {

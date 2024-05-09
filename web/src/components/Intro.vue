@@ -17,6 +17,12 @@
               v-if="content._rawIntroCopy"
               :blocks="content._rawIntroCopy"
             />
+            <g-link
+              v-if="content.introLinkOne && content.introLinkTextOne"
+              :to="content.introLinkOne"
+              class="upper button mt-60"
+              @click.native="$scrollToTop"
+            >{{ content.introLinkTextOne }}</g-link>
           </div>
         </div>
       </div>

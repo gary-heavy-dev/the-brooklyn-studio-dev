@@ -99,6 +99,8 @@ export default {
   page: sanityHome(id: "542616c1-f362-4f33-b903-4f4add184641") {
     introSection {
       introLarge
+      introLinkOne
+      introLinkTextOne
       introLink
       introLinkText
       introImagePrimary {
