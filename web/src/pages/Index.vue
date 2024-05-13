@@ -11,7 +11,7 @@ export default {
   },
   computed: {
     pageTitle() {
-      return 'Home' 
+      return 'Home'
     },
     // firstHeroImage() {
     //   return this.$page.page.slides.length ? this.$page.page.slides[0].image : null
@@ -99,6 +99,8 @@ export default {
   page: sanityHome(id: "542616c1-f362-4f33-b903-4f4add184641") {
     introSection {
       introLarge
+      introLinkOne
+      introLinkTextOne
       introLink
       introLinkText
       introImagePrimary {
@@ -132,6 +134,10 @@ export default {
       _rawIntroSmall
     }
     flexibleContent {
+      ... on SanityFlexibleText {
+        _type
+        text
+      }
       ... on SanityCtaGallery {
         _type
         heading

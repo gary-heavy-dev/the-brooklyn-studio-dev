@@ -4,7 +4,7 @@
       <div class="copy background-stretch background--gray-light flex ai-c">
         <div class="copy__content ">
           <div class="copy__content-inner mw-readable ">
-            <span 
+            <span
               v-if="content.introLarge"
               class="h3"
               v-html="content.introLarge"
@@ -17,6 +17,12 @@
               v-if="content._rawIntroCopy"
               :blocks="content._rawIntroCopy"
             />
+            <g-link
+              v-if="content.introLinkOne && content.introLinkTextOne"
+              :to="content.introLinkOne"
+              class="upper button mt-60"
+              @click.native="$scrollToTop"
+            >{{ content.introLinkTextOne }}</g-link>
           </div>
         </div>
       </div>
@@ -99,10 +105,13 @@ export default {
     return {
       sizesPrimaryLarge: {
         mobile: 338,
-        tablet: 741,
-        laptop: 949,
-        desktop: 710,
-        hd: 950,
+        // tablet: 741,
+        // laptop: 949,
+        // hd: 950,
+        tablet: 1440,
+        laptop: 1440,
+        desktop: 1440,
+        hd: 1920,
         fourK: 1900 // by 1682 tall
       },
       sizesPrimarySmaller: {
