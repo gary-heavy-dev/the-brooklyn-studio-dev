@@ -22,7 +22,7 @@
       </nav>
       <div class="the-footer__newsletter col-span--6 xsmall flex fd-c jc-sb">
         <NewsletterForm />
-        <div class="xxsmall the-footer__credits desktop-only">© 2023 The Brooklyn Studio of Architecture | <g-link to="/privacy-policy">Privacy Policy</g-link> | <g-link to="/credits">Site Credits</g-link></div>
+        <div class="xxsmall the-footer__credits desktop-only">© 2024 The Brooklyn Studio of Architecture | <g-link to="/privacy-policy">Privacy Policy</g-link> | <g-link to="/credits">Site Credits</g-link></div>
       </div>
       <div class="social-icons">
         <a
@@ -39,7 +39,7 @@
       </div>
     </div>
     <div class="grid grid--12-desktop xxsmall mobile-only">
-      <div class="xxsmall the-footer__credits text-center">© 2023 The Brooklyn Studio of Architecture<br><g-link to="/privacy-policy">Privacy Policy</g-link> | <g-link to="/credits">Site Credits</g-link></div>
+      <div class="xxsmall the-footer__credits text-center">© 2024 The Brooklyn Studio of Architecture<br><g-link to="/privacy-policy">Privacy Policy</g-link> | <g-link to="/credits">Site Credits</g-link></div>
     </div>
   </footer>
 </template>
@@ -76,7 +76,7 @@ export default {
 
   .footer__logo {
     justify-content: flex-start;
-    
+
     @include desktop-down {
       border-bottom: 1px solid var(--color--gray-secondary);
     }
