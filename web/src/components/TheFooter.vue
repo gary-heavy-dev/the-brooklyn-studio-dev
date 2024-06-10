@@ -36,6 +36,17 @@
             class="social-icon__instagram"
           />
         </a>
+        <a
+          v-if="$static.settings.socialLinkLinkedIn"
+          :href="$static.settings.socialLinkLinkedIn"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Link to The Brooklyn Studio LinkedIn Account"
+        >
+          <LogoLinkedIn
+            class="social-icon__instagram"
+          />
+        </a>
       </div>
     </div>
     <div class="grid grid--12-desktop xxsmall mobile-only">
@@ -48,11 +59,13 @@
 import Logo from '~/components/Logo'
 import LogoInstagram from '~/components/LogoInstagram'
 import NewsletterForm from '~/components/NewsletterForm'
+import LogoLinkedIn from '~/components/LogoLinkedIn';
 
 export default {
   components: {
     Logo,
     LogoInstagram,
+    LogoLinkedIn,
     NewsletterForm
   }
 }
@@ -159,6 +172,7 @@ export default {
     display: flex;
     align-items: flex-start;
     justify-content: center;
+    gap: 5px;
 
     @include desktop {
       justify-content: flex-end;
@@ -179,6 +193,7 @@ export default {
 query {
   settings: sanitySiteSettings(id: "siteSettings") {
     socialLinkIg
+    socialLinkLinkedIn
   }
 }
 </static-query>
