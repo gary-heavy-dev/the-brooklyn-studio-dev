@@ -54,6 +54,12 @@ export default {
       fieldset: 'social'
     },
     {
+      name: 'socialLinkLinkedIn',
+      type: 'string',
+      title: 'LinkedIn Link',
+      fieldset: 'social'
+    },
+    {
       name: 'hero',
       type: 'heroTertiary',
       title: 'Credits Page Hero',
