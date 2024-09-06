@@ -31,7 +31,13 @@ export default {
       name: 'publishedAt',
       type: 'datetime',
       title: 'Published at',
-      description: 'This can be used to schedule post for publishing'
+      description: 'This can be used to schedule post for publishing. Publish data is important to ensure the News Slider functions correctly and highlights the most recent content. It is also important to update the Featured Post on the news page with the most recent news post.',
+      validation: Rule => Rule.custom(publishedAt => {
+        if (!publishedAt) {
+          return "Warning: Publish date is missing. It's important to provide this to ensure the News Slider works correctly and highlights the most recent content. When creating a new post, make sure to update the 'Featured Post' on the News Page with the most recent post.";
+        }
+        return true;
+      })
     },
     {
       name: 'publisher',
