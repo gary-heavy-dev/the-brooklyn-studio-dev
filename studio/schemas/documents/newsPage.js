@@ -2,7 +2,7 @@ export default {
   name: 'newsPage',
   type: 'document',
   title: 'News (Page)',
-  __experimental_actions: [/*'create',*/ 'update', /*'delete',*/ 'publish'], 
+  __experimental_actions: [/*'create',*/ 'update', /*'delete',*/ 'publish'],
   fields: [
     {
       name: 'title',
@@ -33,6 +33,7 @@ export default {
     {
       name: 'featuredNews',
       title: 'Featured Post',
+      description: 'The featured post is always the latest news entry. Keeping it updated ensures the News Slider functions correctly and highlights the most recent content.',
       type: 'reference',
       to: [{ type: 'news' }]
     },
