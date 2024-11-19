@@ -7,6 +7,8 @@ import careers from './documents/careers'
 import careersPost from './documents/careersPost'
 import category from './documents/category'
 import contact from './documents/contact'
+import cookie from './documents/cookie'
+import cookiesPage from './documents/cookiesPage'
 import home from './documents/home'
 import interiorDesign from './documents/interiorDesign'
 import news from './documents/news'
@@ -17,6 +19,7 @@ import project from './documents/project'
 import projectCategory from './documents/projectCategory'
 import publisher from './documents/publisher'
 import residentialArchitecture from './documents/residentialArchitecture'
+import recipePage from './documents/recipePage'
 import simplePage from './documents/simplePage'
 import siteSettings from './documents/siteSettings'
 import team from './documents/team'
@@ -73,6 +76,8 @@ export default [
   careersPost,
   category,
   contact,
+  cookie,
+  cookiesPage,
   ctaComplex,
   ctaGallery,
   ctaSimple,
@@ -111,6 +116,7 @@ export default [
   projectReference,
   publisher,
   residentialArchitecture,
+  recipePage,
   scrollingGallery,
   scrollingGallerySection,
   simpleImagePair,

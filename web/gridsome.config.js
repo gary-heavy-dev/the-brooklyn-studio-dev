@@ -31,6 +31,7 @@ module.exports = {
   siteDescription: 'The Brooklyn Studio is an architecture and interior design firm based in Brooklyn and known for its adept and artful blend of historic renovation and modern design.',
   templates: {
     SanitySimplePage: '/:slug__current',
+    SanityRecipePage: '/cookies/:slug__current',
     SanityNews: '/news/:slug__current',
     SanityProject: '/pj/:slug__current',
     SanityTeamMember: '/about-us/team/:slug__current'

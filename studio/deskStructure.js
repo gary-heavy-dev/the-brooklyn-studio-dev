@@ -1,9 +1,9 @@
-import {MdSettings, MdPersonOutline, MdPeopleAlt, MdOutlineHome, MdFingerprint, MdArchitecture, MdWork, MdWorkOutline, MdOutlineEmail, MdConstruction, MdCategory, MdTextSnippet} from 'react-icons/md'
+import {MdSettings, MdPersonOutline, MdPeopleAlt, MdOutlineHome, MdFingerprint, MdArchitecture, MdFormatListNumbered, MdWork, MdWorkOutline, MdOutlineEmail, MdConstruction, MdCategory, MdTextSnippet, MdCookie, MdOutlineCookie} from 'react-icons/md'
 import {FaRecycle, FaNewspaper, FaRegNewspaper, FaTrophy, FaPenFancy} from 'react-icons/fa'
 import {AiFillFormatPainter} from 'react-icons/ai'
 
 const hiddenDocTypes = listItem =>
-  !['about', 'adaptiveReuse', 'author', 'award', 'careers', 'careersPost', 'contact', 'category', 'home', 'interiorDesign', 'news', 'newsPage', 'post', 'press', 'project', 'projectCategory', 'publisher', 'residentialArchitecture', 'siteSettings', 'team', 'teamMember', 'simplePage'].includes(listItem.getId())
+  !['about', 'adaptiveReuse', 'author', 'award', 'careers', 'careersPost', 'contact', 'cookie', 'cookiesPage', 'category', 'home', 'interiorDesign', 'news', 'newsPage', 'post', 'press', 'project', 'projectCategory', 'publisher', 'residentialArchitecture', 'siteSettings', 'team', 'teamMember', 'simplePage'].includes(listItem.getId())
 
 export default (S) =>
   S.list()
@@ -72,6 +72,15 @@ export default (S) =>
             .id('b5f270ac-9a77-4236-bf33-70041dd025c6')
             .schemaType('careers')
             .documentId('b5f270ac-9a77-4236-bf33-70041dd025c6')
+        ),
+      S.listItem()
+        .title('Cookies (Page)')
+        .icon(MdOutlineCookie)
+        .child(
+          S.editor()
+            .id('541a27a5-23d5-4b3a-9c1b-a7428198cbeb')
+            .schemaType('cookiesPage')
+            .documentId('541a27a5-23d5-4b3a-9c1b-a7428198cbeb')
         ),
       S.divider(),
       S.listItem()
@@ -142,6 +151,16 @@ export default (S) =>
         .icon(FaTrophy)
         .schemaType('award')
         .child(S.documentTypeList('award').title('awards')),
+      S.listItem()
+        .title('Cookies')
+        .icon(MdCookie)
+        .schemaType('cookie')
+        .child(S.documentTypeList('cookie').title('Cookies')),
+      S.listItem()
+        .title('Recipe Pages')
+        .icon(MdFormatListNumbered)
+        .schemaType('cookie')
+        .child(S.documentTypeList('recipePage').title('Recipe Pages')),
       // S.listItem()
       //   .title('Blog posts')
       //   .schemaType('post')
