@@ -1,11 +1,11 @@
 <template>
   <Layout>
     <div class="cookies">
-      <HeroSecondary
+      <!-- <HeroSecondary
         :title="content.title"
         :image="content.hero.image"
         :margin="false"
-      />
+      /> -->
       <div v-if="content.cookies.length">
         <Cookie
           v-for="(cookie, index) in content.cookies"
@@ -34,7 +34,6 @@ export default {
     content() {
       const { cookiesPage } = this.$static
       const content = cookiesPage.edges[0].node
-      console.log(content)
       return content
     }
   }
