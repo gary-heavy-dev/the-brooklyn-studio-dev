@@ -76,6 +76,11 @@ export default {
           key: 'twitter:card',
           property: 'twitter:card',
           content: 'summary_large_image'
+        },
+        {
+          key: 'robots',
+          name: 'robots',
+          content: 'noindex, nofollow'
         }
       ]
     }
