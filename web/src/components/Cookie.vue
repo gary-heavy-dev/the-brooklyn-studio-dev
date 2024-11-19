@@ -57,7 +57,6 @@ export default {
   }
 }
 </script>
-
 <style lang="scss">
 .team-member-featured {
   &.reverse {
@@ -107,5 +106,4 @@ export default {
     }
   }
 }
-
 </style>
