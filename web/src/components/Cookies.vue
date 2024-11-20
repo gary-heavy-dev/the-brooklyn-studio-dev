@@ -1,11 +1,12 @@
 <template>
   <Layout>
     <div class="cookies">
-      <!-- <HeroSecondary
+      <HeroSecondary
+        v-if="content.hero.image.asset"
         :title="content.title"
         :image="content.hero.image"
         :margin="false"
-      /> -->
+      />
       <div v-if="content.cookies.length">
         <Cookie
           v-for="(cookie, index) in content.cookies"

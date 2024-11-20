@@ -27,7 +27,7 @@ export default {
     title: String,
     image: Object,
     margin: Boolean
-  }
+  },
 }
 </script>
 
