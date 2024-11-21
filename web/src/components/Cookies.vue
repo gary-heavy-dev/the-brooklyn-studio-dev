@@ -2,21 +2,18 @@
   <Layout>
     <div class="cookies">
       <HeroSecondary
-        v-if="content.hero.image.asset"
+        v-if="content.hero && content.hero.image?.asset"
         :title="content.title"
         :image="content.hero.image"
         :margin="false"
       />
-      <div v-if="content.cookies.length">
+      <div v-if="content.cookies && content.cookies.length">
         <Cookie
           v-for="(cookie, index) in content.cookies"
           :key="cookie._id"
           :cookie="cookie"
           :reverse="index % 2 === 1"
         />
-      </div>
-      <div v-else>
-        <p>No cookies found.</p>
       </div>
     </div>
   </Layout>
@@ -34,8 +31,10 @@ export default {
   computed: {
     content() {
       const { cookiesPage } = this.$static
-      const content = cookiesPage.edges[0].node
-      return content
+      if (cookiesPage.edges && cookiesPage.edges.length > 0) {
+        return cookiesPage.edges[0].node
+      }
+      return {}
     }
   }
 }
