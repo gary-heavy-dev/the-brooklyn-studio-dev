@@ -59,6 +59,12 @@ export default {
 </script>
 <style lang="scss">
 .team-member-featured {
+  @include desktop {
+    &:not(:last-child) {
+      padding-bottom: 0px;
+    }
+  }
+
   &.reverse {
     .team-member-featured__copy {
       @include desktop {

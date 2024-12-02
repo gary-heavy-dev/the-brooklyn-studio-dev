@@ -19,11 +19,16 @@ export default {
       }
     },
     {
+      name: 'body',
+      type: 'bodyPortableText',
+      title: 'Body'
+    },
+    {
       name: 'cookies',
       title: 'Cookies',
       description: 'Select cookies that you would like to display on the cookies landing page.',
       type: 'array',
-      of: [{type: 'reference', to: [{type: 'cookie'}]}]
+      of: [{ type: 'reference', to: [{ type: 'cookie' }] }]
     }
   ]
 }

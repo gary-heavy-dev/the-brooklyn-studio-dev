@@ -1,10 +1,7 @@
 <template>
-  <div :class="['hero--secondary', 'pos-rel', 'o-h', 'overlay', { 'mb-100': margin}]">
+  <div :class="['hero--secondary', 'pos-rel', 'o-h', 'overlay', { 'mb-100': margin }]">
     <div class="secondary-hero__title fade--in-up pt-80 pos-abs z-1 w-100 flex jc-c">
-      <h1
-        v-if="title"
-        class="h1 color--white container"
-      >
+      <h1 v-if="title" :class="['h1', 'color--white', 'container', { cookies: cookies }]">
         <div>{{ title }}</div>
       </h1>
     </div>
@@ -26,18 +23,19 @@ export default {
   props: {
     title: String,
     image: Object,
-    margin: Boolean
-  },
+    margin: Boolean,
+    cookies: {
+      type: Boolean,
+      default: false
+    }
+  }
 }
 </script>
 
 <style lang="scss">
 .hero--secondary {
-
   &.overlay {
-
     &::after {
-
       @include desktop-down {
         // box-shadow: inset 0px 51vw 25.5vw rgba(0, 0, 0, 0.2);
         box-shadow: inset 0 20vw 10vw rgba(0, 0, 0, 0.5);
@@ -45,8 +43,13 @@ export default {
     }
   }
 
-  &.mb-100 {
+  .cookies {
+    > div {
+      max-width: 22ch;
+    }
+  }
 
+  &.mb-100 {
     @include laptop-down {
       margin-bottom: 40px;
     }
@@ -55,6 +58,10 @@ export default {
   @include laptop-down {
     min-height: 176px;
     height: 45vw;
+
+    &:has(.cookies) {
+      min-height: 300px;
+    }
 
     .secondary-hero__title {
       padding-top: 40px;

@@ -6,7 +6,15 @@
         :title="content.title"
         :image="content.hero.image"
         :margin="false"
+        :cookies="true"
       />
+      <div class="color--white background--navy">
+        <BaseBlockContent
+          v-if="content._rawBody"
+          class="page__intro  m-0"
+          :blocks="content._rawBody"
+        />
+      </div>
       <div v-if="content.cookies && content.cookies.length">
         <Cookie
           v-for="(cookie, index) in content.cookies"
@@ -21,7 +29,7 @@
 
 <script>
 import Cookie from '~/components/Cookie.vue'
-import HeroSecondary from './HeroSecondary.vue';
+import HeroSecondary from './HeroSecondary.vue'
 
 export default {
   components: {
@@ -32,6 +40,7 @@ export default {
     content() {
       const { cookiesPage } = this.$static
       if (cookiesPage.edges && cookiesPage.edges.length > 0) {
+        console.log(cookiesPage.edges[0].node)
         return cookiesPage.edges[0].node
       }
       return {}
@@ -40,7 +49,13 @@ export default {
 }
 </script>
 
-<style scoped></style>
+<style scoped>
+.page__intro {
+  margin: 0;
+  padding: 40px var(--grid-margin);
+  max-width: 80ch;
+}
+</style>
 
 <static-query>
 {
@@ -49,6 +64,7 @@ export default {
       node {
         _id
         title
+        _rawBody
         hero {
           image {
             caption
