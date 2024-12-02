@@ -53,7 +53,6 @@ export default {
 .page__intro {
   margin: 0;
   padding: 40px var(--grid-margin);
-  max-width: 80ch;
 }
 </style>
 
