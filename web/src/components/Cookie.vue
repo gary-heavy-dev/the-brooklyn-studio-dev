@@ -104,11 +104,20 @@ export default {
   .base-image {
     @include desktop {
       grid-column: span 3/13;
+      max-height: fit-content;
     }
 
     @include desktop-down {
       max-width: 73%;
       margin: 0 auto;
+    }
+
+    .image-caption {
+      color: var(--color--text-black);
+
+      &.color--white {
+        color: var(--color--white);
+      }
     }
   }
 }

@@ -30,10 +30,9 @@
         :data-lightbox="src.asset.id"
       />
     </div>
-    <figcaption
-      v-if="caption"
-      :class="['image-caption xsmall', { 'color--white': !captionStyle}]"
-    >{{ caption }}</figcaption>
+    <figcaption v-if="caption" :class="['image-caption xsmall', { 'color--white': !captionStyle }]">
+      {{ caption }}
+    </figcaption>
   </figure>
 </template>
 
@@ -84,14 +83,12 @@ export default {
 }
 
 .news-post {
-
   .image-caption {
     font-weight: 400;
     position: relative;
   }
 
   .flexible-image-gallery {
-
     .image-caption {
       background: var(--color--white);
       text-align: center;
