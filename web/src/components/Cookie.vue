@@ -101,6 +101,29 @@ export default {
     }
   }
 
+  .team-member-featured__copy-inner {
+    h2,
+    p,
+    span {
+      max-width: 85vw;
+    }
+
+    ::before,
+    ::after {
+      max-width: 80vw;
+    }
+
+    @include desktop {
+      h2,
+      p,
+      span,
+      ::before,
+      ::after {
+        max-width: unset;
+      }
+    }
+  }
+
   .base-image {
     @include desktop {
       grid-column: span 3/13;

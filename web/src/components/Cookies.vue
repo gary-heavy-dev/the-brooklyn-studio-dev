@@ -1,7 +1,7 @@
 <template>
   <Layout>
     <div class="cookies">
-      <HeroSecondary
+      <CookiesHero
         v-if="content.hero && content.hero.image?.asset"
         :title="content.title"
         :image="content.hero.image"
@@ -29,12 +29,12 @@
 
 <script>
 import Cookie from '~/components/Cookie.vue'
-import HeroSecondary from './HeroSecondary.vue'
+import CookiesHero from './CookiesHero.vue'
 
 export default {
   components: {
     Cookie,
-    HeroSecondary
+    CookiesHero
   },
   computed: {
     content() {
