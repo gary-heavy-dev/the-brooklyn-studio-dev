@@ -1,5 +1,5 @@
 <template>
-  <div :class="['hero--secondary', 'pos-rel', { 'mb-100': margin }, { overlay: !cookies }]">
+  <div :class="['cookies--hero', 'pos-rel', { 'mb-100': margin }, { overlay: !cookies }]">
     <BaseImage
       v-if="image"
       class="img-cover"
@@ -10,7 +10,7 @@
       :caption="image.caption"
       :captionStyle="image.captionStyle"
     />
-    <div class="secondary-hero__title pt-80 z-1 w-100 flex jc-c color--white background--navy">
+    <div class="cookies-hero__title pt-80 z-1 w-100 flex jc-c color--white background--navy">
       <h1 v-if="title" :class="['h1', 'color--white', 'container', { cookies: cookies }]">
         <div>{{ title }}</div>
       </h1>
@@ -33,11 +33,10 @@ export default {
 </script>
 
 <style lang="scss">
-.hero--secondary {
+.cookies--hero {
   &.overlay {
     &::after {
       @include desktop-down {
-        // box-shadow: inset 0px 51vw 25.5vw rgba(0, 0, 0, 0.2);
         box-shadow: inset 0 20vw 10vw rgba(0, 0, 0, 0.5);
       }
     }
@@ -63,7 +62,7 @@ export default {
       min-height: 300px;
     }
 
-    .secondary-hero__title {
+    .cookies-hero__title {
       padding-top: 40px;
     }
   }
