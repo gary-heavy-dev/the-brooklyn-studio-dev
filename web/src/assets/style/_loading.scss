@@ -1,17 +1,17 @@
 .lazyload,
 .lazyloading {
-	opacity: 0;
+  opacity: 0;
 }
 
 .lazyloaded {
-	opacity: 1;
-	transition: opacity 750ms;
+  opacity: 1;
+  transition: opacity 750ms;
 }
 
 .work-feed-slide__hero,
 .project-hero,
-.hero--secondary {
-
+.hero--secondary,
+.cookies--hero {
   .lazyloaded {
     transition: opacity 1000ms;
   }
