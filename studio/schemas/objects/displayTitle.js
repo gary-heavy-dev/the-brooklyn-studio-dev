@@ -32,7 +32,16 @@ export default {
       title: 'Overlay Text',
       type: 'string',
       description: 'Text to display in the overlay when the project link is inactive. For example, "Coming Soon".',
-      hidden: ({ parent }) => !parent?.inactiveLink
+      hidden: ({ parent }) => !parent?.inactiveLink,
+      validation: Rule => Rule.custom((value, context) => {
+        if (context.parent.inactiveLink && !value) {
+          return 'Overlay Text is required when Inactive Link is true';
+        }
+        if (context.parent.inactiveLink && value && value.length > 75) {
+          return 'Overlay Text must be 75 characters or less';
+        }
+        return true;
+      })
     }
   ]
 }
