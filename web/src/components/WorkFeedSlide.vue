@@ -17,7 +17,7 @@
       />
       <BaseImage
         v-if="content.heroImage"
-        :class="['project-hero-mobile', {'desktop-only': content.mobileHeroImage}]"
+        :class="['project-hero-mobile', { 'desktop-only': content.mobileHeroImage }]"
         :src="content.heroImage"
         :lazy="true"
         :sizes="sizes"
@@ -31,7 +31,6 @@
 </template>
 
 <script>
-
 export default {
   data() {
     return {
@@ -84,7 +83,6 @@ export default {
 
 .swiper-slide-active,
 .swiper-slide-duplicate-active {
-
   .work-feed-slide__title {
     opacity: 1;
     transform: translateY(0px);

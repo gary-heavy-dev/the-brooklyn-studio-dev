@@ -10,7 +10,7 @@
     :style="cardStagger"
   >
     <div class="grid__card">
-      <div class="image-wrapper">
+      <div class="work-feed-card__image-wrapper">
         <BaseImage
           v-if="project.altThumbnail"
           :src="project.altThumbnail"
@@ -33,8 +33,11 @@
           :caption="project.project.image.caption"
           :captionStyle="project.project.image.captionStyle"
         />
-        <div v-if="project.project.displayTitle?.inactiveLink" class="overlay"></div>
-        <div v-if="project.project.displayTitle?.overlayText" class="overlay-text">
+        <div
+          v-if="project.project.displayTitle?.inactiveLink"
+          class="work-feed-card__overlay"
+        ></div>
+        <div v-if="project.project.displayTitle?.overlayText" class="work-feed-card__overlay-text">
           {{ project.project.displayTitle.overlayText }}
         </div>
       </div>
@@ -87,11 +90,11 @@ export default {
   }
 }
 
-.image-wrapper {
+.work-feed-card__image-wrapper {
   position: relative;
 }
 
-.overlay {
+.work-feed-card__overlay {
   position: absolute;
   top: 0;
   left: 0;
@@ -100,7 +103,7 @@ export default {
   background-color: rgba(128, 128, 128, 0.4);
 }
 
-.overlay-text {
+.work-feed-card__overlay-text {
   position: absolute;
   top: 0;
   left: 0;
