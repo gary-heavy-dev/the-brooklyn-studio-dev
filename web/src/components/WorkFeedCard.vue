@@ -1,8 +1,8 @@
 <template>
   <component
-    :is="project.project.displayTitle.inactiveLink ? 'div' : 'g-link'"
+    :is="project.project.displayTitle?.inactiveLink ? 'div' : 'g-link'"
     :to="
-      !project.project.displayTitle.inactiveLink
+      !project.project.displayTitle?.inactiveLink
         ? '/projects/' + project.project.slug.current
         : null
     "
@@ -33,8 +33,8 @@
           :caption="project.project.image.caption"
           :captionStyle="project.project.image.captionStyle"
         />
-        <div v-if="project.project.displayTitle.inactiveLink" class="overlay"></div>
-        <div v-if="project.project.displayTitle.overlayText" class="overlay-text">
+        <div v-if="project.project.displayTitle?.inactiveLink" class="overlay"></div>
+        <div v-if="project.project.displayTitle?.overlayText" class="overlay-text">
           {{ project.project.displayTitle.overlayText }}
         </div>
       </div>
