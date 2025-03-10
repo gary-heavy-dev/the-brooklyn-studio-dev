@@ -10,22 +10,13 @@
       @slideChange="updateCategory"
       ref="workFeedSwiper"
     >
-      <swiper-slide
-        :data-hash="$static.res.slug.current"
-        class="o-h work-feed__slide"
-      >
+      <swiper-slide :data-hash="$static.res.slug.current" class="o-h work-feed__slide">
         <WorkFeedSlide :content="$static.res" />
       </swiper-slide>
-      <swiper-slide
-        :data-hash="$static.int.slug.current"
-        class="o-h work-feed__slide"
-      >
+      <swiper-slide :data-hash="$static.int.slug.current" class="o-h work-feed__slide">
         <WorkFeedSlide :content="$static.int" />
       </swiper-slide>
-      <swiper-slide
-        :data-hash="$static.ad.slug.current"
-        class="o-h work-feed__slide"
-      >
+      <swiper-slide :data-hash="$static.ad.slug.current" class="o-h work-feed__slide">
         <WorkFeedSlide :content="$static.ad" />
       </swiper-slide>
       <div class="swiper-button-prev" slot="button-prev">
@@ -69,7 +60,7 @@ export default {
     SwiperSlide,
     WorkFeedSlide,
     WorkFeedGrid,
-    SliderArrow 
+    SliderArrow
   },
   props: {
     heading: String,
@@ -90,7 +81,7 @@ export default {
         calculateHeight: true,
         navigation: {
           nextEl: '.swiper-button-next',
-          prevEl: '.swiper-button-prev',
+          prevEl: '.swiper-button-prev'
         },
         hashNavigation: true,
         slidesPerView: 1,
@@ -101,7 +92,7 @@ export default {
         breakpoints: {
           1025: {
             slidesPerView: 1.121,
-            centeredSlides: true,
+            centeredSlides: true
           }
         }
       },
@@ -111,8 +102,10 @@ export default {
   methods: {
     updateCategory() {
       const slides = Object.values(this.swiper.slides)
-      const activeSlide = slides.filter(slide => (slide.dataset && slide.dataset.swiperSlideIndex == this.swiper.realIndex))
-      
+      const activeSlide = slides.filter(
+        slide => slide.dataset && slide.dataset.swiperSlideIndex == this.swiper.realIndex
+      )
+
       this.currentCategory = activeSlide[0].dataset.hash
       const currentCat = this.currentCategory
 
@@ -130,13 +123,15 @@ export default {
             grid.classList.add('current-grid')
             setTimeout(() => grid.classList.remove('filtering'), 250)
           }
-        }, 500);
+        }, 500)
       })
     }
   },
   mounted() {
     const slides = Object.values(this.swiper.slides)
-    const activeSlide = slides.filter(slide => (slide.classList && slide.classList.contains('swiper-slide-active')))
+    const activeSlide = slides.filter(
+      slide => slide.classList && slide.classList.contains('swiper-slide-active')
+    )
 
     this.currentCategory = activeSlide[0].dataset.hash
     const currentCat = this.currentCategory
@@ -153,7 +148,7 @@ export default {
     // }
   },
   watch: {
-    $route (to) {
+    $route(to) {
       if (to.hash == '#residential-architecture' && this.swiper.realIndex !== 0) {
         this.swiper.slideToLoop(0)
       } else if (to.hash == '#interior-design' && this.swiper.realIndex !== 1) {
@@ -217,6 +212,10 @@ export default {
         title
         slug {
           current
+        }
+        displayTitle {
+          inactiveLink
+          overlayText
         }
         image {
           caption
@@ -285,6 +284,10 @@ export default {
         slug {
           current
         }
+        displayTitle {
+          inactiveLink
+          overlayText
+        }
         image {
           caption
           captionStyle
@@ -342,6 +345,10 @@ export default {
         title
         slug {
           current
+        }
+        displayTitle {
+          inactiveLink
+          overlayText
         }
         image {
           caption

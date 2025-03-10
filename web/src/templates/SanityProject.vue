@@ -37,7 +37,9 @@ export default {
       return this.$page.settings.twitterImage
     },
     metaDescription() {
-      const des = this.$page.post.description ? this.$page.post.description : this.$page.settings.description
+      const des = this.$page.post.description
+        ? this.$page.post.description
+        : this.$page.settings.description
       const count = 155
       return des.slice(0, count) + (des.length > count ? '...' : '')
     }
@@ -48,7 +50,7 @@ export default {
     }
   },
   watch: {
-    $route (to, from) {
+    $route(to, from) {
       this.forceRerender
     }
   },
