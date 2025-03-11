@@ -1,35 +1,49 @@
 <template>
-  <g-link
-    :to="'/projects/' + project.project.slug.current"
+  <component
+    :is="project.project.displayTitle?.inactiveLink ? 'div' : 'g-link'"
+    :to="
+      !project.project.displayTitle?.inactiveLink
+        ? '/projects/' + project.project.slug.current
+        : null
+    "
     class="work-feed-card mb-100 color--gray-tertiary"
     :style="cardStagger"
   >
     <div class="grid__card">
-      <BaseImage
-        v-if="project.altThumbnail"
-        :src="project.altThumbnail"
-        :lazy="true"
-        :sizes="sizes"
-        :x="378"
-        :y="302"
-        class="mb-30"
-        :caption="project.altThumbnail.caption"
-        :captionStyle="project.altThumbnail.captionStyle"
-      />
-      <BaseImage
-        v-else-if="project.project.image"
-        :src="project.project.image"
-        :lazy="true"
-        :sizes="sizes"
-        :x="378"
-        :y="302"
-        class="mb-30"
-        :caption="project.project.image.caption"
-        :captionStyle="project.project.image.captionStyle"
-      />
+      <div class="work-feed-card__image-wrapper">
+        <BaseImage
+          v-if="project.altThumbnail"
+          :src="project.altThumbnail"
+          :lazy="true"
+          :sizes="sizes"
+          :x="378"
+          :y="302"
+          class="mb-30"
+          :caption="project.altThumbnail.caption"
+          :captionStyle="project.altThumbnail.captionStyle"
+        />
+        <BaseImage
+          v-else-if="project.project.image"
+          :src="project.project.image"
+          :lazy="true"
+          :sizes="sizes"
+          :x="378"
+          :y="302"
+          class="mb-30"
+          :caption="project.project.image.caption"
+          :captionStyle="project.project.image.captionStyle"
+        />
+        <div
+          v-if="project.project.displayTitle?.inactiveLink"
+          class="work-feed-card__overlay"
+        ></div>
+        <div v-if="project.project.displayTitle?.overlayText" class="work-feed-card__overlay-text">
+          {{ project.project.displayTitle.overlayText }}
+        </div>
+      </div>
       <h3 v-html="project.project.title"></h3>
     </div>
-  </g-link>
+  </component>
 </template>
 
 <script>
@@ -62,7 +76,6 @@ export default {
 
 <style lang="scss">
 .loaded.filtering {
-
   .work-feed-card,
   .work-feed-filter {
     opacity: 0;
@@ -75,5 +88,33 @@ export default {
   .work-feed-filter {
     transform: translateY(7px);
   }
+}
+
+.work-feed-card__image-wrapper {
+  position: relative;
+}
+
+.work-feed-card__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(128, 128, 128, 0.4);
+}
+
+.work-feed-card__overlay-text {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  padding: 1em;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  font-size: 1.5rem;
 }
 </style>
