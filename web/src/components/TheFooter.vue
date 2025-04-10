@@ -9,10 +9,7 @@
       >
         <Logo />
       </g-link>
-      <nav
-        class="the-footer__links xsmall"
-        aria-label="Secondary Footer Navigation"
-      >
+      <nav class="the-footer__links xsmall" aria-label="Secondary Footer Navigation">
         <g-link to="/about-us">About</g-link>
         <g-link to="/projects">Projects</g-link>
         <g-link to="/news">News</g-link>
@@ -22,7 +19,11 @@
       </nav>
       <div class="the-footer__newsletter col-span--6 xsmall flex fd-c jc-sb">
         <NewsletterForm />
-        <div class="xxsmall the-footer__credits desktop-only">© 2024 The Brooklyn Studio of Architecture | <g-link to="/privacy-policy">Privacy Policy</g-link> | <g-link to="/credits">Site Credits</g-link></div>
+        <div class="xxsmall the-footer__credits desktop-only">
+          © 2025 The Brooklyn Studio of Architecture |
+          <g-link to="/privacy-policy">Privacy Policy</g-link> |
+          <g-link to="/credits">Site Credits</g-link>
+        </div>
       </div>
       <div class="social-icons">
         <a
@@ -32,9 +33,7 @@
           rel="noopener noreferrer"
           aria-label="Link to The Brooklyn Studio Instagram Account"
         >
-          <LogoInstagram
-            class="social-icon__instagram"
-          />
+          <LogoInstagram class="social-icon__instagram" />
         </a>
         <a
           v-if="$static.settings.socialLinkLinkedIn"
@@ -43,14 +42,17 @@
           rel="noopener noreferrer"
           aria-label="Link to The Brooklyn Studio LinkedIn Account"
         >
-          <LogoLinkedIn
-            class="social-icon__instagram"
-          />
+          <LogoLinkedIn class="social-icon__instagram" />
         </a>
       </div>
     </div>
     <div class="grid grid--12-desktop xxsmall mobile-only">
-      <div class="xxsmall the-footer__credits text-center">© 2024 The Brooklyn Studio of Architecture<br><g-link to="/privacy-policy">Privacy Policy</g-link> | <g-link to="/credits">Site Credits</g-link></div>
+      <div class="xxsmall the-footer__credits text-center">
+        © 2025 The Brooklyn Studio of Architecture<br /><g-link to="/privacy-policy"
+          >Privacy Policy</g-link
+        >
+        | <g-link to="/credits">Site Credits</g-link>
+      </div>
     </div>
   </footer>
 </template>
@@ -59,7 +61,7 @@
 import Logo from '~/components/Logo'
 import LogoInstagram from '~/components/LogoInstagram'
 import NewsletterForm from '~/components/NewsletterForm'
-import LogoLinkedIn from '~/components/LogoLinkedIn';
+import LogoLinkedIn from '~/components/LogoLinkedIn'
 
 export default {
   components: {
@@ -73,14 +75,12 @@ export default {
 
 <style lang="scss">
 .the-footer {
-
   @include desktop {
     display: flex;
     flex-wrap: wrap;
   }
 
   > div {
-
     @include desktop {
       @include container;
       width: 100%;
@@ -129,14 +129,12 @@ export default {
 
   &__links a,
   &__newsletter {
-
     @include desktop-down {
       border-bottom: 1px solid var(--color--gray-secondary);
     }
   }
 
   &__newsletter {
-
     form {
       align-items: flex-start;
 
@@ -154,14 +152,12 @@ export default {
 
   &__newsletter form,
   &__credits {
-
     @include desktop-down {
       @include container;
     }
   }
 
   &__credits {
-
     @include desktop {
       grid-column: 4/12;
     }
