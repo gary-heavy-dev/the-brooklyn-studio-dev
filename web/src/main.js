@@ -35,10 +35,10 @@ import checkView from 'vue-check-view'
 import VueScrollactive from 'vue-scrollactive'
 
 // Google Analytics
-import VueGtag from 'vue-gtag'
+// import VueGtag from 'vue-gtag'
 
 // The Client API can be used here. Learn more: gridsome.org/docs/client-api
-export default function(Vue, { router, head, isClient }) {
+export default function (Vue, {router, head, isClient}) {
   head.link.push({
     rel: 'preconnect',
     href: 'https://cdn.sanity.io/'
@@ -57,7 +57,7 @@ export default function(Vue, { router, head, isClient }) {
   Vue.prototype.$toPlainText = toPlainText
 
   // Inject general reveal util
-  Vue.prototype.$iAmRevealed = function() {
+  Vue.prototype.$iAmRevealed = function () {
     // console.log(this.percent)
     this.element.classList.add('have-u-seen-me')
 
@@ -65,11 +65,11 @@ export default function(Vue, { router, head, isClient }) {
       this.element.classList.add('seent-it')
     }
   }
-  Vue.use(VueGtag, {
-    config: {
-      id: 'G-5MGC86ELRQ'
-    }
-  })
+  // Vue.use(VueGtag, {
+  //   config: {
+  //     id: 'G-5MGC86ELRQ',
+  //   }
+  // }, router)
   // Add vue-check-view
   Vue.use(checkView)
 
@@ -96,13 +96,13 @@ export default function(Vue, { router, head, isClient }) {
 
   // Delay the scroll-to-top behavior caused by Vue Router to eliminate nasty flash on page transitions
   // https://router.vuejs.org/guide/advanced/scroll-behavior.html#async-scrolling
-  router.options.scrollBehavior = function(to, from, savedPosition) {
+  router.options.scrollBehavior = function (to, from, savedPosition) {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         if (from.hash && to.hash) {
           // console.log("to:", to.hash)
         } else {
-          resolve({ x: 0, y: 0 })
+          resolve({x: 0, y: 0})
         }
       }, 250)
     })
