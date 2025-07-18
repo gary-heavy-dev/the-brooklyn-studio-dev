@@ -35,7 +35,7 @@ import checkView from 'vue-check-view'
 import VueScrollactive from 'vue-scrollactive'
 
 // Google Analytics
-import VueGtag from 'vue-gtag'
+// import VueGtag from 'vue-gtag'
 
 // The Client API can be used here. Learn more: gridsome.org/docs/client-api
 export default function (Vue, {router, head, isClient}) {
@@ -65,11 +65,11 @@ export default function (Vue, {router, head, isClient}) {
       this.element.classList.add('seent-it')
     }
   }
-  Vue.use(VueGtag, {
-    config: {
-      id: 'G-5MGC86ELRQ',
-    }
-  })
+  // Vue.use(VueGtag, {
+  //   config: {
+  //     id: 'G-5MGC86ELRQ',
+  //   }
+  // }, router)
   // Add vue-check-view
   Vue.use(checkView)
 
