@@ -68,9 +68,6 @@ export default function (Vue, {router, head, isClient}) {
   Vue.use(VueGtag, {
     config: {
       id: 'G-5MGC86ELRQ',
-      pageTracker: {
-        router
-      }
     }
   })
   // Add vue-check-view
