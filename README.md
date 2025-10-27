@@ -18,6 +18,7 @@ Deployed from [sanity.io/create](https://www.sanity.io/create/?template=sanity-i
    - Your studio should be running on [http://localhost:3333](http://localhost:3333)
    - Your frontend should be running on [http://localhost:8080](http://localhost:8080)
 4. `npm run build` to build to production locally
+5. For local dev - studio uses gallium, web uses fermium.  Run seperately.
 
 ## Enable real-time content preview on development
 
