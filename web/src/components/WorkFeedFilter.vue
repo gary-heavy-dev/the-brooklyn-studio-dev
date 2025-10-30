@@ -1,10 +1,10 @@
 <template>
-  <div class="work-feed-filter color--gray-tertiary mb-40 desktop-only">
+  <div class="work-feed-filter color--gray-tertiary mb-100 desktop-only">
     <ul>
       <Checkbox
         v-for="(category, index) in categories"
         :key="index"
-        :label="category.title" 
+        :label="category.title"
         v-on="$listeners"
       />
       <button
@@ -46,9 +46,10 @@ export default {
   transition-duration: 0.3s;
 
   ul {
-    list-style: none;
     display: flex;
+    justify-content: center;
     margin: 0;
+    list-style: none;
   }
 
   .filter-clear-button {

@@ -1,30 +1,32 @@
 <template>
-  <div class="work-feed__grid container flex jc-c">
-    <div class="grid w-100">
-      <WorkFeedFilter
-        v-if="content.projectCategories"
-        :categories="content.projectCategories"
-        @checkbox-clicked="updateActiveCategories"
-        @filter-cleared="clearCategories"
-      />
-      <WorkFeedCard
-        v-for="(project, index) in filteredProjects"
-        :key="index + project.project.title"
-        :project="project"
-        :cardNumber="index"
-      />
-    </div>
-    <div class="pre-footer__navigation flex jc-sb color--gray-tertiary pb-80">
-      <g-link
-        :to="'/projects/#' + $toKebabCase(prev)"
-        class="sub upper"
-        @click.native="$scrollToTop"
-      ><span>&lt; </span><span>{{ prev }}</span></g-link>
-      <g-link
-        :to="'/projects/#' + $toKebabCase(next)"
-        class="sub upper next"
-        @click.native="$scrollToTop"
-      ><span>{{ next }}</span><span> &gt;</span></g-link>
+  <div class="work-feed__grid">
+    <div class="work-feed__grid-container container flex jc-c">
+      <div class="grid w-100">
+        <WorkFeedFilter
+          v-if="content.projectCategories"
+          :categories="content.projectCategories"
+          @checkbox-clicked="updateActiveCategories"
+          @filter-cleared="clearCategories"
+        />
+        <WorkFeedCard
+          v-for="(project, index) in filteredProjects"
+          :key="index + project.project.title"
+          :project="project"
+          :cardNumber="index"
+        />
+      </div>
+      <div class="pre-footer__navigation flex jc-sb color--gray-tertiary pb-80">
+        <g-link
+          :to="'/projects/#' + $toKebabCase(prev)"
+          class="sub upper"
+          @click.native="$scrollToTop"
+        ><span>&lt; </span><span>{{ prev }}</span></g-link>
+        <g-link
+          :to="'/projects/#' + $toKebabCase(next)"
+          class="sub upper next"
+          @click.native="$scrollToTop"
+        ><span>{{ next }}</span><span> &gt;</span></g-link>
+      </div>
     </div>
   </div>
 </template>
@@ -95,6 +97,8 @@ export default {
 
 .work-feed__grid {
   display: none;
+  padding-top: 60px;
+  background-color: var(--color--gray-light);
 
   &.loaded {
     opacity: 1;
@@ -106,18 +110,17 @@ export default {
     }
   }
 
-  &.current-grid {
+  &.current-grid,
+  &.current-grid .work-feed__grid-container {
     display: block;
   }
 
   .grid {
+    display: grid;
     grid-template-columns: repeat(1, 1fr);
 
-    @include tablet {
-      grid-template-columns: repeat(2, 1fr);
-    }
-
     @include laptop {
+      grid-template-columns: repeat(2, 1fr);
       grid-gap: 0 36px;
     }
 

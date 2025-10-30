@@ -1,31 +1,5 @@
 <template>
   <div class="work-feed">
-    <swiper
-      class="swiper mb-80"
-      :options="swiperOption"
-      :auto-update="true"
-      :auto-destroy="false"
-      :delete-instance-on-destroy="true"
-      :cleanup-styles-on-destroy="true"
-      @slideChange="updateCategory"
-      ref="workFeedSwiper"
-    >
-      <swiper-slide :data-hash="$static.res.slug.current" class="o-h work-feed__slide">
-        <WorkFeedSlide :content="$static.res" />
-      </swiper-slide>
-      <swiper-slide :data-hash="$static.int.slug.current" class="o-h work-feed__slide">
-        <WorkFeedSlide :content="$static.int" />
-      </swiper-slide>
-      <swiper-slide :data-hash="$static.ad.slug.current" class="o-h work-feed__slide">
-        <WorkFeedSlide :content="$static.ad" />
-      </swiper-slide>
-      <div class="swiper-button-prev" slot="button-prev">
-        <SliderArrow />
-      </div>
-      <div class="swiper-button-next" slot="button-next">
-        <SliderArrow />
-      </div>
-    </swiper>
     <WorkFeedGrid
       data-category="residential-architecture"
       :content="$static.res"
@@ -48,122 +22,59 @@
 </template>
 
 <script>
-import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
-import 'swiper/css/swiper.css'
-import WorkFeedSlide from '~/components/WorkFeedSlide'
 import WorkFeedGrid from '~/components/WorkFeedGrid'
-import SliderArrow from '~/components/SliderArrow'
 
 export default {
-  components: {
-    Swiper,
-    SwiperSlide,
-    WorkFeedSlide,
-    WorkFeedGrid,
-    SliderArrow
-  },
-  props: {
-    heading: String,
-    image: Object
-  },
+  components: { WorkFeedGrid },
+
   computed: {
-    swiper() {
-      return this.$refs.workFeedSwiper.$swiper
-    },
     grids() {
-      const grids = document.getElementsByClassName('work-feed__grid')
-      return grids
+      return document.getElementsByClassName('work-feed__grid')
     }
   },
-  data() {
-    return {
-      swiperOption: {
-        calculateHeight: true,
-        navigation: {
-          nextEl: '.swiper-button-next',
-          prevEl: '.swiper-button-prev'
-        },
-        hashNavigation: true,
-        slidesPerView: 1,
-        spaceBetween: 2,
-        loop: true,
-        speed: 500,
-        threshold: 10,
-        breakpoints: {
-          1025: {
-            slidesPerView: 1.121,
-            centeredSlides: true
-          }
-        }
-      },
-      currentCategory: ''
+
+  mounted() {
+    this.updateActiveGridFromHash(this.$route.hash)
+  },
+
+  watch: {
+    '$route.hash'(newHash) {
+      this.updateActiveGridFromHash(newHash)
     }
   },
+
   methods: {
-    updateCategory() {
-      const slides = Object.values(this.swiper.slides)
-      const activeSlide = slides.filter(
-        slide => slide.dataset && slide.dataset.swiperSlideIndex == this.swiper.realIndex
-      )
+    updateActiveGridFromHash(hash) {
+      const category = (hash || '#residential-architecture').replace('#', '')
+      const grids = this.grids
 
-      this.currentCategory = activeSlide[0].dataset.hash
-      const currentCat = this.currentCategory
-
-      const gridWrapper = document.getElementsByClassName('work-feed__grid')
-
-      Array.prototype.forEach.call(gridWrapper, function(grid) {
+      Array.prototype.forEach.call(grids, grid => {
         if (grid.classList.contains('current-grid')) {
           grid.classList.add('filtering')
-          setTimeout(() => grid.classList.remove('filtering'), 500)
-          setTimeout(() => grid.classList.remove('current-grid'), 500)
+          setTimeout(() => {
+            grid.classList.remove('current-grid', 'filtering')
+          }, 300)
         }
-        setTimeout(() => {
-          if (grid.dataset.category == currentCat) {
+      })
+
+      setTimeout(() => {
+        Array.prototype.forEach.call(grids, grid => {
+          if (grid.dataset.category === category) {
             grid.classList.add('filtering')
-            grid.classList.add('current-grid')
+            grid.classList.add('current-grid', 'loaded')
             setTimeout(() => grid.classList.remove('filtering'), 250)
           }
-        }, 500)
-      })
-    }
-  },
-  mounted() {
-    const slides = Object.values(this.swiper.slides)
-    const activeSlide = slides.filter(
-      slide => slide.classList && slide.classList.contains('swiper-slide-active')
-    )
-
-    this.currentCategory = activeSlide[0].dataset.hash
-    const currentCat = this.currentCategory
-
-    Array.prototype.forEach.call(this.grids, function(grid) {
-      if (grid.dataset.category == currentCat) {
-        grid.classList.add('current-grid')
-        grid.classList.add('loaded')
-      }
-    })
-
-    // if (typeof window !== 'undefined') {
-    //   window.addEventListener('resize', this.updateCategory())
-    // }
-  },
-  watch: {
-    $route(to) {
-      if (to.hash == '#residential-architecture' && this.swiper.realIndex !== 0) {
-        this.swiper.slideToLoop(0)
-      } else if (to.hash == '#interior-design' && this.swiper.realIndex !== 1) {
-        this.swiper.slideToLoop(1)
-      } else if (to.hash == '#adaptive-reuse' && this.swiper.realIndex !== 2) {
-        this.swiper.slideToLoop(2)
-      }
+        })
+      }, 300)
     }
   }
 }
 </script>
 
 <style lang="scss">
-.work-feed {
-  transition: height 0.25s linear;
+.work-feed__grid {
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 </style>
 
