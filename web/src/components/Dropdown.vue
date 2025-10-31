@@ -21,7 +21,7 @@
         v-for="(link, index) in secondary"
         :key="index"
       >
-        <g-link :to="link.link">{{ link.linkText }}</g-link>
+        <g-link class="small" :to="link.link">{{ link.linkText }}</g-link>
       </li>
     </ul>
   </li>
@@ -76,20 +76,21 @@ export default {
       &:not(:last-child) {
 
         a {
-          border-bottom: 1px solid var(--color--gray-tertiary);
+          border-bottom: 1px solid var(--color--white);
         }
       }
 
       a {
         display: block;
-        padding: 14px 24px;
+        padding: 6px 14px;
         background-color: var(--color--navy);
         transition: all 0.2s ease-in-out;
+        color: var(--color--gray-light);
 
         &:hover,
         &.active--exact {
-          background-color: var(--color--white);
-          color: var(--color--navy-light);
+          background-color: var(--color--gray-tertiary-light);
+          color: var(--color--navy);
         }
       }
     }
