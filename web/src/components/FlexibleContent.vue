@@ -41,6 +41,10 @@
         v-if="block._type === 'flexibleImagePair'"
         :content="block"
       />
+      <FlexibleTwoImage
+        v-if="block._type === 'flexibleTwoImage'"
+        :content="block"
+      />
       <FlexibleImagePairSimple
         v-if="block._type === 'simpleImagePair'"
         :content="block"
@@ -85,6 +89,7 @@ import FlexibleImageWithTextSimple from '~/components/FlexibleImageWithTextSimpl
 import FlexiblePullQuote from '~/components/FlexiblePullQuote'
 import FlexibleText from '~/components/FlexibleText'
 import FullWidthImage from './FullWidthImage.vue'
+import FlexibleTwoImage from './FlexibleTwoImage'
 
 export default {
   components: {
@@ -102,7 +107,8 @@ export default {
     FlexibleImageWithTextSimple,
 		FlexiblePullQuote,
     FlexibleText,
-		FullWidthImage
+		FullWidthImage,
+    FlexibleTwoImage
   },
   props: {
     content: Array

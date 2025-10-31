@@ -12,12 +12,12 @@
       </h1>
       <h1
         v-else
-        class="h2 color--navy container"
+        class="h2 color--navy"
       >
         {{ heading }}
       </h1>
 
-      <a class="color--gray h2 fade--in-up" href="#">Info</a>
+      <a class="project-hero__title-info color--gray h2 fade--in-up" href="#">Info</a>
     </div>
     <BaseImage
       v-if="mobileImage"
@@ -57,6 +57,12 @@ export default {
 
     .h2 {
       margin-bottom: 0;
+    }
+  }
+
+  &__title-info {
+    @include laptop {
+      padding-right: 40px;
     }
   }
 

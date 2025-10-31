@@ -238,6 +238,40 @@ query Post ($id: ID, $prevId: ID, $nextId: ID) {
         imageLargeLocation
         reverseMobile
       }
+      ... on SanityFlexibleTwoImage {
+        _type
+        imageLayout,
+        spacing,
+        imageLeft {
+          caption
+          captionStyle
+          asset {
+            id
+            url
+            metadata {
+              dimensions {
+                height
+                width
+              }
+            }
+          }
+          alt
+          caption
+        }
+        imageRight {
+          caption
+          captionStyle
+          asset {
+            id
+            url
+            metadata {
+              lqip
+            }
+          }
+          alt
+          caption
+        }
+      }
       ... on SanityFlexibleImageWithText {
         _type
         text

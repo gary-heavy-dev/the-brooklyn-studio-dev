@@ -37,6 +37,7 @@ import featuredTeamMember from './objects/featuredTeamMember'
 import flexibleImage from './objects/flexibleImage'
 import flexibleImagePair from './objects/flexibleImagePair'
 import flexibleImageWithText from './objects/flexibleImageWithText'
+import flexibleTwoImage from './objects/flexibleTwoImage'
 import flexiblePullQuote from './objects/flexiblePullQuote'
 import flexibleText from './objects/flexibleText'
 import fullWidthImage from './objects/fullWidthImage'
@@ -131,5 +132,6 @@ export default [
   teamMember,
   wordBreak,
   featuredProjects,
-  newsFeedCarousel
+  newsFeedCarousel,
+  flexibleTwoImage
 ]

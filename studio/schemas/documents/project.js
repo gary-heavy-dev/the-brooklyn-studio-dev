@@ -75,6 +75,7 @@ export default {
         { type: 'flexibleImage' },
         { type: 'flexibleImagePair' },
         { type: 'flexibleImageWithText' },
+        { type: 'flexibleTwoImage' },
         { type: 'flexibleText' },
       ]
     },
