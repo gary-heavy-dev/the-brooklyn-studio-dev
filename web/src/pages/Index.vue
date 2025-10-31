@@ -142,6 +142,36 @@ export default {
         }
       }
     }
+    newsFeedCarousel {
+      title
+      cta {
+        label
+        url
+      }
+      "news": news[]->{
+        title
+        slug {
+          current
+        }
+        altThumbnail {
+          caption
+          captionStyle
+          asset {
+            url
+            metadata {
+              lqip
+            }
+          }
+          alt
+        }
+        mainImage {
+          asset {
+            url
+          }
+          alt
+        }
+      }
+    }
     introSection {
       introLarge
       introLinkOne

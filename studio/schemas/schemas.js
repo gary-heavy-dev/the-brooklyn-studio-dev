@@ -64,6 +64,7 @@ import simpleGallery from './objects/simpleGallery'
 import simplePortableTextWrapper from './objects/simplePortableTextWrapper'
 import wordBreak from './objects/wordBreak'
 import featuredProjects from './objects/featuredProjects'
+import newsFeedCarousel from './objects/newsFeedCarousel'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default [
@@ -129,5 +130,6 @@ export default [
   team,
   teamMember,
   wordBreak,
-  featuredProjects
+  featuredProjects,
+  newsFeedCarousel
 ]

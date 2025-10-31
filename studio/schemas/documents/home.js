@@ -33,6 +33,15 @@ export default {
         collapsible: true,
         collapsed: false
       }
+    },
+    {
+      name: 'newsFeedCarousel',
+      type: 'newsFeedCarousel',
+      title: 'NEWS FEED CAROUSEL',
+      options: {
+        collapsible: true,
+        collapsed: false
+      }
     }
   ]
 }

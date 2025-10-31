@@ -4,6 +4,7 @@
       <IntroAnimation v-show="introStatus === null" @passed="onIntroPassed" @trigger-lottie-animation="handleLottieTrigger" />
       <FullWidthCarousel :playLottie="isLottieTrigger" />
       <FeaturedProjects :content="content.featuredProjects" />
+      <NewsFeedCarousel :content="content.newsFeedCarousel" />
     </div>
   </Layout>
 </template>
@@ -12,6 +13,7 @@
 import Intro from '~/components/Intro'
 import FullWidthCarousel from '~/components/FullWidthCarousel'
 import FeaturedProjects from '~/components/FeaturedProjects'
+import NewsFeedCarousel from '~/components/NewsFeedCarousel'
 import FlexibleContent from '~/components/FlexibleContent'
 import IntroAnimation from '~/components/IntroAnimation'
 
@@ -22,6 +24,7 @@ export default {
     FlexibleContent,
     FullWidthCarousel,
     FeaturedProjects,
+    NewsFeedCarousel
   },
   props: {
     content: Object
