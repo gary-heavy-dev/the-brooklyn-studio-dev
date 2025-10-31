@@ -1,21 +1,23 @@
 <template>
   <div
-    class="project-hero overlay pos-rel o-h mb-100"
+    class="project-hero container pos-rel mb-100"
   >
-    <div class="project-hero__title pt-80 pos-abs z-1 w-100 flex jc-c">
+    <div class="project-hero__title w-100 flex jc-sb">
       <h1
         v-if="displayTitle && displayTitle.displayTitleStatus"
-        class="h1 color--white container fade--in-up"
+        class="h2 color--navy fade--in-up"
       >
         <span v-html="displayTitle.lineOne"></span><br>
         <span v-html="displayTitle.lineTwo"></span>
       </h1>
       <h1
         v-else
-        class="h1 color--white container"
+        class="h2 color--navy container"
       >
         {{ heading }}
       </h1>
+
+      <a class="color--gray h2 fade--in-up" href="#">Info</a>
     </div>
     <BaseImage
       v-if="mobileImage"
@@ -49,36 +51,17 @@ export default {
 
 <style lang="scss">
 .project-hero {
+  &__title {
+    padding-top: 50px;
+    padding-bottom: 40px;
 
-  @include desktop {
-    height: calc(100vh - var(--header-height));
-  }
-
-  @include desktop-down {
-    margin-bottom: 40px;
-  }
-
-  &.overlay {
-
-    &::after {
-      box-shadow: inset 0px 51vw 25.5vw rgba(0, 0, 0, 0.5);
-
-      @include desktop {
-        box-shadow: inset 0px 25.5vw 14.75vw rgba(0, 0, 0, 0.5);
-      }
+    .h2 {
+      margin-bottom: 0;
     }
   }
 
-
-  .project-hero-mobile {
-
-    &.base-image,
-    .base-image__inner,
-    img {
-      object-fit: cover;
-      object-position: top;
-      height: 100%;
-    }
+  .base-image__inner {
+    aspect-ratio: 3/2;
   }
 }
 </style>

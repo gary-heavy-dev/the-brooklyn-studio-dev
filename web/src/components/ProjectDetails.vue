@@ -1,113 +1,64 @@
 <template>
-  <section class="project-details flex fd-c background--gray-secondary p-100">
-    <div class="project-details__inner grid grid--12-desktop container">
-      <div class="project-details__copy col-span--7">
-        <div class="project-details__intro pt-20 mb-60">
-          <p v-if="content.detailsIntro">{{ content.detailsIntro }}</p>
-        </div>
-        <div class="project-details__info grid grid--7-desktop color--gray-tertiary">
-          <div class="col-span--3">
-            <h3 class="mb-20">Building Information</h3>
-            <div
-              v-for="(stat, index) in content.detailsBuildingInfo"
-              :key="index"
-            >
-              <h4 class="sub upper color--navy-light">{{ stat.heading }}</h4>
-              <div v-if="stat.link && stat.newTab" class="xsmall mb-20">
-                <a class="project-details--building-info-link" v-bind:href="stat.link" target="_blank" rel="noopener">{{ stat.text }}</a>
-              </div>
-              <div v-else-if="stat.link && !stat.newTab" class="xsmall mb-20">
-                <a class="project-details--building-info-link" v-bind:href="stat.link">{{ stat.text }}</a>
-              </div>
-              <div v-else class="xsmall mb-20">{{ stat.text }}</div>
-            </div>
-          </div>
-          <div class="col-span--4">
-            <h3 class="mb-20">Credits</h3>
-            <div
-              v-for="(credit, index) in content.detailsCredits"
-              :key="index"
-            >
-              <h4 class="sub upper color--navy-light">{{ credit.heading }}</h4>
-              <div class="xsmall mb-20">{{ credit.text }}</div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="project-details__gallery-wrapper col-span--5">
-        <div
-          class="project-details__gallery-inner text-center pos-rel"
-          v-view="startSwiper"
-        >
-          <swiper
-            class="project-details__gallery"
-            :options="swiperOption"
-            v-view="$iAmRevealed"
-            ref="projectDetailsSwiper"
-          >
-            <swiper-slide
-              v-for="(image, index) in content.detailsGallery"
-              :key="index"
-            >
-              <BaseImage
-                v-if="image"
-                :src="image"
-                :lazy="true"
-                :sizes="sizes"
-                :x="2"
-                :y="3"
-                :caption="image.caption"
-                :captionStyle="image.captionStyle"
-              />
-            </swiper-slide>
-          </swiper>
+  <section class="project-details background--gray-secondary">
+    <div class="project-details__inner container">
+      <div class="project-details__intro">
+        <p class="project-details__intro-txt" v-if="content.detailsIntro">{{ content.detailsIntro }}</p>
+        <div class="project-details__intro-images gap-20" v-if="content.detailsGallery">
           <div
-            v-if="content.detailsGallery.length > 1"
-            class="swiper__pagination"
-          ></div>
+            v-for="(image, index) in content.detailsGallery"
+            :key="index"
+            :class="index % 2 === 0 ? 'small' : 'large'"
+          >
+            <BaseImage
+              v-if="image"
+              :src="image"
+              :lazy="true"
+              :sizes="sizes"
+              :caption="image.caption"
+              :captionStyle="image.captionStyle"
+            />
+          </div>
         </div>
       </div>
-      <ProjectDetailsNavigation
-        :prev="prev"
-        :next="next"
-      />
+      <div class="project-details__info">
+        <div class="project-details__info-item">
+          <h3 class="color--navy mb-15">Building Information</h3>
+          <div
+            v-for="(stat, index) in content.detailsBuildingInfo"
+            :key="index"
+          >
+            <h4 class="project-details__info-item-sub sub upper color--gray mb-15">{{ stat.heading }}</h4>
+            <div v-if="stat.link && stat.newTab" class="xsmall project-details__info-item-desc">
+              <a class="project-details--building-info-link" v-bind:href="stat.link" target="_blank" rel="noopener">{{ stat.text }}</a>
+            </div>
+            <div v-else-if="stat.link && !stat.newTab" class="xsmall project-details__info-item-desc">
+              <a class="project-details--building-info-link" v-bind:href="stat.link">{{ stat.text }}</a>
+            </div>
+            <div v-else class="xsmall project-details__info-item-desc">{{ stat.text }}</div>
+          </div>
+        </div>
+        <div class="project-details__info-item">
+          <h3 class="color--navy mb-15">Credits</h3>
+          <div
+            v-for="(credit, index) in content.detailsCredits"
+            :key="index"
+          >
+            <h4 class="project-details__info-item-sub sub upper color--gray">{{ credit.heading }}</h4>
+            <div class="xsmall project-details__info-item-desc">{{ credit.text }}</div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 </template>
 
 <script>
-import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
-import 'swiper/css/swiper.css'
-import ProjectDetailsNavigation from '~/components/ProjectDetailsNavigation'
-
 export default {
-  components: {
-    Swiper,
-    SwiperSlide,
-    ProjectDetailsNavigation
-  },
   props: {
-    content: Object,
-    prev: Object,
-    next: Object
-  },
-  computed: {
-    swiper() {
-      return this.$refs.projectDetailsSwiper.$swiper
-    }
+    content: Object
   },
   data() {
     return {
-      swiperOption: {
-        effect: 'fade',
-        loop: this.swiperEnabled(),
-        speed: 300,
-        threshold: 10,
-        pagination: {
-          el: '.swiper__pagination',
-          clickable: true
-        }
-      },
       sizes: {
         mobile: 413,
         tablet: 660,
@@ -117,55 +68,70 @@ export default {
         fourK: 1313
       }
     }
-  },
-  methods: {
-    startSwiper(e) {
-      if (e.percentInView > 0) {
-        this.swiper.autoplay.start()
-      }
-    },
-    swiperEnabled() {
-      this.content.detailsGallery.length > 1 ? true : false
-    }
   }
 }
 </script>
 
 <style lang="scss">
 .project-details {
+  padding-top: 40px;
+  padding-bottom: 40px;
 
-  @include desktop-down {
-    flex-direction: column;
-    padding-top: 40px;
-  }
+  &__inner {
+    gap: 40px;
 
-  &__intro {
-
-    @include desktop {
-      padding-right: 80px;
+    @include laptop {
+      gap: 100px;
     }
   }
 
   &__info {
+    gap: 40px;
+  }
 
-    h3 {
+  &__inner,
+  &__info {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
 
-      @include desktop-down {
-        font-size: 20px;
-        line-height: 32px;
-      }
+    @include laptop {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  &__intro {
+    max-width: 600px;
+  }
+
+  &__intro-txt {
+    margin-bottom: 40px;
+  }
+
+  &__intro-images {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+
+    .small {
+      width: 40%;
     }
 
-    > * {
+    .large {
+      width: calc(60% - 20px);
+    }
 
-      @include desktop {
-        padding-right: 50px;
-      }
+    img {
+      max-height: 180px;
 
-      @include desktop-down {
-        margin-bottom: 40px;
+      @include laptop {
+        max-height: 200px;
       }
     }
+  }
+
+  &__info-item-sub,
+  &__info-item-desc {
+    margin-bottom: 5px;
   }
 }
 </style>
