@@ -63,6 +63,7 @@ import simpleImageWithText from './objects/simpleImageWithText'
 import simpleGallery from './objects/simpleGallery'
 import simplePortableTextWrapper from './objects/simplePortableTextWrapper'
 import wordBreak from './objects/wordBreak'
+import featuredProjects from './objects/featuredProjects'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default [
@@ -127,5 +128,6 @@ export default [
   siteSettings,
   team,
   teamMember,
-  wordBreak
+  wordBreak,
+  featuredProjects
 ]

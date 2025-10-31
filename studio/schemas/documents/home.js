@@ -26,23 +26,13 @@ export default {
       }
     },
     {
-      name: 'introSection',
-      type: 'introSection',
-      title: 'INTRO',
-      options: {collapsible: true}
-    },
-    {
-      name: 'flexibleContent',
-      type: 'array',
-      title: 'FLEXIBLE CONTENT',
-      description: 'Choose from a list of different content types to build your page.',
-      of: [
-        {type: 'linkGallery'},
-        {type: 'ctaGallery'},
-        {type: 'ctaSimple'},
-        {type: 'featuredTeamMember'},
-        {type: 'flexibleText'},
-      ]
+      name: 'featuredProjects',
+      type: 'featuredProjects',
+      title: 'FEATURED PROJECTS',
+      options: {
+        collapsible: true,
+        collapsed: false
+      }
     }
   ]
 }

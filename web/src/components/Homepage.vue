@@ -3,8 +3,7 @@
     <div class="home">
       <IntroAnimation v-show="introStatus === null" @passed="onIntroPassed" @trigger-lottie-animation="handleLottieTrigger" />
       <FullWidthCarousel :playLottie="isLottieTrigger" />
-      <Intro :content="content.introSection" :layout="'primary'" class="home-intro--neuhaus" />
-      <FlexibleContent :content="content.flexibleContent" />
+      <FeaturedProjects :content="content.featuredProjects" />
     </div>
   </Layout>
 </template>
@@ -12,6 +11,7 @@
 <script>
 import Intro from '~/components/Intro'
 import FullWidthCarousel from '~/components/FullWidthCarousel'
+import FeaturedProjects from '~/components/FeaturedProjects'
 import FlexibleContent from '~/components/FlexibleContent'
 import IntroAnimation from '~/components/IntroAnimation'
 
@@ -20,7 +20,8 @@ export default {
     Intro,
     IntroAnimation,
     FlexibleContent,
-    FullWidthCarousel
+    FullWidthCarousel,
+    FeaturedProjects,
   },
   props: {
     content: Object
