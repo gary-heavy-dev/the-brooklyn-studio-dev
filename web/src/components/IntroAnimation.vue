@@ -71,7 +71,8 @@ export default {
       document.getElementById('introAnimation').classList.add('animation-hidden')
       sessionStorage.setItem('intro', 'played')
       setTimeout(() => {
-        document.body.classList.remove('animation-playing') 
+        document.body.classList.remove('animation-playing')
+        this.$emit('trigger-lottie-animation', true)
       }, 1250);
       setTimeout(() => {
         this.$emit('passed', 'animation-complete')

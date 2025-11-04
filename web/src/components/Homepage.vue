@@ -1,7 +1,8 @@
 <template>
   <Layout>
     <div class="home">
-      <IntroAnimation v-show="introStatus == null" @passed="hideIntro" />
+      <IntroAnimation v-show="introStatus === null" @passed="onIntroPassed" @trigger-lottie-animation="handleLottieTrigger" />
+      <FullWidthCarousel :playLottie="isLottieTrigger" />
       <Intro :content="content.introSection" :layout="'primary'" class="home-intro--neuhaus" />
       <FlexibleContent :content="content.flexibleContent" />
     </div>
@@ -10,6 +11,7 @@
 
 <script>
 import Intro from '~/components/Intro'
+import FullWidthCarousel from '~/components/FullWidthCarousel'
 import FlexibleContent from '~/components/FlexibleContent'
 import IntroAnimation from '~/components/IntroAnimation'
 
@@ -17,19 +19,24 @@ export default {
   components: {
     Intro,
     IntroAnimation,
-    FlexibleContent
+    FlexibleContent,
+    FullWidthCarousel
   },
   props: {
     content: Object
   },
   data() {
     return {
-      introStatus: typeof sessionStorage !== 'undefined' ? sessionStorage.getItem('intro') : null
+      introStatus: typeof sessionStorage !== 'undefined' ? sessionStorage.getItem('intro') : null,
+      isLottieTrigger: false
     }
   },
   methods: {
-    hideIntro() {
-      this.introStatus = true
+    onIntroPassed() {
+      this.introStatus = 'played'
+    },
+    handleLottieTrigger(val) {
+      this.isLottieTrigger = val
     }
   }
 }
