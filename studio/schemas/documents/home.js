@@ -42,6 +42,25 @@ export default {
         collapsible: true,
         collapsed: false
       }
+    },
+    {
+      name: 'introSection',
+      type: 'introSection',
+      title: 'INTRO',
+      options: {collapsible: true}
+    },
+    {
+      name: 'flexibleContent',
+      type: 'array',
+      title: 'FLEXIBLE CONTENT',
+      description: 'Choose from a list of different content types to build your page.',
+      of: [
+        {type: 'linkGallery'},
+        {type: 'ctaGallery'},
+        {type: 'ctaSimple'},
+        {type: 'featuredTeamMember'},
+        {type: 'flexibleText'},
+      ]
     }
   ]
 }

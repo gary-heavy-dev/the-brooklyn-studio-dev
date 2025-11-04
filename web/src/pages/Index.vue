@@ -148,7 +148,7 @@ export default {
         label
         url
       }
-      "news": news[]->{
+      news: news {
         title
         slug {
           current

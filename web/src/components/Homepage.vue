@@ -5,6 +5,8 @@
       <FullWidthCarousel :playLottie="isLottieTrigger" />
       <FeaturedProjects :content="content.featuredProjects" />
       <NewsFeedCarousel :content="content.newsFeedCarousel" />
+      <Intro :content="content.introSection" :layout="'primary'" class="home-intro--neuhaus" />
+      <FlexibleContent :content="content.flexibleContent" />
     </div>
   </Layout>
 </template>
