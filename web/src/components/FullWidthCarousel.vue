@@ -66,6 +66,11 @@ export default {
       hasFadedOut: false,
       autoplayRunning: false,
       fadeTimeout: null,
+      lottieCompleteFadeOutTimeoutDuration: 300,
+      swiperStartTimeoutDuration: 500,
+      overlayFadeOutStartTimeoutDuration: 600,
+      lottiePlayTimeoutDuration: 800,
+      overlayFadeOutTimeoutDuration: 5800,
       swiperOptions: {
         effect: 'fade',
         fadeEffect: { crossFade: true },
@@ -119,7 +124,7 @@ export default {
       this.$nextTick(() => {
         setTimeout(() => {
           this.startSwiper()
-        }, 500)
+        }, this.swiperStartTimeoutDuration)
       })
     }
   },
@@ -142,21 +147,20 @@ export default {
         try {
           lottie.play()
         } catch (e) {
-          console.warn('Hero Lottie play error:', e)
           this.fadeOutHeroOverlay()
         }
-      }, 800)
+      }, this.lottiePlayTimeoutDuration)
 
       this.fadeTimeout = setTimeout(() => {
         this.fadeOutHeroOverlay()
-      }, 5800)
+      }, this.overlayFadeOutTimeoutDuration)
     },
 
     onHeroLottieComplete() {
       clearTimeout(this.fadeTimeout)
       this.fadeTimeout = setTimeout(() => {
         this.fadeOutHeroOverlay()
-      }, 300)
+      }, this.lottieCompleteFadeOutTimeoutDuration)
     },
 
     fadeOutHeroOverlay() {
@@ -174,7 +178,7 @@ export default {
       setTimeout(() => {
         overlay.style.display = 'none'
         this.startSwiper()
-      }, 600)
+      }, this.overlayFadeOutStartTimeoutDuration)
     },
 
     startSwiper() {
@@ -212,8 +216,6 @@ export default {
     },
 
     handleScroll() {
-      console.log('scroll detected:', window.scrollY, 'fadedOut:', this.hasFadedOut)
-
       if (window.scrollY > 10 && !this.hasFadedOut) {
         this.fadeOutHeroOverlay()
       }
