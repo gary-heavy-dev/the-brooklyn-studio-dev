@@ -108,6 +108,27 @@ export default {
       }
     }
 
+    &__card {
+      position: relative;
+      display: block;
+      transition: all 0.3s ease-in-out;
+
+      &::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        border: 1px solid var(--color--navy);
+        transition: all 0.3s ease-in-out;
+        opacity: 0;
+        visibility: hidden;
+      }
+
+      &:hover::after {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+
     &__card-title {
       position: absolute;
       top: 50%;
@@ -116,6 +137,10 @@ export default {
       transform: translateY(-50%);
       text-align: center;
       color: var(--color--navy);
+    }
+
+    .grid__card::after {
+      display: none;
     }
   }
 </style>
