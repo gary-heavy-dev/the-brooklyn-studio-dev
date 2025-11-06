@@ -9,21 +9,14 @@ export default {
       title: 'Title'
     },
     {
-      name: 'cta',
-      type: 'object',
-      title: 'Call To Action',
-      fields: [
-        {
-          name: 'label',
-          type: 'string',
-          title: 'Label'
-        },
-        {
-          name: 'url',
-          type: 'url',
-          title: 'URL'
-        }
-      ]
+      name: 'cta_label',
+      type: 'string',
+      title: 'CTA Label'
+    },
+    {
+      name: 'cta_url',
+      type: 'url',
+      title: 'CTA URL'
     },
     {
       name: 'news',

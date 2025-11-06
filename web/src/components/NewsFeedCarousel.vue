@@ -4,11 +4,11 @@
       <div class="news-feed-carousel__heading">
         <h2 class="h4 upper news-feed-carousel__heading-title" v-if="title" v-html="title"></h2>
         <g-link
-          v-if="content.cta?.url"
-          :to="content.cta.url"
+          v-if="content.cta_url"
+          :to="content.cta_url"
           class="h4 upper news-feed-carousel__heading-cta"
         >
-          {{ content.cta.label }}
+          {{ content.cta_label }}
         </g-link>
       </div>
 

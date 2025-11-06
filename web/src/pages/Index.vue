@@ -99,55 +99,51 @@ export default {
   page: sanityHome(id: "542616c1-f362-4f33-b903-4f4add184641") {
     featuredProjects {
       heading
-      projects {
-        ... on SanityProject {
+      projects: projects {
+        title
+        slug {
+          current
+        }
+        displayTitle {
+          inactiveLink
+          overlayText
+        }
+        projectCategories {
           title
           slug {
             current
           }
-          displayTitle {
-            inactiveLink
-            overlayText
-          }
-          projectCategories {
-            title
-            slug {
-              current
+        }
+        image {
+          caption
+          captionStyle
+          asset {
+            id
+            url
+            metadata {
+              lqip
             }
           }
-          image {
-            caption
-            captionStyle
-            asset {
-              id
-              url
-              metadata {
-                lqip
-              }
+          alt
+          caption
+        }
+        altThumbnail {
+          caption
+          captionStyle
+          asset {
+            url
+            metadata {
+              lqip
             }
-            alt
-            caption
           }
-          altThumbnail {
-            caption
-            captionStyle
-            asset {
-              url
-              metadata {
-                lqip
-              }
-            }
-            alt
-          }
+          alt
         }
       }
     }
     newsFeedCarousel {
       title
-      cta {
-        label
-        url
-      }
+      cta_label
+      cta_url
       news: news {
         title
         slug {
