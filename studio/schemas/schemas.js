@@ -17,6 +17,7 @@ import post from './documents/post'
 import press from './documents/press'
 import project from './documents/project'
 import projectCategory from './documents/projectCategory'
+import projectType from './documents/projectType'
 import publisher from './documents/publisher'
 import residentialArchitecture from './documents/residentialArchitecture'
 import recipePage from './documents/recipePage'
@@ -116,6 +117,7 @@ export default [
   proustQuestionnaire,
   project,
   projectCategory,
+  projectType,
   projectReference,
   publisher,
   residentialArchitecture,

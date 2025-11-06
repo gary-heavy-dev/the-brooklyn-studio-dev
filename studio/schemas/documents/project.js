@@ -48,6 +48,18 @@ export default {
       ]
     },
     {
+      name: 'projectTypes',
+      type: 'array',
+      title: 'Project Types',
+      description: 'Select the types you\'d like this project to appear for when filtering.',
+      of: [
+        {
+          type: 'reference',
+          to: [{ type: 'projectType' }]
+        }
+      ]
+    },
+    {
       name: 'displayTitle',
       title: 'DISPLAY TITLE',
       type: 'displayTitle',

@@ -1,9 +1,8 @@
 import {MdSettings, MdPersonOutline, MdPeopleAlt, MdOutlineHome, MdFingerprint, MdArchitecture, MdFormatListNumbered, MdWork, MdWorkOutline, MdOutlineEmail, MdConstruction, MdCategory, MdTextSnippet, MdCookie, MdOutlineCookie} from 'react-icons/md'
-import {FaRecycle, FaNewspaper, FaRegNewspaper, FaTrophy, FaPenFancy} from 'react-icons/fa'
-import {AiFillFormatPainter} from 'react-icons/ai'
+import {FaNewspaper, FaRegNewspaper, FaTrophy, FaPenFancy} from 'react-icons/fa'
 
 const hiddenDocTypes = listItem =>
-  !['about', 'adaptiveReuse', 'author', 'award', 'careers', 'careersPost', 'contact', 'cookie', 'cookiesPage', 'category', 'home', 'interiorDesign', 'news', 'newsPage', 'post', 'press', 'project', 'projectCategory', 'publisher', 'recipePage', 'residentialArchitecture', 'siteSettings', 'team', 'teamMember', 'simplePage'].includes(listItem.getId())
+  !['about', 'author', 'award', 'careers', 'careersPost', 'contact', 'cookie', 'cookiesPage', 'category', 'home', 'news', 'newsPage', 'post', 'press', 'project', 'projectCategory', 'projectType', 'publisher', 'recipePage', 'siteSettings', 'team', 'teamMember', 'simplePage'].includes(listItem.getId())
 
 export default (S) =>
   S.list()
@@ -84,34 +83,6 @@ export default (S) =>
         ),
       S.divider(),
       S.listItem()
-        .title('Residential Architecture')
-        .icon(MdArchitecture)
-        .child(
-          S.editor()
-            .id('a81592fc-d8ae-4c15-8315-9005a57b2d75')
-            .schemaType('residentialArchitecture')
-            .documentId('a81592fc-d8ae-4c15-8315-9005a57b2d75')
-        ),
-      S.listItem()
-        .title('Interior Design')
-        .icon(AiFillFormatPainter)
-        .child(
-          S.editor()
-            .id('ee8279ca-9f8d-47c5-926a-c88d46d45d5b')
-            .schemaType('interiorDesign')
-            .documentId('ee8279ca-9f8d-47c5-926a-c88d46d45d5b')
-        ),
-      S.listItem()
-        .title('Adaptive Reuse')
-        .icon(FaRecycle)
-        .child(
-          S.editor()
-            .id('35a99ecb-fd40-41ae-a0e0-8ec5527ebf44')
-            .schemaType('adaptiveReuse')
-            .documentId('35a99ecb-fd40-41ae-a0e0-8ec5527ebf44')
-        ),
-      S.divider(),
-      S.listItem()
         .title('Projects')
         .icon(MdConstruction)
         .schemaType('project')
@@ -121,6 +92,11 @@ export default (S) =>
         .icon(MdCategory)
         .schemaType('projectCategory')
         .child(S.documentTypeList('projectCategory').title('Project Categories')),
+      S.listItem()
+        .title('Project Type')
+        .icon(MdArchitecture)
+        .schemaType('projectType')
+        .child(S.documentTypeList('projectType').title('Project Types')),
       S.listItem()
         .title('Team Members')
         .icon(MdPeopleAlt)
