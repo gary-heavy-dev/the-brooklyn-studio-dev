@@ -1,5 +1,5 @@
 <template>
-  <div :class="'container flexible-two-image mb-100 flexible-two-image--layout-' + content.imageLayout + ' spacing-' + content.spacing">
+  <div :class="'container flexible-two-image mb-90 flexible-two-image--layout-' + content.imageLayout + ' spacing-' + content.spacing">
     <div class="flexible-two-image__left-image">
       <BaseImage
         v-if="content.imageLeft"
@@ -67,7 +67,6 @@ export default {
 .flexible-two-image {
   display: grid;
   grid-template-columns: 1fr;
-  max-height: 800px;
   overflow: hidden;
 
   @include laptop {
@@ -116,20 +115,26 @@ export default {
   }
 
   &--layout-50-50 {
+    max-height: 554px;
+
     @include laptop {
       grid-template-columns: 1fr 1fr;
     }
   }
 
-  &--layout-40-60 {
+  &--layout-33-67 {
+    max-height: 540px;
+
     @include laptop {
-      grid-template-columns: 40% 60%;
+      grid-template-columns: 34.7% 65.3%;
     }
   }
 
-  &--layout-60-40 {
+  &--layout-67-33 {
+    max-height: 540px;
+
     @include laptop {
-      grid-template-columns: 60% 40%;
+      grid-template-columns: 65.3% 34.7%;
     }
   }
 

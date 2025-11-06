@@ -14,9 +14,9 @@ export default {
       description: 'Select the width ratio between the two images at desktop widths.',
       options: {
         list: [
-          { title: '40 / 60', value: '40-60' },
-          { title: '50 / 50', value: '50-50' },
-          { title: '60 / 40', value: '60-40' }
+          { title: '1/3 – 2/3', value: '33-67' },
+          { title: '1/2 – 1/2', value: '50-50' },
+          { title: '2/3 – 1/3', value: '67-33' }
         ],
         layout: 'radio'
       },
