@@ -123,10 +123,6 @@ export default {
       grid-template-columns: repeat(2, 1fr);
       grid-gap: 0 36px;
     }
-
-    @include desktop {
-      grid-template-columns: repeat(3, 1fr);
-    }
   }
 }
 </style>
