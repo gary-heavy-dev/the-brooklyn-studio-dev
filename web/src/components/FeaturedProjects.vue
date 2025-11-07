@@ -17,16 +17,7 @@
           <div class="grid__card">
             <div class="featured-projects__grid-card-image-wrapper mb-30">
               <BaseImage
-                v-if="project.altThumbnail?.asset"
-                :src="project.altThumbnail"
-                :lazy="true"
-                :sizes="sizes"
-                :caption="project.altThumbnail.caption"
-                :captionStyle="project.altThumbnail.captionStyle"
-              />
-
-              <BaseImage
-                v-else-if="project.image?.asset"
+                v-if="project.image?.asset"
                 :src="project.image"
                 :lazy="true"
                 :sizes="sizes"

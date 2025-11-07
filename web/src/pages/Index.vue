@@ -127,17 +127,6 @@ export default {
           alt
           caption
         }
-        altThumbnail {
-          caption
-          captionStyle
-          asset {
-            url
-            metadata {
-              lqip
-            }
-          }
-          alt
-        }
       }
     }
     newsFeedCarousel {
