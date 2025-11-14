@@ -38,8 +38,7 @@ export default {
   },
   data() {
     return {
-      activeCategories: [],
-      status: false
+      activeCategories: []
     }
   },
   computed: {
