@@ -13,6 +13,13 @@ export default {
           type: 'mainImage'
         }
       ]
+    },
+    {
+      name: 'enableIntro',
+      type: 'boolean',
+      title: 'Enable Intro',
+      description: 'Will display Intro for the homepage.',
+      initialValue: false
     }
   ]
 }

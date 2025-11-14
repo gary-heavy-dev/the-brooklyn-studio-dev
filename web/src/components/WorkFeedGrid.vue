@@ -3,29 +3,18 @@
     <div class="work-feed__grid-container container flex jc-c">
       <div class="grid w-100">
         <WorkFeedFilter
-          v-if="content.projectCategories"
-          :categories="content.projectCategories"
+          v-if="category"
+          :categories="category"
+          :selectedCategories="activeCategories"
           @checkbox-clicked="updateActiveCategories"
           @filter-cleared="clearCategories"
         />
         <WorkFeedCard
           v-for="(project, index) in filteredProjects"
-          :key="index + project.project.title"
+          :key="index + project.title"
           :project="project"
           :cardNumber="index"
         />
-      </div>
-      <div class="pre-footer__navigation flex jc-sb color--gray-tertiary pb-80">
-        <g-link
-          :to="'/projects/#' + $toKebabCase(prev)"
-          class="sub upper"
-          @click.native="$scrollToTop"
-        ><span>&lt; </span><span>{{ prev }}</span></g-link>
-        <g-link
-          :to="'/projects/#' + $toKebabCase(next)"
-          class="sub upper next"
-          @click.native="$scrollToTop"
-        ><span>{{ next }}</span><span> &gt;</span></g-link>
       </div>
     </div>
   </div>
@@ -41,50 +30,94 @@ export default {
     WorkFeedFilter
   },
   props: {
-    content: Object,
+    content: Array,
+    category: Array,
     status: Boolean,
     prev: String,
     next: String
   },
   data() {
     return {
-      activeCategories: []
+      activeCategories: [],
+      status: false
     }
   },
   computed: {
     filteredProjects() {
       if (this.activeCategories.length) {
-        return this.content.projectReferences.filter(project => project.project.projectCategories.some(category => this.activeCategories.includes(category.title)))
+        return this.content.filter(project =>
+          project.projectCategories.some(category =>
+            this.activeCategories.includes(category.slug?.current)
+          )
+        )
       } else {
-        return this.content.projectReferences
+        return this.content
       }
     }
   },
   methods: {
     updateActiveCategories(event) {
-      if (event.status == true) {
-        this.activeCategories.push(event.value)
+      if (event.status) {
+        if (!this.activeCategories.includes(event.value)) {
+          this.activeCategories.push(event.value)
+        }
       } else {
-        const tempArray = this.activeCategories.filter(item => item != event.value)
-        this.activeCategories = tempArray
+        this.activeCategories = this.activeCategories.filter(item => item != event.value)
       }
+      this.updateURL()
     },
+
     clearCategories() {
       this.activeCategories = []
+      this.updateURL()
     },
+
+    updateURL() {
+      const currentQuery = { ...this.$route.query }
+
+      if (this.activeCategories.length) {
+        currentQuery.category = this.activeCategories.join(',')
+      } else {
+        delete currentQuery.category
+      }
+
+      this.$router.replace({ query: currentQuery }).catch(() => {})
+    },
+
+    updateFromQuery(query) {
+      if (query.category) {
+        this.activeCategories = query.category.split(',').map(decodeURIComponent)
+      } else {
+        this.activeCategories = []
+      }
+    }
   },
   mounted() {
+    this.updateFromQuery(this.$route.query)
+
+    this.$watch(
+      () => this.$route.query,
+      newQuery => {
+        this.updateFromQuery(newQuery)
+      }
+    )
+
     const cardWrapper = document.getElementsByClassName('work-feed__grid')
-    setTimeout(() => Array.prototype.forEach.call(cardWrapper, function(card) {
-      card.classList.add('loaded')
-    }), 250)
+    setTimeout(
+      () => Array.prototype.forEach.call(cardWrapper, card => card.classList.add('loaded')),
+      250
+    )
   },
   beforeDestroy() {
     const cardWrapper = document.getElementsByClassName('work-feed__grid')
-    setTimeout(() => Array.prototype.forEach.call(cardWrapper, function(card) {
-      card.classList.remove('loaded')
-    }), 250)
-  },
+    setTimeout(
+      () =>
+        Array.prototype.forEach.call(cardWrapper, function(card) {
+          card.classList.remove('loaded')
+        }),
+      250
+    )
+  }
 }
 </script>
 
@@ -96,7 +129,6 @@ export default {
 }
 
 .work-feed__grid {
-  display: none;
   padding-top: 60px;
   background-color: var(--color--gray-light);
 

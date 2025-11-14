@@ -1,23 +1,6 @@
 <template>
   <div class="work-feed">
-    <WorkFeedGrid
-      data-category="residential-architecture"
-      :content="$static.res"
-      :prev="'Adaptive Reuse'"
-      :next="'Interior Design'"
-    />
-    <WorkFeedGrid
-      data-category="interior-design"
-      :content="$static.int"
-      :prev="'Residential Architecture'"
-      :next="'Adaptive Reuse'"
-    />
-    <WorkFeedGrid
-      data-category="adaptive-reuse"
-      :content="$static.ad"
-      :prev="'Interior Design'"
-      :next="'Residential Architecture'"
-    />
+    <WorkFeedGrid data-category="all" :content="filtered" :category="this.category" />
   </div>
 </template>
 
@@ -27,45 +10,45 @@ import WorkFeedGrid from '~/components/WorkFeedGrid'
 export default {
   components: { WorkFeedGrid },
 
+  data() {
+    return {
+      filtered: []
+    }
+  },
+
   computed: {
-    grids() {
-      return document.getElementsByClassName('work-feed__grid')
+    projects() {
+      return this.$static.projects.edges.map(e => e.node)
+    },
+
+    category() {
+      return this.$static.categories.edges.map(e => e.node)
     }
   },
 
   mounted() {
-    this.updateActiveGridFromHash(this.$route.hash)
+    this.updateActiveGridFromHash(this.$route.query.type)
   },
 
   watch: {
-    '$route.hash'(newHash) {
+    '$route.query.type'(newHash) {
       this.updateActiveGridFromHash(newHash)
     }
   },
 
   methods: {
     updateActiveGridFromHash(hash) {
-      const category = (hash || '#residential-architecture').replace('#', '')
-      const grids = this.grids
+      const categorySlug = (hash || '?type=all').replace('?type=', '')
 
-      Array.prototype.forEach.call(grids, grid => {
-        if (grid.classList.contains('current-grid')) {
-          grid.classList.add('filtering')
-          setTimeout(() => {
-            grid.classList.remove('current-grid', 'filtering')
-          }, 300)
-        }
-      })
+      if (categorySlug === 'all') {
+        this.filtered = this.projects
 
-      setTimeout(() => {
-        Array.prototype.forEach.call(grids, grid => {
-          if (grid.dataset.category === category) {
-            grid.classList.add('filtering')
-            grid.classList.add('current-grid', 'loaded')
-            setTimeout(() => grid.classList.remove('filtering'), 250)
-          }
-        })
-      }, 300)
+        return
+      }
+
+      this.filtered = this.projects.filter(project =>
+        project.projectTypes?.some(cat => cat.slug?.current === categorySlug)
+      )
     }
   }
 }
@@ -80,197 +63,45 @@ export default {
 
 <static-query>
 {
-  res: sanityResidentialArchitecture(id: "a81592fc-d8ae-4c15-8315-9005a57b2d75") {
-    title
-    slug {
-      current
-    }
-    heroImage {
-      caption
-      captionStyle
-      asset {
-        url
-        metadata {
-          lqip
-        }
-      }
-      alt
-    }
-    mobileHeroImage {
-      caption
-      captionStyle
-      asset {
-        url
-        metadata {
-          lqip
-        }
-      }
-      alt
-    }
-    projectReferences {
-      altThumbnail {
-        caption
-        captionStyle
-        asset {
-          url
-          metadata {
-            lqip
-          }
-        }
-        alt
-      }
-      project {
+  projects: allSanityProject(sortBy: "_createdAt", order: DESC) {
+    edges {
+      node {
+        id
         title
         slug {
           current
-        }
-        displayTitle {
-          inactiveLink
-          overlayText
-        }
-        image {
-          caption
-          captionStyle
-          asset {
-            url
-            metadata {
-              lqip
-            }
-          }
-          alt
         }
         projectCategories {
           title
-        }
-      }
-    }
-    projectCategories {
-      title
-      slug {
-        current
-      }
-    }
-  }
-  int: sanityInteriorDesign(id: "ee8279ca-9f8d-47c5-926a-c88d46d45d5b") {
-    title
-    slug {
-      current
-    }
-    heroImage {
-      caption
-      captionStyle
-      asset {
-        url
-        metadata {
-          lqip
-        }
-      }
-      alt
-    }
-    mobileHeroImage {
-      caption
-      captionStyle
-      asset {
-        url
-        metadata {
-          lqip
-        }
-      }
-      alt
-    }
-    projectReferences {
-      altThumbnail {
-        caption
-        captionStyle
-        asset {
-          url
-          metadata {
-            lqip
+          slug {
+            current
           }
         }
-        alt
-      }
-      project {
-        title
-        slug {
-          current
-        }
-        displayTitle {
-          inactiveLink
-          overlayText
+        projectTypes {
+          title
+          slug {
+            current
+          }
         }
         image {
-          caption
-          captionStyle
+          alt
           asset {
             url
             metadata {
               lqip
             }
           }
-          alt
         }
       }
     }
   }
-  ad: sanityAdaptiveReuse(id: "35a99ecb-fd40-41ae-a0e0-8ec5527ebf44") {
-    title
-    slug {
-      current
-    }
-    heroImage {
-      caption
-      captionStyle
-      asset {
-        url
-        metadata {
-          lqip
-        }
-      }
-      alt
-    }
-    mobileHeroImage {
-      caption
-      captionStyle
-      asset {
-        url
-        metadata {
-          lqip
-        }
-      }
-      alt
-    }
-    projectReferences {
-      altThumbnail {
-        caption
-        captionStyle
-        asset {
-          url
-          metadata {
-            lqip
-          }
-        }
-        alt
-      }
-      project {
+  categories: allSanityProjectCategory(sortBy: "title", order: ASC) {
+    edges {
+      node {
+        id
         title
         slug {
           current
-        }
-        displayTitle {
-          inactiveLink
-          overlayText
-        }
-        image {
-          caption
-          captionStyle
-          asset {
-            url
-            metadata {
-              lqip
-            }
-          }
-          alt
         }
       }
     }

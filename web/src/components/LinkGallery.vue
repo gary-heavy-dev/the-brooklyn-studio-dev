@@ -18,7 +18,7 @@
           <div class="link-gallery__links link-list">
             <g-link
               v-for="(link, index) in content.links"
-              :to="'/projects/#' + link.link.slug.current"
+              :to="'/projects?type=' + link.link.slug.current"
               :key="index"
               @mouseover.native="showMe(link.link.slug.current)"
               @mouseleave.native="hideMe(link.link.slug.current)"

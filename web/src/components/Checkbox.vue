@@ -24,7 +24,8 @@ export default {
   },
   data() {
     return {
-      status: false
+      status: false,
+      selectedCategories: []
     }
   },
   methods: {
@@ -40,6 +41,15 @@ export default {
     }
   },
   mounted() {
+    const params = new URLSearchParams(window.location.search)
+    const categoryParam = params.get('category')
+    if (categoryParam) {
+      this.selectedCategories = categoryParam.split(',').map(decodeURIComponent)
+    }
+    if (this.selectedCategories.includes(this.label)) {
+      this.status = true
+    }
+
     eventHub.$on('filter-cleared', () => {
       this.status = false
     })

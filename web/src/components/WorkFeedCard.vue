@@ -1,9 +1,9 @@
 <template>
   <component
-    :is="project.project.displayTitle?.inactiveLink ? 'div' : 'g-link'"
+    :is="project.displayTitle?.inactiveLink ? 'div' : 'g-link'"
     :to="
-      !project.project.displayTitle?.inactiveLink
-        ? '/projects/' + project.project.slug.current
+      !project.displayTitle?.inactiveLink
+        ? '/projects/' + project.slug.current
         : null
     "
     class="work-feed-card mb-100 color--gray-tertiary"
@@ -23,25 +23,25 @@
           :captionStyle="project.altThumbnail.captionStyle"
         />
         <BaseImage
-          v-else-if="project.project.image"
-          :src="project.project.image"
+          v-else-if="project.image"
+          :src="project.image"
           :lazy="true"
           :sizes="sizes"
           :x="300"
           :y="200"
           class="mb-30"
-          :caption="project.project.image.caption"
-          :captionStyle="project.project.image.captionStyle"
+          :caption="project.image.caption"
+          :captionStyle="project.image.captionStyle"
         />
         <div
-          v-if="project.project.displayTitle?.inactiveLink"
+          v-if="project.displayTitle?.inactiveLink"
           class="work-feed-card__overlay"
         ></div>
-        <div v-if="project.project.displayTitle?.overlayText" class="work-feed-card__overlay-text">
-          {{ project.project.displayTitle.overlayText }}
+        <div v-if="project.displayTitle?.overlayText" class="work-feed-card__overlay-text">
+          {{ project.displayTitle.overlayText }}
         </div>
       </div>
-      <h3 v-html="project.project.title"></h3>
+      <h3 v-html="project.title"></h3>
     </div>
   </component>
 </template>

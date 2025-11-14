@@ -30,9 +30,9 @@
             :secondary="aboutDropdown.secondary"
           />
           <li class="mobile-only">
-            <g-link to="/projects/#residential-architecture">Projects</g-link>
+            <g-link to="/projects?type=all">Projects</g-link>
           </li>
-          <Dropdown
+          <DropdownProjects
             :name="'projects'"
             :primary="projectsDropdown.primary"
             :secondary="projectsDropdown.secondary"
@@ -56,6 +56,7 @@
 <script>
 import LogoType from '~/components/LogoType'
 import Dropdown from '~/components/Dropdown'
+import DropdownProjects from '~/components/DropdownProjects'
 import MenuToggle from '~/components/MenuToggle'
 import MenuMobileFooter from '~/components/MenuMobileFooter'
 
@@ -63,6 +64,7 @@ export default {
   components: {
     LogoType,
     Dropdown,
+    DropdownProjects,
     MenuToggle,
     MenuMobileFooter
   },
@@ -79,15 +81,15 @@ export default {
         },
         secondary: [
           {
-            link: '/projects/#residential-architecture',
+            link: '/projects?type=residential-architecture',
             linkText: 'Residential Architecture'
           },
           {
-            link: '/projects/#interior-design',
+            link: '/projects?type=interior-design',
             linkText: 'Interior Design'
           },
           {
-            link: '/projects/#adaptive-reuse',
+            link: '/projects?type=adaptive-reuse',
             linkText: 'Adaptive Reuse'
           },
         ]

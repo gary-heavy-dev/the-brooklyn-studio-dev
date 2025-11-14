@@ -4,7 +4,7 @@
       <Checkbox
         v-for="(category, index) in categories"
         :key="index"
-        :label="category.title"
+        :label="category.slug?.current"
         v-on="$listeners"
       />
       <button
