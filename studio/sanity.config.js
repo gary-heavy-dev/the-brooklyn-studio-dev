@@ -152,68 +152,68 @@ export default defineConfig([
       },
     },
   },
-  {
-    projectId: process.env.SANITY_STUDIO_API_PROJECT_ID,
-    dataset: 'development',
-    name: 'development',
-    basePath: '/development',
-    title: 'Development Workspace',
-    plugins: [
-      simplerColorInput({
-        // Note: These are all optional
-        defaultColorFormat: 'rgba',
-        defaultColorList: [
-          { label: 'white', value: '#ffffff' },
-          { label: 'gray-light', value: '#F8F7F7' },
-          { label: 'gray-tertiary-light', value: '#CBD0CC' },
-          { label: 'navy', value: '#262C3E' },
-        ],
-        enableSearch: true,
-      }),
-      structureTool({
-        structure: deskStructure,
-      }),
-      visionTool(),
-      media(),
-      dashboardTool({
-        widgets: [
-          netlifyWidget({
-            title: 'Netlify Deploys',
-            sites: [
-              {
-                title: 'Development',
-                apiId: 'b095747b-cc6e-4f8d-aaba-3a3796a20e03',
-                buildHookId: '691adced9bc05960e2ae8f09',
-                name: 'the-brooklyn-studio-dev (Development)',
-                url: 'https://the-brooklyn-studio-dev.netlify.app'
-              }
-            ]
-          })
-        ]
-      })
-    ],
-    schema: {
-      types: schemas,
-    },
-    studio: {
-      components: {
-        navbar: CustomNavbar,
-        layout: StagingLayout,
-      },
-    },
-    document: {
-      newDocumentOptions: (prev, { creationContext }) => {
-        if (creationContext.type === 'global') {
-          return prev.filter((template) => !LOCKED_DOCUMENT_TYPES.includes(template.templateId))
-        }
-        return prev
-      },
-      actions: (prev, { schemaType }) => {
-        if (LOCKED_DOCUMENT_TYPES.includes(schemaType)) {
-          return prev.filter(({ action }) => !['unpublish', 'delete', 'duplicate'].includes(action))
-        }
-        return prev
-      },
-    },
-  }
+  // {
+  //   projectId: process.env.SANITY_STUDIO_API_PROJECT_ID,
+  //   dataset: 'development',
+  //   name: 'development',
+  //   basePath: '/development',
+  //   title: 'Development Workspace',
+  //   plugins: [
+  //     simplerColorInput({
+  //       // Note: These are all optional
+  //       defaultColorFormat: 'rgba',
+  //       defaultColorList: [
+  //         { label: 'white', value: '#ffffff' },
+  //         { label: 'gray-light', value: '#F8F7F7' },
+  //         { label: 'gray-tertiary-light', value: '#CBD0CC' },
+  //         { label: 'navy', value: '#262C3E' },
+  //       ],
+  //       enableSearch: true,
+  //     }),
+  //     structureTool({
+  //       structure: deskStructure,
+  //     }),
+  //     visionTool(),
+  //     media(),
+  //     dashboardTool({
+  //       widgets: [
+  //         netlifyWidget({
+  //           title: 'Netlify Deploys',
+  //           sites: [
+  //             {
+  //               title: 'Development',
+  //               apiId: 'b095747b-cc6e-4f8d-aaba-3a3796a20e03',
+  //               buildHookId: '691adced9bc05960e2ae8f09',
+  //               name: 'the-brooklyn-studio-dev (Development)',
+  //               url: 'https://the-brooklyn-studio-dev.netlify.app'
+  //             }
+  //           ]
+  //         })
+  //       ]
+  //     })
+  //   ],
+  //   schema: {
+  //     types: schemas,
+  //   },
+  //   studio: {
+  //     components: {
+  //       navbar: CustomNavbar,
+  //       layout: StagingLayout,
+  //     },
+  //   },
+  //   document: {
+  //     newDocumentOptions: (prev, { creationContext }) => {
+  //       if (creationContext.type === 'global') {
+  //         return prev.filter((template) => !LOCKED_DOCUMENT_TYPES.includes(template.templateId))
+  //       }
+  //       return prev
+  //     },
+  //     actions: (prev, { schemaType }) => {
+  //       if (LOCKED_DOCUMENT_TYPES.includes(schemaType)) {
+  //         return prev.filter(({ action }) => !['unpublish', 'delete', 'duplicate'].includes(action))
+  //       }
+  //       return prev
+  //     },
+  //   },
+  // }
 ])
