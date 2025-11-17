@@ -44,6 +44,9 @@ export default {
       return des.slice(0, count) + (des.length > count ? '...' : '')
     }
   },
+  mounted() {
+    console.log('Post ID:', this.$page.post)
+  },
   methods: {
     forceRerender() {
       this.heroKey += 1
@@ -183,6 +186,58 @@ query Post ($id: ID, $prevId: ID, $nextId: ID) {
       caption
     }
     flexibleContent {
+      ... on SanityImageObject {
+        _type
+        image {
+          caption
+          captionStyle
+          asset {
+            id
+            url
+            metadata {
+              dimensions {
+                height
+                width
+              }
+            }
+          }
+          alt
+        }
+      }
+      ... on SanityImageTwoUpObject {
+        _type
+        imageLeft {
+          caption
+          captionStyle
+          asset {
+            id
+            url
+            metadata {
+              dimensions {
+                height
+                width
+              }
+            }
+          }
+          alt
+        }
+        imageRight {
+          caption
+          captionStyle
+          asset {
+            id
+            url
+            metadata {
+              dimensions {
+                height
+                width
+              }
+            }
+          }
+          alt
+        }
+        ratio
+      }
       ... on SanityFlexibleImage {
         _type
         image {

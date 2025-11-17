@@ -1,10 +1,10 @@
 export default {
   name: 'flexibleTwoImage',
   type: 'object',
-  title: 'Two Image',
+  title: 'LEGACY:Two Image',
   initialValue: {
     imageLayout: '50-50',
-    spacing: 'medium'
+    spacing: 'medium',
   },
   fields: [
     {
@@ -16,11 +16,11 @@ export default {
         list: [
           { title: '1/3 – 2/3', value: '33-67' },
           { title: '1/2 – 1/2', value: '50-50' },
-          { title: '2/3 – 1/3', value: '67-33' }
+          { title: '2/3 – 1/3', value: '67-33' },
         ],
-        layout: 'radio'
+        layout: 'radio',
       },
-      validation: Rule => Rule.required()
+      validation: (Rule) => Rule.required(),
     },
     {
       name: 'spacing',
@@ -31,38 +31,38 @@ export default {
         list: [
           { title: 'Small', value: 'small' },
           { title: 'Medium', value: 'medium' },
-          { title: 'Large', value: 'large' }
+          { title: 'Large', value: 'large' },
         ],
-        layout: 'radio'
+        layout: 'radio',
       },
-      validation: Rule => Rule.required()
+      validation: (Rule) => Rule.required(),
     },
     {
       name: 'imageLeft',
       type: 'mainImage',
       title: 'Image Left',
       description: 'The ideal WxH for this image upload is 1854px by 2508px',
-      validation: Rule => Rule.required()
+      validation: (Rule) => Rule.required(),
     },
     {
       name: 'imageRight',
       type: 'mainImage',
       title: 'Image Right',
       description: 'The ideal WxH for this image upload is 1854px by 2508px',
-      validation: Rule => Rule.required()
-    }
+      validation: (Rule) => Rule.required(),
+    },
   ],
   preview: {
     select: {
       media: 'imageLeft',
-      subtitle: 'imageLeft.alt'
+      subtitle: 'imageLeft.alt',
     },
     prepare({ subtitle, media }) {
       return {
-        title: "Two Image",
+        title: 'LEGACY:Two Image',
         subtitle: subtitle ? `Alt: ${subtitle}` : '',
         media,
       }
-    }
-  }
+    },
+  },
 }

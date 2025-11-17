@@ -1,18 +1,11 @@
 <template>
-  <div
-    :class="
-      'flexible-image w-100 mb-100 grid grid--12-desktop flexible-image--' +
-        content.imageLocation +
-        ' flexible-image--' +
-        content.margins
-    "
-  >
+  <div class="container flexible-image w-100 mb-100 grid grid--12-desktop">
     <div class="flexible-image__inner image-wrapper" v-view="$iAmRevealed">
       <BaseImage
         v-if="content.image"
         :src="content.image"
         :lazy="true"
-        :sizes="content.imageLocation === 'center' ? sizesLandscape : sizesPortrait"
+        :sizes="sizesLandscape"
         :x="content.image.asset.metadata.dimensions.width"
         :y="content.image.asset.metadata.dimensions.height"
         :caption="content.image.caption"
@@ -71,25 +64,15 @@ export default {
   }
 
   @include desktop {
-    @include container;
+    max-width: 100%;
+    width: 100%;
+    padding-left: 0;
+    padding-right: 0;
   }
 
-  &--center {
-    .flexible-image__inner {
-      grid-column: 2/12;
-    }
-  }
-
-  &--left {
-    .flexible-image__inner {
-      grid-column: span 9;
-    }
-  }
-
-  &--right {
-    .flexible-image__inner {
-      grid-column: 4/13;
-    }
+  .flexible-image__inner {
+    grid-column: 1 / -1;
+    width: 100%;
   }
 }
 </style>

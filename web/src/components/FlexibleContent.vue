@@ -5,70 +5,27 @@
       v-for="(block, index) in content"
       :key="index"
     >
-      <LinkGallery
-        v-if="block._type === 'linkGallery'"
-        :content="block"
-      />
-      <CtaGallery
-        v-if="block._type === 'ctaGallery'"
-        :content="block"
-      />
-      <ScrollingGallery
-        v-if="block._type === 'scrollingGallery'"
-        :content="block"
-      />
-      <CtaSimple
-        v-if="block._type === 'ctaSimple'"
-        :content="block"
-      />
-      <CtaComplex
-        v-if="block._type === 'ctaComplex'"
-        :content="block"
-      />
-      <TeamMemberFeatured
-        v-if="block._type === 'featuredTeamMember'"
-        :content="block"
-      />
-      <FlexibleImage
-        v-if="block._type === 'flexibleImage'"
-        :content="block"
-      />
-      <FlexibleImageGallery
-        v-if="block._type === 'simpleGallery'"
-        :content="block"
-      />
-      <FlexibleImagePair
-        v-if="block._type === 'flexibleImagePair'"
-        :content="block"
-      />
-      <FlexibleTwoImage
-        v-if="block._type === 'flexibleTwoImage'"
-        :content="block"
-      />
-      <FlexibleImagePairSimple
-        v-if="block._type === 'simpleImagePair'"
-        :content="block"
-      />
-      <FlexibleImageWithText
-        v-if="block._type === 'flexibleImageWithText'"
-        :content="block"
-      />
-      <FlexibleImageWithTextSimple
-        v-if="block._type === 'simpleImageWithText'"
-        :content="block"
-      />
-      <FlexiblePullQuote
-        v-if="block._type === 'flexiblePullQuote'"
-        :content="block"
-      />
+      <LinkGallery v-if="block._type === 'linkGallery'" :content="block" />
+      <CtaGallery v-if="block._type === 'ctaGallery'" :content="block" />
+      <ScrollingGallery v-if="block._type === 'scrollingGallery'" :content="block" />
+      <CtaSimple v-if="block._type === 'ctaSimple'" :content="block" />
+      <CtaComplex v-if="block._type === 'ctaComplex'" :content="block" />
+      <TeamMemberFeatured v-if="block._type === 'featuredTeamMember'" :content="block" />
+      <FlexibleImage v-if="block._type === 'flexibleImage'" :content="block" />
+      <ImageTwoUp v-if="block._type === 'imageTwoUpObject'" :content="block" />
+      <ImageFull v-if="block._type === 'imageObject'" :content="block" />
+      <FlexibleImageGallery v-if="block._type === 'simpleGallery'" :content="block" />
+      <FlexibleImagePair v-if="block._type === 'flexibleImagePair'" :content="block" />
+      <FlexibleTwoImage v-if="block._type === 'flexibleTwoImage'" :content="block" />
+      <FlexibleImagePairSimple v-if="block._type === 'simpleImagePair'" :content="block" />
+      <FlexibleImageWithText v-if="block._type === 'flexibleImageWithText'" :content="block" />
+      <FlexibleImageWithTextSimple v-if="block._type === 'simpleImageWithText'" :content="block" />
+      <FlexiblePullQuote v-if="block._type === 'flexiblePullQuote'" :content="block" />
       <FlexibleText
-        v-if="block._type === 'flexibleText' | block._type === 'simplePortableTextWrapper'"
+        v-if="(block._type === 'flexibleText') | (block._type === 'simplePortableTextWrapper')"
         :content="block"
       />
-      <FullWidthImage
-        v-if="block._type === 'fullWidthImage'"
-        :content="block"
-      />
+      <FullWidthImage v-if="block._type === 'fullWidthImage'" :content="block" />
     </div>
   </div>
 </template>
@@ -80,6 +37,7 @@ import CtaComplex from '~/components/CtaComplex'
 import CtaGallery from '~/components/CtaGallery'
 import CtaSimple from '~/components/CtaSimple'
 import TeamMemberFeatured from '~/components/TeamMemberFeatured'
+import ImageFull from '~/components/ImageFull'
 import FlexibleImage from '~/components/FlexibleImage'
 import FlexibleImageGallery from '~/components/FlexibleImageGallery'
 import FlexibleImagePair from '~/components/FlexibleImagePair'
@@ -90,6 +48,7 @@ import FlexiblePullQuote from '~/components/FlexiblePullQuote'
 import FlexibleText from '~/components/FlexibleText'
 import FullWidthImage from './FullWidthImage.vue'
 import FlexibleTwoImage from './FlexibleTwoImage'
+import ImageTwoUp from '~/components/ImageTwoUp.vue'
 
 export default {
   components: {
@@ -99,15 +58,17 @@ export default {
     CtaGallery,
     CtaSimple,
     TeamMemberFeatured,
+    ImageFull,
+    ImageTwoUp,
     FlexibleImage,
     FlexibleImageGallery,
     FlexibleImagePair,
     FlexibleImagePairSimple,
     FlexibleImageWithText,
     FlexibleImageWithTextSimple,
-		FlexiblePullQuote,
+    FlexiblePullQuote,
     FlexibleText,
-		FullWidthImage,
+    FullWidthImage,
     FlexibleTwoImage
   },
   props: {
@@ -118,11 +79,8 @@ export default {
 
 <style lang="scss">
 .flexible-content {
-
   &__item {
-
     > .mb-100 {
-
       @include desktop-down {
         margin-bottom: 40px;
       }
