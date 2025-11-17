@@ -93,6 +93,9 @@ export default {
     carouselImages() {
       return this.$static.page.heroImages.images || []
     },
+    isShowIntro() {
+      return this.$static.page.heroImages.enableIntro
+    },
     autoplay() {
       return this.$static.page.heroImages?.autoplay || true
     },
@@ -113,11 +116,8 @@ export default {
 
     window.addEventListener('scroll', this.handleScroll, { passive: true })
 
-    if (introPlayed === null) return
-
-    if (introPlayed === 'played' && heroPlayed !== 'played') {
+    if (!this.isShowIntro && heroPlayed !== 'played') {
       this.startHeroLottie()
-      return
     }
 
     if (heroPlayed === 'played') {
@@ -190,10 +190,10 @@ export default {
           delay: this.delay || 5000,
           disableOnInteraction: false,
         }
-        swiper.autoplay.start()
+        swiper?.autoplay?.start()
         this.autoplayRunning = true
       } else {
-        swiper.autoplay.stop?.()
+        swiper?.autoplay?.stop?.()
         this.autoplayRunning = false
       }
     },
@@ -315,7 +315,8 @@ export default {
           url
         }
         alt
-      }
+      },
+      enableIntro
     }
   }
 }
