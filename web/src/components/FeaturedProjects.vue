@@ -136,11 +136,41 @@ export default {
       }
 
       &-title {
+        position: relative;
+        display: inline-block;
         font-size: 30px;
+
+        &::after {
+          content: '';
+          position: absolute;
+          width: 0%;
+          height: 1px;
+          bottom: -14px;
+          left: 0;
+          background: currentColor;
+          pointer-events: none;
+          transition: width 575ms ease-in-out;
+        }
       }
 
       .base-image__inner {
         aspect-ratio: 3/2;
+      }
+    }
+
+    .grid__card {
+      &:after {
+        display: none;
+      }
+
+      &:hover {
+        .h3 {
+          @include desktop {
+            &::after {
+              width: calc(100% + 40px);
+            }
+          }
+        }
       }
     }
   }

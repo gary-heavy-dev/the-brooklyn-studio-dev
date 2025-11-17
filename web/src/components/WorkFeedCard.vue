@@ -41,7 +41,7 @@
           {{ project.displayTitle.overlayText }}
         </div>
       </div>
-      <h3 v-html="project.title"></h3>
+      <h3 class="work-feed-card__title" v-html="project.title"></h3>
     </div>
   </component>
 </template>
@@ -116,5 +116,40 @@ export default {
   text-align: center;
   color: white;
   font-size: 1.5rem;
+}
+
+.work-feed__grid {
+  .work-feed-card__title {
+    position: relative;
+    display: inline-block;
+
+    &::after {
+      content: '';
+      position: absolute;
+      width: 0%;
+      height: 1px;
+      bottom: -14px;
+      left: 0;
+      background: currentColor;
+      pointer-events: none;
+      transition: width 575ms ease-in-out;
+    }
+  }
+
+  .grid__card {
+    &:after {
+      display: none;
+    }
+
+    &:hover {
+      h3 {
+        @include desktop {
+          &::after {
+            width: calc(100% + 40px);
+          }
+        }
+      }
+    }
+  }
 }
 </style>
