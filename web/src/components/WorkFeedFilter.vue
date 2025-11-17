@@ -2,15 +2,26 @@
   <div class="work-feed-filter color--gray-tertiary mb-100 desktop-only">
     <ul>
       <Checkbox
-        v-for="(category, index) in categories"
-        :key="index"
-        :label="category.slug?.current"
-        v-on="$listeners"
+        v-for="(type, index) in types"
+        :key="`type-${index}`"
+        :label="type.slug?.current"
+        :checked="isChecked(type.slug?.current, 'type')"
+        @checkbox-clicked="emitFilter($event.value, $event.status, 'type')"
       />
-      <button
-        @click="clearFilter"
-        class="filter-clear-button upper sub"
-      ><span>&times;</span> Clear</button>
+
+      <li class="separator">|</li>
+
+      <Checkbox
+        v-for="(category, index) in categories"
+        :key="`cat-${index}`"
+        :label="category.slug?.current"
+        :checked="isChecked(category.slug?.current, 'category')"
+        @checkbox-clicked="emitFilter($event.value, $event.status, 'category')"
+      />
+
+      <button @click="clearFilter" class="filter-clear-button upper sub">
+        <span>&times;</span> Clear
+      </button>
     </ul>
   </div>
 </template>
@@ -23,22 +34,28 @@ export default {
   components: {
     Checkbox
   },
-  data() {
-    return {
-      status: undefined
-    }
-  },
   props: {
-    categories: Array
+    categories: Array,
+    types: Array,
+    selectedCategories: Array,
+    selectedTypes: Array
   },
   methods: {
+    emitFilter(value, status, group) {
+      this.$emit('checkbox-clicked', { value, status, group })
+    },
     clearFilter() {
       this.$emit('filter-cleared')
       eventHub.$emit('filter-cleared')
+    },
+    isChecked(slug, group) {
+      const selected = group === 'category' ? this.selectedCategories : this.selectedTypes
+      return selected?.includes(slug)
     }
   }
 }
 </script>
+
 <style lang="scss">
 .work-feed-filter {
   grid-column: 1 / -1;
@@ -52,8 +69,12 @@ export default {
     list-style: none;
   }
 
-  .filter-clear-button {
+  .separator {
+    padding: 0 10px;
+    font-weight: 300;
+  }
 
+  .filter-clear-button {
     span {
       position: relative;
       top: -1px;

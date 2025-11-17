@@ -3,10 +3,12 @@
     <div class="work-feed__grid-container container flex jc-c">
       <div class="grid w-100">
         <WorkFeedFilter
-          v-if="category"
+          v-if="category || type"
           :categories="category"
+          :types="type"
           :selectedCategories="activeCategories"
-          @checkbox-clicked="updateActiveCategories"
+          :selectedTypes="activeTypes"
+          @checkbox-clicked="updateActiveFilter"
           @filter-cleared="clearCategories"
         />
         <WorkFeedCard
@@ -32,42 +34,73 @@ export default {
   props: {
     content: Array,
     category: Array,
+    type: Array,
     status: Boolean,
     prev: String,
     next: String
   },
   data() {
     return {
-      activeCategories: []
+      activeCategories: [],
+      activeTypes: []
     }
   },
   computed: {
     filteredProjects() {
-      if (this.activeCategories.length) {
-        return this.content.filter(project =>
-          project.projectCategories.some(category =>
-            this.activeCategories.includes(category.slug?.current)
-          )
-        )
-      } else {
+      const activeCatLength = this.activeCategories.length
+      const activeTypeLength = this.activeTypes.length
+
+      if (!activeCatLength && !activeTypeLength) {
         return this.content
       }
+
+      return this.content.filter(project => {
+        let matchesCategory = true
+        let matchesType = true
+
+        if (activeCatLength) {
+          matchesCategory = project.projectCategories?.some(cat =>
+            this.activeCategories.includes(cat.slug?.current)
+          )
+        }
+
+        if (activeTypeLength) {
+          matchesType = project.projectTypes?.some(type =>
+            this.activeTypes.includes(type.slug?.current)
+          )
+        }
+
+        return matchesCategory && matchesType
+      })
     }
   },
   methods: {
-    updateActiveCategories(event) {
-      if (event.status) {
-        if (!this.activeCategories.includes(event.value)) {
-          this.activeCategories.push(event.value)
+    updateActiveFilter(event) {
+      const filterGroup = event.group
+      const value = event.value
+      const status = event.status
+      let activeArray = filterGroup === 'category' ? this.activeCategories : this.activeTypes
+
+      if (status) {
+        if (!activeArray.includes(value)) {
+          activeArray.push(value)
         }
       } else {
-        this.activeCategories = this.activeCategories.filter(item => item != event.value)
+        activeArray = activeArray.filter(item => item != value)
       }
+
+      if (filterGroup === 'category') {
+        this.activeCategories = activeArray
+      } else {
+        this.activeTypes = activeArray
+      }
+
       this.updateURL()
     },
 
     clearCategories() {
       this.activeCategories = []
+      this.activeTypes = []
       this.updateURL()
     },
 
@@ -80,6 +113,12 @@ export default {
         delete currentQuery.category
       }
 
+      if (this.activeTypes.length) {
+        currentQuery.type = this.activeTypes.join(',')
+      } else {
+        delete currentQuery.type
+      }
+
       this.$router.replace({ query: currentQuery }).catch(() => {})
     },
 
@@ -88,6 +127,12 @@ export default {
         this.activeCategories = query.category.split(',').map(decodeURIComponent)
       } else {
         this.activeCategories = []
+      }
+
+      if (query.type) {
+        this.activeTypes = query.type.split(',').map(decodeURIComponent)
+      } else {
+        this.activeTypes = []
       }
     }
   },

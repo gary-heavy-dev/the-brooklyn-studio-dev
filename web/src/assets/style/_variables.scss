@@ -9,13 +9,13 @@ html {
 
 body {
   --color--white: #fff;
-  --color--text-black: #2B2828;
-  --color--gray: #C6C3C3;
-  --color--gray-light: #F8F7F7;
-  --color--gray-secondary: #EDEDED;
+  --color--text-black: #2b2828;
+  --color--gray: #c6c3c3;
+  --color--gray-light: #f8f7f7;
+  --color--gray-secondary: #ededed;
   --color--gray-tertiary: #575757;
-  --color--gray-tertiary-light: #CBD0CC;
-  --color--navy: #282E41;
+  --color--gray-tertiary-light: #cbd0cc;
+  --color--navy: #282e41;
   --color--navy-light: #374059;
   --header-height: 53px;
   --margin-h: 27px;
@@ -33,11 +33,12 @@ body {
 
 // Make things larger, starting with "laptop" widths
 @include laptop {
-	body {
-    --grid-margin: 8.25vw;
+  body {
+    // --grid-margin: 8.25vw;
+    --grid-margin: 4.5vw;
     --margin-h: 118px;
     --header-height: 72px;
-	}
+  }
 }
 
 // Make things larger, starting with "desktop" widths
@@ -49,11 +50,10 @@ body {
 
 // Make things larger for 4k scenarios
 @include four-k {
-	body {
+  body {
     --grid-gap: 40px; // do not change
     --max-width--readable: 1000px;
     --max-width--readable-sm: 740px;
     --max-width--readable-lg: 1770px;
-	}
+  }
 }
-
