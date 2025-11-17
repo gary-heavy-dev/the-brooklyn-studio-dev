@@ -11,7 +11,7 @@
             <BaseImage
               v-if="image"
               :src="image"
-              :lazy="true"
+              :lazy="false"
               :caption="image.caption"
               :captionStyle="image.captionStyle"
             />

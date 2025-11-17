@@ -36,7 +36,7 @@
                 {{ project.displayTitle.overlayText }}
               </div>
             </div>
-            <h3 class="featured-projects__grid-card-title" v-html="project.title"></h3>
+            <h3 class="h3 featured-projects__grid-card-title" v-html="project.title"></h3>
           </div>
         </component>
       </div>
@@ -141,17 +141,6 @@ export default {
 
       .base-image__inner {
         aspect-ratio: 3/2;
-      }
-    }
-
-    .grid__card {
-      &:hover {
-        @include desktop {
-
-          &::after {
-            width: calc(2 / 4 * 100%);
-          }
-        }
       }
     }
   }
