@@ -7,21 +7,40 @@ export default {
       name: 'imageLeft',
       type: 'mainImage',
       title: 'Left Image',
-      description: 'The image to be displayed on the left side.',
+      description: (
+        <>
+          Left image recommended sizes:
+          <br />
+          • 50/50 — 1670×2410px
+          <br />
+          • 33/67 — 1220×1630px
+          <br />• 67/33 — 2124×1630px
+        </>
+      ),
       validation: (Rule) => Rule.required(),
     },
     {
       name: 'imageRight',
       type: 'mainImage',
       title: 'Right Image',
-      description: 'The image to be displayed on the right side.',
+      description:
+        'Right image. Sizes: 1670×2410px (50/50), 2124×1628px (33/67), or 1220×1634px (67/33)',
       validation: (Rule) => Rule.required(),
     },
     {
       name: 'ratio',
       type: 'string',
       title: 'Display Ratio',
-      description: 'Select the ratio at which the two images will display (Left/Right).',
+      description: (
+        <>
+          Right image recommended sizes:
+          <br />
+          • 50/50 — 1670×2410px
+          <br />
+          • 33/67 — 2124×1630px
+          <br />• 67/33 — 1220×1630px
+        </>
+      ),
       options: {
         list: [
           { title: '50% / 50%', value: '50-50' },
@@ -32,12 +51,6 @@ export default {
       },
       validation: (Rule) => Rule.required(),
     },
-    // {
-    //   name: 'caption',
-    //   type: 'string',
-    //   title: 'Optional Caption',
-    //   description: 'A single optional caption to display beneath the two images.',
-    // },
   ],
   preview: {
     select: {

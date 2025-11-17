@@ -1,6 +1,11 @@
 <template>
   <div class="work-feed">
-    <WorkFeedGrid data-category="all" :content="filtered" :category="this.category" />
+    <WorkFeedGrid
+      data-category="all"
+      :content="filtered"
+      :category="this.category"
+      :type="this.type"
+    />
   </div>
 </template>
 
@@ -23,6 +28,10 @@ export default {
 
     category() {
       return this.$static.categories.edges.map(e => e.node)
+    },
+
+    type() {
+      return this.$static.types.edges.map(e => e.node)
     }
   },
 
@@ -96,6 +105,17 @@ export default {
     }
   }
   categories: allSanityProjectCategory(sortBy: "title", order: ASC) {
+    edges {
+      node {
+        id
+        title
+        slug {
+          current
+        }
+      }
+    }
+  }
+  types: allSanityProjectType(sortBy: "title", order: ASC) {
     edges {
       node {
         id
