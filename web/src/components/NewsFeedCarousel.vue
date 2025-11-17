@@ -32,7 +32,7 @@
                 :caption="post.altThumbnail.caption"
                 :captionStyle="post.altThumbnail.captionStyle"
               />
-              <h3 class="h4 news-feed-carousel__card-title" v-html="post.title"></h3>
+              <h3 class="h4 news-feed-carousel__card-title" v-html="post.displayTitle"></h3>
             </div>
           </g-link>
         </swiper-slide>
@@ -118,25 +118,36 @@ export default {
         position: absolute;
         inset: 0;
         border: 1px solid var(--color--navy);
+        background-color: rgb(0 0 0 / 30%);
         transition: all 0.3s ease-in-out;
         opacity: 0;
         visibility: hidden;
       }
 
-      &:hover::after {
-        opacity: 1;
-        visibility: visible;
+      &:hover {
+        &::after {
+          opacity: 1;
+          visibility: visible;
+        }
+
+        .h4 {
+          color: #fff;
+        }
       }
     }
 
     &__card-title {
       position: absolute;
+      z-index: 1;
       top: 50%;
       left: 10px;
       right: 10px;
       transform: translateY(-50%);
+      font-size: 30px;
       text-align: center;
+      text-transform: capitalize;
       color: var(--color--navy);
+      transition: 0.3s ease;
     }
 
     .grid__card::after {

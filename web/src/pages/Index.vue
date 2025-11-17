@@ -135,6 +135,7 @@ export default {
       cta_url
       news: news {
         title
+        displayTitle
         slug {
           current
         }

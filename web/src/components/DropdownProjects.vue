@@ -35,7 +35,7 @@ export default {
   },
   methods: {
     isActive(link) {
-      const url = new URL(link.link, window.location.origin)
+      const url = new URL(link.link, 'http://dummy')
       const linkPath = url.pathname
       const linkParams = Object.fromEntries(url.searchParams.entries())
 
@@ -69,7 +69,7 @@ export default {
 
     onSecondaryClick(link) {
       this.expanded = false
-      const url = new URL(link.link, window.location.origin)
+      const url = new URL(link.link, 'http://dummy')
       const newQuery = Object.fromEntries(url.searchParams.entries())
       const currentQuery = { ...this.$route.query }
       const queryToPush = {}
