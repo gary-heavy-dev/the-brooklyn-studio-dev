@@ -1,5 +1,5 @@
 .text-center {
-	text-align: center;
+  text-align: center;
 }
 
 .scroll-locked {
@@ -8,7 +8,7 @@
 }
 
 .space-bottom {
-	margin-bottom: var(--space);
+  margin-bottom: var(--space);
 }
 
 .container {
@@ -16,7 +16,6 @@
 }
 
 .container--right {
-
   @include desktop {
     @include container--right;
   }
@@ -28,7 +27,6 @@
 }
 
 .container--left {
-
   @include desktop {
     @include container--left;
   }
@@ -39,9 +37,7 @@
 }
 
 .reverse-mobile {
-
   @include desktop-down {
-
     &--true,
     &--false,
     &--null {
@@ -68,7 +64,6 @@
 }
 
 .project-hero-mobile {
-
   @include desktop-down {
     height: unset !important;
     display: block;
@@ -83,7 +78,6 @@
 
 // Spacing
 body .p-mobile-copy-block {
-
   @include desktop-down {
     padding: 42px 0 100px;
   }
@@ -365,6 +359,18 @@ body .p-mobile-copy-block {
   }
 }
 
+.mb-90 {
+  margin-bottom: 70px;
+
+  @include laptop {
+    margin-bottom: 80px;
+  }
+
+  @include desktop {
+    margin-bottom: 90px;
+  }
+}
+
 .mb-100 {
   margin-bottom: 80px;
 
@@ -378,7 +384,7 @@ body .p-mobile-copy-block {
 }
 
 .mt-15 {
-	margin-top: 15px;
+  margin-top: 15px;
 }
 
 .mt-60 {
@@ -452,7 +458,6 @@ body .p-mobile-copy-block {
 
 // Object Fit, img handling, etc.
 .img-cover {
-
   &.base-image,
   .base-image__inner {
     height: 100%;
@@ -503,9 +508,7 @@ body .p-mobile-copy-block {
 
 // Layout!
 .image--mobile {
-
   @include desktop-down {
-
     &-right .image-wrapper {
       margin-right: calc(var(--grid-margin) * -1);
     }
@@ -517,11 +520,8 @@ body .p-mobile-copy-block {
 }
 
 .copy {
-
   &--right {
-
     .copy-wrapper {
-
       @include desktop {
         order: 3;
       }
@@ -532,11 +532,8 @@ body .p-mobile-copy-block {
     }
 
     &.image {
-
       &--full {
-
         .image-wrapper {
-
           @include desktop {
             margin-left: calc(var(--grid-margin) * -1);
           }
@@ -546,13 +543,9 @@ body .p-mobile-copy-block {
   }
 
   &--left {
-
     &.image {
-
       &--full {
-
         .image-wrapper {
-
           @include desktop {
             margin-right: calc(var(--grid-margin) * -1);
             grid-column-end: 13;
@@ -560,7 +553,6 @@ body .p-mobile-copy-block {
         }
 
         .grid--6-desktop {
-
           .image-wrapper {
             grid-column-end: 7;
           }
@@ -590,8 +582,8 @@ body .p-mobile-copy-block {
 }
 
 .fade {
-  background: rgb(248,247,247);
-  background: linear-gradient(0deg, rgba(255,255,255,0) 0%, rgba(248,247,247,1) 100%);
+  background: rgb(248, 247, 247);
+  background: linear-gradient(0deg, rgba(255, 255, 255, 0) 0%, rgba(248, 247, 247, 1) 100%);
 }
 
 .overlay {
@@ -600,10 +592,11 @@ body .p-mobile-copy-block {
   &::after {
     content: '';
     position: absolute;
-    top: 0; left: 0;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    box-shadow: inset 0 54vw 27vw rgba(0,0,0,.5);
+    box-shadow: inset 0 54vw 27vw rgba(0, 0, 0, 0.5);
 
     @include desktop {
       box-shadow: inset 0px 12vw 100px rgba(0, 0, 0, 0.5);
@@ -615,9 +608,8 @@ body .p-mobile-copy-block {
   position: relative;
 
   &::before {
-
     @include desktop {
-      content: "";
+      content: '';
       position: absolute;
       background-color: inherit;
       height: 100%;
@@ -628,21 +620,18 @@ body .p-mobile-copy-block {
 }
 
 .mobile-only {
-
   @include desktop {
     display: none !important;
   }
 }
 
 .desktop-only {
-
   @include desktop-down {
     display: none !important;
   }
 }
 
 .cursor {
-
   &--arrow {
     cursor: default;
   }

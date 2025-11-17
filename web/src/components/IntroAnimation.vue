@@ -3,6 +3,7 @@
     class="intro-animation background--navy o-h"
     id="introAnimation"
     @dblclick="closeIntro"
+    v-if="isShowIntro"
   >
     <div class="flex ai-c jc-c w-100 pos-abs z-2">
       <lottie-animation
@@ -53,6 +54,9 @@ export default {
       } else {
         return this.desktopAnimation
       }
+    },
+    isShowIntro() {
+      return this.$static.page.heroImages.enableIntro
     },
     featuredImage() {
       const ims = this.$static.page.heroImages.images.length
@@ -204,7 +208,8 @@ body.animation-playing {
           url
         }
         alt
-      }
+      },
+      enableIntro
     }
   }
 }

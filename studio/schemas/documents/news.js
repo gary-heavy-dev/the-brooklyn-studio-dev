@@ -12,6 +12,12 @@ export default {
       description: 'Titles should be catchy, descriptive, and not too long'
     },
     {
+      name: 'displayTitle',
+      type: 'string',
+      title: 'Display Title',
+      description: 'Display title describes briefly and not too long.'
+    },
+    {
       name: 'subtitle',
       type: 'string',
       title: 'Subtitle',

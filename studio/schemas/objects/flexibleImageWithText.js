@@ -1,20 +1,21 @@
 export default {
   name: 'flexibleImageWithText',
   type: 'object',
-  title: 'Image With Text',
+  title: 'LEGACY:Image With Text',
   fields: [
     {
       name: 'text',
       title: 'Text',
       type: 'text',
-      validation: Rule => Rule.required()
+      validation: (Rule) => Rule.required(),
     },
     {
       name: 'image',
       type: 'mainImage',
       title: 'Image',
-      description: 'Please upload an image 1854px wide for landscape images and 1584px for portrait images. The height of these images is up to you!',
-      validation: Rule => Rule.required()
+      description:
+        'Please upload an image 1854px wide for landscape images and 1584px for portrait images. The height of these images is up to you!',
+      validation: (Rule) => Rule.required(),
     },
     {
       name: 'aspectRatio',
@@ -23,46 +24,48 @@ export default {
       options: {
         list: [
           { title: 'Portrait', value: 'portrait' },
-          { title: 'Landscape', value: 'landscape' }
+          { title: 'Landscape', value: 'landscape' },
         ],
-        layout: 'radio'
+        layout: 'radio',
       },
-      validation: Rule => Rule.required()
+      validation: (Rule) => Rule.required(),
     },
     {
       name: 'imageLocation',
       type: 'string',
       title: 'Image Location',
-      description: 'Select which side you\'d like the image to appear on.',
+      description: "Select which side you'd like the image to appear on.",
       options: {
         list: [
           { title: 'Right', value: 'right' },
-          { title: 'Left', value: 'left' }
+          { title: 'Left', value: 'left' },
         ],
-        layout: 'radio'
+        layout: 'radio',
       },
-      validation: Rule => Rule.required()
+      validation: (Rule) => Rule.required(),
     },
     {
       name: 'reverseMobile',
       type: 'boolean',
       title: 'Reverse Order On Mobile?',
-      description: 'Content on the left of this layout will display below at mobile breakpoints. Check this box to reverse the order on mobile.'
+      description:
+        'Content on the left of this layout will display below at mobile breakpoints. Check this box to reverse the order on mobile.',
     },
     {
       name: 'justification',
       title: 'Image Justification',
       type: 'string',
-      description: 'Select whether the image will be justified to the right or left side on mobile.',
+      description:
+        'Select whether the image will be justified to the right or left side on mobile.',
       options: {
         list: [
           { title: 'Right', value: 'right' },
-          { title: 'Left', value: 'left' }
+          { title: 'Left', value: 'left' },
         ],
         layout: 'radio',
-        validation: Rule => Rule.required()
-      }
-    }
+        validation: (Rule) => Rule.required(),
+      },
+    },
   ],
   preview: {
     select: {
@@ -72,10 +75,10 @@ export default {
     },
     prepare({ subtitle, media }) {
       return {
-        title: "Image with Text",
+        title: 'LEGACY:Image with Text',
         subtitle: `${subtitle}`,
         media,
       }
-    }
-  }
+    },
+  },
 }

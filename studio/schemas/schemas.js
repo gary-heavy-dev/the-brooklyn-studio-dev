@@ -47,6 +47,8 @@ import headingTextPair from './objects/headingTextPair'
 import heroHome from './objects/heroHome'
 import heroSecondary from './objects/heroSecondary'
 import heroTertiary from './objects/heroTertiary'
+import imageObject from './objects/imageObject'
+import imageTwoUpObject from './objects/imageTwoUpObject'
 import introSection from './objects/introSection'
 import introSecondary from './objects/introSecondary'
 import linkGallery from './objects/linkGallery'
@@ -100,6 +102,8 @@ export default [
   heroSecondary,
   heroTertiary,
   home,
+  imageObject,
+  imageTwoUpObject,
   interiorDesign,
   introSection,
   introSecondary,
@@ -135,5 +139,5 @@ export default [
   wordBreak,
   featuredProjects,
   newsFeedCarousel,
-  flexibleTwoImage
+  flexibleTwoImage,
 ]
