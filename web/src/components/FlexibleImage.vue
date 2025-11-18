@@ -1,7 +1,7 @@
 <template>
   <div
     :class="
-      'flexible-image w-100 mb-100 grid grid--12-desktop flexible-image--' +
+      'flexible-image w-100 mb-90 grid grid--12-desktop flexible-image--' +
         content.imageLocation +
         ' flexible-image--' +
         content.margins
@@ -13,8 +13,8 @@
         :src="content.image"
         :lazy="true"
         :sizes="content.imageLocation === 'center' ? sizesLandscape : sizesPortrait"
-        :x="content.image.asset.metadata.dimensions.width"
-        :y="content.image.asset.metadata.dimensions.height"
+        :x="1160"
+        :y="720"
         :caption="content.image.caption"
         :captionStyle="content.image.captionStyle"
         @click.native="openLightbox"
@@ -72,12 +72,6 @@ export default {
 
   @include desktop {
     @include container;
-  }
-
-  &--center {
-    .flexible-image__inner {
-      grid-column: 2/12;
-    }
   }
 
   &--left {

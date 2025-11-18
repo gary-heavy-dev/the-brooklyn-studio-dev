@@ -115,7 +115,9 @@ export default {
   }
 
   &--layout-50-50 {
-    max-height: 554px;
+    .base-image__inner {
+      max-height: 800px;
+    }
 
     @include laptop {
       grid-template-columns: 1fr 1fr;
@@ -123,7 +125,9 @@ export default {
   }
 
   &--layout-33-67 {
-    max-height: 540px;
+    .base-image__inner {
+      max-height: 540px;
+    }
 
     @include laptop {
       grid-template-columns: 34.7% 65.3%;
@@ -131,7 +135,9 @@ export default {
   }
 
   &--layout-67-33 {
-    max-height: 540px;
+    .base-image__inner {
+      max-height: 540px;
+    }
 
     @include laptop {
       grid-template-columns: 65.3% 34.7%;

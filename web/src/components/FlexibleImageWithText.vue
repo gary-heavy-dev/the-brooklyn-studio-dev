@@ -1,5 +1,5 @@
 <template>
-  <div :class="'flexible-image-with-text container grid grid--12-desktop ai-c mb-100 ' + content.aspectRatio + ' image--mobile-' + content.justification + ' image--desktop-' + content.imageLocation + ' reverse-mobile--' + content.reverseMobile">
+  <div :class="'flexible-image-with-text container grid grid--12-desktop ai-c mb-90 ' + content.aspectRatio + ' image--mobile-' + content.justification + ' image--desktop-' + content.imageLocation + ' reverse-mobile--' + content.reverseMobile">
     <div class="flexible-image-with-text__text">
       <div class="mw-readable" v-html="content.text"></div>
     </div>

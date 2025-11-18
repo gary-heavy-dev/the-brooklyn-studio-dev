@@ -1,5 +1,5 @@
 <template>
-  <div class="flexible-text container flex jc-c mb-100">
+  <div class="flexible-text container flex jc-c mb-90">
     <div
       v-if="content.text"
       class="flexible-text__inner mw-readable--large"

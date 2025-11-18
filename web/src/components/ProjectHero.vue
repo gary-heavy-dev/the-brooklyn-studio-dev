@@ -1,5 +1,7 @@
 <template>
-  <div class="project-hero container pos-rel mb-100">
+  <div
+    class="project-hero container pos-rel mb-90"
+  >
     <div class="project-hero__title w-100 flex jc-sb">
       <h1 v-if="displayTitle && displayTitle.displayTitleStatus" class="h2 color--navy fade--in-up">
         <span v-html="displayTitle.lineOne"></span><br />
@@ -13,7 +15,7 @@
         <a
           :data-index="1"
           href="#projectInfo"
-          class="scrollactive-item project-hero__title-info color--gray h2 fade--in-up"
+          class="scrollactive-item project-hero__title-info color--navy h2 fade--in-up"
           @mouseover="setDuration"
           >Info</a
         >
@@ -34,6 +36,8 @@
       :src="image"
       :caption="image.caption"
       :captionStyle="image.captionStyle"
+      :x="1160"
+      :y="720"
     />
   </div>
 </template>
