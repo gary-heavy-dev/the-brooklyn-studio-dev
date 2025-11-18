@@ -153,10 +153,8 @@ export default {
     }
   },
   mounted() {
-    // Set initial scroll position to prevent slide-in on mount
     if (typeof window !== 'undefined') {
       this.lastPosition = window.scrollY
-      // If page loads scrolled, mark as having scrolled
       if (window.scrollY > 0) {
         this.hasScrolledOnce = true
       }
