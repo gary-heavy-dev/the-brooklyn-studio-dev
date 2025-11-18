@@ -358,11 +358,10 @@ export default {
     position: absolute;
     inset: 0;
     background: transparent;
-    display: none;
+    display: flex;
     justify-content: center;
     align-items: center;
     z-index: 30;
-    opacity: 0;
     pointer-events: none;
     transition: opacity 0.6s ease;
   }
