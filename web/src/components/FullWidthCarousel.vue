@@ -30,7 +30,16 @@
           </div>
         </swiper>
 
-        <div ref="overlay" class="full-width-carousel__overlay">
+        <div
+          ref="overlay"
+          :class="[
+            'full-width-carousel__overlay',
+            {
+              'is-blocking': !hasFadedOut,
+              'is-hidden': overlayHidden
+            }
+          ]"
+        >
           <div class="full-width-carousel__gradient"></div>
           <lottie-animation
             ref="heroLottie"
@@ -81,6 +90,7 @@ export default {
     return {
       hasPlayedHero: false,
       hasFadedOut: false,
+      overlayHidden: false,
       autoplayRunning: false,
       fadeTimeout: null,
       interactionTimeout: null,
@@ -90,8 +100,7 @@ export default {
       heroHeight: 0,
       lottieCompleteFadeOutTimeoutDuration: 1000,
       swiperStartTimeoutDuration: 500,
-      overlayFadeOutStartTimeoutDuration: 600,
-      lottiePlayTimeoutDuration: 800,
+      lottiePlayTimeoutDuration: 200,
       swiperOptions: {
         effect: 'fade',
         fadeEffect: { crossFade: true },
@@ -125,14 +134,10 @@ export default {
   },
   watch: {
     playLottie(newVal) {
-      if (newVal && !this.hasPlayedHero && !sessionStorage.getItem('heroPlayed')) {
-        this.startHeroLottie()
-      }
+      this.startHeroLottie()
     }
   },
   mounted() {
-    // const heroPlayed = sessionStorage.getItem('heroPlayed')
-
     window.addEventListener('scroll', this.handleHeaderStick, { passive: true })
     window.addEventListener('resize', this.updateHeights)
 
@@ -142,15 +147,6 @@ export default {
     })
 
     this.startHeroLottie()
-
-    // if (heroPlayed === 'played') {
-    //   // If already played, ensure overlay is visible but non-blocking immediately
-    //   this.$refs.overlay.style.display = 'flex'
-    //   this.$refs.overlay.style.opacity = '1'
-    //   this.$refs.overlay.style.pointerEvents = 'none'
-    //   this.hasFadedOut = true
-    //   this.hasPlayedHero = true
-    // }
 
     this.$nextTick(() => {
       setTimeout(() => {
@@ -181,15 +177,10 @@ export default {
     },
 
     startHeroLottie() {
-      const overlay = this.$refs.overlay
       const lottie = this.$refs.heroLottie
-      if (!overlay || !lottie) return this.startSwiper()
+      if (!lottie) return this.startSwiper()
 
       this.hasPlayedHero = true
-      overlay.style.display = 'flex'
-      overlay.style.opacity = '1'
-      overlay.style.pointerEvents = 'auto'
-      sessionStorage.setItem('heroPlayed', 'playing')
 
       setTimeout(() => {
         try {
@@ -201,7 +192,6 @@ export default {
     },
 
     onHeroLottieComplete() {
-      // After Lottie completes, ensure overlay is visible but non-blocking (passive)
       clearTimeout(this.fadeTimeout)
       this.fadeTimeout = setTimeout(() => {
         this.makeOverlayPassive()
@@ -211,61 +201,26 @@ export default {
     makeOverlayPassive() {
       if (this.hasFadedOut) return
       this.hasFadedOut = true
-
-      const overlay = this.$refs.overlay
-      if (!overlay) return this.startSwiper()
-
-      // Overlay is visible (opacity: 1) but non-blocking (pointer-events: none)
-      overlay.style.transition = 'opacity 0.6s ease' // Use transition for fade effect
-      overlay.style.opacity = '1'
-      overlay.style.pointerEvents = 'none'
-      overlay.style.display = 'flex'
-
-      sessionStorage.setItem('heroPlayed', 'played')
-
       this.startSwiper()
     },
 
-    // New: Fades the overlay out visually (opacity: 0)
     fadeOutOverlay() {
-      const overlay = this.$refs.overlay
-      if (!overlay) return
-
       clearTimeout(this.interactionTimeout)
+      this.overlayHidden = true
 
-      // Only fade out if it's currently visible
-      if (overlay.style.opacity === '1') {
-        overlay.style.transition = 'opacity 0.3s ease'
-        overlay.style.opacity = '0'
-      }
-
-      // Start timeout to fade it back in after delay
       this.interactionTimeout = setTimeout(() => {
         this.fadeInOverlay()
       }, this.fadeBackInDelay)
     },
 
-    // New: Fades the overlay back in visually (opacity: 1)
     fadeInOverlay() {
-      const overlay = this.$refs.overlay
-      if (!overlay) return
-
-      overlay.style.transition = 'opacity 0.6s ease'
-      overlay.style.opacity = '1'
-      overlay.style.pointerEvents = 'none' // Ensure it remains non-blocking
+      this.overlayHidden = false
     },
 
     handleUserInteraction() {
-      const overlay = this.$refs.overlay
-      if (!overlay) return
-
-      // 1. If Lottie is still playing/blocking, force it to passive mode
-      if (overlay.style.pointerEvents === 'auto' && this.hasPlayedHero) {
+      if (!this.hasFadedOut) {
         this.makeOverlayPassive()
-      }
-
-      // 2. If it's already passive, fade it out
-      if (this.hasFadedOut) {
+      } else {
         this.fadeOutOverlay()
       }
     },
@@ -363,7 +318,16 @@ export default {
     align-items: center;
     z-index: 30;
     pointer-events: none;
-    transition: opacity 0.6s ease;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+
+    &.is-blocking {
+      pointer-events: auto;
+    }
+
+    &.is-hidden {
+      opacity: 0;
+    }
   }
 
   &__gradient {

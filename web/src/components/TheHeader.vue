@@ -2,7 +2,7 @@
   <header
     :class="[
       'the-header background--white flex ai-c jc-c headroom',
-      { 'headroom--unpinned': scrolled }
+      { 'headroom--unpinned': scrolled && hasScrolledOnce }
     ]"
     v-on="{ handleScroll }"
     id="theHeader"
@@ -77,6 +77,7 @@ export default {
       scrolled: false,
       lastPosition: 0,
       headerKey: 0,
+      hasScrolledOnce: false,
       projectsDropdown: {
         primary: {
           link: '/projects',
@@ -126,6 +127,12 @@ export default {
   methods: {
     handleScroll() {
       if (!this.isStuckOnHomepage && this.isHomepage) return
+
+      // Mark that user has scrolled at least once
+      if (!this.hasScrolledOnce && window.scrollY > 0) {
+        this.hasScrolledOnce = true
+      }
+
       // via https://codepen.io/kode88/pen/XRpXej
       if (this.lastPosition < window.scrollY && this.limitPosition < window.scrollY) {
         this.scrolled = true
@@ -138,12 +145,21 @@ export default {
       }
 
       this.lastPosition = window.scrollY
-      // this.scrolled = window.scrollY > 250;
     }
   },
   created() {
     if (typeof window !== 'undefined') {
       window.addEventListener('scroll', this.handleScroll)
+    }
+  },
+  mounted() {
+    // Set initial scroll position to prevent slide-in on mount
+    if (typeof window !== 'undefined') {
+      this.lastPosition = window.scrollY
+      // If page loads scrolled, mark as having scrolled
+      if (window.scrollY > 0) {
+        this.hasScrolledOnce = true
+      }
     }
   },
   destroyed() {
@@ -163,7 +179,7 @@ export default {
   backface-visibility: hidden;
   perspective: 1000;
   width: 100%;
-  z-index: 999999999;
+  z-index: 40;
   border-bottom: 1px solid var(--color--gray-secondary);
 
   > .container {
