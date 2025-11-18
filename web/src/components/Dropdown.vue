@@ -1,8 +1,5 @@
 <template>
-  <li
-    class="dropdown"
-    @mouseleave="closeDropdown"
-  >
+  <li class="dropdown" @mouseleave="closeDropdown">
     <button
       type="button"
       class="dropdown__title"
@@ -13,14 +10,8 @@
     >
       <g-link :to="primary.link">{{ primary.linkText }}</g-link>
     </button>
-    <ul
-      class="dropdown__menu"
-      :id="name + '-dropdown'"
-    >
-      <li
-        v-for="(link, index) in secondary"
-        :key="index"
-      >
+    <ul class="dropdown__menu" :id="name + '-dropdown'">
+      <li v-for="(link, index) in secondary" :key="index">
         <g-link class="small" :to="link.link">{{ link.linkText }}</g-link>
       </li>
     </ul>
@@ -74,7 +65,6 @@ export default {
       margin-left: 7.5px;
 
       &:not(:last-child) {
-
         a {
           border-bottom: 1px solid var(--color--white);
         }
@@ -98,12 +88,9 @@ export default {
 }
 
 .headroom:not(.headroom--unpinned) {
-
   .dropdown {
-
     &:hover,
     &:focus-within {
-
       .dropdown__menu {
         opacity: 1;
         height: auto;

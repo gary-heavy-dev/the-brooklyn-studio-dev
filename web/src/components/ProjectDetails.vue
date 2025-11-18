@@ -1,8 +1,10 @@
 <template>
   <section class="project-details background--gray-secondary">
-    <div class="project-details__inner container">
+    <div id="projectInfo" class="project-details__inner container">
       <div class="project-details__intro">
-        <p class="project-details__intro-txt" v-if="content.detailsIntro">{{ content.detailsIntro }}</p>
+        <p class="project-details__intro-txt" v-if="content.detailsIntro">
+          {{ content.detailsIntro }}
+        </p>
         <div class="project-details__intro-images gap-20" v-if="content.detailsGallery">
           <div
             v-for="(image, index) in content.detailsGallery"
@@ -23,27 +25,36 @@
       <div class="project-details__info">
         <div class="project-details__info-item">
           <h3 class="color--navy mb-15">Building Information</h3>
-          <div
-            v-for="(stat, index) in content.detailsBuildingInfo"
-            :key="index"
-          >
-            <h4 class="project-details__info-item-sub sub upper color--gray mb-15">{{ stat.heading }}</h4>
+          <div v-for="(stat, index) in content.detailsBuildingInfo" :key="index">
+            <h4 class="project-details__info-item-sub sub upper color--gray mb-15">
+              {{ stat.heading }}
+            </h4>
             <div v-if="stat.link && stat.newTab" class="xsmall project-details__info-item-desc">
-              <a class="project-details--building-info-link" v-bind:href="stat.link" target="_blank" rel="noopener">{{ stat.text }}</a>
+              <a
+                class="project-details--building-info-link"
+                v-bind:href="stat.link"
+                target="_blank"
+                rel="noopener"
+                >{{ stat.text }}</a
+              >
             </div>
-            <div v-else-if="stat.link && !stat.newTab" class="xsmall project-details__info-item-desc">
-              <a class="project-details--building-info-link" v-bind:href="stat.link">{{ stat.text }}</a>
+            <div
+              v-else-if="stat.link && !stat.newTab"
+              class="xsmall project-details__info-item-desc"
+            >
+              <a class="project-details--building-info-link" v-bind:href="stat.link">{{
+                stat.text
+              }}</a>
             </div>
             <div v-else class="xsmall project-details__info-item-desc">{{ stat.text }}</div>
           </div>
         </div>
         <div class="project-details__info-item">
           <h3 class="color--navy mb-15">Credits</h3>
-          <div
-            v-for="(credit, index) in content.detailsCredits"
-            :key="index"
-          >
-            <h4 class="project-details__info-item-sub sub upper color--gray">{{ credit.heading }}</h4>
+          <div v-for="(credit, index) in content.detailsCredits" :key="index">
+            <h4 class="project-details__info-item-sub sub upper color--gray">
+              {{ credit.heading }}
+            </h4>
             <div class="xsmall project-details__info-item-desc">{{ credit.text }}</div>
           </div>
         </div>

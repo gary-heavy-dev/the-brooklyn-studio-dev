@@ -50,11 +50,16 @@ export default {
       const activeCatLength = this.activeCategories.length
       const activeTypeLength = this.activeTypes.length
 
+      console.log('Active Categories:', this.activeCategories)
+      console.log('Active Types:', this.activeTypes)
+
       if (!activeCatLength && !activeTypeLength) {
         return this.content
       }
 
+      // this doesnt run on checking multiple boxes:::
       return this.content.filter(project => {
+        console.log('activeTypeLength:: ', activeTypeLength)
         let matchesCategory = true
         let matchesType = true
 
@@ -65,12 +70,22 @@ export default {
         }
 
         if (activeTypeLength) {
-          matchesType = project.projectTypes?.some(type =>
-            this.activeTypes.includes(type.slug?.current)
-          )
+          const projectTypeSlugs = project.projectTypes?.map(t => t.slug?.current) || []
+          console.log('Project types:', projectTypeSlugs, 'Active types:', this.activeTypes)
+
+          matchesType = project.projectTypes?.some(type => {
+            const typeSlug = type.slug?.current
+            const matches = this.activeTypes.includes(typeSlug)
+            console.log(`Checking if "${typeSlug}" is in [${this.activeTypes}]: ${matches}`)
+            return matches
+          })
+
+          console.log('Project matches type filter:', matchesType)
         }
 
-        return matchesCategory && matchesType
+        const result = matchesCategory && matchesType
+        console.log('Final result:', result, '\n---')
+        return result
       })
     }
   },
@@ -79,21 +94,27 @@ export default {
       const filterGroup = event.group
       const value = event.value
       const status = event.status
-      let activeArray = filterGroup === 'category' ? this.activeCategories : this.activeTypes
-
-      if (status) {
-        if (!activeArray.includes(value)) {
-          activeArray.push(value)
-        }
-      } else {
-        activeArray = activeArray.filter(item => item != value)
-      }
 
       if (filterGroup === 'category') {
-        this.activeCategories = activeArray
-      } else {
-        this.activeTypes = activeArray
+        if (status) {
+          // Add to array
+          this.activeCategories = [...this.activeCategories, value]
+        } else {
+          // Remove from array
+          this.activeCategories = this.activeCategories.filter(item => item !== value)
+        }
+      } else if (filterGroup === 'type') {
+        if (status) {
+          // Add to array
+          this.activeTypes = [...this.activeTypes, value]
+        } else {
+          // Remove from array
+          this.activeTypes = this.activeTypes.filter(item => item !== value)
+        }
       }
+
+      console.log('After update - activeTypes:', this.activeTypes)
+      console.log('After update - activeCategories:', this.activeCategories)
 
       this.updateURL()
     },
@@ -137,6 +158,13 @@ export default {
     }
   },
   mounted() {
+    console.log('Content array:', this.content)
+    console.log('Content length:', this.content?.length)
+    if (this.content && this.content.length > 0) {
+      console.log('Sample project:', this.content[0])
+      console.log('projectTypes:', this.content[0]?.projectTypes)
+      console.log('projectCategories:', this.content[0]?.projectCategories)
+    }
     this.updateFromQuery(this.$route.query)
 
     this.$watch(

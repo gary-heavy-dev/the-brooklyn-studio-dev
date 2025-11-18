@@ -47,17 +47,7 @@ export default {
 
   methods: {
     updateActiveGridFromHash(hash) {
-      const categorySlug = (hash || '?type=all').replace('?type=', '')
-
-      if (categorySlug === 'all') {
-        this.filtered = this.projects
-
-        return
-      }
-
-      this.filtered = this.projects.filter(project =>
-        project.projectTypes?.some(cat => cat.slug?.current === categorySlug)
-      )
+      this.filtered = this.projects
     }
   }
 }

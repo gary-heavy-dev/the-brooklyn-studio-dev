@@ -1,12 +1,8 @@
 <template>
-  <li
-    class="checkbox"
-    :data-value="label"
-    @click="checkboxClick"
-  >
+  <li class="checkbox" :data-value="label" @click="checkboxClick">
     <button
       role="checkbox"
-      :class="['checkbox__button flex', {'checked' : status}]"
+      :class="['checkbox__button flex', { checked: status }]"
       :aria-checked="status === false ? 'false' : 'true'"
     >
       <span class="checkbox__check background--gray-secondary"></span>
@@ -25,28 +21,25 @@ export default {
   data() {
     return {
       status: false,
-      selectedCategories: []
+      selectedTypes: []
     }
   },
   methods: {
     checkboxClick(e) {
       this.status = !this.status
-      this.$emit(
-        'checkbox-clicked',
-        { 
-          value: e.target.getAttribute('data-value'), 
-          status: this.status
-        }
-      )
+      this.$emit('checkbox-clicked', {
+        value: e.target.getAttribute('data-value'),
+        status: this.status
+      })
     }
   },
   mounted() {
     const params = new URLSearchParams(window.location.search)
-    const categoryParam = params.get('category')
-    if (categoryParam) {
-      this.selectedCategories = categoryParam.split(',').map(decodeURIComponent)
+    const typeParam = params.get('type')
+    if (typeParam) {
+      this.selectedTypes = typeParam.split(',').map(decodeURIComponent)
     }
-    if (this.selectedCategories.includes(this.label)) {
+    if (this.selectedTypes.includes(this.label)) {
       this.status = true
     }
 
@@ -64,8 +57,12 @@ export default {
 .checkbox {
   position: relative;
   padding-left: 15px;
-  margin: 0 48px 0 0;
+  margin: auto 30px auto 0;
   cursor: pointer;
+
+  &:last-child {
+    margin: auto 0 auto 0;
+  }
 
   * {
     pointer-events: none;
@@ -98,11 +95,9 @@ export default {
   }
 
   &__button.checked {
-
     .checkbox__check {
-
       &::before {
-        content: "";
+        content: '';
       }
     }
   }
