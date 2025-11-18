@@ -428,6 +428,10 @@ body .p-mobile-copy-block {
   }
 }
 
+.h-screen {
+  height: 100vh;
+}
+
 .h-100vh {
   height: calc(100vh - var(--header-height));
 
