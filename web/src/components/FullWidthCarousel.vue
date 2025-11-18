@@ -131,7 +131,7 @@ export default {
     }
   },
   mounted() {
-    const heroPlayed = sessionStorage.getItem('heroPlayed')
+    // const heroPlayed = sessionStorage.getItem('heroPlayed')
 
     window.addEventListener('scroll', this.handleHeaderStick, { passive: true })
     window.addEventListener('resize', this.updateHeights)
@@ -143,14 +143,14 @@ export default {
 
     this.startHeroLottie()
 
-    if (heroPlayed === 'played') {
-      // If already played, ensure overlay is visible but non-blocking immediately
-      this.$refs.overlay.style.display = 'flex'
-      this.$refs.overlay.style.opacity = '1'
-      this.$refs.overlay.style.pointerEvents = 'none'
-      this.hasFadedOut = true
-      this.hasPlayedHero = true
-    }
+    // if (heroPlayed === 'played') {
+    //   // If already played, ensure overlay is visible but non-blocking immediately
+    //   this.$refs.overlay.style.display = 'flex'
+    //   this.$refs.overlay.style.opacity = '1'
+    //   this.$refs.overlay.style.pointerEvents = 'none'
+    //   this.hasFadedOut = true
+    //   this.hasPlayedHero = true
+    // }
 
     this.$nextTick(() => {
       setTimeout(() => {
