@@ -1,48 +1,56 @@
 <template>
-  <section class="full-width-carousel o-h" id="fullWidthCarousel">
-    <swiper
-      ref="heroSwiper"
-      :options="swiperOptions"
-      class="swiper full-width-carousel__swiper"
-    >
-      <swiper-slide v-for="(image, index) in carouselImages" :key="index">
-        <BaseImage
-          v-if="image"
-          :src="image"
-          :lazy="true"
-          :caption="image.caption"
-          :captionStyle="image.captionStyle"
-        />
-      </swiper-slide>
+  <div>
+    <section class="full-width-carousel o-h" id="fullWidthCarousel">
+      <div class="h-screen" ref="heroSection">
+        <swiper
+          ref="heroSwiper"
+          :options="swiperOptions"
+          class="swiper full-width-carousel__swiper"
+        >
+          <swiper-slide v-for="(image, index) in carouselImages" :key="index">
+            <BaseImage
+              v-if="image"
+              :src="image"
+              :lazy="true"
+              :caption="image.caption"
+              :captionStyle="image.captionStyle"
+            />
+          </swiper-slide>
 
-      <div class="swiper-button-prev" slot="button-prev">
-        <SliderArrow />
-      </div>
-      <div class="swiper-button-next" slot="button-next">
-        <SliderArrow />
-      </div>
-    </swiper>
+          <div class="swiper-button-prev" slot="button-prev">
+            <SliderArrow />
+          </div>
+        </swiper>
 
-    <div ref="overlay" class="full-width-carousel__overlay">
-      <div class="full-width-carousel__gradient"></div>
-      <lottie-animation
-        ref="heroLottie"
-        :animationData="heroAnimationData"
-        :autoPlay="false"
-        @complete="onHeroLottieComplete"
-      />
+        <div ref="overlay" class="full-width-carousel__overlay">
+          <div class="full-width-carousel__gradient"></div>
+          <lottie-animation
+            ref="heroLottie"
+            :animationData="heroAnimationData"
+            :autoPlay="false"
+            @complete="onHeroLottieComplete"
+          />
+        </div>
+
+        <button
+          class="full-width-carousel__btn-play"
+          :aria-pressed="autoplayRunning"
+          :aria-label="autoplayRunning ? 'Pause carousel autoplay' : 'Play carousel autoplay'"
+          @click="toggleAutoplay"
+        >
+          <span v-if="autoplayRunning">❚❚ Pause</span>
+          <span v-else>▶ Play</span>
+        </button>
+      </div>
+    </section>
+    <div
+      ref="headerPlaceholder"
+      :style="{ height: headerStuck ? `${headerHeight}px` : '0px' }"
+    ></div>
+    <div :class="['homepage-header-wrapper', { 'is-stuck': headerStuck }]">
+      <TheHeader ref="theHeader" :is-stuck-on-homepage="headerStuck" :is-homepage="true" />
     </div>
-
-    <button
-      class="full-width-carousel__btn-play"
-      :aria-pressed="autoplayRunning"
-      :aria-label="autoplayRunning ? 'Pause carousel autoplay' : 'Play carousel autoplay'"
-      @click="toggleAutoplay"
-    >
-      <span v-if="autoplayRunning">❚❚ Pause</span>
-      <span v-else>▶ Play</span>
-    </button>
-  </section>
+  </div>
 </template>
 
 <script>
@@ -50,13 +58,14 @@ import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
 import 'swiper/css/swiper.css'
 import BaseImage from '~/components/BaseImage'
 import SliderArrow from '~/components/SliderArrow'
+import TheHeader from '~/components/TheHeader.vue'
 import LottieAnimation from 'lottie-web-vue'
 import DesktopHeroAnimation from '~/components/lottie/desktop-logo-animation.json'
 import MobileHeroAnimation from '~/components/lottie/mobile-logo-animation.json'
 
 export default {
   name: 'FullWidthCarousel',
-  components: { Swiper, SwiperSlide, BaseImage, SliderArrow, LottieAnimation },
+  components: { Swiper, SwiperSlide, BaseImage, SliderArrow, LottieAnimation, TheHeader },
   props: {
     playLottie: Boolean
   },
@@ -66,6 +75,9 @@ export default {
       hasFadedOut: false,
       autoplayRunning: false,
       fadeTimeout: null,
+      headerStuck: false,
+      headerHeight: 0,
+      heroHeight: 0,
       lottieCompleteFadeOutTimeoutDuration: 300,
       swiperStartTimeoutDuration: 500,
       overlayFadeOutStartTimeoutDuration: 600,
@@ -80,14 +92,13 @@ export default {
         navigation: {
           nextEl: '.swiper-button-next',
           prevEl: '.swiper-button-prev'
-        },
-      },
+        }
+      }
     }
   },
   computed: {
     heroAnimationData() {
-      if (typeof window !== 'undefined' && window.innerWidth <= 1024)
-        return MobileHeroAnimation
+      if (typeof window !== 'undefined' && window.innerWidth <= 1024) return MobileHeroAnimation
       return DesktopHeroAnimation
     },
     carouselImages() {
@@ -101,20 +112,26 @@ export default {
     },
     delay() {
       return this.$static.page.heroImages?.delay || 5000
-    },
+    }
   },
   watch: {
     playLottie(newVal) {
       if (newVal && !this.hasPlayedHero && !sessionStorage.getItem('heroPlayed')) {
         this.startHeroLottie()
       }
-    },
+    }
   },
   mounted() {
     const introPlayed = sessionStorage.getItem('intro')
     const heroPlayed = sessionStorage.getItem('heroPlayed')
 
     window.addEventListener('scroll', this.handleScroll, { passive: true })
+    window.addEventListener('scroll', this.handleHeaderStick, { passive: true })
+    window.addEventListener('resize', this.updateHeights)
+
+    this.$nextTick(() => {
+      this.updateHeights()
+    })
 
     if (!this.isShowIntro && heroPlayed !== 'played') {
       this.startHeroLottie()
@@ -131,8 +148,24 @@ export default {
   beforeDestroy() {
     clearTimeout(this.fadeTimeout)
     window.removeEventListener('scroll', this.handleScroll)
+    window.removeEventListener('scroll', this.handleHeaderStick)
+    window.removeEventListener('resize', this.updateHeights)
   },
   methods: {
+    updateHeights() {
+      if (this.$refs.heroSection) {
+        this.heroHeight = this.$refs.heroSection.offsetHeight
+      }
+      if (this.$refs.theHeader && this.$refs.theHeader.$el) {
+        this.headerHeight = this.$refs.theHeader.$el.offsetHeight
+      }
+    },
+
+    handleHeaderStick() {
+      const scrollY = window.scrollY
+      this.headerStuck = scrollY >= this.heroHeight
+    },
+
     startHeroLottie() {
       const overlay = this.$refs.overlay
       const lottie = this.$refs.heroLottie
@@ -188,7 +221,7 @@ export default {
       if (this.autoplay) {
         swiper.params.autoplay = {
           delay: this.delay || 5000,
-          disableOnInteraction: false,
+          disableOnInteraction: false
         }
         swiper?.autoplay?.start()
         this.autoplayRunning = true
@@ -219,7 +252,7 @@ export default {
       if (window.scrollY > 10 && !this.hasFadedOut) {
         this.fadeOutHeroOverlay()
       }
-    },
+    }
   }
 }
 </script>
@@ -228,12 +261,7 @@ export default {
 .full-width-carousel {
   position: relative;
   width: 100%;
-  height: calc(100vh - 53px);
   overflow: hidden;
-
-  @include laptop {
-    height: calc(100vh - 72px);
-  }
 
   &__swiper {
     width: 100%;
@@ -294,6 +322,19 @@ export default {
     &:hover {
       background: rgba(0, 0, 0, 0.7);
     }
+  }
+}
+
+.homepage-header-wrapper {
+  position: relative;
+  z-index: 999999999;
+
+  &.is-stuck {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
   }
 }
 </style>

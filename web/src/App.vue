@@ -1,6 +1,6 @@
 <template>
   <Layout>
-    <TheHeader />
+    <TheHeader v-if="showGlobalHeader" />
     <main class="main">
       <transition name="fade" mode="out-in">
         <router-view />
@@ -19,23 +19,32 @@ export default {
     TheHeader,
     TheFooter
   },
+  computed: {
+    showGlobalHeader() {
+      return this.$route.path !== '/'
+    }
+  },
   updated() {
     const b = document.body
 
     if (b.classList.contains('menu--open')) {
       b.classList.add('menu--closing')
-      setTimeout(() => { b.classList.remove('menu--open') }, 400)
-      setTimeout(() => { b.classList.remove('menu--closing') }, 700)
+      setTimeout(() => {
+        b.classList.remove('menu--open')
+      }, 400)
+      setTimeout(() => {
+        b.classList.remove('menu--closing')
+      }, 700)
     }
   },
   created() {
-    if (typeof document !== "undefined") {
+    if (typeof document !== 'undefined') {
       setTimeout(() => document.body.classList.add('page-loaded'), 300)
     }
   },
   watch: {
-    $route (to, from) {
-      if (typeof document !== "undefined") {
+    $route(to, from) {
+      if (typeof document !== 'undefined') {
         document.body.classList.remove('page-loaded')
         setTimeout(() => document.body.classList.add('page-loaded'), 300)
       }
@@ -47,7 +56,7 @@ export default {
 <style lang="scss">
 .fade-enter-active,
 .fade-leave-active {
-  transition: all .25s;
+  transition: all 0.25s;
 }
 
 .fade-enter,
@@ -56,7 +65,6 @@ export default {
 }
 
 .page-loaded {
-
   .fade--in-up {
     opacity: 1;
     transform: translateY(0px);

@@ -1,24 +1,17 @@
 <template>
   <header
-    :class="['the-header background--white flex ai-c jc-c headroom', {'headroom--unpinned': scrolled}]"
+    :class="[
+      'the-header background--white flex ai-c jc-c headroom',
+      { 'headroom--unpinned': scrolled }
+    ]"
     v-on="{ handleScroll }"
     id="theHeader"
   >
     <div class="container w-100 flex jc-sb">
-      <g-link
-        to="/"
-        class="flex ai-c"
-        aria-label="Link to Homepage"
-        @click.native="$scrollToTop"
-      >
-        <LogoType
-          class="the-header__logo"
-        />
+      <g-link to="/" class="flex ai-c" aria-label="Link to Homepage" @click.native="$scrollToTop">
+        <LogoType class="the-header__logo" />
       </g-link>
-      <nav
-        class="the-header__menu color--gray-tertiary"
-        aria-label="Main Navigation"
-      >
+      <nav class="the-header__menu color--gray-tertiary" aria-label="Main Navigation">
         <MenuToggle />
         <ul>
           <li class="mobile-only">
@@ -68,6 +61,16 @@ export default {
     MenuToggle,
     MenuMobileFooter
   },
+  props: {
+    isStuckOnHomepage: {
+      type: Boolean,
+      default: false
+    },
+    isHomepage: {
+      type: Boolean,
+      default: false
+    }
+  },
   data() {
     return {
       limitPosition: 78,
@@ -91,7 +94,7 @@ export default {
           {
             link: '/projects?type=adaptive-reuse',
             linkText: 'Adaptive Reuse'
-          },
+          }
         ]
       },
       aboutDropdown: {
@@ -115,36 +118,37 @@ export default {
           {
             link: '/credits',
             linkText: 'Site Credits'
-          },
+          }
         ]
       }
-    };
+    }
   },
   methods: {
     handleScroll() {
+      if (!this.isStuckOnHomepage && this.isHomepage) return
       // via https://codepen.io/kode88/pen/XRpXej
       if (this.lastPosition < window.scrollY && this.limitPosition < window.scrollY) {
-        this.scrolled = true;
+        this.scrolled = true
         // move up!
-      } 
-      
+      }
+
       if (this.lastPosition > window.scrollY) {
-        this.scrolled = false;
+        this.scrolled = false
         // move down
       }
-      
-      this.lastPosition = window.scrollY;
+
+      this.lastPosition = window.scrollY
       // this.scrolled = window.scrollY > 250;
-    },
+    }
   },
   created() {
     if (typeof window !== 'undefined') {
-      window.addEventListener("scroll", this.handleScroll);
+      window.addEventListener('scroll', this.handleScroll)
     }
   },
   destroyed() {
     if (typeof window !== 'undefined') {
-      window.removeEventListener("scroll", this.handleScroll);
+      window.removeEventListener('scroll', this.handleScroll)
     }
   }
 }
@@ -229,9 +233,7 @@ export default {
         align-items: center;
 
         &:last-of-type {
-
           > a {
-
             @include desktop {
               margin-right: 0;
             }
@@ -244,27 +246,26 @@ export default {
 
         > a,
         > button > a {
-
           @include desktop {
             position: relative;
             display: inline-block;
             line-height: normal;
 
             &:after {
-              content: "";
+              content: '';
               position: absolute;
               right: 0;
               bottom: -3px;
               background: var(--color--navy-light);
               height: 1px;
               width: 0;
-              transition: width 0.35s ease-in-out, background 0.35s ease-in-out, opacity 0.35s ease-in-out;
+              transition: width 0.35s ease-in-out, background 0.35s ease-in-out,
+                opacity 0.35s ease-in-out;
               opacity: 0;
             }
 
             &:hover,
             &.active {
-
               &:after {
                 left: 0;
                 right: auto;
@@ -273,14 +274,12 @@ export default {
             }
 
             &.active {
-
               &:after {
                 opacity: 0.5;
               }
             }
 
             &:hover {
-
               &:after {
                 background: var(--color--navy);
                 opacity: 1;
@@ -291,7 +290,6 @@ export default {
 
         > a,
         > button {
-
           @include desktop {
             margin: 0 31.5px;
             display: inline-block;
@@ -332,9 +330,7 @@ export default {
 .menu--open,
 .menu--closing,
 .menu--open.menu--opening {
-
   .the-header__menu {
-
     ul {
       display: flex;
       flex-direction: column;
@@ -344,9 +340,7 @@ export default {
 
 .menu--closing,
 .menu--open.menu--opening {
-
   .the-header__menu {
-
     ul {
       opacity: 0;
 
@@ -358,9 +352,7 @@ export default {
 }
 
 .menu--open {
-  
   .the-header__menu {
-
     ul {
       opacity: 1;
     }
@@ -368,7 +360,6 @@ export default {
 }
 
 @include desktop {
-
   .headroom {
     will-change: transform;
     transition: transform 200ms linear;
