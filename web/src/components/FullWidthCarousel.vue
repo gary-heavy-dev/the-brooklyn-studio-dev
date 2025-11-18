@@ -17,8 +17,16 @@
             />
           </swiper-slide>
 
-          <div class="swiper-button-prev" slot="button-prev">
-            <SliderArrow />
+          <div class="swiper-button__container">
+            <div class="swiper-button-prev" slot="button-prev">
+              <SliderArrow />
+            </div>
+          </div>
+
+          <div class="swiper-button__container">
+            <div class="swiper-button-next" slot="button-next">
+              <SliderArrow />
+            </div>
           </div>
         </swiper>
 
@@ -38,8 +46,8 @@
           :aria-label="autoplayRunning ? 'Pause carousel autoplay' : 'Play carousel autoplay'"
           @click="toggleAutoplay"
         >
-          <span v-if="autoplayRunning">❚❚ Pause</span>
-          <span v-else>▶ Play</span>
+          <span aria-label="Pause Image Carousel" v-if="autoplayRunning">❚❚</span>
+          <span aria-label="Play Image Carousel" v-else>▶</span>
         </button>
       </div>
     </section>
@@ -75,14 +83,15 @@ export default {
       hasFadedOut: false,
       autoplayRunning: false,
       fadeTimeout: null,
+      interactionTimeout: null,
+      fadeBackInDelay: 4500,
       headerStuck: false,
       headerHeight: 0,
       heroHeight: 0,
-      lottieCompleteFadeOutTimeoutDuration: 300,
+      lottieCompleteFadeOutTimeoutDuration: 1000,
       swiperStartTimeoutDuration: 500,
       overlayFadeOutStartTimeoutDuration: 600,
       lottiePlayTimeoutDuration: 800,
-      overlayFadeOutTimeoutDuration: 5800,
       swiperOptions: {
         effect: 'fade',
         fadeEffect: { crossFade: true },
@@ -122,34 +131,39 @@ export default {
     }
   },
   mounted() {
-    const introPlayed = sessionStorage.getItem('intro')
     const heroPlayed = sessionStorage.getItem('heroPlayed')
 
-    window.addEventListener('scroll', this.handleScroll, { passive: true })
     window.addEventListener('scroll', this.handleHeaderStick, { passive: true })
     window.addEventListener('resize', this.updateHeights)
 
     this.$nextTick(() => {
       this.updateHeights()
+      this.addSwiperInteractionListeners()
     })
 
-    if (!this.isShowIntro && heroPlayed !== 'played') {
-      this.startHeroLottie()
-    }
+    this.startHeroLottie()
 
     if (heroPlayed === 'played') {
-      this.$nextTick(() => {
-        setTimeout(() => {
-          this.startSwiper()
-        }, this.swiperStartTimeoutDuration)
-      })
+      // If already played, ensure overlay is visible but non-blocking immediately
+      this.$refs.overlay.style.display = 'flex'
+      this.$refs.overlay.style.opacity = '1'
+      this.$refs.overlay.style.pointerEvents = 'none'
+      this.hasFadedOut = true
+      this.hasPlayedHero = true
     }
+
+    this.$nextTick(() => {
+      setTimeout(() => {
+        this.startSwiper()
+      }, this.swiperStartTimeoutDuration)
+    })
   },
   beforeDestroy() {
     clearTimeout(this.fadeTimeout)
-    window.removeEventListener('scroll', this.handleScroll)
+    clearTimeout(this.interactionTimeout)
     window.removeEventListener('scroll', this.handleHeaderStick)
     window.removeEventListener('resize', this.updateHeights)
+    this.removeSwiperInteractionListeners()
   },
   methods: {
     updateHeights() {
@@ -175,43 +189,110 @@ export default {
       overlay.style.display = 'flex'
       overlay.style.opacity = '1'
       overlay.style.pointerEvents = 'auto'
+      sessionStorage.setItem('heroPlayed', 'playing')
 
       setTimeout(() => {
         try {
           lottie.play()
         } catch (e) {
-          this.fadeOutHeroOverlay()
+          this.makeOverlayPassive()
         }
       }, this.lottiePlayTimeoutDuration)
-
-      this.fadeTimeout = setTimeout(() => {
-        this.fadeOutHeroOverlay()
-      }, this.overlayFadeOutTimeoutDuration)
     },
 
     onHeroLottieComplete() {
+      // After Lottie completes, ensure overlay is visible but non-blocking (passive)
       clearTimeout(this.fadeTimeout)
       this.fadeTimeout = setTimeout(() => {
-        this.fadeOutHeroOverlay()
+        this.makeOverlayPassive()
       }, this.lottieCompleteFadeOutTimeoutDuration)
     },
 
-    fadeOutHeroOverlay() {
+    makeOverlayPassive() {
       if (this.hasFadedOut) return
       this.hasFadedOut = true
 
       const overlay = this.$refs.overlay
       if (!overlay) return this.startSwiper()
 
-      overlay.style.transition = 'opacity 0.6s ease'
-      overlay.style.opacity = '0'
+      // Overlay is visible (opacity: 1) but non-blocking (pointer-events: none)
+      overlay.style.transition = 'opacity 0.6s ease' // Use transition for fade effect
+      overlay.style.opacity = '1'
       overlay.style.pointerEvents = 'none'
+      overlay.style.display = 'flex'
+
       sessionStorage.setItem('heroPlayed', 'played')
 
-      setTimeout(() => {
-        overlay.style.display = 'none'
-        this.startSwiper()
-      }, this.overlayFadeOutStartTimeoutDuration)
+      this.startSwiper()
+    },
+
+    // New: Fades the overlay out visually (opacity: 0)
+    fadeOutOverlay() {
+      const overlay = this.$refs.overlay
+      if (!overlay) return
+
+      clearTimeout(this.interactionTimeout)
+
+      // Only fade out if it's currently visible
+      if (overlay.style.opacity === '1') {
+        overlay.style.transition = 'opacity 0.3s ease'
+        overlay.style.opacity = '0'
+      }
+
+      // Start timeout to fade it back in after delay
+      this.interactionTimeout = setTimeout(() => {
+        this.fadeInOverlay()
+      }, this.fadeBackInDelay)
+    },
+
+    // New: Fades the overlay back in visually (opacity: 1)
+    fadeInOverlay() {
+      const overlay = this.$refs.overlay
+      if (!overlay) return
+
+      overlay.style.transition = 'opacity 0.6s ease'
+      overlay.style.opacity = '1'
+      overlay.style.pointerEvents = 'none' // Ensure it remains non-blocking
+    },
+
+    handleUserInteraction() {
+      const overlay = this.$refs.overlay
+      if (!overlay) return
+
+      // 1. If Lottie is still playing/blocking, force it to passive mode
+      if (overlay.style.pointerEvents === 'auto' && this.hasPlayedHero) {
+        this.makeOverlayPassive()
+      }
+
+      // 2. If it's already passive, fade it out
+      if (this.hasFadedOut) {
+        this.fadeOutOverlay()
+      }
+    },
+
+    addSwiperInteractionListeners() {
+      const carousel = this.$refs.heroSection
+      if (!carousel) return
+      carousel.addEventListener('click', this.handleCarouselClick)
+    },
+
+    removeSwiperInteractionListeners() {
+      const carousel = this.$refs.heroSection
+      if (carousel) {
+        carousel.removeEventListener('click', this.handleCarouselClick)
+      }
+    },
+
+    handleCarouselClick(event) {
+      const target = event.target
+      const isControlClick =
+        target.closest('.swiper-button-prev') ||
+        target.closest('.swiper-button-next') ||
+        target.closest('.full-width-carousel__btn-play')
+
+      if (isControlClick) {
+        this.handleUserInteraction()
+      }
     },
 
     startSwiper() {
@@ -246,12 +327,7 @@ export default {
         swiper.autoplay.start()
         this.autoplayRunning = true
       }
-    },
-
-    handleScroll() {
-      if (window.scrollY > 10 && !this.hasFadedOut) {
-        this.fadeOutHeroOverlay()
-      }
+      this.handleUserInteraction()
     }
   }
 }
@@ -323,11 +399,41 @@ export default {
       background: rgba(0, 0, 0, 0.7);
     }
   }
+  .swiper-button__container {
+    display: none;
+
+    @include laptop {
+      display: block;
+      position: absolute;
+      top: 0;
+      height: 100%;
+      width: 33vw;
+      z-index: 35;
+    }
+  }
+
+  .swiper-button__container:has(.swiper-button-prev) {
+    left: 0;
+  }
+  .swiper-button__container:has(.swiper-button-next) {
+    right: 0;
+  }
+
+  .swiper-button-prev,
+  .swiper-button-next {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+  }
+
+  .swiper-button__container:hover .swiper-button-prev,
+  .swiper-button__container:hover .swiper-button-next {
+    opacity: 1;
+  }
 }
 
 .homepage-header-wrapper {
   position: relative;
-  z-index: 999999999;
+  z-index: 40;
 
   &.is-stuck {
     position: fixed;
