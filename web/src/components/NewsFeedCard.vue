@@ -17,7 +17,7 @@
         :captionStyle="post.altThumbnail.captionStyle"
       />
       <div class="sub color--gray-tertiary news-feed-card__date">{{ post.publishedAt }}</div>
-      <h3 v-html="post.title">{{ post.publisher.title }}</h3>
+      <h3 v-html="post.title"></h3>
     </div>
   </g-link>
 </template>

@@ -61,9 +61,6 @@ export default {
       }
     }
   },
-  mounted() {
-    console.log('post:: ', this.news.map(post => post.publisher?.title))
-  },
   computed: {
     title() {
       return this.content?.title || ''
