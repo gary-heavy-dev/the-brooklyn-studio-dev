@@ -12,17 +12,14 @@
         </g-link>
       </div>
 
-      <swiper
-        :options="swiperOptions"
-        class="swiper news-feed-carousel__swiper"
-      >
+      <swiper :options="swiperOptions" class="swiper news-feed-carousel__swiper">
         <swiper-slide v-for="(post, index) in news" :key="index">
           <g-link
             :to="'/news/' + post.slug.current"
             class="news-feed-carousel__card mb-100 color--gray-tertiary"
           >
             <div class="grid__card">
-              <BaseImage
+              <!-- <BaseImage
                 v-if="post.altThumbnail && post.altThumbnail.asset"
                 :src="post.altThumbnail"
                 :lazy="true"
@@ -31,8 +28,10 @@
                 :y="140"
                 :caption="post.altThumbnail.caption"
                 :captionStyle="post.altThumbnail.captionStyle"
-              />
-              <h3 class="h4 news-feed-carousel__card-title" v-html="post.displayTitle"></h3>
+              /> -->
+              <h3 v-if="post.publisher?.title" class="h4 news-feed-carousel__card-title">
+                {{ post.publisher.title }}
+              </h3>
             </div>
           </g-link>
         </swiper-slide>
@@ -62,9 +61,16 @@ export default {
       }
     }
   },
+  mounted() {
+    console.log('post:: ', this.news.map(post => post.publisher?.title))
+  },
   computed: {
-    title() { return this.content?.title || '' },
-    news() { return this.content?.news || [] },
+    title() {
+      return this.content?.title || ''
+    },
+    news() {
+      return this.content?.news || []
+    },
     swiperOptions() {
       return {
         slidesPerView: 1,
@@ -88,70 +94,56 @@ export default {
 }
 </script>
 
-
 <style lang="scss">
-  .news-feed-carousel {
-    padding: 60px 0;
+.news-feed-carousel {
+  padding: 60px 0;
 
-    &__heading {
-      display: flex;
-      gap: 8px;
-      align-items: end;
-      margin-bottom: 60px;
+  &__heading {
+    display: flex;
+    gap: 8px;
+    align-items: end;
+    margin-bottom: 60px;
 
-      &-title {
-        margin: 0;
-      }
-
-      &-cta {
-        color: var(--color--gray);
-      }
+    &-title {
+      margin: 0;
     }
 
-    &__card {
-      position: relative;
-      display: block;
-      transition: all 0.3s ease-in-out;
-
-      &::after {
-        content: '';
-        position: absolute;
-        inset: 0;
-        border: 1px solid var(--color--navy);
-        background-color: rgb(0 0 0 / 30%);
-        transition: all 0.3s ease-in-out;
-        opacity: 0;
-        visibility: hidden;
-      }
-
-      &:hover {
-        &::after {
-          opacity: 1;
-          visibility: visible;
-        }
-
-        .h4 {
-          color: #fff;
-        }
-      }
-    }
-
-    &__card-title {
-      position: absolute;
-      z-index: 1;
-      top: 50%;
-      left: 10px;
-      right: 10px;
-      transform: translateY(-50%);
-      font-size: 30px;
-      text-align: center;
-      text-transform: capitalize;
-      color: var(--color--navy);
-      transition: 0.3s ease;
-    }
-
-    .grid__card::after {
-      display: none;
+    &-cta {
+      color: var(--color--gray);
     }
   }
+
+  &__card {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease-in-out;
+    width: 100%;
+    aspect-ratio: 14/17;
+    border: solid 1px var(--color--gray-secondary);
+    background-color: var(--color--gray-secondary);
+
+    &:hover {
+      background-color: rgb(0 0 0 / 20%);
+      .h4 {
+        color: #fff;
+      }
+    }
+  }
+
+  &__card-title {
+    z-index: 1;
+    font-size: 30px;
+    text-align: center;
+    margin-bottom: 30px;
+    text-transform: capitalize;
+    color: var(--color--navy);
+    transition: 0.3s ease;
+  }
+
+  .grid__card::after {
+    display: none;
+  }
+}
 </style>

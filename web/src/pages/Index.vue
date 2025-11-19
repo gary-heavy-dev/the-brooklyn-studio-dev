@@ -24,8 +24,9 @@ export default {
       // return this.$page.page.twitterImage || this.firstHeroImage || this.$page.settings.twitterImage
       return this.$page.settings.twitterImage
     },
-    metaDescription () {
-      const description = 'The Brooklyn Studio is an architecture and interior design firm committed to restoring and enhancing New York City\'s historic fabric.'
+    metaDescription() {
+      const description =
+        "The Brooklyn Studio is an architecture and interior design firm committed to restoring and enhancing New York City's historic fabric."
       return description
     }
   },
@@ -39,7 +40,7 @@ export default {
           name: 'description',
           content: this.metaDescription
         },
-         {
+        {
           key: 'og:title',
           property: 'og:title',
           content: this.$page.settings.title + ' | ' + this.pageTitle
@@ -136,6 +137,11 @@ export default {
       news: news {
         title
         displayTitle
+        publisher {
+          ... on SanityPublisher {
+            title
+          }
+        }
         slug {
           current
         }

@@ -1,7 +1,11 @@
 <template>
   <Layout>
     <div class="home">
-      <IntroAnimation v-show="introStatus === null" @passed="onIntroPassed" @trigger-lottie-animation="handleLottieTrigger" />
+      <IntroAnimation
+        v-show="introStatus === null"
+        @passed="onIntroPassed"
+        @trigger-lottie-animation="handleLottieTrigger"
+      />
       <FullWidthCarousel :playLottie="isLottieTrigger" />
       <FeaturedProjects :content="content.featuredProjects" />
       <NewsFeedCarousel :content="content.newsFeedCarousel" />
