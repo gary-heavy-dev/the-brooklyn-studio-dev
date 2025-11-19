@@ -9,22 +9,23 @@
       >
         <Logo class="white" />
       </g-link>
-      <nav class="the-footer__links xsmall" aria-label="Secondary Footer Navigation">
+      <nav
+        class="the-footer__links the-footer__links--col1 xsmall"
+        aria-label="Secondary Footer Navigation Column 1"
+      >
         <g-link to="/about-us">About</g-link>
         <g-link to="/projects">Projects</g-link>
         <g-link to="/news">News</g-link>
         <g-link to="/contact">Contact</g-link>
         <g-link to="/about-us/team">Team</g-link>
-        <g-link to="/careers">Careers</g-link>
       </nav>
-      <div class="the-footer__newsletter col-span--6 xsmall flex fd-c jc-sb">
+      <nav
+        class="the-footer__links the-footer__links--col2 xsmall"
+        aria-label="Secondary Footer Navigation Column 2"
+      >
+        <g-link to="/careers">Careers</g-link>
         <NewsletterForm />
-        <div class="xxsmall the-footer__credits desktop-only">
-          © 2025 The Brooklyn Studio of Architecture |
-          <g-link to="/privacy-policy">Privacy Policy</g-link> |
-          <g-link to="/credits">Site Credits</g-link>
-        </div>
-      </div>
+      </nav>
       <div class="social-icons">
         <a
           v-if="$static.settings.socialLinkIg"
@@ -44,6 +45,13 @@
         >
           <LogoLinkedIn class="social-icon__instagram" />
         </a>
+      </div>
+      <div class="the-footer__newsletter col-span--6 xsmall flex fd-c jc-sb">
+        <div class="xxsmall the-footer__credits desktop-only">
+          © 2025 The Brooklyn Studio of Architecture |
+          <g-link to="/privacy-policy">Privacy Policy</g-link> |
+          <g-link to="/credits">Site Credits</g-link>
+        </div>
       </div>
     </div>
     <div class="grid grid--12-desktop xxsmall mobile-only">
@@ -80,6 +88,10 @@ export default {
     flex-wrap: wrap;
   }
 
+  & .grid {
+    row-gap: 30px;
+  }
+
   > div {
     @include desktop {
       @include container;
@@ -89,6 +101,9 @@ export default {
 
   .footer__logo {
     justify-content: flex-start;
+    height: min-content;
+    grid-column-start: 2;
+    grid-column-end: 4;
 
     @include desktop-down {
       border-bottom: 1px solid var(--color--white);
@@ -108,11 +123,12 @@ export default {
   }
 
   &__links {
-    grid-column: 4/6;
-
     a {
       display: block;
 
+      &:hover {
+        color: inherit;
+      }
       &:last-child {
         margin-bottom: 0;
       }
@@ -127,6 +143,23 @@ export default {
     }
   }
 
+  &__links--col1 {
+    grid-column: 5/7;
+
+    @include desktop-down {
+      grid-column: 5/11;
+    }
+  }
+
+  &__links--col2 {
+    grid-column: 7/10;
+
+    @include desktop-down {
+      grid-column: 5/11;
+      border-bottom: 1px solid var(--color--white);
+    }
+  }
+
   &__links a,
   &__newsletter {
     @include desktop-down {
@@ -135,6 +168,8 @@ export default {
   }
 
   &__newsletter {
+    grid-column: 5/11;
+
     form {
       align-items: flex-start;
 
@@ -164,18 +199,16 @@ export default {
   }
 
   .social-icons {
-    grid-column-end: 13;
+    padding-top: 15px;
     display: flex;
     align-items: flex-start;
     justify-content: center;
     gap: 5px;
 
     @include desktop {
+      padding-top: 0px;
+      grid-column-start: 11;
       justify-content: flex-end;
-    }
-
-    @include desktop-down {
-      margin-bottom: 5px;
     }
 
     svg {
