@@ -177,6 +177,11 @@ export default {
     },
 
     startHeroLottie() {
+      if (sessionStorage.getItem('heroLottiePlayed') === 'true') {
+        this.makeOverlayPassive()
+        this.startSwiper()
+        return
+      }
       const lottie = this.$refs.heroLottie
       if (!lottie) return this.startSwiper()
 
@@ -194,12 +199,19 @@ export default {
     onHeroLottieComplete() {
       clearTimeout(this.fadeTimeout)
       this.fadeTimeout = setTimeout(() => {
+        this.overlayHidden = true
+
+        try {
+          sessionStorage.setItem('heroLottiePlayed', 'true')
+        } catch (e) {}
+
         this.makeOverlayPassive()
       }, this.lottieCompleteFadeOutTimeoutDuration)
     },
 
     makeOverlayPassive() {
       if (this.hasFadedOut) return
+      this.fadeOutOverlay()
       this.hasFadedOut = true
       this.startSwiper()
     },
@@ -207,10 +219,6 @@ export default {
     fadeOutOverlay() {
       clearTimeout(this.interactionTimeout)
       this.overlayHidden = true
-
-      this.interactionTimeout = setTimeout(() => {
-        this.fadeInOverlay()
-      }, this.fadeBackInDelay)
     },
 
     fadeInOverlay() {
@@ -218,11 +226,12 @@ export default {
     },
 
     handleUserInteraction() {
-      if (!this.hasFadedOut) {
-        this.makeOverlayPassive()
-      } else {
-        this.fadeOutOverlay()
-      }
+      return
+      // if (!this.hasFadedOut) {
+      //   this.makeOverlayPassive()
+      // } else {
+      //   this.fadeOutOverlay()
+      // }
     },
 
     addSwiperInteractionListeners() {
