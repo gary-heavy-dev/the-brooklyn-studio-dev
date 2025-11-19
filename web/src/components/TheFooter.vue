@@ -1,5 +1,5 @@
 <template>
-  <footer class="the-footer p-40 color--gray-tertiary background--gray-light" id="theFooter">
+  <footer class="the-footer p-40 background--navy" id="theFooter">
     <div class="grid grid--12-desktop">
       <g-link
         to="/"
@@ -7,7 +7,7 @@
         class="footer__logo col-span--2 flex"
         @click.native="$scrollToTop"
       >
-        <Logo />
+        <Logo class="white" />
       </g-link>
       <nav class="the-footer__links xsmall" aria-label="Secondary Footer Navigation">
         <g-link to="/about-us">About</g-link>
@@ -91,7 +91,7 @@ export default {
     justify-content: flex-start;
 
     @include desktop-down {
-      border-bottom: 1px solid var(--color--gray-secondary);
+      border-bottom: 1px solid var(--color--white);
     }
 
     svg {
@@ -130,7 +130,7 @@ export default {
   &__links a,
   &__newsletter {
     @include desktop-down {
-      border-bottom: 1px solid var(--color--gray-secondary);
+      border-bottom: 1px solid var(--color--white);
     }
   }
 

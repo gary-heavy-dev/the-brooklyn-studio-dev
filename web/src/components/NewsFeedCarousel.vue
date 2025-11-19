@@ -2,7 +2,14 @@
   <section class="news-feed-carousel" v-if="news?.length">
     <div class="container">
       <div class="news-feed-carousel__heading">
-        <h2 class="h4 upper news-feed-carousel__heading-title" v-if="title" v-html="title"></h2>
+        <h2 class="h4 upper news-feed-carousel__heading-title" v-if="title">
+          <span class="color--navy">
+            The Brooklyn Studio
+          </span>
+          <span class="color--gray">
+            NEWS
+          </span>
+        </h2>
         <g-link
           v-if="content.cta_url"
           :to="content.cta_url"
@@ -94,6 +101,10 @@ export default {
 <style lang="scss">
 .news-feed-carousel {
   padding: 60px 0;
+
+  .news-feed-carousel__heading-title {
+    font-weight: 500;
+  }
 
   &__heading {
     display: flex;

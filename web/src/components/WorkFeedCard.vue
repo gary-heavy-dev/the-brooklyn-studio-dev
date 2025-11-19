@@ -1,11 +1,7 @@
 <template>
   <component
     :is="project.displayTitle?.inactiveLink ? 'div' : 'g-link'"
-    :to="
-      !project.displayTitle?.inactiveLink
-        ? '/projects/' + project.slug.current
-        : null
-    "
+    :to="!project.displayTitle?.inactiveLink ? '/projects/' + project.slug.current : null"
     class="work-feed-card mb-100 color--gray-tertiary"
     :style="cardStagger"
   >
@@ -27,16 +23,13 @@
           :src="project.image"
           :lazy="true"
           :sizes="sizes"
-          :x="300"
-          :y="200"
+          :x="1320"
+          :y="880"
           class="mb-30"
           :caption="project.image.caption"
           :captionStyle="project.image.captionStyle"
         />
-        <div
-          v-if="project.displayTitle?.inactiveLink"
-          class="work-feed-card__overlay"
-        ></div>
+        <div v-if="project.displayTitle?.inactiveLink" class="work-feed-card__overlay"></div>
         <div v-if="project.displayTitle?.overlayText" class="work-feed-card__overlay-text">
           {{ project.displayTitle.overlayText }}
         </div>
@@ -51,12 +44,12 @@ export default {
   data() {
     return {
       sizes: {
-        mobile: 413,
-        tablet: 311,
-        laptop: 410,
-        desktop: 377,
-        hd: 613,
-        fourK: 1226 // by 1332
+        mobile: 500,
+        tablet: 414,
+        laptop: 545,
+        desktop: 501,
+        hd: 877,
+        fourK: 1630
       }
     }
   },
