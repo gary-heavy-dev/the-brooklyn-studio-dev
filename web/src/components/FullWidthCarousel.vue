@@ -349,7 +349,7 @@ export default {
 
     .placeholder-logo {
       opacity: 0;
-      animation: fadeInLogo 1s ease-in-out 0.5s forwards;
+      animation: fadeInLogo 0.75s ease-in-out 1s forwards;
     }
 
     &.is-blocking {
@@ -359,6 +359,11 @@ export default {
     &.is-hidden {
       opacity: 0;
     }
+  }
+
+  .full-width-carousel__swiper {
+    opacity: 0;
+    animation: fadeInLogo 0.75s ease-in-out 0.5s forwards;
   }
 
   @keyframes fadeInLogo {
