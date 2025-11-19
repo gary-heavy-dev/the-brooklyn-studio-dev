@@ -1,5 +1,5 @@
 <template>
-  <div class="container flexible-image w-100 mb-100 grid grid--12-desktop">
+  <div class="image-full__container container flexible-image w-100 grid grid--12-desktop">
     <div class="flexible-image__inner image-wrapper" v-view="$iAmRevealed">
       <BaseImage
         v-if="content.image"
@@ -53,6 +53,10 @@ export default {
 </script>
 
 <style lang="scss">
+.image-full__container {
+  margin-bottom: max(60px, 6.75vw);
+}
+
 .flexible-image {
   @include desktop-down {
     flex-direction: column;

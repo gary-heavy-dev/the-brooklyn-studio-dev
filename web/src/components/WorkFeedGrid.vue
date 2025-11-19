@@ -50,16 +50,11 @@ export default {
       const activeCatLength = this.activeCategories.length
       const activeTypeLength = this.activeTypes.length
 
-      console.log('Active Categories:', this.activeCategories)
-      console.log('Active Types:', this.activeTypes)
-
       if (!activeCatLength && !activeTypeLength) {
         return this.content
       }
 
-      // this doesnt run on checking multiple boxes:::
       return this.content.filter(project => {
-        console.log('activeTypeLength:: ', activeTypeLength)
         let matchesCategory = true
         let matchesType = true
 
@@ -71,7 +66,6 @@ export default {
 
         if (activeTypeLength) {
           const projectTypeSlugs = project.projectTypes?.map(t => t.slug?.current) || []
-          console.log('Project types:', projectTypeSlugs, 'Active types:', this.activeTypes)
 
           matchesType = project.projectTypes?.some(type => {
             const typeSlug = type.slug?.current
@@ -79,12 +73,9 @@ export default {
             console.log(`Checking if "${typeSlug}" is in [${this.activeTypes}]: ${matches}`)
             return matches
           })
-
-          console.log('Project matches type filter:', matchesType)
         }
 
         const result = matchesCategory && matchesType
-        console.log('Final result:', result, '\n---')
         return result
       })
     }
@@ -97,24 +88,17 @@ export default {
 
       if (filterGroup === 'category') {
         if (status) {
-          // Add to array
           this.activeCategories = [...this.activeCategories, value]
         } else {
-          // Remove from array
           this.activeCategories = this.activeCategories.filter(item => item !== value)
         }
       } else if (filterGroup === 'type') {
         if (status) {
-          // Add to array
           this.activeTypes = [...this.activeTypes, value]
         } else {
-          // Remove from array
           this.activeTypes = this.activeTypes.filter(item => item !== value)
         }
       }
-
-      console.log('After update - activeTypes:', this.activeTypes)
-      console.log('After update - activeCategories:', this.activeCategories)
 
       this.updateURL()
     },
@@ -158,13 +142,6 @@ export default {
     }
   },
   mounted() {
-    console.log('Content array:', this.content)
-    console.log('Content length:', this.content?.length)
-    if (this.content && this.content.length > 0) {
-      console.log('Sample project:', this.content[0])
-      console.log('projectTypes:', this.content[0]?.projectTypes)
-      console.log('projectCategories:', this.content[0]?.projectCategories)
-    }
     this.updateFromQuery(this.$route.query)
 
     this.$watch(

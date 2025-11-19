@@ -41,12 +41,13 @@
           ]"
         >
           <div class="full-width-carousel__gradient"></div>
-          <lottie-animation
+          <PlaceholderLogo />
+          <!-- <lottie-animation
             ref="heroLottie"
             :animationData="heroAnimationData"
             :autoPlay="false"
             @complete="onHeroLottieComplete"
-          />
+          /> -->
         </div>
 
         <button
@@ -77,12 +78,21 @@ import BaseImage from '~/components/BaseImage'
 import SliderArrow from '~/components/SliderArrow'
 import TheHeader from '~/components/TheHeader.vue'
 import LottieAnimation from 'lottie-web-vue'
+import PlaceholderLogo from '~/components/PlaceholderLogo.vue'
 import DesktopHeroAnimation from '~/components/lottie/desktop-logo-animation.json'
 import MobileHeroAnimation from '~/components/lottie/mobile-logo-animation.json'
 
 export default {
   name: 'FullWidthCarousel',
-  components: { Swiper, SwiperSlide, BaseImage, SliderArrow, LottieAnimation, TheHeader },
+  components: {
+    Swiper,
+    SwiperSlide,
+    BaseImage,
+    SliderArrow,
+    LottieAnimation,
+    PlaceholderLogo,
+    TheHeader
+  },
   props: {
     playLottie: Boolean
   },
@@ -183,7 +193,7 @@ export default {
         return
       }
       const lottie = this.$refs.heroLottie
-      if (!lottie) return this.startSwiper()
+      if (!lottie) return this.startSwiper(false)
 
       this.hasPlayedHero = true
 
@@ -210,6 +220,7 @@ export default {
     },
 
     makeOverlayPassive() {
+      console.log('this.hasFadedOut:: ', this.hasFadedOut)
       if (this.hasFadedOut) return
       this.fadeOutOverlay()
       this.hasFadedOut = true
@@ -259,7 +270,13 @@ export default {
       }
     },
 
-    startSwiper() {
+    startSwiper(hasLottie = true) {
+      if (!hasLottie) {
+        setTimeout(() => {
+          this.makeOverlayPassive()
+        }, 3500)
+      }
+
       const swiper = this.$refs.heroSwiper?.swiper || this.$refs.heroSwiper?.$swiper
       if (!swiper) return
 
