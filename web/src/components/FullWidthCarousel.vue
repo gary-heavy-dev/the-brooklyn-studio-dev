@@ -347,12 +347,26 @@ export default {
     opacity: 1;
     transition: opacity 0.3s ease;
 
+    .placeholder-logo {
+      opacity: 0;
+      animation: fadeInLogo 1s ease-in-out 0.5s forwards;
+    }
+
     &.is-blocking {
       pointer-events: auto;
     }
 
     &.is-hidden {
       opacity: 0;
+    }
+  }
+
+  @keyframes fadeInLogo {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
     }
   }
 
