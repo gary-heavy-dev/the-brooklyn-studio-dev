@@ -1,10 +1,10 @@
 <template>
   <div class="project">
     <ProjectHero
-      v-if="!content?.hideHeroImage"
       :displayTitle="content.displayTitle"
       :heading="content.title"
       :image="content.image"
+      :hideHero="content.hideHeroImage"
       :mobileImage="content.mobileHeroImage"
     />
     <FlexibleContent :content="content.flexibleContent" />

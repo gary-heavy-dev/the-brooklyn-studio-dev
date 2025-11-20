@@ -1,7 +1,7 @@
 @font-face {
   font-family: 'Mallory';
   src: url('~@/assets/fonts/Mallory-Book.woff2') format('woff2'),
-      url('~@/assets/fonts/Mallory-Book.woff') format('woff');
+    url('~@/assets/fonts/Mallory-Book.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
@@ -9,7 +9,7 @@
 @font-face {
   font-family: 'Mallory';
   src: url('~@/assets/fonts/Mallory-BookItalic.woff2') format('woff2'),
-      url('~@/assets/fonts/Mallory-BookItalic.woff') format('woff');
+    url('~@/assets/fonts/Mallory-BookItalic.woff') format('woff');
   font-weight: normal;
   font-style: italic;
 }
@@ -17,7 +17,7 @@
 @font-face {
   font-family: 'Mallory';
   src: url('~@/assets/fonts/Mallory-Medium.woff2') format('woff2'),
-      url('~@/assets/fonts/Mallory-Medium.woff') format('woff');
+    url('~@/assets/fonts/Mallory-Medium.woff') format('woff');
   font-weight: 500;
   font-style: normal;
 }
@@ -25,7 +25,7 @@
 @font-face {
   font-family: 'Mallory';
   src: url('~@/assets/fonts/Mallory-Bold.woff2') format('woff2'),
-      url('~@/assets/fonts/Mallory-Bold.woff') format('woff');
+    url('~@/assets/fonts/Mallory-Bold.woff') format('woff');
   font-weight: bold;
   font-style: normal;
 }
@@ -37,7 +37,7 @@
   --display-font-size: 16px;
   --display-line-height: 25px;
   --letter-spacing: 0.03em;
-  --letter-spacing--lg: 0.07em;
+  --letter-spacing--lg: 0.05em;
   --h1-font-size: 50px;
   --h1-line-height: 50px;
   --h2-font-size: 25px;
@@ -134,7 +134,7 @@ body {
   line-height: var(--body-line-height);
   letter-spacing: var(--letter-spacing);
   font-variant-numeric: oldstyle-nums;
-  font-feature-settings: "onum";
+  font-feature-settings: 'onum';
 }
 
 p:not(:last-child) {
@@ -164,7 +164,6 @@ p:not(:last-child) {
 }
 
 .h3--alt {
-
   @include desktop-down {
     font-size: var(--h3-font-size--alt);
   }
@@ -184,9 +183,7 @@ h4,
 
 p.h5,
 .h5 p {
-
   &:not(:last-child) {
-
     margin-bottom: 24px;
 
     @include desktop {
@@ -286,7 +283,6 @@ p.h5,
 
   &:hover,
   &.active {
-
     &::before {
       transform-origin: 100% 50%;
       animation-name: slideOutIn;
@@ -299,9 +295,7 @@ p.h5,
   }
 
   &:hover {
-
     @include desktop-down {
-
       &::before,
       &::after {
         animation-name: unset;
@@ -312,7 +306,6 @@ p.h5,
 
 .button.color--white,
 .background--navy .button {
-
   color: var(--color--white);
   border-color: var(--color--white);
 }
@@ -324,7 +317,6 @@ p.h5,
 }
 
 .sub.sub--alt {
-
   @include desktop-down {
     font-size: var(--sub-font-size--alt);
     line-height: var(--sub-line-height--alt);
@@ -355,7 +347,7 @@ ul {
   margin-left: 1.25em;
   margin-bottom: 1.25em;
   li {
-    margin-bottom: .6em;
+    margin-bottom: 0.6em;
   }
 }
 ol {
@@ -363,6 +355,6 @@ ol {
   margin-left: 1.25em;
   margin-bottom: 1.25em;
   li {
-    margin-bottom: .6em;
+    margin-bottom: 0.6em;
   }
 }

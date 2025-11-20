@@ -1,11 +1,11 @@
 <template>
-  <div class="project-hero container pos-rel mb-100">
+  <div :class="['project-hero container pos-rel', { 'mb-100': hideHeader }]">
     <div class="project-hero__title w-100 flex jc-sb">
       <h1 v-if="displayTitle && displayTitle.displayTitleStatus" class="h2 color--navy fade--in-up">
         <span v-html="displayTitle.lineOne"></span><br />
         <span v-html="displayTitle.lineTwo"></span>
       </h1>
-      <h1 v-else class="h2 color--navy">
+      <h1 v-else class="h2 color--navy fade--in-up">
         {{ heading }}
       </h1>
 
@@ -19,22 +19,24 @@
         >
       </scrollactive>
     </div>
-    <BaseImage
-      v-if="mobileImage"
-      class="mobile-only"
-      :lazy="true"
-      :src="mobileImage"
-      :caption="mobileImage.caption"
-      :captionStyle="mobileImage.captionStyle"
-    />
-    <BaseImage
-      v-if="image"
-      :class="['project-hero-mobile', { 'desktop-only': mobileImage }]"
-      :lazy="true"
-      :src="image"
-      :caption="image.caption"
-      :captionStyle="image.captionStyle"
-    />
+    <div v-if="!hideHero">
+      <BaseImage
+        v-if="mobileImage"
+        class="mobile-only"
+        :lazy="true"
+        :src="mobileImage"
+        :caption="mobileImage.caption"
+        :captionStyle="mobileImage.captionStyle"
+      />
+      <BaseImage
+        v-if="image"
+        :class="['project-hero-mobile', { 'desktop-only': mobileImage }]"
+        :lazy="true"
+        :src="image"
+        :caption="image.caption"
+        :captionStyle="image.captionStyle"
+      />
+    </div>
   </div>
 </template>
 
@@ -44,6 +46,7 @@ export default {
     displayTitle: Object,
     heading: String,
     image: Object,
+    hideHero: Boolean,
     mobileImage: Object
   },
   data() {
