@@ -41,7 +41,9 @@
           ]"
         >
           <div class="full-width-carousel__gradient"></div>
-          <PlaceholderLogo />
+          <div class="logo-wrapper">
+            <PlaceholderLogo />
+          </div>
           <!-- <lottie-animation
             ref="heroLottie"
             :animationData="heroAnimationData"
@@ -333,6 +335,11 @@ export default {
   .base-image,
   .base-image__inner {
     height: 100%;
+  }
+
+  .logo-wrapper {
+    width: max(250px, 25vw);
+    height: auto;
   }
 
   &__overlay {

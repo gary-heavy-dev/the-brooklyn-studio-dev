@@ -1,7 +1,7 @@
 <template>
   <div class="menu__footer flex fd-c ai-c jc-c w-100">
     <div class="menu__footer-inner flex fd-c ai-c w-100">
-      <Logo class="white" />
+      <PlaceholderLogo class="white" />
       <div class="social-icon__container">
         <a
           v-if="$static.settings.socialLinkIg"
@@ -29,6 +29,7 @@
 
 <script>
 import Logo from '~/components/Logo'
+import PlaceholderLogo from '~/components/PlaceholderLogo'
 import LogoInstagram from '~/components/LogoInstagram'
 import LogoLinkedIn from '~/components/LogoLinkedIn'
 
@@ -36,7 +37,8 @@ export default {
   components: {
     Logo,
     LogoInstagram,
-    LogoLinkedIn
+    LogoLinkedIn,
+    PlaceholderLogo
   }
 }
 </script>

@@ -7,7 +7,7 @@
         class="footer__logo col-span--2 flex"
         @click.native="$scrollToTop"
       >
-        <Logo class="white" />
+        <PlaceholderLogo class="white" />
       </g-link>
       <nav
         class="the-footer__links the-footer__links--col1 xsmall"
@@ -67,6 +67,7 @@
 
 <script>
 import Logo from '~/components/Logo'
+import PlaceholderLogo from '~/components/PlaceholderLogo'
 import LogoInstagram from '~/components/LogoInstagram'
 import NewsletterForm from '~/components/NewsletterForm'
 import LogoLinkedIn from '~/components/LogoLinkedIn'
@@ -76,7 +77,8 @@ export default {
     Logo,
     LogoInstagram,
     LogoLinkedIn,
-    NewsletterForm
+    NewsletterForm,
+    PlaceholderLogo
   }
 }
 </script>

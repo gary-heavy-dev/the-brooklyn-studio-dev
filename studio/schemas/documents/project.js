@@ -71,7 +71,16 @@ export default {
       name: 'image',
       title: 'PROJECT HERO IMAGE',
       type: 'mainImage',
-      description: 'Please upload an image 3840px wide and at least 1800px tall.',
+      description:
+        'Please upload an image 3840px wide and at least 1800px tall.  This image is also used as the project thumbnail in the project grid.',
+    },
+    {
+      name: 'hideHeroImage',
+      title: 'Hide Hero Image on Page?',
+      type: 'boolean',
+      default: 'false',
+      description:
+        "If enabled, the main Hero Image will be hidden from display on the page itself (for new layouts using the Flexible Content's 'Image' module). Regardless of this setting, this image will always be used as the project's thumbnail in the main project grid.",
     },
     {
       name: 'mobileHeroImage',
