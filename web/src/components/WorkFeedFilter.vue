@@ -68,7 +68,7 @@ export default {
   transition-delay: 0.45s;
   transition-duration: 0.3s;
 
-  @include laptop {
+  @include desktop {
     flex-direction: row;
     row-gap: 20px;
   }
@@ -82,7 +82,7 @@ export default {
     row-gap: 10px;
     margin-bottom: 30px;
 
-    @include laptop {
+    @include desktop {
       margin-bottom: 0px;
       flex-direction: row;
       row-gap: 0;
@@ -96,7 +96,7 @@ export default {
       height: 1px;
       background: var(--color--gray);
 
-      @include laptop {
+      @include desktop {
         display: none;
       }
     }
@@ -108,13 +108,13 @@ export default {
   }
 
   .filter-categories-container {
-    @include laptop {
+    @include desktop {
       display: flex;
     }
   }
 
   .filter-clear-button {
-    @include laptop {
+    @include desktop {
       margin-left: 30px;
     }
 
