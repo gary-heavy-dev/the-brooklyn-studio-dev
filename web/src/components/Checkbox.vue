@@ -1,5 +1,6 @@
 <template>
-  <li class="checkbox" :data-value="label" @click="checkboxClick">
+  <!-- hide rehabilitation until fully removed from Sanity -->
+  <li v-if="label !== 'rehabilitation'" class="checkbox" :data-value="label" @click="checkboxClick">
     <button
       role="checkbox"
       :class="['checkbox__button flex', { checked: status }]"
@@ -57,7 +58,8 @@ export default {
 .checkbox {
   position: relative;
   padding-left: 15px;
-  margin: auto 30px auto 0;
+  margin: auto 10px auto 0;
+  white-space: nowrap;
   cursor: pointer;
 
   &:last-child {
