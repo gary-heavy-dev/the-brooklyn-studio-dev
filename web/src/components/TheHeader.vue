@@ -85,16 +85,12 @@ export default {
         },
         secondary: [
           {
-            link: '/projects?type=residential-architecture',
-            linkText: 'Residential Architecture'
+            link: '/projects?type=architecture',
+            linkText: 'Architecture'
           },
           {
             link: '/projects?type=interior-design',
             linkText: 'Interior Design'
-          },
-          {
-            link: '/projects?type=adaptive-reuse',
-            linkText: 'Adaptive Reuse'
           }
         ]
       },
