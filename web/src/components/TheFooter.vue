@@ -154,7 +154,7 @@ export default {
   }
 
   &__links--col2 {
-    grid-column: 7/10;
+    grid-column: 7/11;
 
     @include desktop-down {
       grid-column: 5/11;
@@ -216,6 +216,11 @@ export default {
     svg {
       width: 36px;
     }
+  }
+
+  .the-footer__newsletter {
+    grid-column-end: 13;
+    text-align: right;
   }
 }
 </style>

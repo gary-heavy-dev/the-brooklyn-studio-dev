@@ -1,17 +1,14 @@
 <template>
   <div class="project">
     <ProjectHero
+      v-if="!content?.hideHeroImage"
       :displayTitle="content.displayTitle"
       :heading="content.title"
       :image="content.image"
       :mobileImage="content.mobileHeroImage"
     />
     <FlexibleContent :content="content.flexibleContent" />
-    <ProjectDetails
-      :content="content"
-      :prev="prev"
-      :next="next"
-    />
+    <ProjectDetails :content="content" :prev="prev" :next="next" />
     <ProjectLightbox :content="content" />
   </div>
 </template>
@@ -33,15 +30,13 @@ export default {
     content: Object,
     prev: Object,
     next: Object
-  },
+  }
 }
 </script>
 
 <style lang="scss">
 .project {
-
   .flexible-content {
-
     .base-image {
       cursor: pointer;
     }

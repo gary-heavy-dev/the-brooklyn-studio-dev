@@ -172,6 +172,7 @@ query Post ($id: ID, $prevId: ID, $nextId: ID) {
       alt
       caption
     }
+    hideHeroImage
     mobileHeroImage {
       caption
       captionStyle

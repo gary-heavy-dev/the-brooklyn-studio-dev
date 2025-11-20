@@ -2,7 +2,8 @@
   <header
     :class="[
       'the-header background--white flex ai-c jc-c headroom',
-      { 'headroom--unpinned': scrolled && hasScrolledOnce }
+      { 'headroom--unpinned': scrolled && hasScrolledOnce },
+      { homepage: isHomepage }
     ]"
     v-on="{ handleScroll }"
     id="theHeader"
@@ -381,6 +382,10 @@ export default {
 
   .headroom--unpinned {
     transform: translateY(-100%);
+  }
+
+  .headroom--unpinned.homepage {
+    transform: translateY(0%);
   }
 }
 </style>

@@ -120,7 +120,7 @@ export default {
     margin-bottom: 7px;
   }
   @include desktop {
-    margin-bottom: 11px;
+    margin-bottom: 0px;
   }
 
   @include desktop-down {
@@ -128,8 +128,13 @@ export default {
   }
 
   .the-footer__newsletter-notice a {
-    border: none;
     padding: 7px 0;
+    border: none;
+    display: inline-block;
+
+    @include desktop {
+      padding: 0;
+    }
   }
 }
 </style>
