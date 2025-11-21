@@ -83,7 +83,7 @@ export default {
 <style lang="scss">
 .featured-projects {
   padding-top: 40px;
-  padding-bottom: 40px;
+  padding-bottom: 70px;
 
   &__container {
     display: flex;
@@ -101,7 +101,7 @@ export default {
     grid-template-columns: repeat(1, 1fr);
     gap: 80px 36px;
 
-    @include tablet {
+    @include laptop {
       grid-template-columns: repeat(2, 1fr);
       gap: 90px 36px;
     }
