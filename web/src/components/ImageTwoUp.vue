@@ -1,7 +1,7 @@
 <template>
   <div
     :class="
-      'ratio-image-pair container mb-90 grid grid--23-desktop ratio-image-pair--' + content.ratio
+      'ratio-image-pair container grid grid--23-desktop ratio-image-pair--' + content.ratio
     "
   >
     <div class="ratio-image-pair__left">
@@ -85,6 +85,7 @@ export default {
   overflow: hidden;
 
   gap: 0;
+  margin-bottom: 40px;
 
   @include laptop {
     gap: 35px;
@@ -92,6 +93,7 @@ export default {
 
   @include desktop {
     gap: 0;
+    margin-bottom: 70px;
   }
 
   &__left {

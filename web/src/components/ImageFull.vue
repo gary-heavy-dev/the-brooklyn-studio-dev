@@ -54,7 +54,10 @@ export default {
 
 <style lang="scss">
 .image-full__container {
-  margin-bottom: max(60px, 6.75vw);
+  margin-bottom: 40px;
+  @include desktop {
+    margin-bottom: 70px;
+  }
 }
 
 .flexible-image {

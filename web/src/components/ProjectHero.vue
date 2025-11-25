@@ -19,7 +19,7 @@
         >
       </scrollactive>
     </div>
-    <div v-if="!hideHero">
+    <div class="project-hero__img-wrapper" v-if="!hideHero">
       <BaseImage
         v-if="mobileImage"
         class="mobile-only"
@@ -139,6 +139,13 @@ export default {
   &__title-info {
     @include laptop {
       padding-right: 40px;
+    }
+  }
+
+  .project-hero__img-wrapper {
+    margin-bottom: 40px;
+    @include laptop {
+      margin-bottom: 70px;
     }
   }
 
