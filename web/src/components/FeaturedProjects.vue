@@ -38,6 +38,9 @@
             <h3 class="featured-projects__grid-card-title" v-html="project.title"></h3>
           </div>
         </component>
+        <g-link class="upper button mt-60" to="/projects" aria-label="View more projects"
+          >See More Projects</g-link
+        >
       </div>
     </div>
   </section>

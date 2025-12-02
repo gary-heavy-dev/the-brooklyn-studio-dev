@@ -1,5 +1,5 @@
 <template>
-  <div class="work-feed-filter color--gray-tertiary mb-80">
+  <div class="work-feed-filter color--navy-light mb-60">
     <ul class="work-feed-filter__types">
       <Checkbox
         v-for="(type, index) in types"
@@ -21,7 +21,7 @@
         />
       </ul>
       <button @click="clearFilter" class="filter-clear-button upper sub">
-        <span class="color--navy-light">&times;</span> Clear
+        <span class="color--gray-light">&times;</span> Clear
       </button>
     </div>
   </div>
@@ -100,11 +100,6 @@ export default {
     }
   }
 
-  .separator {
-    margin: auto 15px;
-    margin-bottom: 1px;
-  }
-
   .filter-categories-container {
     @include desktop {
       display: flex;
@@ -112,10 +107,11 @@ export default {
   }
 
   .filter-clear-button {
-    color: var(--color--navy-light);
+    color: var(--color--gray-tertiary);
+    white-space: nowrap;
 
     @include desktop {
-      margin-left: 30px;
+      margin-left: 15px;
     }
 
     span {

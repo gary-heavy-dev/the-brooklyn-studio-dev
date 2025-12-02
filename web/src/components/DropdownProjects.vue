@@ -9,7 +9,7 @@
       {{ primary.linkText }}
     </button>
 
-    <ul class="dropdown__menu">
+    <!-- <ul class="dropdown__menu">
       <li v-for="(link, index) in secondary" :key="index">
         <a
           class="small"
@@ -20,7 +20,7 @@
           {{ link.linkText }}
         </a>
       </li>
-    </ul>
+    </ul> -->
   </li>
 </template>
 

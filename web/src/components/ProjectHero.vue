@@ -5,15 +5,13 @@
         <span v-html="displayTitle.lineOne"></span><br />
         <span v-html="displayTitle.lineTwo"></span>
       </h1>
-      <h1 v-else class="h2 color--navy fade--in-up">
-        {{ heading }}
-      </h1>
+      <h1 v-else class="h2 color--navy fade--in-up" id="projectHeading" v-html="heading"></h1>
 
       <scrollactive :duration="currentDuration" bezier-easing-value=".5,0,.35,1">
         <a
           :data-index="1"
           href="#projectInfo"
-          class="scrollactive-item project-hero__title-info color--gray h2 fade--in-up"
+          class="scrollactive-item project-hero__title-info color--gray h3 fade--in-up"
           @mouseover="setDuration"
           >Info</a
         >
@@ -47,7 +45,8 @@ export default {
     heading: String,
     image: Object,
     hideHero: Boolean,
-    mobileImage: Object
+    mobileImage: Object,
+    hideHeader: Boolean
   },
   data() {
     return {
@@ -58,7 +57,7 @@ export default {
       lastPosition: 0,
       currentIndex: 0,
       nextIndex: 0,
-      currentDuration: 1500
+      currentDuration: 3000
     }
   },
   methods: {
@@ -67,7 +66,7 @@ export default {
         this.nextIndex = e.target.dataset.index
         const diff = Math.abs(this.currentIndex - this.nextIndex)
         if (diff <= 1) {
-          this.currentDuration = 1500
+          this.currentDuration = 3000
         } else {
           this.currentDuration = 1000 + 500 * Math.abs(this.currentIndex - this.nextIndex)
         }

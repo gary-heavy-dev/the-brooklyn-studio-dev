@@ -57,7 +57,7 @@ export default {
 <style lang="scss">
 .checkbox {
   position: relative;
-  padding-left: 15px;
+  padding-left: 10px;
   margin: auto 10px auto 0;
   white-space: nowrap;
   cursor: pointer;

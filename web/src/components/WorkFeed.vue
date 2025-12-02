@@ -15,6 +15,13 @@ import WorkFeedGrid from '~/components/WorkFeedGrid'
 export default {
   components: { WorkFeedGrid },
 
+  props: {
+    pageData: {
+      type: Object,
+      required: true
+    }
+  },
+
   data() {
     return {
       filtered: []
@@ -23,15 +30,15 @@ export default {
 
   computed: {
     projects() {
-      return this.$static.projects.edges.map(e => e.node)
+      return this.pageData?.projects || []
     },
 
     category() {
-      return this.$static.categories.edges.map(e => e.node)
+      return this.pageData?.categoryFilters || []
     },
 
     type() {
-      return this.$static.types.edges.map(e => e.node)
+      return this.pageData?.typeFilters || []
     }
   },
 
@@ -42,6 +49,12 @@ export default {
   watch: {
     '$route.query.type'(newHash) {
       this.updateActiveGridFromHash(newHash)
+    },
+    pageData: {
+      immediate: true,
+      handler() {
+        this.updateActiveGridFromHash(this.$route.query.type)
+      }
     }
   },
 
@@ -59,62 +72,3 @@ export default {
   transition: opacity 0.3s ease;
 }
 </style>
-
-<static-query>
-{
-  projects: allSanityProject(sortBy: "_createdAt", order: DESC) {
-    edges {
-      node {
-        id
-        title
-        slug {
-          current
-        }
-        projectCategories {
-          title
-          slug {
-            current
-          }
-        }
-        projectTypes {
-          title
-          slug {
-            current
-          }
-        }
-        image {
-          alt
-          asset {
-            url
-            metadata {
-              lqip
-            }
-          }
-        }
-      }
-    }
-  }
-  categories: allSanityProjectCategory(sortBy: "title", order: ASC) {
-    edges {
-      node {
-        id
-        title
-        slug {
-          current
-        }
-      }
-    }
-  }
-  types: allSanityProjectType(sortBy: "title", order: ASC) {
-    edges {
-      node {
-        id
-        title
-        slug {
-          current
-        }
-      }
-    }
-  }
-}
-</static-query>

@@ -16,15 +16,15 @@
         <g-link to="/about-us">About</g-link>
         <g-link to="/projects">Projects</g-link>
         <g-link to="/news">News</g-link>
-        <g-link to="/contact">Contact</g-link>
-        <g-link to="/about-us/team">Team</g-link>
       </nav>
       <nav
         class="the-footer__links the-footer__links--col2 xsmall"
         aria-label="Secondary Footer Navigation Column 2"
       >
+        <g-link to="/contact">Contact</g-link>
+        <g-link to="/about-us/team">Team</g-link>
         <g-link to="/careers">Careers</g-link>
-        <NewsletterForm />
+        <!-- <NewsletterForm /> -->
       </nav>
       <div class="social-icons">
         <a

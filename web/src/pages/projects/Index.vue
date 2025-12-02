@@ -1,6 +1,6 @@
 <template>
   <Layout>
-    <WorkFeed />
+    <WorkFeed :page-data="$page.page" />
   </Layout>
 </template>
 
@@ -13,7 +13,7 @@ export default {
   },
   computed: {
     pageTitle() {
-      return 'Projects' 
+      return this.$page.title || 'Projects'
     },
     // firstHeroImage() {
     //   return this.$page.page.slides.length ? this.$page.page.slides[0].image : null
@@ -26,8 +26,10 @@ export default {
       // return this.$page.page.twitterImage || this.firstHeroImage || this.$page.settings.twitterImage
       return this.$page.settings.twitterImage
     },
-    metaDescription () {
-      const description = 'The Brooklyn Studio is an architecture and interior design firm committed to restoring and enhancing New York City\'s historic fabric.'
+    metaDescription() {
+      const description =
+        this.$page.description ||
+        "The Brooklyn Studio is an architecture and interior design firm committed to restoring and enhancing New York City's historic fabric."
       return description
     }
   },
@@ -85,8 +87,6 @@ export default {
 <page-query>
 {
   settings: sanitySiteSettings (id: "siteSettings") {
-    title
-    description
     ogImage {
       asset {
         url
@@ -95,6 +95,54 @@ export default {
     twitterImage {
       asset {
         url
+      }
+    }
+  }
+  page: sanityProjectsPage(id: "cee469dd-5919-43cd-881c-4a7001b457e3") {
+    title
+    description
+    projects {
+      id
+      title
+      slug {
+        current
+      }
+      projectCategories {
+        title
+        slug {
+          current
+        }
+      }
+      projectTypes {
+        title
+        slug {
+          current
+        }
+      }
+      image {
+        alt
+        asset {
+          url
+          metadata {
+            lqip
+          }
+        }
+      }
+    }
+
+    categoryFilters {
+      id
+      title
+      slug {
+        current
+      }
+    }
+
+    typeFilters {
+      id
+      title
+      slug {
+        current
       }
     }
   }

@@ -222,7 +222,6 @@ export default {
     },
 
     makeOverlayPassive() {
-      console.log('this.hasFadedOut:: ', this.hasFadedOut)
       if (this.hasFadedOut) return
       this.fadeOutOverlay()
       this.hasFadedOut = true

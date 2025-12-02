@@ -1,8 +1,6 @@
 <template>
   <div
-    :class="
-      'ratio-image-pair container grid grid--23-desktop ratio-image-pair--' + content.ratio
-    "
+    :class="'ratio-image-pair container grid grid--23-desktop ratio-image-pair--' + content.ratio"
   >
     <div class="ratio-image-pair__left">
       <BaseImage
@@ -93,7 +91,7 @@ export default {
 
   @include desktop {
     gap: 0;
-    margin-bottom: 70px;
+    margin-bottom: max(45px, 4.25vw);
   }
 
   &__left {

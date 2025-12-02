@@ -18,6 +18,7 @@ import press from './documents/press'
 import project from './documents/project'
 import projectCategory from './documents/projectCategory'
 import projectType from './documents/projectType'
+import projectsPage from './documents/projectsPage'
 import publisher from './documents/publisher'
 import residentialArchitecture from './documents/residentialArchitecture'
 import recipePage from './documents/recipePage'
@@ -123,6 +124,7 @@ export default [
   projectCategory,
   projectType,
   projectReference,
+  projectsPage,
   publisher,
   residentialArchitecture,
   recipePage,

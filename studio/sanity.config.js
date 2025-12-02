@@ -20,6 +20,7 @@ export const LOCKED_DOCUMENT_TYPES = [
   'contact',
   'interiorDesign',
   'newsPage',
+  'projectsPage',
   'residentialArchitecture',
   'team',
 ]

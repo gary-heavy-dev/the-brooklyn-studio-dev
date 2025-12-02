@@ -16,6 +16,17 @@
         <MenuToggle />
         <ul>
           <li class="mobile-only">
+            <g-link to="/projects?type=all">Projects</g-link>
+          </li>
+          <DropdownProjects
+            :name="'projects'"
+            :primary="projectsDropdown.primary"
+            :secondary="projectsDropdown.secondary"
+          />
+          <li>
+            <g-link to="/news">News</g-link>
+          </li>
+          <li class="mobile-only">
             <g-link to="/about-us">About</g-link>
           </li>
           <Dropdown
@@ -24,18 +35,7 @@
             :secondary="aboutDropdown.secondary"
           />
           <li class="mobile-only">
-            <g-link to="/projects?type=all">Projects</g-link>
-          </li>
-          <DropdownProjects
-            :name="'projects'"
-            :primary="projectsDropdown.primary"
-            :secondary="projectsDropdown.secondary"
-          />
-          <li class="mobile-only">
             <g-link to="/about-us/team">Our Team</g-link>
-          </li>
-          <li>
-            <g-link to="/news">News</g-link>
           </li>
           <li>
             <g-link to="/contact">Contact</g-link>

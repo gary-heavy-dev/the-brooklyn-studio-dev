@@ -7,7 +7,7 @@
             The Brooklyn Studio
           </span>
           <span class="color--gray">
-            NEWS
+            PRESS
           </span>
         </h2>
         <g-link
