@@ -5,15 +5,16 @@ export default {
   fieldsets: [
     {
       name: 'hero',
-      title: 'Hero'
-    }
+      title: 'Hero',
+    },
   ],
   fields: [
     {
       name: 'title',
       type: 'string',
       title: 'TITLE',
-      description: 'Add the SEO friendly title of this page here. For example, "Home". This will not be displayed for this particular page.'
+      description:
+        'Add the SEO friendly title of this page here. For example, "Home". This will not be displayed for this particular page.',
     },
     {
       name: 'heroImages',
@@ -22,8 +23,8 @@ export default {
       description: 'One image will be randomly selected from this pool of images on load.',
       options: {
         collapsible: true,
-        collapsed: false
-      }
+        collapsed: false,
+      },
     },
     {
       name: 'featuredProjects',
@@ -31,8 +32,8 @@ export default {
       title: 'FEATURED PROJECTS',
       options: {
         collapsible: true,
-        collapsed: false
-      }
+        collapsed: false,
+      },
     },
     {
       name: 'newsFeedCarousel',
@@ -40,14 +41,14 @@ export default {
       title: 'NEWS FEED CAROUSEL',
       options: {
         collapsible: true,
-        collapsed: false
-      }
+        collapsed: false,
+      },
     },
     {
       name: 'introSection',
       type: 'introSection',
       title: 'INTRO',
-      options: {collapsible: true}
+      options: { collapsible: true },
     },
     {
       name: 'flexibleContent',
@@ -55,12 +56,12 @@ export default {
       title: 'FLEXIBLE CONTENT',
       description: 'Choose from a list of different content types to build your page.',
       of: [
-        {type: 'linkGallery'},
-        {type: 'ctaGallery'},
-        {type: 'ctaSimple'},
-        {type: 'featuredTeamMember'},
-        {type: 'flexibleText'},
-      ]
-    }
-  ]
+        { type: 'linkGallery' },
+        { type: 'ctaGallery' },
+        { type: 'ctaSimple' },
+        { type: 'featuredTeamMember' },
+        { type: 'flexibleText' },
+      ],
+    },
+  ],
 }

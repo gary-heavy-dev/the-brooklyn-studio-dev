@@ -7,18 +7,19 @@ export default {
       name: 'heading',
       type: 'text',
       title: 'Heading',
-      description: 'A heading for this featured project'
+      description: 'A heading for this featured project',
     },
     {
       name: 'projects',
       title: 'Projects References',
+      description: '*For layout purposes, please select an even number of featured projects.',
       type: 'array',
       of: [
         {
           type: 'reference',
-          to: [{ type: 'project' }]
-        }
-      ]
-    }
-  ]
+          to: [{ type: 'project' }],
+        },
+      ],
+    },
+  ],
 }
