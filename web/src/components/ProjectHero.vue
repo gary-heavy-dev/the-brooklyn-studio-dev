@@ -7,15 +7,17 @@
       </h1>
       <h1 v-else class="h2 color--navy fade--in-up" id="projectHeading" v-html="heading"></h1>
 
-      <scrollactive :duration="currentDuration" bezier-easing-value=".5,0,.35,1">
-        <a
-          :data-index="1"
-          href="#projectInfo"
-          class="scrollactive-item project-hero__title-info color--gray h3 fade--in-up"
-          @mouseover="setDuration"
-          >Info</a
-        >
-      </scrollactive>
+      <div class="fade--in-up">
+        <scrollactive :duration="currentDuration" bezier-easing-value=".5,0,.35,1">
+          <a
+            :data-index="1"
+            href="#projectInfo"
+            class="scrollactive-item project-hero__title-info color--gray h4 "
+            @mouseover="setDuration"
+            >Info</a
+          >
+        </scrollactive>
+      </div>
     </div>
     <div class="project-hero__img-wrapper" v-if="!hideHero">
       <BaseImage
@@ -129,15 +131,11 @@ export default {
   &__title {
     padding-top: 50px;
     padding-bottom: 40px;
+    align-items: center;
+    gap: 30px;
 
     .h2 {
       margin-bottom: 0;
-    }
-  }
-
-  &__title-info {
-    @include laptop {
-      padding-right: 40px;
     }
   }
 
