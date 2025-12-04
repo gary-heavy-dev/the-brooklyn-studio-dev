@@ -109,7 +109,15 @@ export default {
       type: 'text',
       title: 'Project Details Intro Text',
       description:
-        'This is the optional, longer running text that introduces the details section below each project.',
+        'This is the optional, shorter, unformatted text that introduces the details section below each project.',
+      fieldset: 'projectDetails',
+    },
+    {
+      name: 'details',
+      type: 'bodyPortableText',
+      title: 'Project Details',
+      description:
+        'This is the optional, longer running text that elaborates on the details of the project.',
       fieldset: 'projectDetails',
     },
     {

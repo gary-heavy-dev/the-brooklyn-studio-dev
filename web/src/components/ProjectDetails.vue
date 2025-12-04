@@ -2,9 +2,14 @@
   <section class="project-details background--gray-secondary">
     <div id="projectInfo" class="project-details__inner container">
       <div class="project-details__intro">
-        <p class="project-details__intro-txt" v-if="content.detailsIntro">
+        <p
+          class="project-details__intro-txt"
+          v-if="content.detailsIntro"
+          v-html="content.detailsIntro"
+        >
           {{ content.detailsIntro }}
         </p>
+        <BaseBlockContent v-if="content._rawDetails" class="mb-30" :blocks="content._rawDetails" />
         <div class="project-details__intro-images gap-20" v-if="content.detailsGallery">
           <div
             v-for="(image, index) in content.detailsGallery"
@@ -229,7 +234,7 @@ export default {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
 
-    @include laptop {
+    @include desktop {
       gap: 50px;
       grid-template-columns: 4fr 6fr;
     }
@@ -240,13 +245,13 @@ export default {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
 
-    @include laptop {
+    @include desktop {
       grid-template-columns: repeat(3, 1fr);
     }
   }
 
   .project-details__info:not(.has-further-reading) {
-    @include laptop {
+    @include desktop {
       > .project-details__info-item:nth-child(1) {
         grid-column: 2 / 3;
       }

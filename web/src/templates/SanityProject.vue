@@ -358,6 +358,7 @@ query Post ($id: ID, $prevId: ID, $nextId: ID) {
       }
     }
     detailsIntro
+    _rawDetails
     detailsBuildingInfo {
       heading
       text
