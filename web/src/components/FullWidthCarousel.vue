@@ -320,6 +320,7 @@ export default {
   position: relative;
   width: 100%;
   overflow: hidden;
+  background: var(--color--navy);
 
   &__swiper {
     width: 100%;
@@ -351,7 +352,7 @@ export default {
     z-index: 30;
     pointer-events: none;
     opacity: 1;
-    transition: opacity 0.3s ease;
+    transition: opacity 0.75s ease;
 
     .placeholder-logo {
       opacity: 0;
@@ -369,7 +370,7 @@ export default {
 
   .full-width-carousel__swiper {
     opacity: 0;
-    animation: fadeInLogo 0.75s ease-in-out 0.5s forwards;
+    animation: fadeInLogo 0.75s ease-in-out forwards;
   }
 
   @keyframes fadeInLogo {
@@ -387,12 +388,12 @@ export default {
     bottom: 0;
     left: 0;
     right: 0;
-    background: linear-gradient(
-      to bottom,
-      rgba(black, 0.65),
-      rgba(black, 0.25) 75%,
-      rgba(black, 0.25)
-    );
+    // background: linear-gradient(
+    //   to bottom,
+    //   rgba(black, 0.65),
+    //   rgba(black, 0.25) 75%,
+    //   rgba(black, 0.25)
+    // );
   }
 
   &__btn-play {

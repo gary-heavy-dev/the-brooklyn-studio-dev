@@ -153,5 +153,10 @@ export default {
   .grid__card::after {
     display: none;
   }
+
+  .news-feed-carousel__card-title {
+    white-space: wrap;
+    padding: 0 1em;
+  }
 }
 </style>

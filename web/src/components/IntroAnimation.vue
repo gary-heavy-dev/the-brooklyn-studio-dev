@@ -44,7 +44,7 @@ export default {
   data() {
     return {
       desktopAnimation: DesktopLogoAnimation,
-      mobileAnimation: MobileLogoAnimation,
+      mobileAnimation: MobileLogoAnimation
     }
   },
   computed: {
@@ -67,7 +67,9 @@ export default {
       return String(this.$urlForImage(this.featuredImage, this.$static.metadata.sanityOptions))
     },
     srcsetString() {
-      return String(this.$gImageMap(this.featuredImage, this.sizes, this.$static.metadata.sanityOptions))
+      return String(
+        this.$gImageMap(this.featuredImage, this.sizes, this.$static.metadata.sanityOptions)
+      )
     }
   },
   methods: {
@@ -77,10 +79,10 @@ export default {
       setTimeout(() => {
         document.body.classList.remove('animation-playing')
         this.$emit('trigger-lottie-animation', true)
-      }, 1250);
+      }, 1250)
       setTimeout(() => {
         this.$emit('passed', 'animation-complete')
-      }, 2510);
+      }, 2510)
     },
     amLod() {
       const sessionStatus = sessionStorage.getItem('intro')
@@ -91,12 +93,12 @@ export default {
 
       setTimeout(() => {
         this.$refs.anim.play()
-      }, 500);
+      }, 500)
     },
     amComplete() {
       this.closeIntro()
-    },
-  },
+    }
+  }
 }
 </script>
 
@@ -126,7 +128,6 @@ body.animation-playing {
   }
 
   .logo-animation {
-
     @include desktop-down {
       padding-bottom: 50px;
     }
@@ -150,12 +151,13 @@ body.animation-playing {
   }
 
   &__gradient {
-    background: linear-gradient(
-      to bottom,
-      rgba(black, 0.65),
-      rgba(black, 0.25) 75%,
-      rgba(black, 0.25)
-    );
+    // background: linear-gradient(
+    //   to bottom,
+    //   rgba(black, 0.65),
+    //   rgba(black, 0.25) 75%,
+    //   rgba(black, 0.25)
+    // );
+    background: red;
     // background: linear-gradient(0deg, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.25) 25%, rgba(0,0,0,0.65) 100%);
   }
 
@@ -165,12 +167,10 @@ body.animation-playing {
   }
 
   &.initial-fade {
-
     .intro-animation__image-wrapper {
       opacity: 1;
     }
   }
-
 
   img {
     object-fit: cover;
@@ -179,7 +179,6 @@ body.animation-playing {
   }
 
   svg {
-
     @include desktop {
       width: 48.25%;
     }
