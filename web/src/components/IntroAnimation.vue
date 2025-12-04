@@ -29,7 +29,8 @@
 
 <script>
 import Logo from '~/components/Logo'
-import DesktopLogoAnimation from '~/components/lottie/desktop-logo-animation.json'
+import DesktopLogoAnimation from '~/components/lottie/desktop-logo-animation-v2.json'
+// import DesktopLogoAnimation from '~/components/lottie/desktop-logo-animation.json'
 import MobileLogoAnimation from '~/components/lottie/mobile-logo-animation.json'
 import LottieAnimation from 'lottie-web-vue'
 

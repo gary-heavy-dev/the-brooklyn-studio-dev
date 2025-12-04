@@ -41,15 +41,15 @@
           ]"
         >
           <div class="full-width-carousel__gradient"></div>
-          <div class="logo-wrapper">
+          <!-- <div class="logo-wrapper">
             <PlaceholderLogo />
-          </div>
-          <!-- <lottie-animation
+          </div> -->
+          <lottie-animation
             ref="heroLottie"
             :animationData="heroAnimationData"
             :autoPlay="false"
             @complete="onHeroLottieComplete"
-          /> -->
+          />
         </div>
 
         <button
@@ -81,7 +81,7 @@ import SliderArrow from '~/components/SliderArrow'
 import TheHeader from '~/components/TheHeader.vue'
 import LottieAnimation from 'lottie-web-vue'
 import PlaceholderLogo from '~/components/PlaceholderLogo.vue'
-import DesktopHeroAnimation from '~/components/lottie/desktop-logo-animation.json'
+import DesktopHeroAnimation from '~/components/lottie/desktop-logo-animation-v2.json'
 import MobileHeroAnimation from '~/components/lottie/mobile-logo-animation.json'
 
 export default {
@@ -189,11 +189,11 @@ export default {
     },
 
     startHeroLottie() {
-      if (sessionStorage.getItem('heroLottiePlayed') === 'true') {
-        this.makeOverlayPassive()
-        this.startSwiper()
-        return
-      }
+      // if (sessionStorage.getItem('heroLottiePlayed') === 'true') {
+      //   this.makeOverlayPassive()
+      //   this.startSwiper()
+      //   return
+      // }
       const lottie = this.$refs.heroLottie
       if (!lottie) return this.startSwiper(false)
 
