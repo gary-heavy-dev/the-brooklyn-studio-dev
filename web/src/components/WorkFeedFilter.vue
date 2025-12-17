@@ -112,7 +112,7 @@ export default {
 
   .filter-clear-button {
     color: var(--color--gray-tertiary);
-    opacity: 0.6;
+    opacity: 0.75;
     white-space: nowrap;
 
     @include desktop {
@@ -122,6 +122,47 @@ export default {
     span {
       position: relative;
       top: -1px;
+    }
+
+    @include desktop {
+      position: relative;
+      display: inline-block;
+      line-height: normal;
+
+      &:after {
+        content: '';
+        position: absolute;
+        right: 0;
+        bottom: -3px;
+        background: var(--color--gray-tertiary);
+        height: 1px;
+        width: 0;
+        transition: width 0.35s ease-in-out, background 0.35s ease-in-out,
+          opacity 0.35s ease-in-out;
+        opacity: 0;
+      }
+
+      &:hover,
+      &.active {
+        &:after {
+          left: 0;
+          right: auto;
+          width: 100%;
+        }
+      }
+
+      &.active {
+        &:after {
+          opacity: 0.5;
+        }
+      }
+
+      &:hover {
+        &:after {
+          background: var(--color--gray-tertiary);
+          opacity: 1;
+        }
+      }
     }
   }
 }
