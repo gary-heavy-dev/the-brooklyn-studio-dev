@@ -1,14 +1,12 @@
 <template>
-  <section class="project-details background--gray-secondary">
-    <div id="projectInfo" class="project-details__inner container">
+  <section id="projectInfo" class="project-details background--gray-secondary">
+    <div class="project-details__inner container">
       <div class="project-details__intro">
         <p
-          class="project-details__intro-txt"
           v-if="content.detailsIntro"
+          class="project-details__intro-txt"
           v-html="content.detailsIntro"
-        >
-          {{ content.detailsIntro }}
-        </p>
+        ></p>
         <BaseBlockContent v-if="content._rawDetails" class="mb-30" :blocks="content._rawDetails" />
         <div class="project-details__intro-images gap-20" v-if="content.detailsGallery">
           <div
@@ -105,15 +103,12 @@
           </div>
         </div>
       </div>
-      <scrollactive :duration="currentDuration" bezier-easing-value=".5,0,.35,1">
-        <a
-          :data-index="1"
-          href="#projectHeading"
-          class="scrollactive-item project-details__scroll-top upper button"
-          @mouseover="setDuration"
-          >Back To Images</a
-        >
-      </scrollactive>
+      <a
+        href="#projectHeading"
+        class="project-details__scroll-top upper button"
+        @click.prevent="jumpToProjectHeading"
+        >Back To Top</a
+      >
     </div>
   </section>
 </template>
@@ -126,14 +121,6 @@ export default {
 
   data() {
     return {
-      limitPosition: 0,
-      scrolled: false,
-      scrolling: false,
-      timer: null,
-      lastPosition: 0,
-      currentIndex: 0,
-      nextIndex: 0,
-      currentDuration: 3000,
       sizes: {
         mobile: 413,
         tablet: 660,
@@ -152,64 +139,12 @@ export default {
       }
       return ''
     },
-    setDuration(e) {
-      if (this.scrolling === false) {
-        this.nextIndex = e.target.dataset.index
-        const diff = Math.abs(this.currentIndex - this.nextIndex)
-        if (diff <= 1) {
-          this.currentDuration = 3000
-        } else {
-          this.currentDuration = 1000 + 500 * Math.abs(this.currentIndex - this.nextIndex)
-        }
-      }
-    },
-    handleScroll() {
-      // ... (handleScroll logic remains the same)
-      if (this.lastPosition < window.scrollY && this.limitPosition < window.scrollY) {
-        this.scrolled = false
-        // move up!
-      }
+    jumpToProjectHeading() {
+      const el = document.getElementById('projectHeading')
 
-      if (this.lastPosition > window.scrollY) {
-        this.scrolled = true
-        // move down
-      }
+      if (!el) return
 
-      this.lastPosition = window.scrollY
-
-      const self = this
-
-      if (this.timer !== null) {
-        clearTimeout(this.timer)
-        this.scrolling = true
-      }
-      this.timer = setTimeout(function() {
-        self.scrolling = false
-      }, 50)
-
-      // Adjust scrollactive duration
-      const links = document.getElementsByClassName('scrollactive-item')
-      Array.prototype.forEach.call(links, function(link) {
-        if (link.classList.contains('is-active')) {
-          self.currentIndex = link.dataset.index
-        }
-      })
-    }
-  },
-  created() {
-    if (typeof window !== 'undefined') {
-      window.addEventListener('scroll', this.handleScroll)
-    }
-  },
-  mounted() {
-    setTimeout(() => {
-      this.currentIndex = 1
-      // console.log(this.currentIndex)
-    }, 500)
-  },
-  destroyed() {
-    if (typeof window !== 'undefined') {
-      window.removeEventListener('scroll', this.handleScroll)
+      el.scrollIntoView({ behavior: 'auto' })
     }
   },
   computed: {
@@ -228,6 +163,11 @@ export default {
 .project-details {
   padding-top: 40px;
   padding-bottom: 40px;
+  scroll-margin-top: 50px;
+
+  @include desktop {
+    scroll-margin-top: 0;
+  }
 
   &__inner {
     gap: 40px;
