@@ -61,6 +61,7 @@ export default {
   margin: auto 10px auto 0;
   white-space: nowrap;
   cursor: pointer;
+  user-select: none;
 
   &:last-child {
     margin: auto 0 auto 0;
@@ -74,6 +75,16 @@ export default {
     margin-left: 9px;
   }
 
+  &:hover .checkbox__check {
+    border-color: var(--color--text-black);
+  }
+
+  &[disabled],
+  &.disabled {
+    pointer-events: none;
+    opacity: 0.8;
+  }
+
   &__check {
     width: 15px;
     height: 15px;
@@ -81,9 +92,11 @@ export default {
     position: absolute;
     left: 0px;
     top: 1px;
+    border: 1px solid var(--color--gray);
+    transition: all ease-in-out 0.25s;
 
     &::before {
-      width: 7px;
+      width: 6px;
       height: 3px;
       border: 1px solid var(--color--text-black);
       border-top: none;
@@ -91,15 +104,15 @@ export default {
       background: 0 0;
       transform: rotate(-50deg);
       position: absolute;
-      top: 4px;
+      top: 3.5px;
       left: 3px;
     }
   }
-  .checkbox__check {
-    border: solid 1px var(--color--navy-light);
-  }
+
   &__button.checked {
     .checkbox__check {
+      border-color: var(--color--text-black);
+
       &::before {
         content: '';
       }
