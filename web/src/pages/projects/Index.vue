@@ -87,6 +87,8 @@ export default {
 <page-query>
 {
   settings: sanitySiteSettings (id: "siteSettings") {
+    title
+    description
     ogImage {
       asset {
         url

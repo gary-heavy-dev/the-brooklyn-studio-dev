@@ -2,7 +2,7 @@
   <Layout>
     <div class="cookies">
       <CookiesHero
-        v-if="content.hero && content.hero.image?.asset"
+        v-if="content.hero && content.hero.image && content.hero.image.asset"
         :title="content.title"
         :image="content.hero.image"
         :margin="false"

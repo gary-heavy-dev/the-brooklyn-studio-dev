@@ -144,10 +144,24 @@ export default {
       return this.$static.page.heroImages.enableIntro
     },
     autoplay() {
-      return this.$static.page.heroImages?.autoplay || true
+      return (
+        this.$static &&
+        this.$static.page &&
+        this.$static.page.heroImages &&
+        typeof this.$static.page.heroImages.autoplay !== 'undefined'
+      )
+        ? this.$static.page.heroImages.autoplay
+        : true
     },
     delay() {
-      return this.$static.page.heroImages?.delay || 5000
+      return (
+        this.$static &&
+        this.$static.page &&
+        this.$static.page.heroImages &&
+        this.$static.page.heroImages.delay
+      )
+        ? this.$static.page.heroImages.delay
+        : 5000
     }
   },
   watch: {
@@ -284,7 +298,10 @@ export default {
         }, 3500)
       }
 
-      const swiper = this.$refs.heroSwiper?.swiper || this.$refs.heroSwiper?.$swiper
+      let swiper = null
+      if (this.$refs.heroSwiper) {
+        swiper = this.$refs.heroSwiper.swiper || this.$refs.heroSwiper.$swiper
+      }
       if (!swiper) return
 
       if (this.autoplay) {
@@ -292,16 +309,23 @@ export default {
           delay: this.delay || 5000,
           disableOnInteraction: false
         }
-        swiper?.autoplay?.start()
+        if (swiper.autoplay && swiper.autoplay.start) {
+          swiper.autoplay.start()
+        }
         this.autoplayRunning = true
       } else {
-        swiper?.autoplay?.stop?.()
+        if (swiper.autoplay && swiper.autoplay.stop) {
+          swiper.autoplay.stop()
+        }
         this.autoplayRunning = false
       }
     },
 
     toggleAutoplay() {
-      const swiper = this.$refs.heroSwiper?.swiper || this.$refs.heroSwiper?.$swiper
+      let swiper = null
+      if (this.$refs.heroSwiper) {
+        swiper = this.$refs.heroSwiper.swiper || this.$refs.heroSwiper.$swiper
+      }
       if (!swiper) return
 
       if (this.autoplayRunning) {

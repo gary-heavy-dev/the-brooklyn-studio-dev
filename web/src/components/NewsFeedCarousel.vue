@@ -1,5 +1,5 @@
 <template>
-  <section class="news-feed-carousel" v-if="news?.length">
+  <section class="news-feed-carousel" v-if="news && news.length">
     <div class="container">
       <div class="news-feed-carousel__heading">
         <h2 class="h4 upper news-feed-carousel__heading-title" v-if="title">
@@ -36,7 +36,7 @@
                 :caption="post.altThumbnail.caption"
                 :captionStyle="post.altThumbnail.captionStyle"
               /> -->
-              <h3 v-if="post.publisher?.title" class="h4 news-feed-carousel__card-title">
+              <h3 v-if="post.publisher && post.publisher.title" class="h4 news-feed-carousel__card-title">
                 {{ post.publisher.title }}
               </h3>
             </div>
@@ -70,10 +70,14 @@ export default {
   },
   computed: {
     title() {
-      return this.content?.title || ''
+      return this.content && this.content.title
+        ? this.content.title
+        : ''
     },
     news() {
-      return this.content?.news || []
+      return this.content && this.content.news
+        ? this.content.news
+        : []
     },
     swiperOptions() {
       return {
@@ -109,7 +113,7 @@ export default {
   &__heading {
     display: flex;
     gap: 8px;
-    align-items: end;
+    align-items: flex-end;
     margin-bottom: 60px;
 
     &-title {

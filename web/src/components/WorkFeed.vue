@@ -29,16 +29,22 @@ export default {
   },
 
   computed: {
-    projects() {
-      return this.pageData?.projects || []
+    projects: function () {
+      return this.pageData && this.pageData.projects
+        ? this.pageData.projects
+        : []
     },
 
-    category() {
-      return this.pageData?.categoryFilters || []
+    category: function () {
+      return this.pageData && this.pageData.categoryFilters
+        ? this.pageData.categoryFilters
+        : []
     },
 
-    type() {
-      return this.pageData?.typeFilters || []
+    type: function () {
+      return this.pageData && this.pageData.typeFilters
+        ? this.pageData.typeFilters
+        : []
     }
   },
 

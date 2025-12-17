@@ -4,8 +4,8 @@
       <Checkbox
         v-for="(type, index) in types"
         :key="`type-${index}`"
-        :label="type.slug?.current"
-        :checked="isChecked(type.slug?.current, 'type')"
+        :label="type.slug ? type.slug.current : ''"
+        :checked="isChecked(type.slug ? type.slug.current : null, 'type')"
         @checkbox-clicked="emitFilter($event.value, $event.status, 'type')"
       />
     </ul>
@@ -15,8 +15,8 @@
         <Checkbox
           v-for="(category, index) in categories"
           :key="`cat-${index}`"
-          :label="category.slug?.current"
-          :checked="isChecked(category.slug?.current, 'category')"
+          :label="category.slug ? category.slug.current : ''"
+          :checked="isChecked(category.slug ? category.slug.current : null, 'category')"
           @checkbox-clicked="emitFilter($event.value, $event.status, 'category')"
         />
       </ul>
@@ -50,8 +50,10 @@ export default {
       eventHub.$emit('filter-cleared')
     },
     isChecked(slug, group) {
+      if (!slug) return false
+
       const selected = group === 'category' ? this.selectedCategories : this.selectedTypes
-      return selected?.includes(slug)
+      return selected.indexOf(slug) !== -1
     }
   }
 }

@@ -59,20 +59,20 @@ export default {
         let matchesType = true
 
         if (activeCatLength) {
-          matchesCategory = project.projectCategories?.some(cat =>
-            this.activeCategories.includes(cat.slug?.current)
+          matchesCategory = project.projectCategories && project.projectCategories.some(cat =>
+            cat.slug && this.activeCategories.includes(cat.slug.current)
           )
         }
 
         if (activeTypeLength) {
-          const projectTypeSlugs = project.projectTypes?.map(t => t.slug?.current) || []
+          matchesType =
+            project.projectTypes &&
+            project.projectTypes.some(type => {
+              const typeSlug = type.slug && type.slug.current
+              const matches = this.activeTypes.includes(typeSlug)
 
-          matchesType = project.projectTypes?.some(type => {
-            const typeSlug = type.slug?.current
-            const matches = this.activeTypes.includes(typeSlug)
-            console.log(`Checking if "${typeSlug}" is in [${this.activeTypes}]: ${matches}`)
-            return matches
-          })
+              return matches
+            })
         }
 
         const result = matchesCategory && matchesType

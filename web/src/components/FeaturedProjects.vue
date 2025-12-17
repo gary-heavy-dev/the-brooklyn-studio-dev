@@ -6,15 +6,15 @@
         <component
           v-for="(project, index) in projects"
           :key="project._id || index"
-          :is="project.displayTitle?.inactiveLink ? 'div' : 'g-link'"
-          :to="!project.displayTitle?.inactiveLink ? '/projects/' + project.slug.current : null"
+          :is="isInactive(project) ? 'div' : 'g-link'"
+          :to="projectLink(project)"
           class="featured-projects__grid-card color--gray-tertiary"
           :style="getStaggerStyle(index)"
         >
           <div class="grid__card">
             <div class="featured-projects__grid-card-image-wrapper mb-30">
               <BaseImage
-                v-if="project.image?.asset"
+                v-if="project.image && project.image.asset"
                 :src="project.image"
                 :lazy="true"
                 :sizes="sizes"
@@ -25,14 +25,14 @@
               />
 
               <div
-                v-if="project.displayTitle?.inactiveLink"
+                v-if="isInactive(project)"
                 class="featured-projects__grid-card-overlay"
               ></div>
               <div
-                v-if="project.displayTitle?.overlayText"
+                v-if="overlayText(project)"
                 class="featured-projects__grid-card-overlay-text"
               >
-                {{ project.displayTitle.overlayText }}
+                {{ overlayText(project) }}
               </div>
             </div>
             <h3 class="featured-projects__grid-card-title" v-html="project.title"></h3>
@@ -57,10 +57,14 @@ export default {
   },
   computed: {
     heading() {
-      return this.content?.heading || ''
+      return this.content && this.content.heading
+        ? this.content.heading
+        : ''
     },
     projects() {
-      return this.content?.projects || []
+      return this.content && this.content.projects
+        ? this.content.projects
+        : []
     }
   },
   data() {
@@ -76,6 +80,24 @@ export default {
     }
   },
   methods: {
+    isInactive(project) {
+      return (
+        project.displayTitle &&
+        project.displayTitle.inactiveLink
+      )
+    },
+    overlayText(project) {
+      return project.displayTitle &&
+        project.displayTitle.overlayText
+        ? project.displayTitle.overlayText
+        : ''
+    },
+    projectLink(project) {
+      if (this.isInactive(project)) return null
+      if (!project.slug) return null
+
+      return '/projects/' + project.slug.current
+    },
     getStaggerStyle(index) {
       return { 'transition-delay': 0.15 * index + 's' }
     }

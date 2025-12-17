@@ -1,7 +1,7 @@
 <template>
   <component
-    :is="project.displayTitle?.inactiveLink ? 'div' : 'g-link'"
-    :to="!project.displayTitle?.inactiveLink ? '/projects/' + project.slug.current : null"
+    :is="isInactiveLink ? 'div' : 'g-link'"
+    :to="projectLink"
     class="work-feed-card mb-100 color--gray-tertiary"
     :style="cardStagger"
   >
@@ -29,8 +29,8 @@
           :caption="project.image.caption"
           :captionStyle="project.image.captionStyle"
         />
-        <div v-if="project.displayTitle?.inactiveLink" class="work-feed-card__overlay"></div>
-        <div v-if="project.displayTitle?.overlayText" class="work-feed-card__overlay-text">
+        <div v-if="isInactiveLink" class="work-feed-card__overlay"></div>
+        <div v-if="project.displayTitle && project.displayTitle.overlayText" class="work-feed-card__overlay-text">
           {{ project.displayTitle.overlayText }}
         </div>
       </div>
@@ -58,6 +58,15 @@ export default {
       return {
         'transition-delay': 0.15 * this.cardNumber + 's'
       }
+    },
+    isInactiveLink() {
+      return this.project.displayTitle && this.project.displayTitle.inactiveLink
+    },
+    projectLink() {
+      if (this.isInactiveLink) return null
+      if (!this.project.slug) return null
+
+      return '/projects/' + this.project.slug.current
     }
   },
   props: {

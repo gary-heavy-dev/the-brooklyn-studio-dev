@@ -30,8 +30,8 @@
             :src="content.secondaryImage"
             :lazy="true"
             :sizes="sizes"
-            :x="content.secondaryImage.asset.metadata.dimensions.width"
-            :y="content.secondaryImage.asset.metadata.dimensions.height"
+            :x="getImageDimension(content.secondaryImage, 'width')"
+            :y="getImageDimension(content.secondaryImage, 'height')"
             :caption="content.secondaryImage.caption"
             :captionStyle="content.secondaryImage.captionStyle"
           />
@@ -62,6 +62,19 @@ export default {
   },
   props: {
     content: Object
+  },
+  methods: {
+    getImageDimension(image, axis) {
+      if (
+        image &&
+        image.asset &&
+        image.asset.metadata &&
+        image.asset.metadata.dimensions
+      ) {
+        return image.asset.metadata.dimensions[axis]
+      }
+      return null
+    }
   }
 }
 </script>
