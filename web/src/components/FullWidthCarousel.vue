@@ -52,6 +52,10 @@
           />
         </div>
 
+        <div :class="['full-width-carousel__logo', overlayHidden && 'is-show']">
+          <LogoType />
+        </div>
+
         <button
           class="full-width-carousel__btn-play"
           :aria-pressed="autoplayRunning"
@@ -83,10 +87,12 @@ import LottieAnimation from 'lottie-web-vue'
 import PlaceholderLogo from '~/components/PlaceholderLogo.vue'
 import DesktopHeroAnimation from '~/components/lottie/desktop-logo-animation-v2.json'
 import MobileHeroAnimation from '~/components/lottie/mobile-logo-animation.json'
+import LogoType from '~/components/LogoType'
 
 export default {
   name: 'FullWidthCarousel',
   components: {
+    LogoType,
     Swiper,
     SwiperSlide,
     BaseImage,
@@ -456,6 +462,39 @@ export default {
     left: 0;
     right: 0;
     width: 100%;
+  }
+}
+
+.full-width-carousel__logo {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 50;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.25s linear;
+  transition-delay: 0.5s;
+
+  @include laptop {
+    top: 30px;
+    left: 30px;
+  }
+
+  &.is-show {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  svg {
+    height: 13px;
+
+    @include laptop {
+      height: 17px;
+    }
+  }
+
+  * {
+    fill: var(--color--white);
   }
 }
 </style>
