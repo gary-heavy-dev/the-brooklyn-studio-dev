@@ -47,6 +47,7 @@
   --h3-font-size--alt: 26px;
   --h3-line-height: 40px;
   --h4-font-size: 20px;
+  --h4-font-size--alt: 24px;
   --h4-line-height: 25px;
   --h5-font-size: 18px;
   --h5-line-height: 18px;
@@ -81,6 +82,7 @@
     --h3-font-size: 34px; // 36 - 32
     --h3-line-height: 46px; // 48 - 40
     --h4-font-size: 23px; // 25 - 20
+    --h4-font-size--alt: 24.6px;
     --h4-line-height: 31px; // 30 - 22
     --h5-font-size: 22px; // 25 - 18
     --h5-line-height: 32px; // 38 - 18
@@ -111,6 +113,7 @@
     --h3-font-size: 36px;
     --h3-line-height: 48px;
     --h4-font-size: 25px;
+    --h4-font-size--alt: 30px;
     --h4-line-height: 31px;
     --h5-font-size: 25px;
     --h5-line-height: 38px;
@@ -172,6 +175,11 @@ p:not(:last-child) {
 h4,
 .h4 {
   font-size: var(--h4-font-size);
+  line-height: var(--h4-line-height);
+}
+
+.h4--alt {
+  font-size: var(--h4-font-size--alt);
   line-height: var(--h4-line-height);
 }
 

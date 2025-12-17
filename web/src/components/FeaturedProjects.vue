@@ -1,7 +1,7 @@
 <template>
   <section class="featured-projects background--gray-light" v-if="projects.length">
     <div class="container featured-projects__container">
-      <h3 class="featured-projects__heading h4 text-center" v-if="heading" v-html="heading"></h3>
+      <h3 class="featured-projects__heading h4--alt text-left" v-if="heading" v-html="heading"></h3>
       <div class="featured-projects__grid w-100">
         <component
           v-for="(project, index) in projects"
@@ -96,7 +96,7 @@ export default {
 
   &__heading {
     max-width: 920px;
-    margin: 0 auto;
+    margin: 0 auto 0 0;
   }
 
   &__grid {

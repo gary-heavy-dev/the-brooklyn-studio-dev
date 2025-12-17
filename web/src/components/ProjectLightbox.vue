@@ -1,17 +1,8 @@
 <template>
-  <div
-    class="lightbox"
-    id="projectLightbox"
-  >
+  <div class="lightbox" id="projectLightbox">
     <div class="lightbox__title" v-html="content.title"></div>
-    <ProjectLightboxClose
-      @click.native="closeLightbox"
-    />
-    <swiper
-      class="lightbox__swiper swiper"
-      :options="swiperOption"
-      ref="lightboxSwiper"
-    >
+    <ProjectLightboxClose @click.native="closeLightbox" />
+    <swiper class="lightbox__swiper swiper" :options="swiperOption" ref="lightboxSwiper">
       <swiper-slide
         v-for="(image, index) in lightboxArray"
         class="lightbox__swiper-slide"
@@ -26,29 +17,17 @@
           :alt="image.alt"
         />
       </swiper-slide>
-      <div
-        class="swiper-button-prev desktop-only"
-        slot="button-prev"
-      >
+      <div class="swiper-button-prev desktop-only" slot="button-prev">
         <SliderArrow />
       </div>
-      <div
-        class="swiper-button-next desktop-only"
-        slot="button-next"
-      >
+      <div class="swiper-button-next desktop-only" slot="button-next">
         <SliderArrow />
       </div>
       <div class="lightbox__mobile-nav mobile-only">
-        <div
-          class="swiper-button-prev"
-          slot="button-prev"
-        >
+        <div class="swiper-button-prev" slot="button-prev">
           <SliderArrowSmall />
         </div>
-        <div
-          class="swiper-button-next"
-          slot="button-next"
-        >
+        <div class="swiper-button-next" slot="button-next">
           <SliderArrowSmall />
         </div>
       </div>
@@ -84,20 +63,28 @@ export default {
         slidesPerView: 1,
         navigation: {
           nextEl: '.swiper-button-next',
-          prevEl: '.swiper-button-prev',
+          prevEl: '.swiper-button-prev'
         },
         pagination: {
           el: '.lightbox__pagination',
           type: 'fraction',
-          renderFraction: function (currentClass, totalClass) {
-            return '<span class="' + currentClass + '"></span>' + '<span>/</span>' + '<span class="' + totalClass + '"></span>'
+          renderFraction: function(currentClass, totalClass) {
+            return (
+              '<span class="' +
+              currentClass +
+              '"></span>' +
+              '<span>/</span>' +
+              '<span class="' +
+              totalClass +
+              '"></span>'
+            )
           }
         },
         keyboard: {
           enabled: true,
-          onlyInViewport: false,
-        },
-      },
+          onlyInViewport: false
+        }
+      }
     }
   },
   computed: {
@@ -116,22 +103,19 @@ export default {
   methods: {
     getImage(flexContentItem) {
       if (flexContentItem.image) {
-        return {...flexContentItem.image}
+        return { ...flexContentItem.image }
       } else if (flexContentItem.imageSmall) {
-        return [
-          {...flexContentItem.imageSmall},
-          {...flexContentItem.imageLarge}
-        ]
+        return [{ ...flexContentItem.imageSmall }, { ...flexContentItem.imageLarge }]
       }
     },
     openLightbox() {
-      const lightbox = document.getElementById("projectLightbox")
-      lightbox.classList.add("lightbox--active")
+      const lightbox = document.getElementById('projectLightbox')
+      lightbox.classList.add('lightbox--active')
       // console.log("open me please!")
     },
     closeLightbox() {
-      const lightbox = document.getElementById("projectLightbox")
-      lightbox.classList.remove("lightbox--active")
+      const lightbox = document.getElementById('projectLightbox')
+      lightbox.classList.remove('lightbox--active')
     },
     goToSlide(slideId) {
       const slideIndex = this.lightboxArray.findIndex(x => x.asset.id === slideId)
@@ -147,18 +131,18 @@ export default {
   },
   created() {
     if (typeof window !== 'undefined') {
-      window.addEventListener("keydown", this.handleEscape)
-     }
+      window.addEventListener('keydown', this.handleEscape)
+    }
   },
   destroyed() {
     if (typeof window !== 'undefined') {
-      window.removeEventListener("keydown", this.handleEscape)
+      window.removeEventListener('keydown', this.handleEscape)
     }
   },
   mounted() {
-    eventHub.$on('open-lightbox', (data) => {
-      const lightbox = document.getElementById("projectLightbox")
-      lightbox.classList.add("lightbox--active")
+    eventHub.$on('open-lightbox', data => {
+      const lightbox = document.getElementById('projectLightbox')
+      lightbox.classList.add('lightbox--active')
       this.goToSlide(data)
     })
   },
@@ -214,8 +198,8 @@ export default {
   .swiper-slide {
     opacity: 1 !important;
 
-		&:not(.swiper-slide-active) { 
-      opacity: 0 !important; 
+    &:not(.swiper-slide-active) {
+      opacity: 0 !important;
     }
   }
 
@@ -250,7 +234,8 @@ export default {
     color: var(--color--gray-tertiary);
     height: 100%;
     width: 8px;
-    top: 21px;
+    top: 0;
+    transform: translateY(0);
 
     @include laptop {
       width: 30px;
@@ -270,7 +255,6 @@ export default {
   }
 
   &__mobile-nav {
-
     .swiper-button-next,
     .swiper-button-prev {
       height: 15px;

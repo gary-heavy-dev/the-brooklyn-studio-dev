@@ -21,7 +21,7 @@
         />
       </ul>
       <button @click="clearFilter" class="filter-clear-button upper sub">
-        <span class="color--gray-light">&times;</span> Clear
+        [<span class="color--gray-light">&times;</span> Clear]
       </button>
     </div>
   </div>
@@ -67,6 +67,7 @@ export default {
   transition-duration: 0.3s;
 
   @include desktop {
+    align-items: center;
     flex-direction: column;
     row-gap: 15px;
   }
@@ -108,6 +109,7 @@ export default {
 
   .filter-clear-button {
     color: var(--color--gray-tertiary);
+    opacity: 0.6;
     white-space: nowrap;
 
     @include desktop {

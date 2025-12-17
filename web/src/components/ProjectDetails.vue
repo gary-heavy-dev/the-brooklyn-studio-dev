@@ -111,7 +111,7 @@
           href="#projectHeading"
           class="scrollactive-item project-details__scroll-top upper button"
           @mouseover="setDuration"
-          >Back To Top</a
+          >Back To Images</a
         >
       </scrollactive>
     </div>

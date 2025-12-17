@@ -1,5 +1,4 @@
 .swiper {
-
   &__pagination {
     margin: 0 auto;
     position: relative;
@@ -33,7 +32,7 @@
       &-active,
       &:hover {
         opacity: 0.7;
-        
+
         @include desktop {
           opacity: 1;
         }
@@ -104,20 +103,17 @@
 }
 
 .swiper-slide {
-
   &-active {
     opacity: 1 !important;
   }
 
   &:not(.swiper-slide-active) {
-
     .image-caption {
       opacity: 0;
     }
   }
 
   @-moz-document url-prefix() {
-
     &:not(.work-feed__slide) {
       width: 100% !important;
 
@@ -129,7 +125,6 @@
   }
 
   .image-caption {
-
     @include desktop-down {
       @include visually-hidden;
     }

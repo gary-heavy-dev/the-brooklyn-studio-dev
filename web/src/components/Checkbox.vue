@@ -6,7 +6,7 @@
       :class="['checkbox__button flex', { checked: status }]"
       :aria-checked="status === false ? 'false' : 'true'"
     >
-      <span class="checkbox__check background--gray-secondary"></span>
+      <span class="checkbox__check background--gray"></span>
       <span class="checkbox__label upper sub">{{ label }}</span>
     </button>
   </li>
@@ -92,10 +92,12 @@ export default {
       transform: rotate(-50deg);
       position: absolute;
       top: 4px;
-      left: 4px;
+      left: 3px;
     }
   }
-
+  .checkbox__check {
+    border: solid 1px var(--color--navy-light);
+  }
   &__button.checked {
     .checkbox__check {
       &::before {
