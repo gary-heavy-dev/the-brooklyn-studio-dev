@@ -62,20 +62,20 @@ export default {
   grid-column: 1 / -1;
   display: flex;
   flex-direction: column;
+  align-items: center;
   flex-wrap: wrap;
   transition-delay: 0.45s;
   transition-duration: 0.3s;
 
   @include desktop {
-    align-items: center;
-    flex-direction: column;
     row-gap: 15px;
   }
 
   ul {
     position: relative;
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
     margin: 0;
     list-style: none;
     row-gap: 10px;
@@ -83,7 +83,6 @@ export default {
 
     @include desktop {
       margin-bottom: 0px;
-      flex-direction: row;
       row-gap: 0;
     }
 
@@ -102,8 +101,12 @@ export default {
   }
 
   .filter-categories-container {
+    display: flex;
+    flex-direction: column;
+
     @include desktop {
       display: flex;
+      flex-direction: row;
     }
   }
 
