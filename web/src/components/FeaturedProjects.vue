@@ -95,8 +95,21 @@ export default {
   }
 
   &__heading {
+    --h4-font-size: 24px;
+    --h4-line-height: 30px;
+
     max-width: 920px;
     margin: 0 auto 0 0;
+
+    @include laptop {
+      --h4-font-size: 28px;
+      --h4-line-height: 38px;
+    }
+
+    @include hd {
+      --h4-font-size: 30px;
+      --h4-line-height: 38px;
+    }
   }
 
   &__grid {
