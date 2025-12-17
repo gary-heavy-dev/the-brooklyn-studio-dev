@@ -107,7 +107,7 @@
         href="#projectHeading"
         class="project-details__scroll-top upper button"
         @click.prevent="jumpToProjectHeading"
-        >Back To Top</a
+        >Back To Images</a
       >
     </div>
   </section>
