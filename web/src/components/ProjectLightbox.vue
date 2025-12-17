@@ -234,8 +234,8 @@ export default {
     color: var(--color--gray-tertiary);
     height: 100%;
     width: 8px;
-    top: 0;
-    transform: translateY(0);
+    top: 52.2%;
+    transform: translateY(-50%);
 
     @include laptop {
       width: 30px;
