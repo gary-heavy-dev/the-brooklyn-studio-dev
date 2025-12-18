@@ -1,7 +1,7 @@
 <template>
   <section class="featured-projects background--gray-light" v-if="projects.length">
     <div class="container featured-projects__container">
-      <h3 class="featured-projects__heading h4--alt text-center" v-if="heading" v-html="heading"></h3>
+      <h3 class="featured-projects__heading h4--alt text-left" v-if="heading" v-html="heading"></h3>
       <div class="featured-projects__grid w-100">
         <component
           v-for="(project, index) in projects"
@@ -24,14 +24,8 @@
                 :captionStyle="project.image.captionStyle"
               />
 
-              <div
-                v-if="isInactive(project)"
-                class="featured-projects__grid-card-overlay"
-              ></div>
-              <div
-                v-if="overlayText(project)"
-                class="featured-projects__grid-card-overlay-text"
-              >
+              <div v-if="isInactive(project)" class="featured-projects__grid-card-overlay"></div>
+              <div v-if="overlayText(project)" class="featured-projects__grid-card-overlay-text">
                 {{ overlayText(project) }}
               </div>
             </div>
@@ -57,14 +51,10 @@ export default {
   },
   computed: {
     heading() {
-      return this.content && this.content.heading
-        ? this.content.heading
-        : ''
+      return this.content && this.content.heading ? this.content.heading : ''
     },
     projects() {
-      return this.content && this.content.projects
-        ? this.content.projects
-        : []
+      return this.content && this.content.projects ? this.content.projects : []
     }
   },
   data() {
@@ -81,14 +71,10 @@ export default {
   },
   methods: {
     isInactive(project) {
-      return (
-        project.displayTitle &&
-        project.displayTitle.inactiveLink
-      )
+      return project.displayTitle && project.displayTitle.inactiveLink
     },
     overlayText(project) {
-      return project.displayTitle &&
-        project.displayTitle.overlayText
+      return project.displayTitle && project.displayTitle.overlayText
         ? project.displayTitle.overlayText
         : ''
     },
@@ -121,7 +107,7 @@ export default {
     --h4-line-height: 30px;
 
     max-width: 920px;
-    margin: 0 auto;
+    margin: 0 auto 0 0;
 
     @include laptop {
       --h4-font-size: 28px;
