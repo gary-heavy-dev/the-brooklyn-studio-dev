@@ -91,7 +91,7 @@ export default {
 
   @include desktop {
     gap: 0;
-    margin-bottom: max(45px, 4.25vw);
+    margin-bottom: max(75px, 7.5vw);
   }
 
   &__left {

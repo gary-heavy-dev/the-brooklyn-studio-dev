@@ -46,7 +46,7 @@
           <LogoLinkedIn class="social-icon__instagram" />
         </a>
       </div>
-      <div class="the-footer__newsletter col-span--6 xsmall flex fd-c jc-sb">
+      <div class="the-footer__newsletter col-span--6 xsmall flex">
         <div class="xxsmall the-footer__credits desktop-only">
           © 2025 The Brooklyn Studio of Architecture |
           <g-link to="/privacy-policy">Privacy Policy</g-link> |
@@ -196,7 +196,7 @@ export default {
 
   &__credits {
     @include desktop {
-      grid-column: 4/12;
+      grid-column: 2/12;
     }
   }
 

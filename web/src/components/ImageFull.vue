@@ -56,7 +56,7 @@ export default {
 .image-full__container {
   margin-bottom: 40px;
   @include desktop {
-    margin-bottom: max(45px, 4.25vw);
+    margin-bottom: max(75px, 7.5vw);
   }
 }
 

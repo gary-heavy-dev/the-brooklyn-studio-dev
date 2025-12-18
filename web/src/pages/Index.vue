@@ -145,6 +145,7 @@ export default {
         slug {
           current
         }
+        link
         altThumbnail {
           caption
           captionStyle

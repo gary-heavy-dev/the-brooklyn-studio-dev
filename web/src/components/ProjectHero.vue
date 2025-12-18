@@ -1,7 +1,11 @@
 <template>
   <div :class="['project-hero container pos-rel', { 'mb-100': hideHeader }]">
     <div class="project-hero__title w-100 flex jc-sb">
-      <h1 v-if="displayTitle && displayTitle.displayTitleStatus" id="projectHeading" class="h2 color--navy fade--in-up">
+      <h1
+        v-if="displayTitle && displayTitle.displayTitleStatus"
+        id="projectHeading"
+        class="h2 color--navy fade--in-up"
+      >
         <span v-html="displayTitle.lineOne"></span><br />
         <span v-html="displayTitle.lineTwo"></span>
       </h1>
@@ -48,8 +52,7 @@ export default {
     hideHeader: Boolean
   },
   data() {
-    return {
-    }
+    return {}
   },
   methods: {
     jumpToProjectInfo() {
@@ -84,8 +87,8 @@ export default {
 
   .project-hero__img-wrapper {
     margin-bottom: 40px;
-    @include laptop {
-      margin-bottom: 70px;
+    @include desktop {
+      margin-bottom: max(75px, 7.5vw);
     }
   }
 
