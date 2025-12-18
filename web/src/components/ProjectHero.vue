@@ -1,7 +1,7 @@
 <template>
   <div :class="['project-hero container pos-rel', { 'mb-100': hideHeader }]">
     <div class="project-hero__title w-100 flex jc-sb">
-      <h1 v-if="displayTitle && displayTitle.displayTitleStatus" class="h2 color--navy fade--in-up">
+      <h1 v-if="displayTitle && displayTitle.displayTitleStatus" id="projectHeading" class="h2 color--navy fade--in-up">
         <span v-html="displayTitle.lineOne"></span><br />
         <span v-html="displayTitle.lineTwo"></span>
       </h1>
