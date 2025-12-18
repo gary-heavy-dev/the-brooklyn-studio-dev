@@ -3,8 +3,8 @@
     <WorkFeedGrid
       data-category="all"
       :content="filtered"
-      :category="this.category"
-      :type="this.type"
+      :category="category"
+      :type="type"
     />
   </div>
 </template>

@@ -59,13 +59,17 @@ export default {
         let matchesType = true
 
         if (activeCatLength) {
-          matchesCategory = project.projectCategories && project.projectCategories.some(cat =>
-            cat.slug && this.activeCategories.includes(cat.slug.current)
-          )
+          matchesCategory =
+            project &&
+            project.projectCategories &&
+            project.projectCategories.some(cat =>
+              cat.slug && this.activeCategories.includes(cat.slug.current)
+            )
         }
 
         if (activeTypeLength) {
           matchesType =
+            project &&
             project.projectTypes &&
             project.projectTypes.some(type => {
               const typeSlug = type.slug && type.slug.current

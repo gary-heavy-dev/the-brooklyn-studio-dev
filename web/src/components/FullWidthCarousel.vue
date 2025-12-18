@@ -250,6 +250,7 @@ export default {
 
     fadeOutOverlay() {
       clearTimeout(this.interactionTimeout)
+      if (this.overlayHidden) return
       this.overlayHidden = true
     },
 
@@ -395,20 +396,6 @@ export default {
 
     &.is-hidden {
       opacity: 0;
-    }
-  }
-
-  .full-width-carousel__swiper {
-    opacity: 0;
-    animation: fadeInLogo 0.75s ease-in-out forwards;
-  }
-
-  @keyframes fadeInLogo {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
     }
   }
 
