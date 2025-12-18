@@ -13,7 +13,7 @@
         />
         <WorkFeedCard
           v-for="(project, index) in filteredProjects"
-          :key="index + project.title"
+          :key="index"
           :project="project"
           :cardNumber="index"
         />

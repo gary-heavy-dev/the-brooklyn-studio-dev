@@ -8,7 +8,7 @@
     <div class="grid__card">
       <div class="work-feed-card__image-wrapper">
         <BaseImage
-          v-if="project.altThumbnail"
+          v-if="project && project.altThumbnail"
           :src="project.altThumbnail"
           :lazy="true"
           :sizes="sizes"
@@ -19,7 +19,7 @@
           :captionStyle="project.altThumbnail.captionStyle"
         />
         <BaseImage
-          v-else-if="project.image"
+          v-else-if="project && project.image"
           :src="project.image"
           :lazy="true"
           :sizes="sizes"
@@ -30,11 +30,11 @@
           :captionStyle="project.image.captionStyle"
         />
         <div v-if="isInactiveLink" class="work-feed-card__overlay"></div>
-        <div v-if="project.displayTitle && project.displayTitle.overlayText" class="work-feed-card__overlay-text">
+        <div v-if="project && project.displayTitle && project.displayTitle.overlayText" class="work-feed-card__overlay-text">
           {{ project.displayTitle.overlayText }}
         </div>
       </div>
-      <h3 v-html="project.title"></h3>
+      <h3 v-if="project && project.title" v-html="project.title"></h3>
     </div>
   </component>
 </template>
@@ -60,13 +60,17 @@ export default {
       }
     },
     isInactiveLink() {
-      return this.project.displayTitle && this.project.displayTitle.inactiveLink
+      return this.project && this.project.displayTitle && this.project.displayTitle.inactiveLink
     },
     projectLink() {
-      if (this.isInactiveLink) return null
-      if (!this.project.slug) return null
-
-      return '/projects/' + this.project.slug.current
+      return (
+        this.project &&
+        !this.isInactiveLink &&
+        this.project.slug &&
+        this.project.slug.current
+      )
+        ? '/projects/' + this.project.slug.current
+        : null
     }
   },
   props: {
