@@ -53,7 +53,7 @@
         </div>
 
         <div :class="['full-width-carousel__logo', overlayHidden && 'is-show']">
-          <LogoType />
+          <LogoInteriors class="white"/>
         </div>
 
         <button
@@ -87,12 +87,12 @@ import LottieAnimation from 'lottie-web-vue'
 import PlaceholderLogo from '~/components/PlaceholderLogo.vue'
 import DesktopHeroAnimation from '~/components/lottie/desktop-logo-animation-v2.json'
 import MobileHeroAnimation from '~/components/lottie/mobile-logo-animation.json'
-import LogoType from '~/components/LogoType'
+import LogoInteriors from '~/components/LogoInteriors'
 
 export default {
   name: 'FullWidthCarousel',
   components: {
-    LogoType,
+    LogoInteriors,
     Swiper,
     SwiperSlide,
     BaseImage,
@@ -492,8 +492,8 @@ export default {
 
 .full-width-carousel__logo {
   position: absolute;
-  top: 20px;
-  left: 20px;
+  top: -15px;
+  left: -20px;
   z-index: 50;
   opacity: 0;
   visibility: hidden;
@@ -501,8 +501,8 @@ export default {
   transition-delay: 0.5s;
 
   @include laptop {
-    top: 30px;
-    left: 30px;
+    top: -20px;
+    left: -25px;
   }
 
   &.is-show {
@@ -511,10 +511,10 @@ export default {
   }
 
   svg {
-    height: 13px;
+    height: 150px;
 
     @include laptop {
-      height: 17px;
+      height: 200px;
     }
   }
 
