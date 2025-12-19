@@ -13,7 +13,7 @@
         />
         <WorkFeedCard
           v-for="(project, index) in filteredProjects"
-          :key="index"
+          :key="index + project.title"
           :project="project"
           :cardNumber="index"
         />
@@ -47,40 +47,46 @@ export default {
   },
   computed: {
     filteredProjects() {
+      if (!Array.isArray(this.content)) return []
+
+      const safeContent = this.content.filter(
+        p => p && typeof p === 'object'
+      )
+
       const activeCatLength = this.activeCategories.length
       const activeTypeLength = this.activeTypes.length
 
       if (!activeCatLength && !activeTypeLength) {
-        return this.content
+        return safeContent
       }
 
-      return this.content.filter(project => {
+      return safeContent.filter(project => {
         let matchesCategory = true
         let matchesType = true
 
         if (activeCatLength) {
           matchesCategory =
-            project &&
-            project.projectCategories &&
-            project.projectCategories.some(cat =>
-              cat.slug && this.activeCategories.includes(cat.slug.current)
+            Array.isArray(project.projectCategories) &&
+            project.projectCategories.some(
+              cat =>
+                cat &&
+                cat.slug &&
+                this.activeCategories.includes(cat.slug.current)
             )
         }
 
         if (activeTypeLength) {
           matchesType =
-            project &&
-            project.projectTypes &&
-            project.projectTypes.some(type => {
-              const typeSlug = type.slug && type.slug.current
-              const matches = this.activeTypes.includes(typeSlug)
-
-              return matches
-            })
+            Array.isArray(project.projectTypes) &&
+            project.projectTypes.some(
+              type =>
+                type &&
+                type.slug &&
+                this.activeTypes.includes(type.slug.current)
+            )
         }
 
-        const result = matchesCategory && matchesType
-        return result
+        return matchesCategory && matchesType
       })
     }
   },

@@ -4,7 +4,7 @@
     <button
       role="checkbox"
       :class="['checkbox__button flex', { checked: status }]"
-      :aria-checked="status === false ? 'false' : 'true'"
+      :aria-checked="status ? 'true' : 'false'"
     >
       <span class="checkbox__check background--gray"></span>
       <span class="checkbox__label upper sub">{{ label }}</span>
@@ -16,8 +16,16 @@
 import eventHub from '~/utils/eventHub'
 
 export default {
+  name: 'Checkbox',
   props: {
-    label: String
+    label: {
+      type: String,
+      required: true
+    },
+    checked: {
+      type: Boolean,
+      default: false
+    }
   },
   data() {
     return {
@@ -26,10 +34,10 @@ export default {
     }
   },
   methods: {
-    checkboxClick(e) {
+    checkboxClick() {
       this.status = !this.status
       this.$emit('checkbox-clicked', {
-        value: e.target.getAttribute('data-value'),
+        value: this.label,
         status: this.status
       })
     }
@@ -37,16 +45,26 @@ export default {
   mounted() {
     const params = new URLSearchParams(window.location.search)
     const typeParam = params.get('type')
+
     if (typeParam) {
       this.selectedTypes = typeParam.split(',').map(decodeURIComponent)
+      if (this.selectedTypes.includes(this.label)) {
+        this.status = true
+      }
     }
-    if (this.selectedTypes.includes(this.label)) {
+
+    if (!typeParam && this.checked) {
       this.status = true
     }
 
     eventHub.$on('filter-cleared', () => {
       this.status = false
     })
+  },
+  watch: {
+    checked(val) {
+      this.status = val
+    }
   },
   beforeDestroy() {
     eventHub.$off('filter-cleared')

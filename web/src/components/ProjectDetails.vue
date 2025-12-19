@@ -32,10 +32,10 @@
             <h4
               class="project-details__info-item-sub sub upper mb-15"
               :class="[
-                ['press', 'awards'].includes(stat.heading?.trim().toLowerCase())
+                ['press', 'awards'].includes(normalizedHeading(stat.heading))
                   ? 'color--navy-light bold'
                   : 'color--gray-tertiary',
-                stat.heading?.trim().toLowerCase() === 'press' ? 'is-press' : ''
+                normalizedHeading(stat.heading) === 'press' ? 'is-press' : ''
               ]"
             >
               {{ stat.heading }}
@@ -104,6 +104,10 @@ export default {
       const el = document.getElementById('projectHeading')
       if (!el) return
       el.scrollIntoView({ behavior: 'auto' })
+    },
+    normalizedHeading(heading) {
+      if (!heading || typeof heading !== 'string') return ''
+      return heading.trim().toLowerCase()
     }
   }
 }
